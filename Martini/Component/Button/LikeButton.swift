@@ -13,7 +13,6 @@ class LikeButton: UIButton {
     
     @objc func likeButtonHandler(_ sender: UIButton) {
         isLike.toggle()
-        
         if isLike {
             self.setImage(UIImage(systemName: "star"), for: .normal)
         } else {
@@ -22,7 +21,8 @@ class LikeButton: UIButton {
     }
     
     override func awakeFromNib() {
-        self.setTitle("", for: .normal)
+        self.setTitle("12", for: .normal)
+        self.titleLabel?.font = .systemFont(ofSize: 90)
         self.setImage(UIImage(systemName: "star"), for: .normal)
         self.addTarget(self, action: #selector(likeButtonHandler(_:)), for: .touchUpInside)
     }

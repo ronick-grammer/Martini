@@ -9,12 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let textField = UITextField()
-
+     @IBOutlet var category: BannerToggleButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     
+        // category.setColor(color: #colorLiteral(red: 0.7829886675, green: 0.4293426871, blue: 1, alpha: 1))
+        category.bannerButton.setImage(UIImage(named: "cocktail_icon.png"), for: .normal)
         // Do any additional setup after loading the view.
     }
 
