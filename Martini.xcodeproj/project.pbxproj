@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1804919826C7DB67006DFE75 /* CockTailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804919626C7DB67006DFE75 /* CockTailTableViewCell.swift */; };
+		1804919926C7DB67006DFE75 /* CockTailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1804919726C7DB67006DFE75 /* CockTailTableViewCell.xib */; };
 		1861F42526C54143003C8EA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F42426C54143003C8EA4 /* AppDelegate.swift */; };
 		1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F42626C54143003C8EA4 /* SceneDelegate.swift */; };
 		1861F42926C54143003C8EA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F42826C54143003C8EA4 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1804919626C7DB67006DFE75 /* CockTailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailTableViewCell.swift; sourceTree = "<group>"; };
+		1804919726C7DB67006DFE75 /* CockTailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CockTailTableViewCell.xib; sourceTree = "<group>"; };
 		1861F42126C54143003C8EA4 /* Martini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Martini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1861F42426C54143003C8EA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1861F42626C54143003C8EA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1804919526C7DB2F006DFE75 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1804919626C7DB67006DFE75 /* CockTailTableViewCell.swift */,
+				1804919726C7DB67006DFE75 /* CockTailTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		1861F41826C54143003C8EA4 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +135,7 @@
 		1861F44626C54757003C8EA4 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				1804919526C7DB2F006DFE75 /* Cell */,
 				1861F44526C54742003C8EA4 /* Button */,
 				1861F44426C54733003C8EA4 /* TableViewCell */,
 			);
@@ -210,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1804919926C7DB67006DFE75 /* CockTailTableViewCell.xib in Resources */,
 				1861F43126C54146003C8EA4 /* LaunchScreen.storyboard in Resources */,
 				1861F42E26C54146003C8EA4 /* Assets.xcassets in Resources */,
 				1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */,
@@ -227,6 +242,7 @@
 				1861F42926C54143003C8EA4 /* ViewController.swift in Sources */,
 				1861F42526C54143003C8EA4 /* AppDelegate.swift in Sources */,
 				1861F44926C547D0003C8EA4 /* User.swift in Sources */,
+				1804919826C7DB67006DFE75 /* CockTailTableViewCell.swift in Sources */,
 				1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */,
 				1861F44B26C548B7003C8EA4 /* Cocktail.swift in Sources */,
 				1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */,
