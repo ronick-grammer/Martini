@@ -25,8 +25,6 @@ class CustomInputTextField: UITextField  {
         iconView.tintColor = .black
         
         iconContainerView.addSubview(iconView)
-//        iconContainerView.addSubview(leftPaddingView)
-//        leftPaddingView.backgroundColor = .black
 
         leftView = iconContainerView
         leftViewMode = .always
