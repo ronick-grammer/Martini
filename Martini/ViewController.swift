@@ -7,14 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController{
     
-    
+    @IBOutlet weak var image: WebImageView!
     
     override func viewDidLoad() {
         
+        image.imageUrl = "hahah"
+
     }
-
-
+    
 }
+
 
