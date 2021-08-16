@@ -27,6 +27,7 @@
 		1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1861F45026C54F59003C8EA4 /* DetailView.storyboard */; };
 		1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F45226C550B7003C8EA4 /* LikeButton.swift */; };
 		B3D91A2E26CAE9C2004FA11F /* BannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */; };
+		B3D91A3126CAECAD004FA11F /* TasteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */; };
 		D44C81D326C6A122007CBF23 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D44C81D226C6A122007CBF23 /* FirebaseFirestoreSwift-Beta */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		1861F45026C54F59003C8EA4 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		1861F45226C550B7003C8EA4 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerButton.swift; sourceTree = "<group>"; };
+		B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		1861F44626C54757003C8EA4 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				B3D91A2F26CAEC8B004FA11F /* Progress */,
 				1804919526C7DB2F006DFE75 /* Cell */,
 				1861F44526C54742003C8EA4 /* Button */,
 				1861F44426C54733003C8EA4 /* TableViewCell */,
@@ -161,6 +164,14 @@
 			children = (
 			);
 			path = DataStore;
+			sourceTree = "<group>";
+		};
+		B3D91A2F26CAEC8B004FA11F /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */,
+			);
+			path = Progress;
 			sourceTree = "<group>";
 		};
 		D44C81D126C6A122007CBF23 /* Frameworks */ = {
@@ -258,6 +269,7 @@
 				1861F44926C547D0003C8EA4 /* User.swift in Sources */,
 				B3D91A2E26CAE9C2004FA11F /* BannerButton.swift in Sources */,
 				1804919826C7DB67006DFE75 /* CockTailTableViewCell.swift in Sources */,
+				B3D91A3126CAECAD004FA11F /* TasteProgressView.swift in Sources */,
 				1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */,
 				1861F44B26C548B7003C8EA4 /* Cocktail.swift in Sources */,
 				1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */,
