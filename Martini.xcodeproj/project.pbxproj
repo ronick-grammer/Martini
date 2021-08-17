@@ -26,6 +26,9 @@
 		1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F44C26C54F20003C8EA4 /* DetailViewController.swift */; };
 		1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1861F45026C54F59003C8EA4 /* DetailView.storyboard */; };
 		1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F45226C550B7003C8EA4 /* LikeButton.swift */; };
+		2A44A5C726CB899900DF4F45 /* BannerFootLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5C526CB899900DF4F45 /* BannerFootLabelButton.swift */; };
+		2A44A5C826CB899900DF4F45 /* BannerToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */; };
+		2A44A5CB26CB89AF00DF4F45 /* CustomInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */; };
 		B3D91A2E26CAE9C2004FA11F /* BannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */; };
 		B3D91A3126CAECAD004FA11F /* TasteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */; };
 		D44C81D326C6A122007CBF23 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D44C81D226C6A122007CBF23 /* FirebaseFirestoreSwift-Beta */; };
@@ -48,6 +51,9 @@
 		1861F44C26C54F20003C8EA4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1861F45026C54F59003C8EA4 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		1861F45226C550B7003C8EA4 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		2A44A5C526CB899900DF4F45 /* BannerFootLabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerFootLabelButton.swift; sourceTree = "<group>"; };
+		2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerToggleButton.swift; path = ../../../../Martini/Martini/Component/Button/BannerToggleButton.swift; sourceTree = "<group>"; };
+		2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputTextField.swift; sourceTree = "<group>"; };
 		B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerButton.swift; sourceTree = "<group>"; };
 		B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				1861F45226C550B7003C8EA4 /* LikeButton.swift */,
+				2A44A5C526CB899900DF4F45 /* BannerFootLabelButton.swift */,
+				2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */,
 				B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */,
 			);
 			path = Button;
@@ -151,6 +159,7 @@
 		1861F44626C54757003C8EA4 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2A44A5C926CB89AF00DF4F45 /* TextField */,
 				B3D91A2F26CAEC8B004FA11F /* Progress */,
 				1804919526C7DB2F006DFE75 /* Cell */,
 				1861F44526C54742003C8EA4 /* Button */,
@@ -164,6 +173,15 @@
 			children = (
 			);
 			path = DataStore;
+			sourceTree = "<group>";
+		};
+		2A44A5C926CB89AF00DF4F45 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */,
+			);
+			name = TextField;
+			path = ../../../Martini/Martini/Component/TextField;
 			sourceTree = "<group>";
 		};
 		B3D91A2F26CAEC8B004FA11F /* Progress */ = {
@@ -264,15 +282,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A44A5C726CB899900DF4F45 /* BannerFootLabelButton.swift in Sources */,
 				1861F42926C54143003C8EA4 /* ViewController.swift in Sources */,
 				1861F42526C54143003C8EA4 /* AppDelegate.swift in Sources */,
 				1861F44926C547D0003C8EA4 /* User.swift in Sources */,
 				B3D91A2E26CAE9C2004FA11F /* BannerButton.swift in Sources */,
 				1804919826C7DB67006DFE75 /* CockTailTableViewCell.swift in Sources */,
 				B3D91A3126CAECAD004FA11F /* TasteProgressView.swift in Sources */,
+				2A44A5CB26CB89AF00DF4F45 /* CustomInputTextField.swift in Sources */,
 				1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */,
 				1861F44B26C548B7003C8EA4 /* Cocktail.swift in Sources */,
 				1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */,
+				2A44A5C826CB899900DF4F45 /* BannerToggleButton.swift in Sources */,
 				180D4C4B26C8DCB600404A7A /* WebImageView.swift in Sources */,
 				1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */,
 			);
