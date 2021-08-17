@@ -1,11 +1,5 @@
 # Created by https://www.toptal.com/developers/gitignore/api/swift,swiftpackagemanager,xcode
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,swiftpackagemanager,xcode
-## 상현 ##
-Martini/ViewController.swift
-
-Martini/Base.lproj/Main.storyboard
-
-BannerFootLabelButton.swift
 
 ### Swift ###
 # Xcode
