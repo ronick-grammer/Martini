@@ -8,7 +8,6 @@
 import UIKit
 
 class BannerToggleButton: UIView {
-    
     let vstackView = UIStackView()
     let buttonTitleLable = UILabel()
     let banner = UIView()
@@ -31,6 +30,7 @@ class BannerToggleButton: UIView {
 
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 
