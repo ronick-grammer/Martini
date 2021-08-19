@@ -16,38 +16,32 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveEmailTextInfo()
-        savePasswordTextInfo()
-        loginButton.textInfo(text: "로그인", fontSize: 30)
-        signUpButton.textInfo(text: "회원가입", fontSize: 30)
-//        signUpButton.isUserInteractionEnabled = true
-        signUpButton.Button.addTarget(self, action: #selector(signUpButton.LoginButtonHandler(_:)), for: .touchUpInside)
-        // Do any additional setup after loading the view.
+        emailTextField.InformTextInfo(placeholder: "이메일", iconName: "envelope.fill")
+        passwordTextField.InformTextInfo(placeholder: "비밀번호", iconName: "lock.fill")
+        loginButton.InformTextInfo(text: "로그인", fontSize: 30)
+        signUpButton.InformTextInfo(text: "회원가입", fontSize: 30)
         
+    }
+    @IBAction func Button(_ sender: UIButton) {
+        print("1")
+        performSegue(withIdentifier: "sgSignUp", sender: self)
     }
     
     @IBAction func SignUpButton(_ sender: LoginButton) {
         print("1")
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let LoginViewController = segue.destination as! SignUpViewController
-        
-        if segue.identifier == "sgSignUp" {
-            // Get the new view controller using segue.destination.
-            // Pass the selected object to the new view controller.
-        }
-    }
-    
-    func saveEmailTextInfo() {
-        emailTextField.placeholder = "이메일"
-        emailTextField.iconView.image = UIImage(systemName: "envelope.fill")
-    }
-    
-    func savePasswordTextInfo() {
-        passwordTextField.placeholder = "비밀번호"
-        passwordTextField.iconView.image = UIImage(systemName: "lock.fill")
-        
-    }
+        performSegue(withIdentifier: "sgSignUp", sender: self)
 
+    }
+//    @IBAction func SignUpButton(_ sender: LoginButton) {
+//    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+////        let LoginViewController = segue.destination as! SignUpViewController
+//        
+//        if segue.identifier == "sgSignUp" {
+//            // Get the new view controller using segue.destination.
+//            // Pass the selected object to the new view controller.
+//        }
+//    }
+    
 }

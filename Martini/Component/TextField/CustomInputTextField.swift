@@ -21,14 +21,13 @@ class CustomInputTextField: UITextField  {
     }
     
     override func awakeFromNib() {
-        iconView.image = UIImage(systemName: "person.fill")
         iconView.tintColor = .black
-        
+        iconView.image = UIImage(systemName: "star.fill")
+        self.placeholder = "default"
         iconContainerView.addSubview(iconView)
 
         leftView = iconContainerView
         leftViewMode = .always
-        placeholder = "이름"
         
         self.backgroundColor = #colorLiteral(red: 0.7761746049, green: 0.7685815096, blue: 0.781961143, alpha: 1)
         self.layer.cornerRadius = 10
@@ -38,6 +37,10 @@ class CustomInputTextField: UITextField  {
             for: UIControl.Event.editingChanged)
     }
     
+    func InformTextInfo(placeholder: String = "default", iconName: String = "person.fill") {
+        iconView.image = UIImage(systemName: iconName)
+        self.placeholder = placeholder
+    }
 }
 
 
