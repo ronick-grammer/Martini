@@ -9,33 +9,20 @@ import UIKit
 
 class LoginButton: UIButton {
     let buttonTitleLable = UILabel()
-    let Button = UIButton()
     var isClicked: Bool = false
 
-//    @objc func LoginButtonHandler(_ sender: UIButton) {
-//        isClicked.toggle()
-//        if isClicked == true {
-//            Button.backgroundColor = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
-//        } else {
-//            Button.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-//        }
-//    }
+    @objc func LoginButtonHandler(_ sender: UIButton) {
+
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        Button.isUserInteractionEnabled = false
-//        Button.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside)
-        
-        self.addSubview(Button)
-        Button.isEnabled = true
-        Button.translatesAutoresizingMaskIntoConstraints = false
-        Button.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        Button.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        Button.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        Button.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        Button.clipsToBounds = true
-        Button.layer.cornerRadius = 10
-        Button.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+//        self.isUserInteractionEnabled = false // Button -> false
+//        self.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside) // self로
+        self.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside) // self로
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 10
+        self.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         InformTextInfo(text: "default", fontSize: 30)
     }
 
@@ -50,13 +37,13 @@ class LoginButton: UIButton {
 //        textInfo.addAttribute(NSAttributedString.Key.foregroundColor, value: textColor, range: NSRange(location: 0, length: text.count))
         textInfo.addAttributes([NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: CGFloat(fontSize))], range: NSRange(location: 0, length: text.count))
         // 버튼에 적용
-        Button.setAttributedTitle(textInfo, for: .normal)
+        self.setAttributedTitle(textInfo, for: .normal)
     }
 
     
-//    func setColor(color: UIColor){
-//        buttonTitleLable.backgroundColor = color
-//    }
+    func setColor(color: UIColor){
+        self.backgroundColor = color
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
