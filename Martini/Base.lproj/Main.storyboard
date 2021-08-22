@@ -16,8 +16,19 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="abX-qg-FGA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="abX-qg-FGA" secondAttribute="bottom" id="BBD-JZ-baz"/>
+                            <constraint firstItem="abX-qg-FGA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IYS-hp-jVr"/>
+                            <constraint firstItem="abX-qg-FGA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lZq-J7-KIK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="abX-qg-FGA" secondAttribute="trailing" id="ykl-1t-jsr"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

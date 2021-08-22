@@ -4,54 +4,61 @@
 //
 //  Created by 최예주 on 2021/08/17.
 //
-
 import UIKit
 
+@IBDesignable
+
+
 class BannerButton: UIView {
-
-
+    
+    @IBInspectable var customerImage:UIImage? = UIImage(named: "cocktail_icon")
+    @IBInspectable var customerText:String? = "Orange"
     var isChecked: Bool = false
     var bannerImageView = UIImageView()
     var bannerLabel = UILabel()
     var bannerButton = UIButton()
-
-
-
-
-    override func awakeFromNib() {
-        
-        
-        
+    
+    func setupView(){
         self.addSubview(bannerImageView)
         self.addSubview(bannerLabel)
         self.addSubview(bannerButton)
         
-    
         // 레이아웃 셋팅
         configureBannerLabel()
         configureBannerButton()
         configureBannerImageView()
-        
-
-
-        
+    
          
         // 이미지, text 설정
-        bannerImageView.image = UIImage(named: "cocktaildrink_coctel_4688.png")
-        bannerLabel.text = "Orange"
-        
-        
+        bannerImageView.image = self.customerImage
+        bannerLabel.text = customerText
         
         self.backgroundColor = UIColor.systemGray2
         self.layer.cornerRadius = 15
         
         bannerButton.addTarget(self, action: #selector(bannerSelected), for: .touchUpInside)
-      
-        
-        
+    }
 
+
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
     
-
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setupView()
     }
     
     // Label 초기 셋팅
