@@ -23,6 +23,8 @@
 		1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F44C26C54F20003C8EA4 /* DetailViewController.swift */; };
 		1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1861F45026C54F59003C8EA4 /* DetailView.storyboard */; };
 		1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F45226C550B7003C8EA4 /* LikeButton.swift */; };
+		B35C4C6226CE74630039BA3A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35C4C6126CE74630039BA3A /* MainViewController.swift */; };
+		B35C4C6426CE74830039BA3A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35C4C6326CE74830039BA3A /* MainView.storyboard */; };
 		D44C81D326C6A122007CBF23 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D44C81D226C6A122007CBF23 /* FirebaseFirestoreSwift-Beta */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		1861F44C26C54F20003C8EA4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1861F45026C54F59003C8EA4 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		1861F45226C550B7003C8EA4 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		B35C4C6126CE74630039BA3A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B35C4C6326CE74830039BA3A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				1861F42F26C54146003C8EA4 /* LaunchScreen.storyboard */,
 				1861F43226C54146003C8EA4 /* Info.plist */,
 				1861F44C26C54F20003C8EA4 /* DetailViewController.swift */,
+				B35C4C6126CE74630039BA3A /* MainViewController.swift */,
+				B35C4C6326CE74830039BA3A /* MainView.storyboard */,
 				1861F45026C54F59003C8EA4 /* DetailView.storyboard */,
 			);
 			path = Martini;
@@ -212,6 +218,7 @@
 			files = (
 				1861F43126C54146003C8EA4 /* LaunchScreen.storyboard in Resources */,
 				1861F42E26C54146003C8EA4 /* Assets.xcassets in Resources */,
+				B35C4C6426CE74830039BA3A /* MainView.storyboard in Resources */,
 				1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */,
 				1861F42C26C54143003C8EA4 /* Main.storyboard in Resources */,
 			);
@@ -231,6 +238,7 @@
 				1861F44B26C548B7003C8EA4 /* Cocktail.swift in Sources */,
 				1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */,
 				1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */,
+				B35C4C6226CE74630039BA3A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
