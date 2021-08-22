@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1804919826C7DB67006DFE75 /* CockTailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804919626C7DB67006DFE75 /* CockTailTableViewCell.swift */; };
+		1804919926C7DB67006DFE75 /* CockTailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1804919726C7DB67006DFE75 /* CockTailTableViewCell.xib */; };
+		180D4C4B26C8DCB600404A7A /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180D4C4A26C8DCB600404A7A /* WebImageView.swift */; };
 		1861F42526C54143003C8EA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F42426C54143003C8EA4 /* AppDelegate.swift */; };
 		1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F42626C54143003C8EA4 /* SceneDelegate.swift */; };
 		1861F42926C54143003C8EA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F42826C54143003C8EA4 /* ViewController.swift */; };
@@ -25,10 +28,18 @@
 		1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F45226C550B7003C8EA4 /* LikeButton.swift */; };
 		B35C4C6226CE74630039BA3A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35C4C6126CE74630039BA3A /* MainViewController.swift */; };
 		B35C4C6426CE74830039BA3A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35C4C6326CE74830039BA3A /* MainView.storyboard */; };
+		2A44A5C726CB899900DF4F45 /* BannerFootLabelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5C526CB899900DF4F45 /* BannerFootLabelButton.swift */; };
+		2A44A5C826CB899900DF4F45 /* BannerToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */; };
+		2A44A5CB26CB89AF00DF4F45 /* CustomInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */; };
+		B3D91A2E26CAE9C2004FA11F /* BannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */; };
+		B3D91A3126CAECAD004FA11F /* TasteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */; };
 		D44C81D326C6A122007CBF23 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D44C81D226C6A122007CBF23 /* FirebaseFirestoreSwift-Beta */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1804919626C7DB67006DFE75 /* CockTailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailTableViewCell.swift; sourceTree = "<group>"; };
+		1804919726C7DB67006DFE75 /* CockTailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CockTailTableViewCell.xib; sourceTree = "<group>"; };
+		180D4C4A26C8DCB600404A7A /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		1861F42126C54143003C8EA4 /* Martini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Martini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1861F42426C54143003C8EA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1861F42626C54143003C8EA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +55,11 @@
 		1861F45226C550B7003C8EA4 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		B35C4C6126CE74630039BA3A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B35C4C6326CE74830039BA3A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
+		2A44A5C526CB899900DF4F45 /* BannerFootLabelButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerFootLabelButton.swift; sourceTree = "<group>"; };
+		2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerToggleButton.swift; path = ../../../../Martini/Martini/Component/Button/BannerToggleButton.swift; sourceTree = "<group>"; };
+		2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputTextField.swift; sourceTree = "<group>"; };
+		B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerButton.swift; sourceTree = "<group>"; };
+		B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1804919526C7DB2F006DFE75 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1804919626C7DB67006DFE75 /* CockTailTableViewCell.swift */,
+				1804919726C7DB67006DFE75 /* CockTailTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		180D4C4926C8DC9200404A7A /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				180D4C4A26C8DCB600404A7A /* WebImageView.swift */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
 		1861F41826C54143003C8EA4 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +116,7 @@
 		1861F42326C54143003C8EA4 /* Martini */ = {
 			isa = PBXGroup;
 			children = (
+				180D4C4926C8DC9200404A7A /* ImageView */,
 				1861F44726C54793003C8EA4 /* DataStore */,
 				1861F44626C54757003C8EA4 /* Component */,
 				1861F44326C54721003C8EA4 /* Model */,
@@ -121,6 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				1861F45226C550B7003C8EA4 /* LikeButton.swift */,
+				2A44A5C526CB899900DF4F45 /* BannerFootLabelButton.swift */,
+				2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */,
+				B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -128,6 +165,9 @@
 		1861F44626C54757003C8EA4 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2A44A5C926CB89AF00DF4F45 /* TextField */,
+				B3D91A2F26CAEC8B004FA11F /* Progress */,
+				1804919526C7DB2F006DFE75 /* Cell */,
 				1861F44526C54742003C8EA4 /* Button */,
 				1861F44426C54733003C8EA4 /* TableViewCell */,
 			);
@@ -139,6 +179,23 @@
 			children = (
 			);
 			path = DataStore;
+			sourceTree = "<group>";
+		};
+		2A44A5C926CB89AF00DF4F45 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */,
+			);
+			name = TextField;
+			path = ../../../Martini/Martini/Component/TextField;
+			sourceTree = "<group>";
+		};
+		B3D91A2F26CAEC8B004FA11F /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */,
+			);
+			path = Progress;
 			sourceTree = "<group>";
 		};
 		D44C81D126C6A122007CBF23 /* Frameworks */ = {
@@ -216,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1804919926C7DB67006DFE75 /* CockTailTableViewCell.xib in Resources */,
 				1861F43126C54146003C8EA4 /* LaunchScreen.storyboard in Resources */,
 				1861F42E26C54146003C8EA4 /* Assets.xcassets in Resources */,
 				B35C4C6426CE74830039BA3A /* MainView.storyboard in Resources */,
@@ -231,12 +289,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A44A5C726CB899900DF4F45 /* BannerFootLabelButton.swift in Sources */,
 				1861F42926C54143003C8EA4 /* ViewController.swift in Sources */,
 				1861F42526C54143003C8EA4 /* AppDelegate.swift in Sources */,
 				1861F44926C547D0003C8EA4 /* User.swift in Sources */,
+				B3D91A2E26CAE9C2004FA11F /* BannerButton.swift in Sources */,
+				1804919826C7DB67006DFE75 /* CockTailTableViewCell.swift in Sources */,
+				B3D91A3126CAECAD004FA11F /* TasteProgressView.swift in Sources */,
+				2A44A5CB26CB89AF00DF4F45 /* CustomInputTextField.swift in Sources */,
 				1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */,
 				1861F44B26C548B7003C8EA4 /* Cocktail.swift in Sources */,
 				1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */,
+				2A44A5C826CB899900DF4F45 /* BannerToggleButton.swift in Sources */,
+				180D4C4B26C8DCB600404A7A /* WebImageView.swift in Sources */,
 				1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */,
 				B35C4C6226CE74630039BA3A /* MainViewController.swift in Sources */,
 			);
