@@ -24,6 +24,10 @@
 		1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1861F45026C54F59003C8EA4 /* DetailView.storyboard */; };
 		1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F45226C550B7003C8EA4 /* LikeButton.swift */; };
 		D44C81D326C6A122007CBF23 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D44C81D226C6A122007CBF23 /* FirebaseFirestoreSwift-Beta */; };
+		D487721626C8D21600BA9FD0 /* SliderStrenth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D487721526C8D21600BA9FD0 /* SliderStrenth.swift */; };
+		D4CF5E3B26CCD7FC0011855F /* BannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CF5E3A26CCD7FC0011855F /* BannerButton.swift */; };
+		D4DF344426CCFEF10000515C /* BannerToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF344326CCFEF10000515C /* BannerToggleButton.swift */; };
+		D4F32A7E26CE7FBB00CFDF3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4F32A7D26CE7FBB00CFDF3C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		1861F44C26C54F20003C8EA4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1861F45026C54F59003C8EA4 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
 		1861F45226C550B7003C8EA4 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		D487721526C8D21600BA9FD0 /* SliderStrenth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStrenth.swift; sourceTree = "<group>"; };
+		D4CF5E3A26CCD7FC0011855F /* BannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerButton.swift; sourceTree = "<group>"; };
+		D4DF344326CCFEF10000515C /* BannerToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerToggleButton.swift; sourceTree = "<group>"; };
+		D4F32A7D26CE7FBB00CFDF3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,7 @@
 				1861F42826C54143003C8EA4 /* ViewController.swift */,
 				1861F42A26C54143003C8EA4 /* Main.storyboard */,
 				1861F42D26C54146003C8EA4 /* Assets.xcassets */,
+				D4F32A7D26CE7FBB00CFDF3C /* GoogleService-Info.plist */,
 				1861F42F26C54146003C8EA4 /* LaunchScreen.storyboard */,
 				1861F43226C54146003C8EA4 /* Info.plist */,
 				1861F44C26C54F20003C8EA4 /* DetailViewController.swift */,
@@ -115,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				1861F45226C550B7003C8EA4 /* LikeButton.swift */,
+				D4CF5E3A26CCD7FC0011855F /* BannerButton.swift */,
+				D4DF344326CCFEF10000515C /* BannerToggleButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -122,6 +133,7 @@
 		1861F44626C54757003C8EA4 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				D487721726C8D2D800BA9FD0 /* Slider */,
 				1861F44526C54742003C8EA4 /* Button */,
 				1861F44426C54733003C8EA4 /* TableViewCell */,
 			);
@@ -140,6 +152,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D487721726C8D2D800BA9FD0 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				D487721526C8D21600BA9FD0 /* SliderStrenth.swift */,
+			);
+			path = Slider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +234,7 @@
 				1861F42E26C54146003C8EA4 /* Assets.xcassets in Resources */,
 				1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */,
 				1861F42C26C54143003C8EA4 /* Main.storyboard in Resources */,
+				D4F32A7E26CE7FBB00CFDF3C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,12 +246,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1861F42926C54143003C8EA4 /* ViewController.swift in Sources */,
+				D487721626C8D21600BA9FD0 /* SliderStrenth.swift in Sources */,
+				D4CF5E3B26CCD7FC0011855F /* BannerButton.swift in Sources */,
 				1861F42526C54143003C8EA4 /* AppDelegate.swift in Sources */,
 				1861F44926C547D0003C8EA4 /* User.swift in Sources */,
 				1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */,
 				1861F44B26C548B7003C8EA4 /* Cocktail.swift in Sources */,
 				1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */,
 				1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */,
+				D4DF344426CCFEF10000515C /* BannerToggleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

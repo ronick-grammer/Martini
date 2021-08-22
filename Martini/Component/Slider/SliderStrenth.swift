@@ -10,22 +10,32 @@ import UIKit
 
 class SliderStrenth: UIView {
     
-    private var slider = CustomStrenthSlider()
-    private var labelTitle = UILabel()
-    private var labelPercentage = UILabel()
-    
-    var textTitle: String = "단맛이 강한 음료가 좋습니다"
+    var slider = UISlider()
+    var labelTitle = UILabel()
+    var labelPercentage = UILabel()
     
     override func awakeFromNib() {
+        super.awakeFromNib()
+        setUpLayout()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setUpLayout()
+    }
+    
+    func setUpLayout() {
         self.addSubview(slider)
         self.addSubview(labelPercentage)
         
         configureSlider()
         configureLabelTitle()
         configureLabelPercentage()
-        
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: slider.superview, action: #selector(sliderTapped(_:)))
-//        slider.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func configureSlider() {
@@ -40,17 +50,20 @@ class SliderStrenth: UIView {
         // ThumbImage 보이지 않기
         slider.setThumbImage(UIImage(), for: .normal)
         
+        // 슬라이더 가장 자리 둥글게
         slider.setMinimumTrackImage(getImageWithColor(color:  UIColor(red: (240/255.0), green: (158/255.0), blue: (158/255.0), alpha: 1.0), size: slider.frame.size).resizableImage(withCapInsets: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3), resizingMode: .stretch), for: .normal)
         
         slider.setMaximumTrackImage(getImageWithColor(color: UIColor(cgColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), size: slider.frame.size).resizableImage(withCapInsets: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3), resizingMode: .stretch), for: .normal)
         
-        
-        slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
+        // 슬라이더 제스쳐 이벤트 설정
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(sliderTapped(_:)))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        slider.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func configureLabelTitle() {
         slider.addSubview(labelTitle) // 슬라이더 안에 글자 타이틀 겹침
-        labelTitle.text = textTitle
+        labelTitle.text = "텍스트를 넣어주세요"
         
         // 슬라이더 트랙 사이즈와 같게 해서 중앙에 위치시킴
         labelTitle.frame.size = CGSize(width: slider.frame.width, height: slider.frame.height)
@@ -72,10 +85,6 @@ class SliderStrenth: UIView {
         labelPercentage.textAlignment = .center
     }
     
-    @objc func sliderValueChanged() {
-        labelPercentage.text = "\(Int(slider.value * 100))%"
-    }
-    
     // minimum Track 이미지, maximum Track 이미지 cornerRadius 적용
     private func getImageWithColor(color: UIColor, size: CGSize) -> UIImage {
         
@@ -94,17 +103,18 @@ class SliderStrenth: UIView {
         return image
     }
     
-//    // 탭 한 부위로 슬라이더 값 설정
-//    @objc func sliderTapped(_ gestureRecognizer: UITapGestureRecognizer) {
-//
-//        let pointTapped: CGPoint = gestureRecognizer.location(in: slider)
-//
-//        let positionOfSlider: CGPoint = slider.frame.origin
-//
-//        let widthOfSlider: CGFloat = slider.frame.size.width
-//        let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat(slider.maximumValue) / widthOfSlider)
-//
-//        slider.setValue(Float(newValue), animated: true)
-//    }
+    // 탭 한 부위로 슬라이더 값 설정
+    @objc func sliderTapped(_ gestureRecognizer: UITapGestureRecognizer) {
+        print(#function)
+        let pointTapped: CGPoint = gestureRecognizer.location(in: slider)
+
+        let positionOfSlider: CGPoint = slider.frame.origin
+
+        let widthOfSlider: CGFloat = slider.frame.size.width
+        let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat(slider.maximumValue) / widthOfSlider)
+
+        slider.setValue(Float(newValue), animated: true)
+        labelPercentage.text = "\(Int(slider.value * 100))%"
+    }
 }
 

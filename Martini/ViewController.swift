@@ -6,18 +6,21 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestoreSwift
 
 class ViewController: UIViewController {
     
-    let textField = UITextField()
+    @IBOutlet var sliderStrenth: SliderStrenth!
 
+    @IBOutlet var buttonFirst: BannerToggleButton!
+    
+    @IBOutlet var buttonSecond: BannerToggleButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
-        // Do any additional setup after loading the view.
+
+        buttonFirst.buttonImage.image = UIImage(named: "wine")
+        buttonSecond.buttonImage.image = UIImage(systemName: "star.fill")
     }
-
-
 }
-
