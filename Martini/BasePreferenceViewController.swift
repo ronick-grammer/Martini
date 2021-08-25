@@ -12,7 +12,7 @@ class BasePreferenceViewController: UIViewController {
     @IBOutlet var BasePreferenceCollectionView: UICollectionView!
     @IBOutlet var btnNext: UIButton!
     
-    let reuseIdentifier = "Cell"
+    let reuseIdentifier = "basePreferenceCollectionViewCell"
     let spacingRow = 10
     let spacingColumn = 20
     

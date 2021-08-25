@@ -22,6 +22,8 @@ class FlavorPreferenceCollectionViewCell: UICollectionViewCell {
     }
     
     func setupLayout() {
+        // 슬라이더 모양 가장자리 둥글게
+        // frame.size가 설정되고 나서 호출해야 오류가 발생하지 않음
         sliderStrenth.setMinMaxTrackImage(size: self.frame.size)
         
         self.addSubview(sliderStrenth)
