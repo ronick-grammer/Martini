@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Flavor Preference View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="FlavorPreferenceViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k5g-Io-csf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="어떤 맛을 선호하시나요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORw-RZ-FuY">
+                                <rect key="frame" x="60" y="64" width="270" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="Fdc-RK-E3w"/>
+                                    <constraint firstAttribute="height" constant="96" id="QeT-cB-HSE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BmX-Zv-NUe">
+                                <rect key="frame" x="16" y="227" width="358" height="583"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KKh-eI-5Kg">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="umw-of-Rca">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xke-JP-IKJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0H-9i-4Q4" userLabel="Btn Prev">
+                                <rect key="frame" x="16" y="167" width="50" height="30"/>
+                                <color key="backgroundColor" red="0.71756780149999999" green="0.71769279239999995" blue="0.71755987409999999" alpha="0.65135026789999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="MMT-1k-NVT"/>
+                                </constraints>
+                                <state key="normal" title="이전">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HF-ea-Aq5">
+                                <rect key="frame" x="324" y="167" width="50" height="30"/>
+                                <color key="backgroundColor" red="0.71756780149999999" green="0.71769279239999995" blue="0.71755987409999999" alpha="0.65135026789999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="A2f-tR-mYd"/>
+                                </constraints>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yJx-eZ-6DR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G0H-9i-4Q4" firstAttribute="leading" secondItem="yJx-eZ-6DR" secondAttribute="leading" constant="16" id="3p6-Ez-9e5"/>
+                            <constraint firstItem="BmX-Zv-NUe" firstAttribute="top" secondItem="G0H-9i-4Q4" secondAttribute="bottom" constant="30" id="4u6-mX-FfC"/>
+                            <constraint firstItem="BmX-Zv-NUe" firstAttribute="leading" secondItem="yJx-eZ-6DR" secondAttribute="leading" constant="16" id="H1y-xi-uYd"/>
+                            <constraint firstItem="yJx-eZ-6DR" firstAttribute="trailing" secondItem="7HF-ea-Aq5" secondAttribute="trailing" constant="16" id="L6w-H8-FzM"/>
+                            <constraint firstItem="ORw-RZ-FuY" firstAttribute="top" secondItem="yJx-eZ-6DR" secondAttribute="top" constant="20" id="M8e-m1-yhS"/>
+                            <constraint firstItem="yJx-eZ-6DR" firstAttribute="trailing" secondItem="BmX-Zv-NUe" secondAttribute="trailing" constant="16" id="ZQa-dC-aoI"/>
+                            <constraint firstItem="yJx-eZ-6DR" firstAttribute="trailing" secondItem="ORw-RZ-FuY" secondAttribute="trailing" constant="60" id="bYU-du-6Lv"/>
+                            <constraint firstItem="G0H-9i-4Q4" firstAttribute="top" secondItem="ORw-RZ-FuY" secondAttribute="bottom" constant="7" id="iIf-9t-M8M"/>
+                            <constraint firstItem="BmX-Zv-NUe" firstAttribute="bottom" secondItem="yJx-eZ-6DR" secondAttribute="bottom" id="k9Z-Fo-KVc"/>
+                            <constraint firstItem="BmX-Zv-NUe" firstAttribute="top" secondItem="7HF-ea-Aq5" secondAttribute="bottom" constant="30" id="kkf-p2-D4a"/>
+                            <constraint firstItem="7HF-ea-Aq5" firstAttribute="top" secondItem="ORw-RZ-FuY" secondAttribute="bottom" constant="7" id="mbK-1h-bMD"/>
+                            <constraint firstItem="ORw-RZ-FuY" firstAttribute="leading" secondItem="yJx-eZ-6DR" secondAttribute="leading" constant="60" id="odK-c5-dwc"/>
+                            <constraint firstItem="7HF-ea-Aq5" firstAttribute="leading" secondItem="G0H-9i-4Q4" secondAttribute="trailing" constant="258" id="t8a-Z1-3ba"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnNext" destination="7HF-ea-Aq5" id="7cX-8r-1XQ"/>
+                        <outlet property="btnPrev" destination="G0H-9i-4Q4" id="a1i-lu-Glw"/>
+                        <outlet property="flavorPreferenceCollectionView" destination="BmX-Zv-NUe" id="Ljv-qO-zVE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32" y="44"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
