@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="7mq-tt-5U1">
+            <objects>
+                <viewController id="Svk-4H-VDU" customClass="LoginViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uNl-FP-I4o">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kce-tG-nhK" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="16" y="267" width="356" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailTextDIdChange:" destination="Svk-4H-VDU" eventType="editingDidEnd" id="gtQ-vz-sVF"/>
+                                </connections>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="TextMarTiNi" translatesAutoresizingMaskIntoConstraints="NO" id="XJZ-Fh-UpY">
+                                <rect key="frame" x="16" y="83" width="273" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="martini" translatesAutoresizingMaskIntoConstraints="NO" id="pQB-eQ-lMK">
+                                <rect key="frame" x="295" y="106" width="77" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gey-yA-uMe" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="16" y="348" width="356" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="passwordTextDIdChange:" destination="Svk-4H-VDU" eventType="editingDidEnd" id="LVP-rM-ADi"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhL-JG-yod" customClass="LoginButton" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="16" y="425" width="356" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="loginButton:" destination="Svk-4H-VDU" eventType="touchUpInside" id="e3b-NK-d67"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hU-iH-tgx" customClass="LoginButton" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="16" y="525" width="356" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="signupButton:" destination="Svk-4H-VDU" eventType="touchUpInside" id="a7M-dM-Qsi"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="79S-kM-oQ4" customClass="BannerToggleButton" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="29" y="610" width="316" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ape-Xe-eD3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="Kce-tG-nhK" id="Nz3-M3-XwJ"/>
+                        <outlet property="loginButton" destination="rhL-JG-yod" id="8zB-Ci-kYr"/>
+                        <outlet property="passwordTextField" destination="gey-yA-uMe" id="huN-4J-jPn"/>
+                        <outlet property="signupButton" destination="4hU-iH-tgx" id="27H-oo-AdZ"/>
+                        <segue destination="MWP-pV-ngO" kind="show" identifier="sgSignUp" id="dCZ-vk-4mj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YbV-Vu-6SL" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.76923076923077" y="103.7914691943128"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="zeA-Kc-bax">
+            <objects>
+                <viewController storyboardIdentifier="signupVC" id="MWP-pV-ngO" customClass="SignUpViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xhU-x4-on7">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kMI-DA-Zz1" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="16" y="240" width="356" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameTextFieldDidChange:" destination="MWP-pV-ngO" eventType="editingChanged" id="OVl-q4-bdz"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eNN-X7-4FP" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="16" y="314" width="356" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nickNameTextFieldDidChange:" destination="MWP-pV-ngO" eventType="editingChanged" id="ZQc-3I-2c5"/>
+                                </connections>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="martini" translatesAutoresizingMaskIntoConstraints="NO" id="dUC-TV-6KK">
+                                <rect key="frame" x="295" y="106" width="77" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BpU-ux-yCC" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="18" y="532" width="356" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="passwordTextFieldDidChange:" destination="MWP-pV-ngO" eventType="editingChanged" id="ZKi-wj-Hkt"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oyi-qm-ZL4" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="18" y="601" width="356" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="passwordCheckTextFieldDidChange:" destination="MWP-pV-ngO" eventType="editingChanged" id="qLj-GD-ecU"/>
+                                </connections>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextMarTiNi" translatesAutoresizingMaskIntoConstraints="NO" id="4fl-dd-sns">
+                                <rect key="frame" x="16" y="76" width="273" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y70-Tb-1RV" customClass="LoginButton" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="18" y="666" width="356" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="signUpbutton:" destination="MWP-pV-ngO" eventType="touchUpInside" id="pFO-et-QPB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZ8-dA-PF7" customClass="LoginButton" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="18" y="377" width="356" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="phoneCertifyButton:" destination="MWP-pV-ngO" eventType="touchUpInside" id="8ve-oT-KuY"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mp3-cg-7iG" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="18" y="472" width="356" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailTextFieldDidChange:" destination="MWP-pV-ngO" eventType="editingChanged" id="cxm-gG-Bt5"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ybE-qa-n3t"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BSl-qK-YO6"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="mp3-cg-7iG" id="nZn-hq-d3A"/>
+                        <outlet property="nameTextField" destination="kMI-DA-Zz1" id="pK1-pq-jgi"/>
+                        <outlet property="nickNameTextField" destination="eNN-X7-4FP" id="hdt-x7-fkP"/>
+                        <outlet property="passwordCheckTextField" destination="Oyi-qm-ZL4" id="WuQ-W5-1Ss"/>
+                        <outlet property="passwordTextField" destination="BpU-ux-yCC" id="Jgf-ld-F8j"/>
+                        <outlet property="phoneCertifyButton" destination="xZ8-dA-PF7" id="xZE-Fe-3cd"/>
+                        <outlet property="signUpButton" destination="Y70-Tb-1RV" id="bp1-7j-hDr"/>
+                        <segue destination="Ye6-3r-Zxa" kind="show" identifier="sgCertifyPhone" id="MWV-hQ-TQ7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Udi-Lp-pRP" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="916.92307692307691" y="103.7914691943128"/>
+        </scene>
+        <!--Certify Phone View Controller-->
+        <scene sceneID="plu-85-RVj">
+            <objects>
+                <viewController id="Ye6-3r-Zxa" customClass="CertifyPhoneViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cfk-b6-CV9">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TextMarTiNi" translatesAutoresizingMaskIntoConstraints="NO" id="Eld-r5-6uF">
+                                <rect key="frame" x="16" y="83" width="273" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="martini" translatesAutoresizingMaskIntoConstraints="NO" id="t2i-6A-Zn0">
+                                <rect key="frame" x="295" y="106" width="77" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Fi-ay-73T" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="18" y="242" width="356" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5I6-DW-cXI">
+                                <rect key="frame" x="18" y="334" width="354" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATR-dJ-WGL">
+                                <rect key="frame" x="65" y="284" width="261" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="인증번호 다시 보내기"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNo-BG-HUk" customClass="LoginButton" customModule="Martini" customModuleProvider="target">
+                                <rect key="frame" x="16" y="423" width="356" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PFa-tO-U0p"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fwm-64-duS"/>
+                    <connections>
+                        <outlet property="certification" destination="iNo-BG-HUk" id="AWj-Pt-qQv"/>
+                        <outlet property="inputPhoneNumber" destination="9Fi-ay-73T" id="UNx-FW-s7q"/>
+                        <outlet property="securityCodeTextField" destination="5I6-DW-cXI" id="0x4-4m-TLe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqm-Kl-a2F" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687.6923076923076" y="103.7914691943128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TextMarTiNi" width="204" height="45"/>
+        <image name="martini" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
