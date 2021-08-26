@@ -8,7 +8,6 @@ import UIKit
 
 @IBDesignable
 
-
 class BannerButton: UIView {
     
     @IBInspectable var customerImage:UIImage? = UIImage(named: "cocktail_icon")
