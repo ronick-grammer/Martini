@@ -7,15 +7,13 @@
 
 import UIKit
 
-@IBDesignable
-
 class CustomInputTextField: UITextField  {
     var textName: String = ""
     let iconView = UIImageView(frame:
                                 CGRect(x: 10, y: 5, width: 20, height: 20))
     let iconContainerView: UIView = UIView(frame:
                                             CGRect(x: 0, y: 0, width: 40, height: 30))
-        
+    
     @objc func textFieldDidChange(textField: CustomInputTextField){
         
     }
@@ -37,7 +35,7 @@ class CustomInputTextField: UITextField  {
             for: UIControl.Event.editingChanged)
     }
     
-    func InformTextInfo(placeholder: String = "default", iconName: String = "person.fill") {
+    func informTextInfo(placeholder: String = "default", iconName: String = "person.fill") {
         iconView.image = UIImage(systemName: iconName)
         self.placeholder = placeholder
     }

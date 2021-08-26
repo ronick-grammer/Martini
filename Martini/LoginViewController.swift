@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class LoginViewController: UIViewController {
     var flag: Bool = false
 
@@ -21,21 +22,24 @@ class LoginViewController: UIViewController {
             for: UIControl.Event.editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordTextDIdChange(_:)),
             for: UIControl.Event.editingChanged)
-        emailTextField.InformTextInfo(placeholder: "이메일", iconName: "envelope.fill")
-        passwordTextField.InformTextInfo(placeholder: "비밀번호", iconName: "lock.fill")
-        loginButton.InformTextInfo(text: "로그인", fontSize: 30)
-        signupButton.InformTextInfo(text: "회원가입", fontSize: 30)
+        emailTextField.informTextInfo(placeholder: "이메일", iconName: "envelope.fill")
+        passwordTextField.informTextInfo(placeholder: "비밀번호", iconName: "lock.fill")
+        loginButton.informTextInfo(text: "로그인", fontSize: 30)
+        signupButton.informTextInfo(text: "회원가입", fontSize: 30)
+
     }
     
     @IBAction func loginButton(_ sender: LoginButton) {
         if flag == true {
-            print(1)
+            print(emailTextField.text!, passwordTextField.text!)
         }
     }
     
     @IBAction func signupButton(_ sender: LoginButton) {
-        performSegue(withIdentifier: "sgSignUp", sender: self)
-    }
+        let signupVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signupVC")
+        signupVC.modalPresentationStyle = .fullScreen
+        present(signupVC, animated: true)
+            }
     
     @IBAction func emailTextDIdChange(_ sender: CustomInputTextField) {
         CheckForSignup()
@@ -43,6 +47,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func passwordTextDIdChange(_ sender: CustomInputTextField) {
         CheckForSignup()
+        passwordTextField.isSecureTextEntry = true
     }
 
     func CheckForSignup() {

@@ -13,7 +13,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var nameTextField: CustomInputTextField!
     @IBOutlet var nickNameTextField: CustomInputTextField!
     @IBOutlet var phoneCertifyButton: LoginButton!
-    @IBOutlet var emailTextFIeld: CustomInputTextField!
+    @IBOutlet var emailTextField: CustomInputTextField!
     @IBOutlet var passwordTextField: CustomInputTextField!
     @IBOutlet var passwordCheckTextField: CustomInputTextField!
     @IBOutlet var signUpButton: LoginButton!
@@ -28,13 +28,15 @@ class SignUpViewController: UIViewController {
             for: UIControl.Event.editingChanged)
         passwordCheckTextField.addTarget(self, action: #selector(passwordCheckTextFieldDidChange(_:)),
             for: UIControl.Event.editingChanged)
-        nameTextField.InformTextInfo(placeholder: "이름", iconName: "person.fill")
-        nickNameTextField.InformTextInfo(placeholder: "닉네임", iconName: "person")
-        emailTextFIeld.InformTextInfo(placeholder: "이메일", iconName: "envelope.fill")
-        passwordTextField.InformTextInfo(placeholder: "비밀번호", iconName: "lock.fill")
-        passwordCheckTextField.InformTextInfo(placeholder: "비밀번호 확인", iconName: "lock")
-        phoneCertifyButton.InformTextInfo(text: "휴대폰 인증하기", fontSize: 30)
-        signUpButton.InformTextInfo(text: "회원가입", fontSize: 30)
+        nameTextField.informTextInfo(placeholder: "이름", iconName: "person.fill")
+        nickNameTextField.informTextInfo(placeholder: "닉네임", iconName: "person")
+        emailTextField.informTextInfo(placeholder: "이메일", iconName: "envelope.fill")
+        passwordTextField.informTextInfo(placeholder: "비밀번호", iconName: "lock.fill")
+        passwordCheckTextField.informTextInfo(placeholder: "비밀번호 확인", iconName: "lock")
+        phoneCertifyButton.informTextInfo(text: "휴대폰 인증하기", fontSize: 30)
+        signUpButton.informTextInfo(text: "회원가입", fontSize: 30)
+        passwordTextField.isSecureTextEntry = false // https://fastutlego.tistory.com/86
+        passwordCheckTextField.isSecureTextEntry = false // https://fastutlego.tistory.com/86
         // Do any additional setup after loading the view.
     }
     @IBAction func nameTextFieldDidChange(_ sender: CustomInputTextField) {
@@ -65,12 +67,13 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpbutton(_ sender: LoginButton) {
         if flag == true {
-            print(1)
+            print(nameTextField.text!, nickNameTextField.text!, emailTextField.text!, passwordTextField.text!)
+            
         }
     }
     
     func CheckForSignup() {
-        if nameTextField.text?.count ?? 0 >= 1 && nickNameTextField.text?.count ?? 0 >= 1 && emailTextFIeld.text?.contains("@") == true && passwordTextField.text?.count ?? 0 >= 1 && passwordCheckTextField.text?.count ?? 0 >= 1 && passwordTextField.text == passwordCheckTextField.text{
+        if nameTextField.text?.count ?? 0 >= 1 && nickNameTextField.text?.count ?? 0 >= 1 && emailTextField.text?.contains("@") == true && passwordTextField.text?.count ?? 0 >= 6 && passwordCheckTextField.text?.count ?? 0 >= 6 && passwordTextField.text == passwordCheckTextField.text{
             signUpButton.setColor(color: #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1))
             flag = true
         } else {

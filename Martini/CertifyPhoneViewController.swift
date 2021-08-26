@@ -8,14 +8,31 @@
 import UIKit
 
 class CertifyPhoneViewController: UIViewController {
+    var keyHeight: CGFloat?
 
+    @IBOutlet var inputPhoneNumber: CustomInputTextField!
+    @IBOutlet var certification: LoginButton!
+    @IBOutlet var securityCodeTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        inputPhoneNumber.informTextInfo(placeholder: "휴대전화번호", iconName: "phone.fill")
+        
+        certification.informTextInfo(text: "인증", fontSize: 30)
+        securityCodeTextField.textContentType = .oneTimeCode
+        securityCodeTextField.textAlignment = .center
         // Do any additional setup after loading the view.
+        
+        securityCodeTextField.addTarget(self, action: #selector(test), for: .editingChanged)
     }
     
-
+    @objc func test() {
+        guard let textW: String = securityCodeTextField.text else { return }
+        if textW.count > 1 {
+            securityCodeTextField.text = String(textW[textW.index(textW.startIndex, offsetBy: 1)])
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
