@@ -13,7 +13,7 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let baseButtons = ["Rum", "Vodka", "Gin"]
     let flavors = ["단맛이 강한", "부드러운 맛", "술맛이 강한", "새로운 맛"]
-    let colors:[UIColor] = [.systemRed, .systemGreen, .systemBlue, .systemTeal, .systemPink, .systemOrange]
+    let colors:[UIColor] = [.systemRed, .systemGreen, .systemBlue, .systemTeal, .systemPink, .systemOrange, .systemTeal]
     let ingredients = ["Rum", "Vodka", "Gin", "Orange"]
     
     override func viewDidLoad() {
@@ -69,6 +69,7 @@ class FindViewCell: UITableViewCell {
         alcoholFind.layer.cornerRadius = 5
 //        colors.spacing = 1
     }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
