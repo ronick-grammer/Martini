@@ -7,28 +7,25 @@
 
 import UIKit
 
-@IBDesignable
-
 class CustomInputTextField: UITextField  {
     var textName: String = ""
     let iconView = UIImageView(frame:
                                 CGRect(x: 10, y: 5, width: 20, height: 20))
     let iconContainerView: UIView = UIView(frame:
                                             CGRect(x: 0, y: 0, width: 40, height: 30))
-        
-    @objc func textFieldDidChange(textField: UITextField){
+    
+    @objc func textFieldDidChange(textField: CustomInputTextField){
         
     }
     
     override func awakeFromNib() {
-        iconView.image = UIImage(systemName: "person.fill")
         iconView.tintColor = .black
-        
+        iconView.image = UIImage(systemName: "star.fill")
+        self.placeholder = "default"
         iconContainerView.addSubview(iconView)
 
         leftView = iconContainerView
         leftViewMode = .always
-        placeholder = "이름"
         
         self.backgroundColor = #colorLiteral(red: 0.7761746049, green: 0.7685815096, blue: 0.781961143, alpha: 1)
         self.layer.cornerRadius = 10
@@ -38,15 +35,8 @@ class CustomInputTextField: UITextField  {
             for: UIControl.Event.editingChanged)
     }
     
+    func informTextInfo(placeholder: String = "default", iconName: String = "person.fill") {
+        iconView.image = UIImage(systemName: iconName)
+        self.placeholder = placeholder
+    }
 }
-
-
-
-
-
-
-    
-
-
-
-    
