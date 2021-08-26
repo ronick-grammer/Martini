@@ -33,6 +33,24 @@ class IngredientsSelectionViewController: UIViewController {
         btnNext.titleLabel?.text = "다음"
         btnNext.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
     }
+    
+    
+    @IBAction func btnPreView(_ sender: UIButton) {
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        guard let uvc = storyboard?.instantiateViewController(identifier: "flavorPreference") else { return }
+        
+        uvc.modalPresentationStyle = UIModalPresentationStyle.automatic
+        uvc.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+    
+//        self.present(uvc, animated: true)
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func btnNextView(_ sender: UIButton) {
+        print("next")
+    }
+    
 }
 
 
@@ -87,7 +105,7 @@ let ingredients: [Ingredient] = [
     Ingredient(imageName: "vodka", title: "보드카"),
     Ingredient(imageName: "beer", title: "맥주"),
     Ingredient(imageName: "soju", title: "소주"),
-    Ingredient(imageName: "champagne", title: "샴페일"),
+    Ingredient(imageName: "champagne", title: "샴페인"),
     Ingredient(imageName: "wine", title: "와인"),
     Ingredient(imageName: "tonic", title: "토닉 워터"),
     Ingredient(imageName: "ginger ale", title: "진저 에일"),

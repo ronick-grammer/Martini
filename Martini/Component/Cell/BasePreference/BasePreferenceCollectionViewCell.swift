@@ -25,6 +25,7 @@ class BasePreferenceCollectionViewCell: UICollectionViewCell {
         self.addSubview(bannerToggleButton)
 
         bannerToggleButton.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             bannerToggleButton.topAnchor.constraint(equalTo: self.topAnchor),
             bannerToggleButton.bottomAnchor.constraint(equalTo: self.bottomAnchor),

@@ -31,6 +31,31 @@ class FlavorPreferenceViewController: UIViewController {
         btnNext.titleLabel?.text = "다음"
         btnNext.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
     }
+    
+    @IBAction func btnPrevView(_ sender: UIButton) {
+        
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        guard let uvc = storyboard?.instantiateViewController(identifier: "basePreference") else { return }
+        
+        uvc.modalPresentationStyle = UIModalPresentationStyle.automatic
+        uvc.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+//        self.present(uvc, animated: true)
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func btnNextView(_ sender: UIButton) {
+        
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        guard let uvc = storyboard?.instantiateViewController(identifier: "ingredientsSelection") else { return }
+        
+        uvc.modalPresentationStyle = UIModalPresentationStyle.automatic
+        uvc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        
+        self.present(uvc, animated: true)
+    }
 }
 
 extension FlavorPreferenceViewController: UICollectionViewDelegateFlowLayout {

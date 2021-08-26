@@ -22,13 +22,11 @@ class SliderStrenth: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print("frame")
         setUpLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        print("coder")
         setUpLayout()
         setMinMaxTrackImage(size: slider.frame.size)
     }
@@ -67,7 +65,7 @@ class SliderStrenth: UIView {
     }
     
     func configureLabelTitle() {
-        print(#function)
+
         slider.addSubview(labelTitle) // 슬라이더 안에 글자 타이틀 겹침
         labelTitle.text = "텍스트를 넣어주세요"
         

@@ -13,7 +13,6 @@
         <!--Base Preference View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Y6W-OH-hqX" customClass="BasePreferenceViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HbW-Fi-iJF">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
@@ -81,6 +80,7 @@
                         <outlet property="btnNext" destination="Vg0-NN-22Q" id="DpF-Ih-H1e"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="54" y="48"/>
         </scene>
