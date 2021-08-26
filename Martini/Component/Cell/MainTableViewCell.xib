@@ -1,21 +1,75 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MainTableViewCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="403" id="KGk-i7-Jjw" customClass="MainTableViewCell" customModule="Martini" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="403"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="392" height="403"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qLZ-6p-vWw" customClass="WebImageView" customModule="Martini" customModuleProvider="target">
+                        <rect key="frame" x="93" y="116" width="206" height="206"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="qLZ-6p-vWw" secondAttribute="height" multiplier="1:1" id="6iU-ds-n0x"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="French Martini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBN-y3-BLR">
+                        <rect key="frame" x="45" y="334.5" width="125" height="21.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쓴맛이 강하지만 향긋 깔끔한 맛...! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUW-MH-Fmz">
+                        <rect key="frame" x="80" y="371" width="232" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Iy2-Ah-SJk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이런 칵테일은 어떠신가요?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hI-sw-JMw">
+                        <rect key="frame" x="25" y="22" width="193" height="92"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="193" id="AWq-dl-3VU"/>
+                            <constraint firstAttribute="height" constant="92" id="fYv-Q3-7mE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qLZ-6p-vWw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="73" id="4lA-iF-faJ"/>
+                    <constraint firstItem="8hI-sw-JMw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="7vC-7F-nxE"/>
+                    <constraint firstItem="JBN-y3-BLR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="25" id="AzS-QY-Xfd"/>
+                    <constraint firstItem="qLZ-6p-vWw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="JFE-Kc-4yZ"/>
+                    <constraint firstItem="8hI-sw-JMw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="QTP-cx-VIt"/>
+                    <constraint firstItem="8hI-sw-JMw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="RE3-Qx-jmq"/>
+                    <constraint firstItem="vUW-MH-Fmz" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="ZDs-H7-eWr"/>
+                    <constraint firstItem="vUW-MH-Fmz" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cwa-PQ-1Qm"/>
+                    <constraint firstItem="vUW-MH-Fmz" firstAttribute="top" secondItem="JBN-y3-BLR" secondAttribute="bottom" constant="15" id="hEc-mm-bXa"/>
+                    <constraint firstItem="qLZ-6p-vWw" firstAttribute="top" secondItem="8hI-sw-JMw" secondAttribute="bottom" constant="2" id="xWZ-o2-NBf"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="vUW-MH-Fmz" id="hua-u1-XAU"/>
+                <outlet property="imgView" destination="qLZ-6p-vWw" id="oDu-Bc-Khm"/>
+                <outlet property="nameLabel" destination="JBN-y3-BLR" id="eka-Mo-cQx"/>
+                <outlet property="welcomeLabel" destination="8hI-sw-JMw" id="Rqi-UT-y6K"/>
+            </connections>
+            <point key="canvasLocation" x="189.85507246376812" y="223.99553571428569"/>
         </tableViewCell>
     </objects>
 </document>
