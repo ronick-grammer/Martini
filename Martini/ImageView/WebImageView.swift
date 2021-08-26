@@ -17,8 +17,8 @@ class WebImageView: UIImageView {
         return indicator
     }()
     
-    
     let imageCache = NSCache<NSString, UIImage>()
+    
     let fileManager = FileManager()
     
     var imageUrl: String? {

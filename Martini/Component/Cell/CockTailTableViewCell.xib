@@ -116,7 +116,7 @@
                 <outlet property="nameLabel" destination="yZA-Ik-8qV" id="PoQ-5r-8gG"/>
                 <outlet property="tasteLabel" destination="GTl-lX-xan" id="ejC-D5-z1s"/>
             </connections>
-            <point key="canvasLocation" x="206.52173913043481" y="132.58928571428572"/>
+            <point key="canvasLocation" x="207" y="131"/>
         </tableViewCell>
     </objects>
     <resources>
