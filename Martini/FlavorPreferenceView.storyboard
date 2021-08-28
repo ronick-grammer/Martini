@@ -13,7 +13,7 @@
         <!--Flavor Preference View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="flavorPreference" id="Y6W-OH-hqX" customClass="FlavorPreferenceViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="FlavorPreferenceViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k5g-Io-csf">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,9 +58,6 @@
                                 <state key="normal" title="이전">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="btnPrevView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Mc1-Dw-L6M"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HF-ea-Aq5">
                                 <rect key="frame" x="324" y="167" width="50" height="30"/>
@@ -71,9 +68,6 @@
                                 <state key="normal" title="다음">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="btnNextView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HzR-Pe-jVJ"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yJx-eZ-6DR"/>
@@ -94,7 +88,6 @@
                             <constraint firstItem="7HF-ea-Aq5" firstAttribute="leading" secondItem="G0H-9i-4Q4" secondAttribute="trailing" constant="258" id="t8a-Z1-3ba"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="XkS-lc-bdx"/>
                     <connections>
                         <outlet property="btnNext" destination="7HF-ea-Aq5" id="7cX-8r-1XQ"/>
                         <outlet property="btnPrev" destination="G0H-9i-4Q4" id="a1i-lu-Glw"/>
@@ -103,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1889.2307692307691" y="43.364928909952603"/>
+            <point key="canvasLocation" x="32" y="44"/>
         </scene>
     </scenes>
     <resources>

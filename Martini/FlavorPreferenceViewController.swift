@@ -33,16 +33,28 @@ class FlavorPreferenceViewController: UIViewController {
     }
     
     @IBAction func btnPrevView(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        guard let uvc = storyboard?.instantiateViewController(identifier: "basePreference") else { return }
+        
+        uvc.modalPresentationStyle = UIModalPresentationStyle.automatic
+        uvc.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+//        self.present(uvc, animated: true)
+        self.dismiss(animated: true)
     }
     
     @IBAction func btnNextView(_ sender: UIButton) {
         
-        let storyboard: UIStoryboard? = UIStoryboard(name: "IngredientsSelectionView", bundle: Bundle.main)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         guard let uvc = storyboard?.instantiateViewController(identifier: "ingredientsSelection") else { return }
         
-        self.navigationController?.pushViewController(uvc, animated: true)
+        uvc.modalPresentationStyle = UIModalPresentationStyle.automatic
+        uvc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        
+        self.present(uvc, animated: true)
     }
 }
 
