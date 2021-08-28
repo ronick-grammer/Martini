@@ -2,7 +2,7 @@
 //  LikeButton.swift
 //  Martini
 //
-//  Created by RONICK on 2021/08/12.
+//  Created by Jingyu Lim on 2021/08/12.
 //
 
 import UIKit

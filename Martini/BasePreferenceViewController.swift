@@ -30,21 +30,27 @@ class BasePreferenceViewController: UIViewController {
     }
     
 
-    
-
     @IBAction func btnNextView(_ sender: UIButton) {
         
         // 스토리 보드 객체 가져오기 (인자 : 이름, 읽어들일 위치)
-        let storyboard: UIStoryboard? = UIStoryboard(name: "FlavorPreferenceView", bundle: Bundle.main)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         // 뷰 객체 얻어오기 (storyboard ID로 ViewController구분)
         guard let uvc = storyboard?.instantiateViewController(identifier: "flavorPreference") else {
             return
         }
-
-        self.navigationController?.pushViewController(uvc, animated: true)
+        
+        // 화면 전환 애니메이션 설정
+        uvc.modalPresentationStyle = .automatic
+        uvc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        
+        self.present(uvc, animated: true)
         
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        BasePreferenceCollectionView.reloadData()
+//    }
 }
 
 
