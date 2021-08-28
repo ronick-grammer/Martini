@@ -13,7 +13,7 @@
         <!--Base Preference View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="BasePreferenceViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="basePreference" id="Y6W-OH-hqX" customClass="BasePreferenceViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HbW-Fi-iJF">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,6 +58,9 @@
                                 <state key="normal" title="다음">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnNextView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AIt-Wq-8WV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="baW-e1-rbe"/>
@@ -75,6 +78,7 @@
                             <constraint firstItem="JzO-no-vg2" firstAttribute="leading" secondItem="baW-e1-rbe" secondAttribute="leading" constant="60" id="qhy-HO-xzp"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zxb-G2-b25"/>
                     <connections>
                         <outlet property="BasePreferenceCollectionView" destination="4qp-eK-XIj" id="jnh-N3-9zl"/>
                         <outlet property="btnNext" destination="Vg0-NN-22Q" id="DpF-Ih-H1e"/>
@@ -82,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="48"/>
+            <point key="canvasLocation" x="1912.3076923076922" y="47.630331753554501"/>
         </scene>
     </scenes>
     <resources>
