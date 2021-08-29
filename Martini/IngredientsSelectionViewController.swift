@@ -34,23 +34,13 @@ class IngredientsSelectionViewController: UIViewController {
         btnNext.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
     }
     
-    
     @IBAction func btnPreView(_ sender: UIButton) {
-        let storyboard: UIStoryboard? = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        guard let uvc = storyboard?.instantiateViewController(identifier: "flavorPreference") else { return }
-        
-        uvc.modalPresentationStyle = UIModalPresentationStyle.automatic
-        uvc.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-    
-//        self.present(uvc, animated: true)
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func btnNextView(_ sender: UIButton) {
         print("next")
     }
-    
 }
 
 

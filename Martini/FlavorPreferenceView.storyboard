@@ -13,7 +13,7 @@
         <!--Flavor Preference View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="FlavorPreferenceViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="flavorPreference" id="Y6W-OH-hqX" customClass="FlavorPreferenceViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k5g-Io-csf">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,6 +58,9 @@
                                 <state key="normal" title="이전">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnPrevView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="r1B-eO-Wau"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HF-ea-Aq5">
                                 <rect key="frame" x="324" y="167" width="50" height="30"/>
@@ -68,6 +71,9 @@
                                 <state key="normal" title="다음">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnNextView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AX7-Fw-lJ0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yJx-eZ-6DR"/>
