@@ -2,22 +2,17 @@
 //  ViewController.swift
 //  Martini
 //
-//  Created by Jingyu Lim on 2021/08/12.
+//  Created by Jingyu Lim on 2021/08/16.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
     
-    let textField = UITextField()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
         // Do any additional setup after loading the view.
     }
 
-
 }
-
