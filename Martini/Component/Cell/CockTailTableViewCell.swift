@@ -10,6 +10,8 @@ import UIKit
 class CockTailTableViewCell: UITableViewCell {
     
     static let nib: UINib = UINib(nibName: "CockTailTableViewCell", bundle: nil)
+        
+    static let identifier = "CockTailTableViewCell"
     
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var cocktailImage: UIImageView!
