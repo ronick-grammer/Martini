@@ -18,9 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qLZ-6p-vWw" customClass="WebImageView" customModule="Martini" customModuleProvider="target">
-                        <rect key="frame" x="93" y="116" width="206" height="206"/>
+                        <rect key="frame" x="106" y="116" width="180" height="180"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="qLZ-6p-vWw" secondAttribute="height" multiplier="1:1" id="6iU-ds-n0x"/>
+                            <constraint firstAttribute="width" constant="180" id="ECY-Ig-j6u"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="French Martini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBN-y3-BLR">
@@ -31,31 +32,28 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쓴맛이 강하지만 향긋 깔끔한 맛...! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUW-MH-Fmz">
                         <rect key="frame" x="80" y="371" width="232" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Iy2-Ah-SJk"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이런 칵테일은 어떠신가요?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hI-sw-JMw">
-                        <rect key="frame" x="25" y="22" width="193" height="92"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hI-sw-JMw">
+                        <rect key="frame" x="25" y="22" width="178.5" height="92"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="193" id="AWq-dl-3VU"/>
                             <constraint firstAttribute="height" constant="92" id="fYv-Q3-7mE"/>
                         </constraints>
+                        <string key="text">이런 칵테일은
+ 어떠신가요?</string>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qLZ-6p-vWw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="73" id="4lA-iF-faJ"/>
                     <constraint firstItem="8hI-sw-JMw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="7vC-7F-nxE"/>
                     <constraint firstItem="JBN-y3-BLR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="25" id="AzS-QY-Xfd"/>
                     <constraint firstItem="qLZ-6p-vWw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="JFE-Kc-4yZ"/>
+                    <constraint firstItem="JBN-y3-BLR" firstAttribute="top" secondItem="qLZ-6p-vWw" secondAttribute="bottom" constant="38.5" id="N96-9G-zHW"/>
                     <constraint firstItem="8hI-sw-JMw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="QTP-cx-VIt"/>
-                    <constraint firstItem="8hI-sw-JMw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="RE3-Qx-jmq"/>
                     <constraint firstItem="vUW-MH-Fmz" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="ZDs-H7-eWr"/>
                     <constraint firstItem="vUW-MH-Fmz" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cwa-PQ-1Qm"/>
                     <constraint firstItem="vUW-MH-Fmz" firstAttribute="top" secondItem="JBN-y3-BLR" secondAttribute="bottom" constant="15" id="hEc-mm-bXa"/>

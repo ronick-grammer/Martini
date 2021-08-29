@@ -32,6 +32,8 @@
 		18C9087A26D2383200DEFBFC /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9087926D2383200DEFBFC /* ColorButton.swift */; };
 		2A44A5C826CB899900DF4F45 /* BannerToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */; };
 		2A44A5CB26CB89AF00DF4F45 /* CustomInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */; };
+		B33AD6A026DA9C480015141E /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33AD69E26DA9C480015141E /* RecipeTableViewCell.swift */; };
+		B33AD6A126DA9C480015141E /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B33AD69F26DA9C480015141E /* RecipeTableViewCell.xib */; };
 		B35C4C6226CE74630039BA3A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35C4C6126CE74630039BA3A /* MainViewController.swift */; };
 		B35C4C6426CE74830039BA3A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35C4C6326CE74830039BA3A /* MainView.storyboard */; };
 		B39A6FA726D2525100544B57 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A6FA526D2525100544B57 /* MainTableViewCell.swift */; };
@@ -40,7 +42,10 @@
 		B39A6FAC26D2611200544B57 /* MainAttributeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B39A6FAA26D2611200544B57 /* MainAttributeTableViewCell.xib */; };
 		B3D91A2E26CAE9C2004FA11F /* BannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */; };
 		B3D91A3126CAECAD004FA11F /* TasteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */; };
-		B3DEB53326D794B80050AE95 /* ingredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DEB53226D794B80050AE95 /* ingredientsTableViewCell.swift */; };
+		B3DEB53626D7AEA00050AE95 /* ingredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DEB53426D7AEA00050AE95 /* ingredientTableViewCell.swift */; };
+		B3DEB53726D7AEA00050AE95 /* ingredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3DEB53526D7AEA00050AE95 /* ingredientTableViewCell.xib */; };
+		B3DEB53A26D7B9D10050AE95 /* TasteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DEB53826D7B9D10050AE95 /* TasteTableViewCell.swift */; };
+		B3DEB53B26D7B9D10050AE95 /* TasteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3DEB53926D7B9D10050AE95 /* TasteTableViewCell.xib */; };
 		D44C81D326C6A122007CBF23 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D44C81D226C6A122007CBF23 /* FirebaseFirestoreSwift-Beta */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +72,8 @@
 		18C9087926D2383200DEFBFC /* ColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerToggleButton.swift; path = ../../../../Martini/Martini/Component/Button/BannerToggleButton.swift; sourceTree = "<group>"; };
 		2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputTextField.swift; sourceTree = "<group>"; };
+		B33AD69E26DA9C480015141E /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		B33AD69F26DA9C480015141E /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
 		B35C4C6126CE74630039BA3A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B35C4C6326CE74830039BA3A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B39A6FA526D2525100544B57 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -75,7 +82,10 @@
 		B39A6FAA26D2611200544B57 /* MainAttributeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainAttributeTableViewCell.xib; sourceTree = "<group>"; };
 		B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerButton.swift; sourceTree = "<group>"; };
 		B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteProgressView.swift; sourceTree = "<group>"; };
-		B3DEB53226D794B80050AE95 /* ingredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingredientsTableViewCell.swift; sourceTree = "<group>"; };
+		B3DEB53426D7AEA00050AE95 /* ingredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingredientTableViewCell.swift; sourceTree = "<group>"; };
+		B3DEB53526D7AEA00050AE95 /* ingredientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ingredientTableViewCell.xib; sourceTree = "<group>"; };
+		B3DEB53826D7B9D10050AE95 /* TasteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteTableViewCell.swift; sourceTree = "<group>"; };
+		B3DEB53926D7B9D10050AE95 /* TasteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TasteTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +113,12 @@
 				B39A6FA626D2525100544B57 /* MainTableViewCell.xib */,
 				B39A6FA926D2611200544B57 /* MainAttributeTableViewCell.swift */,
 				B39A6FAA26D2611200544B57 /* MainAttributeTableViewCell.xib */,
-				B3DEB53226D794B80050AE95 /* ingredientsTableViewCell.swift */,
+				B3DEB53426D7AEA00050AE95 /* ingredientTableViewCell.swift */,
+				B3DEB53526D7AEA00050AE95 /* ingredientTableViewCell.xib */,
+				B3DEB53826D7B9D10050AE95 /* TasteTableViewCell.swift */,
+				B3DEB53926D7B9D10050AE95 /* TasteTableViewCell.xib */,
+				B33AD69E26DA9C480015141E /* RecipeTableViewCell.swift */,
+				B33AD69F26DA9C480015141E /* RecipeTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -295,14 +310,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1804919926C7DB67006DFE75 /* CockTailTableViewCell.xib in Resources */,
+				B3DEB53B26D7B9D10050AE95 /* TasteTableViewCell.xib in Resources */,
 				1861F43126C54146003C8EA4 /* LaunchScreen.storyboard in Resources */,
 				B39A6FAC26D2611200544B57 /* MainAttributeTableViewCell.xib in Resources */,
 				1861F42E26C54146003C8EA4 /* Assets.xcassets in Resources */,
 				B35C4C6426CE74830039BA3A /* MainView.storyboard in Resources */,
 				1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */,
+				B3DEB53726D7AEA00050AE95 /* ingredientTableViewCell.xib in Resources */,
 				18C9087526D237F300DEFBFC /* FindView.storyboard in Resources */,
 				B39A6FA826D2525100544B57 /* MainTableViewCell.xib in Resources */,
 				1861F42C26C54143003C8EA4 /* Main.storyboard in Resources */,
+				B33AD6A126DA9C480015141E /* RecipeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,16 +334,18 @@
 				1861F42926C54143003C8EA4 /* ViewController.swift in Sources */,
 				1861F42526C54143003C8EA4 /* AppDelegate.swift in Sources */,
 				1861F44926C547D0003C8EA4 /* User.swift in Sources */,
+				B33AD6A026DA9C480015141E /* RecipeTableViewCell.swift in Sources */,
 				18C9087826D2382B00DEFBFC /* VStackButton.swift in Sources */,
 				B3D91A2E26CAE9C2004FA11F /* BannerButton.swift in Sources */,
+				B3DEB53A26D7B9D10050AE95 /* TasteTableViewCell.swift in Sources */,
 				1804919826C7DB67006DFE75 /* CockTailTableViewCell.swift in Sources */,
 				18C9087626D237F300DEFBFC /* FindViewController.swift in Sources */,
 				18C9087A26D2383200DEFBFC /* ColorButton.swift in Sources */,
 				B3D91A3126CAECAD004FA11F /* TasteProgressView.swift in Sources */,
 				2A44A5CB26CB89AF00DF4F45 /* CustomInputTextField.swift in Sources */,
+				B3DEB53626D7AEA00050AE95 /* ingredientTableViewCell.swift in Sources */,
 				B39A6FA726D2525100544B57 /* MainTableViewCell.swift in Sources */,
 				1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */,
-				B3DEB53326D794B80050AE95 /* ingredientsTableViewCell.swift in Sources */,
 				1861F44B26C548B7003C8EA4 /* Cocktail.swift in Sources */,
 				1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */,
 				2A44A5C826CB899900DF4F45 /* BannerToggleButton.swift in Sources */,
