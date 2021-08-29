@@ -8,17 +8,22 @@
 import UIKit
 
 class LoginButton: UIButton {
-    let buttonTitleLable = UILabel()
-    var isClicked: Bool = false
-
+    
     @objc func LoginButtonHandler(_ sender: UIButton) {
 
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-//        self.isUserInteractionEnabled = false // Button -> false
-//        self.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside) // self로
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupLayout()
+    }
+    
+    func setupLayout() {
         self.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside) // self로
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
@@ -35,8 +40,9 @@ class LoginButton: UIButton {
         // 색과 언더 라인을 추가
 //        textInfo.addAttribute(NSAttributedString.Key.foregroundColor, value: textColor, range: NSRange(location: 0, length: text.count))
         textInfo.addAttributes([NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: CGFloat(fontSize))], range: NSRange(location: 0, length: text.count))
-        // 버튼에 적용
+        // 버튼 속성 적용
         self.setAttributedTitle(textInfo, for: .normal)
+        // 버튼 값 적용
     }
 
     

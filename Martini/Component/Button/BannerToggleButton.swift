@@ -29,7 +29,7 @@ class BannerToggleButton: UIView {
     
     let banner: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.7641277313, green: 0.7674344182, blue: 0.7642211318, alpha: 1)
         view.layer.cornerRadius = 10
         return view
     }()

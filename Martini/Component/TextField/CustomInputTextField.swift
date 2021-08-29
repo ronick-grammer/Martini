@@ -7,30 +7,38 @@
 
 import UIKit
 
-@IBDesignable
-
 class CustomInputTextField: UITextField  {
-    var textName: String = ""
-    let iconView = UIImageView(frame:
-                                CGRect(x: 10, y: 5, width: 20, height: 20))
-    let iconContainerView: UIView = UIView(frame:
-                                            CGRect(x: 0, y: 0, width: 40, height: 30))
-        
-    @objc func textFieldDidChange(textField: UITextField){
+    let iconView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 10, y: 5, width: 20, height: 20))
+        imageView.tintColor = .black
+        imageView.image = UIImage(systemName: "star.fill")
+        return imageView
+    }()
+    let iconContainerView: UIView = {
+        let view = UIView(frame:CGRect(x: 0, y: 0, width: 40, height: 30))
+        return view
+    }()
+    
+    @objc func textFieldDidChange(textField: CustomInputTextField){
         
     }
     
-    override func awakeFromNib() {
-        iconView.image = UIImage(systemName: "person.fill")
-        iconView.tintColor = .black
-        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupLayout()
+    }
+    
+    func setupLayout() {
         iconContainerView.addSubview(iconView)
-
         leftView = iconContainerView
         leftViewMode = .always
-        placeholder = "이름"
-        
-        self.backgroundColor = #colorLiteral(red: 0.7761746049, green: 0.7685815096, blue: 0.781961143, alpha: 1)
+        self.placeholder = "default"
+        self.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         self.layer.cornerRadius = 10
         self.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
         self.borderStyle = BorderStyle.none
@@ -38,15 +46,8 @@ class CustomInputTextField: UITextField  {
             for: UIControl.Event.editingChanged)
     }
     
+    func informTextInfo(placeholder: String = "default", iconName: String = "person.fill") {
+        iconView.image = UIImage(systemName: iconName)
+        self.placeholder = placeholder
+    }
 }
-
-
-
-
-
-
-    
-
-
-
-    

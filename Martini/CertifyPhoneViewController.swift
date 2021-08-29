@@ -24,15 +24,32 @@ class CertifyPhoneViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         securityCodeTextField.addTarget(self, action: #selector(test), for: .editingChanged)
+        swipeRecognizer()
     }
     
     @objc func test() {
         guard let textW: String = securityCodeTextField.text else { return }
         if textW.count > 1 {
-            securityCodeTextField.text = String(textW[textW.index(textW.startIndex, offsetBy: 1)])
+            securityCodeTextField.text = String(textW[textW.index(textW.startIndex, offsetBy: 0)])
         }
     }
     
+    func swipeRecognizer() {
+            let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(_:)))
+            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+            self.view.addGestureRecognizer(swipeRight)
+        }
+        
+        @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
+            if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+                switch swipeGesture.direction{
+                case UISwipeGestureRecognizer.Direction.right:
+                    // 스와이프 시, 뒤로가기
+                    self.dismiss(animated: true, completion: nil)
+                default: break
+                }
+            }
+        }
     /*
     // MARK: - Navigation
 

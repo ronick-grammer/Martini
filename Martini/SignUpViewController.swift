@@ -28,6 +28,7 @@ class SignUpViewController: UIViewController {
             for: UIControl.Event.editingChanged)
         passwordCheckTextField.addTarget(self, action: #selector(passwordCheckTextFieldDidChange(_:)),
             for: UIControl.Event.editingChanged)
+        
         nameTextField.informTextInfo(placeholder: "이름", iconName: "person.fill")
         nickNameTextField.informTextInfo(placeholder: "닉네임", iconName: "person")
         emailTextField.informTextInfo(placeholder: "이메일", iconName: "envelope.fill")
@@ -37,6 +38,9 @@ class SignUpViewController: UIViewController {
         signUpButton.informTextInfo(text: "회원가입", fontSize: 30)
         passwordTextField.isSecureTextEntry = false // https://fastutlego.tistory.com/86
         passwordCheckTextField.isSecureTextEntry = false // https://fastutlego.tistory.com/86
+        swipeRecognizer()
+        print(type(of: self), #function)
+
         // Do any additional setup after loading the view.
     }
     @IBAction func nameTextFieldDidChange(_ sender: CustomInputTextField) {
@@ -62,16 +66,34 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func phoneCertifyButton(_ sender: LoginButton) {
-        performSegue(withIdentifier: "sgCertifyPhone", sender: self)
+        let certifyPhoneVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "CertifyPhoneVC")
+//        certifyPhoneVC.modalPresentationStyle = .fullScreen
+        present(certifyPhoneVC, animated: true)
     }
     
     @IBAction func signUpbutton(_ sender: LoginButton) {
         if flag == true {
             print(nameTextField.text!, nickNameTextField.text!, emailTextField.text!, passwordTextField.text!)
-            
         }
     }
-    
+    func swipeRecognizer() {
+            let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(_:)))
+            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+            self.view.addGestureRecognizer(swipeRight)
+            
+        }
+        
+        @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
+            if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+                switch swipeGesture.direction{
+                case UISwipeGestureRecognizer.Direction.right:
+                    // 스와이프 시, 뒤로가기
+                    self.dismiss(animated: true, completion: nil)
+//                    self.navigationController?.popViewController(animated: true)
+                default: break
+                }
+            }
+        }
     func CheckForSignup() {
         if nameTextField.text?.count ?? 0 >= 1 && nickNameTextField.text?.count ?? 0 >= 1 && emailTextField.text?.contains("@") == true && passwordTextField.text?.count ?? 0 >= 6 && passwordCheckTextField.text?.count ?? 0 >= 6 && passwordTextField.text == passwordCheckTextField.text{
             signUpButton.setColor(color: #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1))
