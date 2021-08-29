@@ -1,0 +1,11 @@
+name: Martini
+targets:
+  Martini:
+    settings:
+      base:
+      INFOPLIST_FILE: Martini/Info.plist
+      PRODUCT_BUNDLE_IDENTIFIER: com.martiniapp.Martini
+    type: application
+    platform: iOS
+    deploymentTarget: 13.0
+    sources: [Martini]

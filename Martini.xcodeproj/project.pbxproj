@@ -3,376 +3,415 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1804919826C7DB67006DFE75 /* CockTailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804919626C7DB67006DFE75 /* CockTailTableViewCell.swift */; };
-		1804919926C7DB67006DFE75 /* CockTailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1804919726C7DB67006DFE75 /* CockTailTableViewCell.xib */; };
-		180D4C4B26C8DCB600404A7A /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180D4C4A26C8DCB600404A7A /* WebImageView.swift */; };
-		1861F42526C54143003C8EA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F42426C54143003C8EA4 /* AppDelegate.swift */; };
-		1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F42626C54143003C8EA4 /* SceneDelegate.swift */; };
-		1861F42926C54143003C8EA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F42826C54143003C8EA4 /* ViewController.swift */; };
-		1861F42C26C54143003C8EA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1861F42A26C54143003C8EA4 /* Main.storyboard */; };
-		1861F42E26C54146003C8EA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1861F42D26C54146003C8EA4 /* Assets.xcassets */; };
-		1861F43126C54146003C8EA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1861F42F26C54146003C8EA4 /* LaunchScreen.storyboard */; };
-		1861F43A26C54343003C8EA4 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 1861F43926C54343003C8EA4 /* FirebaseFunctions */; };
-		1861F43C26C54343003C8EA4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1861F43B26C54343003C8EA4 /* FirebaseStorage */; };
-		1861F43E26C54343003C8EA4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1861F43D26C54343003C8EA4 /* FirebaseAuth */; };
-		1861F44026C54343003C8EA4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1861F43F26C54343003C8EA4 /* FirebaseFirestore */; };
-		1861F44226C54343003C8EA4 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 1861F44126C54343003C8EA4 /* FirebaseMessaging */; };
-		1861F44926C547D0003C8EA4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F44826C547D0003C8EA4 /* User.swift */; };
-		1861F44B26C548B7003C8EA4 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F44A26C548B7003C8EA4 /* Cocktail.swift */; };
-		1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F44C26C54F20003C8EA4 /* DetailViewController.swift */; };
-		1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1861F45026C54F59003C8EA4 /* DetailView.storyboard */; };
-		1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F45226C550B7003C8EA4 /* LikeButton.swift */; };
-		18C9087526D237F300DEFBFC /* FindView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C9087326D237F300DEFBFC /* FindView.storyboard */; };
-		18C9087626D237F300DEFBFC /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9087426D237F300DEFBFC /* FindViewController.swift */; };
-		18C9087826D2382B00DEFBFC /* VStackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9087726D2382B00DEFBFC /* VStackButton.swift */; };
-		18C9087A26D2383200DEFBFC /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C9087926D2383200DEFBFC /* ColorButton.swift */; };
-		2A44A5C826CB899900DF4F45 /* BannerToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */; };
-		2A44A5CB26CB89AF00DF4F45 /* CustomInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */; };
-		B35C4C6226CE74630039BA3A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35C4C6126CE74630039BA3A /* MainViewController.swift */; };
-		B35C4C6426CE74830039BA3A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35C4C6326CE74830039BA3A /* MainView.storyboard */; };
-		B39A6FA726D2525100544B57 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A6FA526D2525100544B57 /* MainTableViewCell.swift */; };
-		B39A6FA826D2525100544B57 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B39A6FA626D2525100544B57 /* MainTableViewCell.xib */; };
-		B39A6FAB26D2611200544B57 /* MainAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39A6FA926D2611200544B57 /* MainAttributeTableViewCell.swift */; };
-		B39A6FAC26D2611200544B57 /* MainAttributeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B39A6FAA26D2611200544B57 /* MainAttributeTableViewCell.xib */; };
-		B3D91A2E26CAE9C2004FA11F /* BannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */; };
-		B3D91A3126CAECAD004FA11F /* TasteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */; };
-		B3DEB53626D7AEA00050AE95 /* ingredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DEB53426D7AEA00050AE95 /* ingredientTableViewCell.swift */; };
-		B3DEB53726D7AEA00050AE95 /* ingredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3DEB53526D7AEA00050AE95 /* ingredientTableViewCell.xib */; };
-		B3DEB53A26D7B9D10050AE95 /* TasteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DEB53826D7B9D10050AE95 /* TasteTableViewCell.swift */; };
-		B3DEB53B26D7B9D10050AE95 /* TasteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3DEB53926D7B9D10050AE95 /* TasteTableViewCell.xib */; };
-		D44C81D326C6A122007CBF23 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D44C81D226C6A122007CBF23 /* FirebaseFirestoreSwift-Beta */; };
+		03100578C31462DD4B9D2344 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3D35727285403F188B4B69 /* SettingViewController.swift */; };
+		0839CAFFACB9D8870D37C03B /* CockTailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04AE4A4305DCC993A91265F /* CockTailTableViewCell.xib */; };
+		0EE871EE56B1DA0466442837 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02CA7D80864EE25C56696E /* LoginButton.swift */; };
+		0F2A025825933866E2C3DA00 /* VStackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAB3A7BC6E83B21A5F35E3B /* VStackButton.swift */; };
+		170B50B06E222FA43FCCC367 /* CustomInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AE88563DEA79ECEDB5577B /* CustomInputTextField.swift */; };
+		1AA1496CA1F1A6BA0AEDE785 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365ED54D441FD0CA404EBA89 /* MainTableViewCell.swift */; };
+		1ACBC60964FDE123598B5556 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E212C3BAB0E4E585A2CC1AFE /* LoginViewController.swift */; };
+		1DFC186D1E8D9DADB5CF05D9 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C27FE597D069B59B0BCD764 /* MainTableViewCell.xib */; };
+		224BE0E7DE7CCB5D63FCDC41 /* ingredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11ACB31AEDD9DCDCFEB9A3 /* ingredientTableViewCell.swift */; };
+		252F5C896EB6733456432600 /* TasteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68570F614BF8A6B8EB8C0BC7 /* TasteTableViewCell.swift */; };
+		2AC2CF5F6A568C7BF4673498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316C103E59CBD017CC23E666 /* Assets.xcassets */; };
+		2C82F1C1A6AFEBDD9D81AD6A /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41139238BAD2634D1A0B2893 /* RecipeTableViewCell.xib */; };
+		324BDDB60A873174E1ACFABD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565890830A74D20A098EBA0 /* User.swift */; };
+		32C26564CCBE2B70B1BC6CD4 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DBD375043D94CF50000E0 /* WebImageView.swift */; };
+		36CE21647AF0F81610DB6D45 /* IngredientsSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C1179AF32B8CDAD5A5203 /* IngredientsSelectionViewController.swift */; };
+		3B78796521D9230512ED6560 /* BasePreferenceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3D93E9D9B283465DAD1C6F /* BasePreferenceCollectionViewCell.swift */; };
+		42C0A22EC9A276DC7F6945A7 /* FlavorPreferenceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B4EA07B5E079A1928430A0 /* FlavorPreferenceCollectionViewCell.swift */; };
+		448BA288B5B846ECD3357444 /* CockTailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655D880DB23A78FB53C1DB4 /* CockTailTableViewCell.swift */; };
+		4AF9B65FC34E4A11BAEB8F68 /* BasePreferenceView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 790A8EC24B4D0E6E709DC839 /* BasePreferenceView.storyboard */; };
+		4BE49422E40DBFD68E4FF393 /* BannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29732B947D1A0548EB887208 /* BannerButton.swift */; };
+		526687A0A66999070F0C28FA /* MainAttributeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B46716349C79E3667FF6F009 /* MainAttributeTableViewCell.xib */; };
+		5AC5CAAE217955D1A8D306EA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E16E2182F292EE58287DFF /* SignUpViewController.swift */; };
+		5B28020B72F563620BD9CD64 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F4A8A94C6A72139BC22B14 /* LikeButton.swift */; };
+		630E8157B056C7917736E6CA /* SettingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA485D2A4D295CA4DAD3588 /* SettingView.storyboard */; };
+		634ABD44CE20AA31254596DA /* MainAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3223FA520AD1CB1FE53C0AD /* MainAttributeTableViewCell.swift */; };
+		64EA3AFFCF2DCC3341D91306 /* IngredientsSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80261C0CCBF6A1527607C218 /* IngredientsSelectionCollectionViewCell.swift */; };
+		6507757B45D1CF5D98BA6206 /* ingredientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49ABA99B24BF594BA5953B97 /* ingredientTableViewCell.xib */; };
+		65D397E93FBBB9D1809DD86A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F95A271C52E53D49FC72C5C3 /* Login.storyboard */; };
+		662F134BB746B3EC225FA81A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CB1806FD428B3CD322563D /* MainView.storyboard */; };
+		6731ACFDEFA353428D62C004 /* FindView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA92596517383727C55EC6F /* FindView.storyboard */; };
+		6B63EBB17099693835E46812 /* IngredientsSelectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19843DC052FB85E7F6038922 /* IngredientsSelectionView.storyboard */; };
+		6F722DB1B4FAF7127DF5BB4F /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C67188C563A618AE2132B00 /* ColorButton.swift */; };
+		714FD543A70D7FDB3589562B /* FlavorPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2CA52345E9EA4AF8D7BDBF9 /* FlavorPreferenceViewController.swift */; };
+		727E4EE981CEEF8ADAF0C93F /* BannerToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C34490EFB2DEDB6ED85817E /* BannerToggleButton.swift */; };
+		776A93E11117366BB95B3C59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01204375BB997427F2846996 /* Main.storyboard */; };
+		77FD9677527807FF33CF11D1 /* TasteProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B8D06056D1C53D264E4175 /* TasteProgressView.swift */; };
+		7A423C080F6F1F512FB3B6FA /* CertifyPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE0783AE7A2CA2CE16B1E5A /* CertifyPhoneViewController.swift */; };
+		86EC4E8D28C9E6611E87D952 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0E111B379234308CB47A2F37 /* README.md */; };
+		A007D1947A5C5A60BAEE59B0 /* TasteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AB9CFB8BE65D8C0468C8A9 /* TasteTableViewCell.xib */; };
+		AF89274C46BA641BDC8DFEE0 /* BasePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556BDBA0A9D9637F09C2B07 /* BasePreferenceViewController.swift */; };
+		B3E259EC2BF1D997139DDF8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B87846FB58C4B3EC6DC80 /* SceneDelegate.swift */; };
+		C594BE4FE5E5F433D56A0F9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA7BC4E34C6D49E65C2466 /* ViewController.swift */; };
+		CE2A4F9E1E2346362E5DFD02 /* FlavorPreferenceView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFB436019D656B34ABBD88DC /* FlavorPreferenceView.storyboard */; };
+		D836AE62B4DCC7119F399FA4 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106821DD1E67E84F88B1001 /* FindViewController.swift */; };
+		DCDD9E8C33EF570CACE863A4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9A86FC4C1261EF12208B0 /* DetailViewController.swift */; };
+		DD260A85266E35C14E9B1AD1 /* SliderStrenth.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE37727D8A28DBB6CA4E908 /* SliderStrenth.swift */; };
+		E3EE153AB0391AAD2769D021 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595BAAD4F10411EE7AF0B112 /* AppDelegate.swift */; };
+		E8D363DEA47886FC69114B0A /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD1F6EC5098C5B6D01E9C1 /* Cocktail.swift */; };
+		EC4F126CE08A41763CB3B0E3 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BFB90E214E4366DDE6A33C /* RecipeTableViewCell.swift */; };
+		EE2BA480B0CC3FE840EFC329 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58B92CB638FD0BA08334E796 /* DetailView.storyboard */; };
+		EF43201759E4890612F0B31B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F7B990185CD1EA371F14B8 /* LaunchScreen.storyboard */; };
+		F40DA15C972295ED618A3DFC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FB4CB08900A7CDFEB36118 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1804919626C7DB67006DFE75 /* CockTailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailTableViewCell.swift; sourceTree = "<group>"; };
-		1804919726C7DB67006DFE75 /* CockTailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CockTailTableViewCell.xib; sourceTree = "<group>"; };
-		180D4C4A26C8DCB600404A7A /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
-		1861F42126C54143003C8EA4 /* Martini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Martini.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1861F42426C54143003C8EA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1861F42626C54143003C8EA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1861F42826C54143003C8EA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1861F42B26C54143003C8EA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1861F42D26C54146003C8EA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1861F43026C54146003C8EA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1861F43226C54146003C8EA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1861F44826C547D0003C8EA4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		1861F44A26C548B7003C8EA4 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
-		1861F44C26C54F20003C8EA4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		1861F45026C54F59003C8EA4 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
-		1861F45226C550B7003C8EA4 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
-		18C9087326D237F300DEFBFC /* FindView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FindView.storyboard; sourceTree = "<group>"; };
-		18C9087426D237F300DEFBFC /* FindViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
-		18C9087726D2382B00DEFBFC /* VStackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStackButton.swift; sourceTree = "<group>"; };
-		18C9087926D2383200DEFBFC /* ColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
-		2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BannerToggleButton.swift; path = ../../../../Martini/Martini/Component/Button/BannerToggleButton.swift; sourceTree = "<group>"; };
-		2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputTextField.swift; sourceTree = "<group>"; };
-		B35C4C6126CE74630039BA3A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		B35C4C6326CE74830039BA3A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
-		B39A6FA526D2525100544B57 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		B39A6FA626D2525100544B57 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
-		B39A6FA926D2611200544B57 /* MainAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAttributeTableViewCell.swift; sourceTree = "<group>"; };
-		B39A6FAA26D2611200544B57 /* MainAttributeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainAttributeTableViewCell.xib; sourceTree = "<group>"; };
-		B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerButton.swift; sourceTree = "<group>"; };
-		B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteProgressView.swift; sourceTree = "<group>"; };
-		B3DEB53426D7AEA00050AE95 /* ingredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingredientTableViewCell.swift; sourceTree = "<group>"; };
-		B3DEB53526D7AEA00050AE95 /* ingredientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ingredientTableViewCell.xib; sourceTree = "<group>"; };
-		B3DEB53826D7B9D10050AE95 /* TasteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteTableViewCell.swift; sourceTree = "<group>"; };
-		B3DEB53926D7B9D10050AE95 /* TasteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TasteTableViewCell.xib; sourceTree = "<group>"; };
+		0106821DD1E67E84F88B1001 /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
+		0556BDBA0A9D9637F09C2B07 /* BasePreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePreferenceViewController.swift; sourceTree = "<group>"; };
+		0AA485D2A4D295CA4DAD3588 /* SettingView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingView.storyboard; sourceTree = "<group>"; };
+		0E111B379234308CB47A2F37 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		15BFB90E214E4366DDE6A33C /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		18AB9CFB8BE65D8C0468C8A9 /* TasteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TasteTableViewCell.xib; sourceTree = "<group>"; };
+		19843DC052FB85E7F6038922 /* IngredientsSelectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IngredientsSelectionView.storyboard; sourceTree = "<group>"; };
+		1CEA7BC4E34C6D49E65C2466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2104996A69DA2210D9DE1A02 /* Martini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Martini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2565890830A74D20A098EBA0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		29732B947D1A0548EB887208 /* BannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerButton.swift; sourceTree = "<group>"; };
+		29CB1806FD428B3CD322563D /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
+		29E16E2182F292EE58287DFF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		2CE0783AE7A2CA2CE16B1E5A /* CertifyPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifyPhoneViewController.swift; sourceTree = "<group>"; };
+		316C103E59CBD017CC23E666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		365ED54D441FD0CA404EBA89 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		370B87846FB58C4B3EC6DC80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3C3D93E9D9B283465DAD1C6F /* BasePreferenceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePreferenceCollectionViewCell.swift; sourceTree = "<group>"; };
+		41139238BAD2634D1A0B2893 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
+		49ABA99B24BF594BA5953B97 /* ingredientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ingredientTableViewCell.xib; sourceTree = "<group>"; };
+		4B02CA7D80864EE25C56696E /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		50F4A8A94C6A72139BC22B14 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		568C1179AF32B8CDAD5A5203 /* IngredientsSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsSelectionViewController.swift; sourceTree = "<group>"; };
+		58B92CB638FD0BA08334E796 /* DetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailView.storyboard; sourceTree = "<group>"; };
+		595BAAD4F10411EE7AF0B112 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5EA92596517383727C55EC6F /* FindView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindView.storyboard; sourceTree = "<group>"; };
+		68570F614BF8A6B8EB8C0BC7 /* TasteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteTableViewCell.swift; sourceTree = "<group>"; };
+		6C27FE597D069B59B0BCD764 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		6C34490EFB2DEDB6ED85817E /* BannerToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerToggleButton.swift; sourceTree = "<group>"; };
+		70FB4CB08900A7CDFEB36118 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		790A8EC24B4D0E6E709DC839 /* BasePreferenceView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BasePreferenceView.storyboard; sourceTree = "<group>"; };
+		7F11ACB31AEDD9DCDCFEB9A3 /* ingredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingredientTableViewCell.swift; sourceTree = "<group>"; };
+		80261C0CCBF6A1527607C218 /* IngredientsSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		82B4EA07B5E079A1928430A0 /* FlavorPreferenceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorPreferenceCollectionViewCell.swift; sourceTree = "<group>"; };
+		8EFD1F6EC5098C5B6D01E9C1 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
+		94B8D06056D1C53D264E4175 /* TasteProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteProgressView.swift; sourceTree = "<group>"; };
+		9C67188C563A618AE2132B00 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
+		9E2934D974475039513A2286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A8D9A86FC4C1261EF12208B0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		AA9DBD375043D94CF50000E0 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		ABE37727D8A28DBB6CA4E908 /* SliderStrenth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStrenth.swift; sourceTree = "<group>"; };
+		B04AE4A4305DCC993A91265F /* CockTailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CockTailTableViewCell.xib; sourceTree = "<group>"; };
+		B46716349C79E3667FF6F009 /* MainAttributeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainAttributeTableViewCell.xib; sourceTree = "<group>"; };
+		BA2654CCCF055010D55CB3C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7F1FA084ED5A7728877D10F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C9AE88563DEA79ECEDB5577B /* CustomInputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputTextField.swift; sourceTree = "<group>"; };
+		D3223FA520AD1CB1FE53C0AD /* MainAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAttributeTableViewCell.swift; sourceTree = "<group>"; };
+		D655D880DB23A78FB53C1DB4 /* CockTailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailTableViewCell.swift; sourceTree = "<group>"; };
+		E212C3BAB0E4E585A2CC1AFE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF3D35727285403F188B4B69 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		EFB436019D656B34ABBD88DC /* FlavorPreferenceView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FlavorPreferenceView.storyboard; sourceTree = "<group>"; };
+		F2CA52345E9EA4AF8D7BDBF9 /* FlavorPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorPreferenceViewController.swift; sourceTree = "<group>"; };
+		F95A271C52E53D49FC72C5C3 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		FDAB3A7BC6E83B21A5F35E3B /* VStackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		1861F41E26C54143003C8EA4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1861F43A26C54343003C8EA4 /* FirebaseFunctions in Frameworks */,
-				1861F44026C54343003C8EA4 /* FirebaseFirestore in Frameworks */,
-				1861F44226C54343003C8EA4 /* FirebaseMessaging in Frameworks */,
-				1861F43E26C54343003C8EA4 /* FirebaseAuth in Frameworks */,
-				1861F43C26C54343003C8EA4 /* FirebaseStorage in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
-		1804919526C7DB2F006DFE75 /* Cell */ = {
+		05FF8CDEE569FAF6031BF655 /* FlavorPreference */ = {
 			isa = PBXGroup;
 			children = (
-				1804919626C7DB67006DFE75 /* CockTailTableViewCell.swift */,
-				1804919726C7DB67006DFE75 /* CockTailTableViewCell.xib */,
-				B39A6FA526D2525100544B57 /* MainTableViewCell.swift */,
-				B39A6FA626D2525100544B57 /* MainTableViewCell.xib */,
-				B39A6FA926D2611200544B57 /* MainAttributeTableViewCell.swift */,
-				B39A6FAA26D2611200544B57 /* MainAttributeTableViewCell.xib */,
-				B3DEB53426D7AEA00050AE95 /* ingredientTableViewCell.swift */,
-				B3DEB53526D7AEA00050AE95 /* ingredientTableViewCell.xib */,
-				B3DEB53826D7B9D10050AE95 /* TasteTableViewCell.swift */,
-				B3DEB53926D7B9D10050AE95 /* TasteTableViewCell.xib */,
-				B33AD69E26DA9C480015141E /* RecipeTableViewCell.swift */,
-				B33AD69F26DA9C480015141E /* RecipeTableViewCell.xib */,
+				82B4EA07B5E079A1928430A0 /* FlavorPreferenceCollectionViewCell.swift */,
 			);
-			path = Cell;
+			path = FlavorPreference;
 			sourceTree = "<group>";
 		};
-		180D4C4926C8DC9200404A7A /* ImageView */ = {
+		20F82644BB0409B75F1A7036 /* BasePreference */ = {
 			isa = PBXGroup;
 			children = (
-				180D4C4A26C8DCB600404A7A /* WebImageView.swift */,
+				3C3D93E9D9B283465DAD1C6F /* BasePreferenceCollectionViewCell.swift */,
 			);
-			path = ImageView;
+			path = BasePreference;
 			sourceTree = "<group>";
 		};
-		1861F41826C54143003C8EA4 = {
+		25B9D18D8EA9C171FDB05206 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				1861F42326C54143003C8EA4 /* Martini */,
-				1861F42226C54143003C8EA4 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		1861F42226C54143003C8EA4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1861F42126C54143003C8EA4 /* Martini.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		1861F42326C54143003C8EA4 /* Martini */ = {
-			isa = PBXGroup;
-			children = (
-				180D4C4926C8DC9200404A7A /* ImageView */,
-				1861F44726C54793003C8EA4 /* DataStore */,
-				1861F44626C54757003C8EA4 /* Component */,
-				1861F44326C54721003C8EA4 /* Model */,
-				1861F42426C54143003C8EA4 /* AppDelegate.swift */,
-				2ADCAE0026D7BC150063D98F /* CertifyPhoneViewController.swift */,
-				2ADCAE0326D7BC160063D98F /* Login.storyboard */,
-				2ADCAE0126D7BC160063D98F /* LoginViewController.swift */,
-				2ADCAE0226D7BC160063D98F /* SignUpViewController.swift */,
-				1861F42626C54143003C8EA4 /* SceneDelegate.swift */,
-				1861F42826C54143003C8EA4 /* ViewController.swift */,
-				1861F42A26C54143003C8EA4 /* Main.storyboard */,
-				1861F42D26C54146003C8EA4 /* Assets.xcassets */,
-				1861F42F26C54146003C8EA4 /* LaunchScreen.storyboard */,
-				18C9087326D237F300DEFBFC /* FindView.storyboard */,
-				18C9087426D237F300DEFBFC /* FindViewController.swift */,
-				1861F43226C54146003C8EA4 /* Info.plist */,
-				1861F44C26C54F20003C8EA4 /* DetailViewController.swift */,
-				B35C4C6126CE74630039BA3A /* MainViewController.swift */,
-				B35C4C6326CE74830039BA3A /* MainView.storyboard */,
-				1861F45026C54F59003C8EA4 /* DetailView.storyboard */,
-			);
-			path = Martini;
-			sourceTree = "<group>";
-		};
-		1861F44326C54721003C8EA4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1861F44826C547D0003C8EA4 /* User.swift */,
-				1861F44A26C548B7003C8EA4 /* Cocktail.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1861F44426C54733003C8EA4 /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TableViewCell;
-			sourceTree = "<group>";
-		};
-		1861F44526C54742003C8EA4 /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				1861F45226C550B7003C8EA4 /* LikeButton.swift */,
-				18C9087726D2382B00DEFBFC /* VStackButton.swift */,
-				18C9087926D2383200DEFBFC /* ColorButton.swift */,
-				2A44A5C626CB899900DF4F45 /* BannerToggleButton.swift */,
-				B3D91A2D26CAE9C2004FA11F /* BannerButton.swift */,
-				2ADCADFE26D7BBF90063D98F /* LoginButton.swift */,
+				29732B947D1A0548EB887208 /* BannerButton.swift */,
+				6C34490EFB2DEDB6ED85817E /* BannerToggleButton.swift */,
+				9C67188C563A618AE2132B00 /* ColorButton.swift */,
+				50F4A8A94C6A72139BC22B14 /* LikeButton.swift */,
+				4B02CA7D80864EE25C56696E /* LoginButton.swift */,
+				FDAB3A7BC6E83B21A5F35E3B /* VStackButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
 		};
-		1861F44626C54757003C8EA4 /* Component */ = {
+		343F1D461070E3A40B44C6CC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2A44A5C926CB89AF00DF4F45 /* TextField */,
-				B3D91A2F26CAEC8B004FA11F /* Progress */,
-				1804919526C7DB2F006DFE75 /* Cell */,
-				1861F44526C54742003C8EA4 /* Button */,
-				1861F44426C54733003C8EA4 /* TableViewCell */,
+				8EFD1F6EC5098C5B6D01E9C1 /* Cocktail.swift */,
+				2565890830A74D20A098EBA0 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		40CE15DFAAAE7220747D7DBB /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				ABE37727D8A28DBB6CA4E908 /* SliderStrenth.swift */,
+			);
+			path = Slider;
+			sourceTree = "<group>";
+		};
+		415D80635E569D398F3DC089 /* Martini */ = {
+			isa = PBXGroup;
+			children = (
+				595BAAD4F10411EE7AF0B112 /* AppDelegate.swift */,
+				316C103E59CBD017CC23E666 /* Assets.xcassets */,
+				790A8EC24B4D0E6E709DC839 /* BasePreferenceView.storyboard */,
+				0556BDBA0A9D9637F09C2B07 /* BasePreferenceViewController.swift */,
+				2CE0783AE7A2CA2CE16B1E5A /* CertifyPhoneViewController.swift */,
+				58B92CB638FD0BA08334E796 /* DetailView.storyboard */,
+				A8D9A86FC4C1261EF12208B0 /* DetailViewController.swift */,
+				5EA92596517383727C55EC6F /* FindView.storyboard */,
+				0106821DD1E67E84F88B1001 /* FindViewController.swift */,
+				EFB436019D656B34ABBD88DC /* FlavorPreferenceView.storyboard */,
+				F2CA52345E9EA4AF8D7BDBF9 /* FlavorPreferenceViewController.swift */,
+				9E2934D974475039513A2286 /* Info.plist */,
+				19843DC052FB85E7F6038922 /* IngredientsSelectionView.storyboard */,
+				568C1179AF32B8CDAD5A5203 /* IngredientsSelectionViewController.swift */,
+				F0F7B990185CD1EA371F14B8 /* LaunchScreen.storyboard */,
+				F95A271C52E53D49FC72C5C3 /* Login.storyboard */,
+				E212C3BAB0E4E585A2CC1AFE /* LoginViewController.swift */,
+				01204375BB997427F2846996 /* Main.storyboard */,
+				29CB1806FD428B3CD322563D /* MainView.storyboard */,
+				70FB4CB08900A7CDFEB36118 /* MainViewController.swift */,
+				0E111B379234308CB47A2F37 /* README.md */,
+				370B87846FB58C4B3EC6DC80 /* SceneDelegate.swift */,
+				0AA485D2A4D295CA4DAD3588 /* SettingView.storyboard */,
+				EF3D35727285403F188B4B69 /* SettingViewController.swift */,
+				29E16E2182F292EE58287DFF /* SignUpViewController.swift */,
+				1CEA7BC4E34C6D49E65C2466 /* ViewController.swift */,
+				67DA382CE1B2B843CEE10A41 /* Component */,
+				343F1D461070E3A40B44C6CC /* Model */,
+			);
+			path = Martini;
+			sourceTree = "<group>";
+		};
+		5493DC29D57C5DFFBDC610AD /* IngredientsSelection */ = {
+			isa = PBXGroup;
+			children = (
+				80261C0CCBF6A1527607C218 /* IngredientsSelectionCollectionViewCell.swift */,
+			);
+			path = IngredientsSelection;
+			sourceTree = "<group>";
+		};
+		67DA382CE1B2B843CEE10A41 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				25B9D18D8EA9C171FDB05206 /* Button */,
+				B99358265235F8D510FBFBD9 /* Cell */,
+				7EDCD4E389E81B5819E646DF /* ImageView */,
+				780114263629457E8B691D87 /* Progress */,
+				40CE15DFAAAE7220747D7DBB /* Slider */,
+				DB33E658E563FD7D00BD232E /* TextField */,
 			);
 			path = Component;
 			sourceTree = "<group>";
 		};
-		1861F44726C54793003C8EA4 /* DataStore */ = {
+		780114263629457E8B691D87 /* Progress */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = DataStore;
-			sourceTree = "<group>";
-		};
-		2A44A5C926CB89AF00DF4F45 /* TextField */ = {
-			isa = PBXGroup;
-			children = (
-				2A44A5CA26CB89AF00DF4F45 /* CustomInputTextField.swift */,
-			);
-			name = TextField;
-			path = ../../../Martini/Martini/Component/TextField;
-			sourceTree = "<group>";
-		};
-		B3D91A2F26CAEC8B004FA11F /* Progress */ = {
-			isa = PBXGroup;
-			children = (
-				B3D91A3026CAECAD004FA11F /* TasteProgressView.swift */,
+				94B8D06056D1C53D264E4175 /* TasteProgressView.swift */,
 			);
 			path = Progress;
 			sourceTree = "<group>";
 		};
-		D44C81D126C6A122007CBF23 /* Frameworks */ = {
+		7EDCD4E389E81B5819E646DF /* ImageView */ = {
 			isa = PBXGroup;
 			children = (
+				AA9DBD375043D94CF50000E0 /* WebImageView.swift */,
 			);
-			name = Frameworks;
+			path = ImageView;
+			sourceTree = "<group>";
+		};
+		B99358265235F8D510FBFBD9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D655D880DB23A78FB53C1DB4 /* CockTailTableViewCell.swift */,
+				B04AE4A4305DCC993A91265F /* CockTailTableViewCell.xib */,
+				7F11ACB31AEDD9DCDCFEB9A3 /* ingredientTableViewCell.swift */,
+				49ABA99B24BF594BA5953B97 /* ingredientTableViewCell.xib */,
+				D3223FA520AD1CB1FE53C0AD /* MainAttributeTableViewCell.swift */,
+				B46716349C79E3667FF6F009 /* MainAttributeTableViewCell.xib */,
+				365ED54D441FD0CA404EBA89 /* MainTableViewCell.swift */,
+				6C27FE597D069B59B0BCD764 /* MainTableViewCell.xib */,
+				15BFB90E214E4366DDE6A33C /* RecipeTableViewCell.swift */,
+				41139238BAD2634D1A0B2893 /* RecipeTableViewCell.xib */,
+				68570F614BF8A6B8EB8C0BC7 /* TasteTableViewCell.swift */,
+				18AB9CFB8BE65D8C0468C8A9 /* TasteTableViewCell.xib */,
+				20F82644BB0409B75F1A7036 /* BasePreference */,
+				05FF8CDEE569FAF6031BF655 /* FlavorPreference */,
+				5493DC29D57C5DFFBDC610AD /* IngredientsSelection */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		DB33E658E563FD7D00BD232E /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				C9AE88563DEA79ECEDB5577B /* CustomInputTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		E3716F29C61850005EC5C3AE = {
+			isa = PBXGroup;
+			children = (
+				415D80635E569D398F3DC089 /* Martini */,
+				FB5B62E8F0F9A4B2C8429D55 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB5B62E8F0F9A4B2C8429D55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2104996A69DA2210D9DE1A02 /* Martini.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1861F42026C54143003C8EA4 /* Martini */ = {
+		88A7BCBDC0F13741BEEB1CB5 /* Martini */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1861F43526C54146003C8EA4 /* Build configuration list for PBXNativeTarget "Martini" */;
+			buildConfigurationList = 6733397ABD3C7F93110E3A05 /* Build configuration list for PBXNativeTarget "Martini" */;
 			buildPhases = (
-				1861F41D26C54143003C8EA4 /* Sources */,
-				1861F41E26C54143003C8EA4 /* Frameworks */,
-				1861F41F26C54143003C8EA4 /* Resources */,
+				DECAC993B0AFA8B4F6EB11A7 /* Sources */,
+				49D055530DC153F0F2158621 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Martini;
-			packageProductDependencies = (
-				1861F43926C54343003C8EA4 /* FirebaseFunctions */,
-				1861F43B26C54343003C8EA4 /* FirebaseStorage */,
-				1861F43D26C54343003C8EA4 /* FirebaseAuth */,
-				1861F43F26C54343003C8EA4 /* FirebaseFirestore */,
-				1861F44126C54343003C8EA4 /* FirebaseMessaging */,
-			);
 			productName = Martini;
-			productReference = 1861F42126C54143003C8EA4 /* Martini.app */;
+			productReference = 2104996A69DA2210D9DE1A02 /* Martini.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1861F41926C54143003C8EA4 /* Project object */ = {
+		D71A8BD6EF4DF6257F5ABD89 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
-				TargetAttributes = {
-					1861F42026C54143003C8EA4 = {
-						CreatedOnToolsVersion = 12.5.1;
-					};
-				};
+				LastUpgradeCheck = 1200;
 			};
-			buildConfigurationList = 1861F41C26C54143003C8EA4 /* Build configuration list for PBXProject "Martini" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 29C05C3B9A369FD2E671A7D6 /* Build configuration list for PBXProject "Martini" */;
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
-			mainGroup = 1861F41826C54143003C8EA4;
-			packageReferences = (
-				1861F43826C54343003C8EA4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-			);
-			productRefGroup = 1861F42226C54143003C8EA4 /* Products */;
+			mainGroup = E3716F29C61850005EC5C3AE;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1861F42026C54143003C8EA4 /* Martini */,
+				88A7BCBDC0F13741BEEB1CB5 /* Martini */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1861F41F26C54143003C8EA4 /* Resources */ = {
+		49D055530DC153F0F2158621 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1804919926C7DB67006DFE75 /* CockTailTableViewCell.xib in Resources */,
-				B3DEB53B26D7B9D10050AE95 /* TasteTableViewCell.xib in Resources */,
-				1861F43126C54146003C8EA4 /* LaunchScreen.storyboard in Resources */,
-				B39A6FAC26D2611200544B57 /* MainAttributeTableViewCell.xib in Resources */,
-				1861F42E26C54146003C8EA4 /* Assets.xcassets in Resources */,
-				B35C4C6426CE74830039BA3A /* MainView.storyboard in Resources */,
-				1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */,
-				B3DEB53726D7AEA00050AE95 /* ingredientTableViewCell.xib in Resources */,
-				18C9087526D237F300DEFBFC /* FindView.storyboard in Resources */,
-				B39A6FA826D2525100544B57 /* MainTableViewCell.xib in Resources */,
-				2ADCAE0726D7BC160063D98F /* Login.storyboard in Resources */,
-				1861F42C26C54143003C8EA4 /* Main.storyboard in Resources */,
-				B33AD6A126DA9C480015141E /* RecipeTableViewCell.xib in Resources */,
+				2AC2CF5F6A568C7BF4673498 /* Assets.xcassets in Resources */,
+				4AF9B65FC34E4A11BAEB8F68 /* BasePreferenceView.storyboard in Resources */,
+				0839CAFFACB9D8870D37C03B /* CockTailTableViewCell.xib in Resources */,
+				EE2BA480B0CC3FE840EFC329 /* DetailView.storyboard in Resources */,
+				6731ACFDEFA353428D62C004 /* FindView.storyboard in Resources */,
+				CE2A4F9E1E2346362E5DFD02 /* FlavorPreferenceView.storyboard in Resources */,
+				6B63EBB17099693835E46812 /* IngredientsSelectionView.storyboard in Resources */,
+				EF43201759E4890612F0B31B /* LaunchScreen.storyboard in Resources */,
+				65D397E93FBBB9D1809DD86A /* Login.storyboard in Resources */,
+				776A93E11117366BB95B3C59 /* Main.storyboard in Resources */,
+				526687A0A66999070F0C28FA /* MainAttributeTableViewCell.xib in Resources */,
+				1DFC186D1E8D9DADB5CF05D9 /* MainTableViewCell.xib in Resources */,
+				662F134BB746B3EC225FA81A /* MainView.storyboard in Resources */,
+				86EC4E8D28C9E6611E87D952 /* README.md in Resources */,
+				2C82F1C1A6AFEBDD9D81AD6A /* RecipeTableViewCell.xib in Resources */,
+				630E8157B056C7917736E6CA /* SettingView.storyboard in Resources */,
+				A007D1947A5C5A60BAEE59B0 /* TasteTableViewCell.xib in Resources */,
+				6507757B45D1CF5D98BA6206 /* ingredientTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1861F41D26C54143003C8EA4 /* Sources */ = {
+		DECAC993B0AFA8B4F6EB11A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1861F42926C54143003C8EA4 /* ViewController.swift in Sources */,
-				1861F42526C54143003C8EA4 /* AppDelegate.swift in Sources */,
-				1861F44926C547D0003C8EA4 /* User.swift in Sources */,
-				18C9087826D2382B00DEFBFC /* VStackButton.swift in Sources */,
-				B3D91A2E26CAE9C2004FA11F /* BannerButton.swift in Sources */,
-				B3DEB53A26D7B9D10050AE95 /* TasteTableViewCell.swift in Sources */,
-				1804919826C7DB67006DFE75 /* CockTailTableViewCell.swift in Sources */,
-				18C9087626D237F300DEFBFC /* FindViewController.swift in Sources */,
-				18C9087A26D2383200DEFBFC /* ColorButton.swift in Sources */,
-				B3D91A3126CAECAD004FA11F /* TasteProgressView.swift in Sources */,
-				2A44A5CB26CB89AF00DF4F45 /* CustomInputTextField.swift in Sources */,
-				B39A6FA726D2525100544B57 /* MainTableViewCell.swift in Sources */,
-				1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */,
-				1861F44B26C548B7003C8EA4 /* Cocktail.swift in Sources */,
-				1861F42726C54143003C8EA4 /* SceneDelegate.swift in Sources */,
-				2A44A5C826CB899900DF4F45 /* BannerToggleButton.swift in Sources */,
-				2ADCAE0626D7BC160063D98F /* SignUpViewController.swift in Sources */,
-				2ADCADFF26D7BBF90063D98F /* LoginButton.swift in Sources */,
-				180D4C4B26C8DCB600404A7A /* WebImageView.swift in Sources */,
-				B39A6FAB26D2611200544B57 /* MainAttributeTableViewCell.swift in Sources */,
-				1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */,
-				B35C4C6226CE74630039BA3A /* MainViewController.swift in Sources */,
+				E3EE153AB0391AAD2769D021 /* AppDelegate.swift in Sources */,
+				4BE49422E40DBFD68E4FF393 /* BannerButton.swift in Sources */,
+				727E4EE981CEEF8ADAF0C93F /* BannerToggleButton.swift in Sources */,
+				3B78796521D9230512ED6560 /* BasePreferenceCollectionViewCell.swift in Sources */,
+				AF89274C46BA641BDC8DFEE0 /* BasePreferenceViewController.swift in Sources */,
+				7A423C080F6F1F512FB3B6FA /* CertifyPhoneViewController.swift in Sources */,
+				448BA288B5B846ECD3357444 /* CockTailTableViewCell.swift in Sources */,
+				E8D363DEA47886FC69114B0A /* Cocktail.swift in Sources */,
+				6F722DB1B4FAF7127DF5BB4F /* ColorButton.swift in Sources */,
+				170B50B06E222FA43FCCC367 /* CustomInputTextField.swift in Sources */,
+				DCDD9E8C33EF570CACE863A4 /* DetailViewController.swift in Sources */,
+				D836AE62B4DCC7119F399FA4 /* FindViewController.swift in Sources */,
+				42C0A22EC9A276DC7F6945A7 /* FlavorPreferenceCollectionViewCell.swift in Sources */,
+				714FD543A70D7FDB3589562B /* FlavorPreferenceViewController.swift in Sources */,
+				64EA3AFFCF2DCC3341D91306 /* IngredientsSelectionCollectionViewCell.swift in Sources */,
+				36CE21647AF0F81610DB6D45 /* IngredientsSelectionViewController.swift in Sources */,
+				5B28020B72F563620BD9CD64 /* LikeButton.swift in Sources */,
+				0EE871EE56B1DA0466442837 /* LoginButton.swift in Sources */,
+				1ACBC60964FDE123598B5556 /* LoginViewController.swift in Sources */,
+				634ABD44CE20AA31254596DA /* MainAttributeTableViewCell.swift in Sources */,
+				1AA1496CA1F1A6BA0AEDE785 /* MainTableViewCell.swift in Sources */,
+				F40DA15C972295ED618A3DFC /* MainViewController.swift in Sources */,
+				EC4F126CE08A41763CB3B0E3 /* RecipeTableViewCell.swift in Sources */,
+				B3E259EC2BF1D997139DDF8B /* SceneDelegate.swift in Sources */,
+				03100578C31462DD4B9D2344 /* SettingViewController.swift in Sources */,
+				5AC5CAAE217955D1A8D306EA /* SignUpViewController.swift in Sources */,
+				DD260A85266E35C14E9B1AD1 /* SliderStrenth.swift in Sources */,
+				77FD9677527807FF33CF11D1 /* TasteProgressView.swift in Sources */,
+				252F5C896EB6733456432600 /* TasteTableViewCell.swift in Sources */,
+				324BDDB60A873174E1ACFABD /* User.swift in Sources */,
+				0F2A025825933866E2C3DA00 /* VStackButton.swift in Sources */,
+				C594BE4FE5E5F433D56A0F9E /* ViewController.swift in Sources */,
+				32C26564CCBE2B70B1BC6CD4 /* WebImageView.swift in Sources */,
+				224BE0E7DE7CCB5D63FCDC41 /* ingredientTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1861F42A26C54143003C8EA4 /* Main.storyboard */ = {
+		01204375BB997427F2846996 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1861F42B26C54143003C8EA4 /* Base */,
+				C7F1FA084ED5A7728877D10F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		1861F42F26C54146003C8EA4 /* LaunchScreen.storyboard */ = {
+		F0F7B990185CD1EA371F14B8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1861F43026C54146003C8EA4 /* Base */,
+				BA2654CCCF055010D55CB3C8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -380,68 +419,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		1861F43326C54146003C8EA4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		1861F43426C54146003C8EA4 /* Release */ = {
+		091405D206CCC4F611363E30 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -486,43 +464,83 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		1861F43626C54146003C8EA4 /* Debug */ = {
+		12790AB2F761CD0F9E70BDF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6UZ82L37PT;
-				INFOPLIST_FILE = Martini/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"DEBUG=1",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.martiniapp.Martini;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		1861F43726C54146003C8EA4 /* Release */ = {
+		DC756393144C5CD1B8285CF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6UZ82L37PT;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Martini/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -530,73 +548,50 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.martiniapp.Martini;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F72D50E59AFE917A74E0DD74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Martini/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.martiniapp.Martini;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1861F41C26C54143003C8EA4 /* Build configuration list for PBXProject "Martini" */ = {
+		29C05C3B9A369FD2E671A7D6 /* Build configuration list for PBXProject "Martini" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1861F43326C54146003C8EA4 /* Debug */,
-				1861F43426C54146003C8EA4 /* Release */,
+				12790AB2F761CD0F9E70BDF0 /* Debug */,
+				091405D206CCC4F611363E30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		1861F43526C54146003C8EA4 /* Build configuration list for PBXNativeTarget "Martini" */ = {
+		6733397ABD3C7F93110E3A05 /* Build configuration list for PBXNativeTarget "Martini" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1861F43626C54146003C8EA4 /* Debug */,
-				1861F43726C54146003C8EA4 /* Release */,
+				DC756393144C5CD1B8285CF6 /* Debug */,
+				F72D50E59AFE917A74E0DD74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		1861F43826C54343003C8EA4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.5.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		1861F43926C54343003C8EA4 /* FirebaseFunctions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1861F43826C54343003C8EA4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFunctions;
-		};
-		1861F43B26C54343003C8EA4 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1861F43826C54343003C8EA4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
-		};
-		1861F43D26C54343003C8EA4 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1861F43826C54343003C8EA4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		1861F43F26C54343003C8EA4 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1861F43826C54343003C8EA4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		1861F44126C54343003C8EA4 /* FirebaseMessaging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1861F43826C54343003C8EA4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseMessaging;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 1861F41926C54143003C8EA4 /* Project object */;
+	rootObject = D71A8BD6EF4DF6257F5ABD89 /* Project object */;
 }
