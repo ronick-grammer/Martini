@@ -36,6 +36,6 @@ class BasePreferenceCollectionViewCell: UICollectionViewCell {
     
     func configure(fileName: String, alcolName: String) {
         bannerToggleButton.bannerImage.image = UIImage(named: fileName)
-        bannerToggleButton.buttonTitleLable.text = alcolName
+        bannerToggleButton.buttonTitleLabel.text = alcolName
     }
 }

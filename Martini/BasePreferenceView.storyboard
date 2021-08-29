@@ -13,7 +13,7 @@
         <!--Base Preference View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="BasePreferenceViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="basePreference" id="Y6W-OH-hqX" customClass="BasePreferenceViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HbW-Fi-iJF">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,6 +58,9 @@
                                 <state key="normal" title="다음">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnNextView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gku-WW-OdA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="baW-e1-rbe"/>

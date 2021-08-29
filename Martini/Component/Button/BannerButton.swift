@@ -104,16 +104,13 @@ class BannerButton: UIView {
     @objc
     func bannerSelected(_ sender : UIButton){
         isChecked.toggle()
-                
+        
         if isChecked{
-            self.backgroundColor = UIColor.systemGray2
+            self.backgroundColor = UIColor(red: (240/255.0), green: (158/255.0), blue: (158/255.0), alpha: 1.0)
         }
         else{
-            self.backgroundColor = UIColor(red: (240/255.0), green: (158/255.0), blue: (158/255.0), alpha: 1.0)
-            }
+            self.backgroundColor = UIColor.systemGray2
         }
-            
-
-   
-
+    }
+    
 }
