@@ -27,9 +27,8 @@
                                     <action selector="switchView:" destination="Y6W-OH-hqX" eventType="valueChanged" id="Nuq-xA-Gi4"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bwp-fH-8HK">
-                                <rect key="frame" x="0.0" y="83" width="414" height="779"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bwp-fH-8HK">
+                                <rect key="frame" x="0.0" y="75" width="414" height="787"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="400" id="XZs-1V-6IR" customClass="MainTableViewCell" customModule="Martini" customModuleProvider="target">
@@ -48,6 +47,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="PfP-kI-hCu">
+                                        <rect key="frame" x="0.0" y="468" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PfP-kI-hCu" id="rkH-tD-hH5">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -55,7 +62,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dGv-W1-Hm3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Bbf-0I-vgm"/>
+                            <constraint firstItem="bwp-fH-8HK" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="EWy-Ff-N0c"/>
                             <constraint firstItem="dGv-W1-Hm3" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="RkB-nE-QXi"/>
+                            <constraint firstItem="bwp-fH-8HK" firstAttribute="top" secondItem="dGv-W1-Hm3" secondAttribute="bottom" id="cMU-N9-Q9D"/>
+                            <constraint firstItem="bwp-fH-8HK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dg7-4M-OSR"/>
+                            <constraint firstItem="bwp-fH-8HK" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="g5A-xg-Qm9"/>
                             <constraint firstItem="dGv-W1-Hm3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="k4e-sK-H72"/>
                         </constraints>
                     </view>

@@ -18,9 +18,31 @@ class TasteProgressView: UIView {
     override func awakeFromNib() {
         
         super.awakeFromNib()
+        setting()
+        
+        
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setting()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setting()
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setting()
+    
+    }
+    
+    
+    func setting(){
         self.addSubview(tasteLabel)
         self.addSubview(tasteProgress)
-        
         
         // 현재 value 셋팅
         setProgressValue(0.4)
@@ -42,14 +64,14 @@ class TasteProgressView: UIView {
         tasteProgress.translatesAutoresizingMaskIntoConstraints = false
         tasteProgress.leadingAnchor.constraint(equalTo: tasteLabel.trailingAnchor, constant: 15).isActive = true
         tasteProgress.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        tasteProgress.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        tasteProgress.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//        tasteProgress.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
   
         
         // 코너 둥글게
         tasteProgress.clipsToBounds = true
         tasteProgress.layer.cornerRadius = 8
  
-        
     }
     
     

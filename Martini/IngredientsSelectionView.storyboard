@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ingredients Selection View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ingredientsSelection" id="Y6W-OH-hqX" customClass="IngredientsSelectionViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OVZ-Vr-l6H">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가지고 있는 재료를 선택해 주세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9D-06-G9I">
+                                <rect key="frame" x="60" y="64" width="270" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="WMu-hs-4DT"/>
+                                    <constraint firstAttribute="width" constant="270" id="zk9-6n-Olt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EgW-Bg-BxR">
+                                <rect key="frame" x="16" y="227" width="358" height="583"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="O4n-hU-gfw">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="zbX-F3-CpU">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oyf-fp-SVC">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0w-TA-gsa" userLabel="Btn Prev">
+                                <rect key="frame" x="16" y="167" width="50" height="30"/>
+                                <color key="backgroundColor" red="0.71756780149999999" green="0.71769279239999995" blue="0.71755987409999999" alpha="0.65135026789999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="RhY-oR-pkh"/>
+                                </constraints>
+                                <state key="normal" title="이전">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnPreView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PHF-pK-XQA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CY8-IC-50j">
+                                <rect key="frame" x="324" y="167" width="50" height="30"/>
+                                <color key="backgroundColor" red="0.71756780149999999" green="0.71769279239999995" blue="0.71755987409999999" alpha="0.65135026789999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="AI3-NH-ehc"/>
+                                </constraints>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnNextView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fs4-5R-ia7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ndr-p9-brj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CY8-IC-50j" firstAttribute="leading" secondItem="L0w-TA-gsa" secondAttribute="trailing" constant="258" id="9o5-aF-EG3"/>
+                            <constraint firstItem="CY8-IC-50j" firstAttribute="top" secondItem="w9D-06-G9I" secondAttribute="bottom" constant="7" id="ESY-eC-tZD"/>
+                            <constraint firstItem="EgW-Bg-BxR" firstAttribute="leading" secondItem="Ndr-p9-brj" secondAttribute="leading" constant="16" id="KtQ-C3-LD5"/>
+                            <constraint firstItem="Ndr-p9-brj" firstAttribute="trailing" secondItem="CY8-IC-50j" secondAttribute="trailing" constant="16" id="LmB-8p-Gia"/>
+                            <constraint firstItem="EgW-Bg-BxR" firstAttribute="bottom" secondItem="Ndr-p9-brj" secondAttribute="bottom" id="Zs7-tR-60v"/>
+                            <constraint firstItem="w9D-06-G9I" firstAttribute="leading" secondItem="Ndr-p9-brj" secondAttribute="leading" constant="60" id="ZvR-4A-YvU"/>
+                            <constraint firstItem="EgW-Bg-BxR" firstAttribute="top" secondItem="CY8-IC-50j" secondAttribute="bottom" constant="30" id="adV-gF-2tn"/>
+                            <constraint firstItem="w9D-06-G9I" firstAttribute="top" secondItem="Ndr-p9-brj" secondAttribute="top" constant="20" id="fs3-Ai-glK"/>
+                            <constraint firstItem="Ndr-p9-brj" firstAttribute="trailing" secondItem="w9D-06-G9I" secondAttribute="trailing" constant="60" id="lTb-Md-7NK"/>
+                            <constraint firstItem="EgW-Bg-BxR" firstAttribute="top" secondItem="L0w-TA-gsa" secondAttribute="bottom" constant="30" id="rl7-gg-TdA"/>
+                            <constraint firstItem="L0w-TA-gsa" firstAttribute="top" secondItem="w9D-06-G9I" secondAttribute="bottom" constant="7" id="vvF-uJ-zyZ"/>
+                            <constraint firstItem="L0w-TA-gsa" firstAttribute="leading" secondItem="Ndr-p9-brj" secondAttribute="leading" constant="16" id="zLi-Mg-QAo"/>
+                            <constraint firstItem="Ndr-p9-brj" firstAttribute="trailing" secondItem="EgW-Bg-BxR" secondAttribute="trailing" constant="16" id="zaT-vP-w0J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnNext" destination="CY8-IC-50j" id="FkC-Zy-9v2"/>
+                        <outlet property="btnPrev" destination="L0w-TA-gsa" id="89r-Is-Tn7"/>
+                        <outlet property="ingredientsSelectionCollectionView" destination="EgW-Bg-BxR" id="lqD-l5-5vP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32" y="44"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

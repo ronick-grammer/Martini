@@ -5,6 +5,9 @@
 //  Created by 최예주 on 2021/08/19.
 //
 
+
+
+
 import UIKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
@@ -13,14 +16,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var segmetedContrl: UISegmentedControl!
     
     
-    let strength = 20
-    let ingredients = ["Vodka","Dry Vermouth","Olive"]
-    let flavor = [30,20,0,0,0]
-    let recipe = [["1. Add ice to the Mixer Glass"],
-                  ["2. Pour Vodka, Olive Juice and Dry Vermouth into the mixer Glass"],
-                  ["3. Stir together"],
-                  ["4. Strain into the CockTail Glass"],
-                  ["5. Garnish with Olives"]]
+    let recipe = ["Add ice to the Mixer Glass",
+                  "Pour Vodka, Olive Juice and Dry Vermouth into the mixer Glass",
+                  "Stir together",
+                  "Strain into the CockTail Glass",
+                  "Garnish with Olives"]
     
     
     
@@ -32,6 +32,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         
         tableView.register(MainTableViewCell.nib, forCellReuseIdentifier: MainTableViewCell.identifier) // 셀 등록
+        
+        tableView.register(MainAttributeTableViewCell.nib, forCellReuseIdentifier: MainAttributeTableViewCell.identifier)
+        
+        tableView.register(ingredientTableViewCell.nib, forCellReuseIdentifier: ingredientTableViewCell.identifier)
+        
+        tableView.register(TasteTableViewCell.nib, forCellReuseIdentifier: TasteTableViewCell.identifier)
+        
+        tableView.register(RecipeTableViewCell.nib, forCellReuseIdentifier: RecipeTableViewCell.identifier)
+
         
 
     }
@@ -49,7 +58,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // 재료 추천 selected
         else {
-            //
+            
         }
     }
     
@@ -58,46 +67,114 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return 1
+
     }
 
+    
+    //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath)
-
-            return cell
-        }
-
-
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MainAttributeTableViewCell", for: indexPath)
-
-            return cell
-        }
-        
-          
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
         switch indexPath.section {
+        
+        // 메인화면
         case 0:
-            return 414
+            let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
+
+            
+            cell.imgView.backgroundColor = UIColor(red: (232/255.0), green: (24/255.0), blue: (24/255.0), alpha: 0.5)
+            cell.imgView.layer.cornerRadius = 90
+                
+            return cell
+            
+            
+        // 도수 cell
         case 1:
-            return 50
+            let cell = tableView.dequeueReusableCell(withIdentifier: MainAttributeTableViewCell.identifier, for: indexPath)
+
+            return cell
+            
+            
+        // 재료 cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ingredientTableViewCell.identifier, for: indexPath) as! ingredientTableViewCell
+            
+            
+
+            cell.addLabel(name: "Orange")
+            cell.addLabel(name: "Orange Orange")
+            cell.addLabel(name: "Orange")
+    
+            
+            return cell
+            
+            
+        // 맛 cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TasteTableViewCell.identifier, for: indexPath) as! TasteTableViewCell
+                
+            cell.tasteSV.translatesAutoresizingMaskIntoConstraints = false
+            cell.tasteSV.heightAnchor.constraint(equalToConstant: 150).isActive = true
+            
+            cell.addProgress(progressbar: TasteProgressView())
+            cell.addProgress(progressbar: TasteProgressView())
+            cell.addProgress(progressbar: TasteProgressView())
+        
+            
+            return cell
+            
+            
+        // 레시피 셀
+        // 대체 왜 두개씩 나오는지....?????
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as! RecipeTableViewCell
+            
+            
+            
+            for step in 0..<recipe.count{
+                print(step)
+                print(recipe[step])
+                cell.addreipe(step: step, recipe: recipe[step])
+            
+            }
+            return cell
+            
         default:
-            return 50
+            
+           
+            return UITableViewCell()
+        
+            
+      
         }
+      
         
-        
-        
-        
+      
+//        return UITableViewCell()
+ 
     }
+    
+    
+    // section 5개
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
+    }
+    
+    
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//
+//        switch indexPath.section {
+//        case 0:
+//            return 414
+//        case 1:
+//            return 50
+//
+//
+//        }
+//
+//    }
 
     
     
