@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let vc = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "SearchVC")
+        let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "loginVC")
         
         self.present(vc, animated: true, completion: nil)
     }
