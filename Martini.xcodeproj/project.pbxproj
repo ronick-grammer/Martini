@@ -23,7 +23,6 @@
 		1861F44E26C54F20003C8EA4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F44C26C54F20003C8EA4 /* DetailViewController.swift */; };
 		1861F45126C54F59003C8EA4 /* DetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1861F45026C54F59003C8EA4 /* DetailView.storyboard */; };
 		1861F45326C550B7003C8EA4 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1861F45226C550B7003C8EA4 /* LikeButton.swift */; };
-		D44C81D326C6A122007CBF23 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = D44C81D226C6A122007CBF23 /* FirebaseFirestoreSwift-Beta */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +49,6 @@
 				1861F43A26C54343003C8EA4 /* FirebaseFunctions in Frameworks */,
 				1861F44026C54343003C8EA4 /* FirebaseFirestore in Frameworks */,
 				1861F44226C54343003C8EA4 /* FirebaseMessaging in Frameworks */,
-				D44C81D326C6A122007CBF23 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				1861F43E26C54343003C8EA4 /* FirebaseAuth in Frameworks */,
 				1861F43C26C54343003C8EA4 /* FirebaseStorage in Frameworks */,
 			);
@@ -64,7 +62,6 @@
 			children = (
 				1861F42326C54143003C8EA4 /* Martini */,
 				1861F42226C54143003C8EA4 /* Products */,
-				D44C81D126C6A122007CBF23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,13 +132,6 @@
 			path = DataStore;
 			sourceTree = "<group>";
 		};
-		D44C81D126C6A122007CBF23 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,7 +154,6 @@
 				1861F43D26C54343003C8EA4 /* FirebaseAuth */,
 				1861F43F26C54343003C8EA4 /* FirebaseFirestore */,
 				1861F44126C54343003C8EA4 /* FirebaseMessaging */,
-				D44C81D226C6A122007CBF23 /* FirebaseFirestoreSwift-Beta */,
 			);
 			productName = Martini;
 			productReference = 1861F42126C54143003C8EA4 /* Martini.app */;
@@ -471,11 +460,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1861F43826C54343003C8EA4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
-		};
-		D44C81D226C6A122007CBF23 /* FirebaseFirestoreSwift-Beta */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1861F43826C54343003C8EA4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseFirestoreSwift-Beta";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
