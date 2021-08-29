@@ -22,10 +22,6 @@ class MainTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-//        self.translatesAutoresizingMaskIntoConstraints = false
-//        self.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-//        self.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-//
         
         
         
