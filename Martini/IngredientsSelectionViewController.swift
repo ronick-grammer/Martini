@@ -68,43 +68,20 @@ extension IngredientsSelectionViewController: UICollectionViewDelegateFlowLayout
 extension IngredientsSelectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return ingredients.count
+        return Cocktail.Ingredients.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = ingredientsSelectionCollectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! IngredientsSelectionCollectionViewCell
         
-        cell.configure(fileName: ingredients[indexPath.row].imageName, title: ingredients[indexPath.row].title)
+        if let type = Cocktail.Ingredients.init(rawValue: indexPath.row)?.type {
+            let fileName = type.fileName
+            let title = type.title
+            
+            cell.configure(fileName: fileName, title: title)
+        }
         
         return cell
     }
 }
-
-struct Ingredient {
-    let imageName: String
-    let title: String
-}
-
-let ingredients: [Ingredient] = [
-    Ingredient(imageName: "rum", title: "럼"),
-    Ingredient(imageName: "gin", title: "진"),
-    Ingredient(imageName: "whisky", title: "위스키"),
-    Ingredient(imageName: "tequila", title: "데킬라"),
-    Ingredient(imageName: "brandy", title: "브랜디"),
-    Ingredient(imageName: "vodka", title: "보드카"),
-    Ingredient(imageName: "beer", title: "맥주"),
-    Ingredient(imageName: "soju", title: "소주"),
-    Ingredient(imageName: "champagne", title: "샴페인"),
-    Ingredient(imageName: "wine", title: "와인"),
-    Ingredient(imageName: "tonic", title: "토닉 워터"),
-    Ingredient(imageName: "ginger ale", title: "진저 에일"),
-    Ingredient(imageName: "sugar-cube", title: "설탕"),
-    Ingredient(imageName: "lime-juice", title: "라임 쥬스"),
-    Ingredient(imageName: "soda", title: "클럽 소다"),
-    Ingredient(imageName: "mint", title: "민트"),
-    Ingredient(imageName: "olives", title: "올리브"),
-    Ingredient(imageName: "energy-drink", title: "에너지 드링크"),
-    Ingredient(imageName: "liqueur-coffee", title: "깔루아"),
-    Ingredient(imageName: "milk", title: "우유")
-]

@@ -69,32 +69,20 @@ extension BasePreferenceViewController: UICollectionViewDelegateFlowLayout {
 extension BasePreferenceViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return alcolBase.count
+        return Cocktail.Alcol.allCases.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = BasePreferenceCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BasePreferenceCollectionViewCell
+        
+        if let type = Cocktail.Alcol.init(rawValue: indexPath.row)?.type {
+            let fileName = type.fileName
+            let title = type.title
+            
+            cell.configure(fileName: fileName, alcolName: title)
+        }
 
-        cell.configure(fileName: alcolBase[indexPath.row].fileName, alcolName:  alcolBase[indexPath.row].alcolName)
         return cell
     }
 }
-
-struct AlcolBase {
-    let fileName: String
-    let alcolName: String
-}
-
-let alcolBase: [AlcolBase] = [
-    AlcolBase(fileName: "rum", alcolName: "럼"),
-    AlcolBase(fileName: "gin", alcolName: "진"),
-    AlcolBase(fileName: "whisky", alcolName: "위스키"),
-    AlcolBase(fileName: "tequila", alcolName: "데킬라"),
-    AlcolBase(fileName: "brandy", alcolName: "브랜디"),
-    AlcolBase(fileName: "vodka", alcolName: "보드카"),
-    AlcolBase(fileName: "beer", alcolName: "맥주"),
-    AlcolBase(fileName: "soju", alcolName: "소주"),
-    AlcolBase(fileName: "champagne", alcolName: "샴페일"),
-    AlcolBase(fileName: "wine", alcolName: "와인")
-]
