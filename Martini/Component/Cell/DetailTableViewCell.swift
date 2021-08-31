@@ -9,6 +9,18 @@ import UIKit
 
 class DetailTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet var likeButton: LikeButton!
+    
+    @IBOutlet var imgView: WebImageView!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    
+    
+    static let nib: UINib = UINib(nibName: "DetailTableViewCell", bundle: nil)
+        
+    static let identifier = "DetailTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
