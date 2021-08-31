@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol BannerToggleButtonDelegate {
+    func didTouchBannerToggleButton(didClicked: Bool)
+
+}
+
 class BannerToggleButton: UIView {
     let vstackView: UIStackView = {
         let view = UIStackView()
@@ -51,10 +56,11 @@ class BannerToggleButton: UIView {
     }()
     
     var isClicked: Bool = false
+    var delegate: BannerToggleButtonDelegate?
 
     @objc func BannerToggleButtonHandler(_ sender: UIButton) {
         isClicked.toggle()
-        
+        delegate?.didTouchBannerToggleButton(didClicked: isClicked)
         if isClicked {
             // 붉은색
             banner.backgroundColor = #colorLiteral(red: 0.9400233626, green: 0.6212706566, blue: 0.6243276, alpha: 1)
@@ -66,6 +72,7 @@ class BannerToggleButton: UIView {
             buttonTitleLabel.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
         }
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
