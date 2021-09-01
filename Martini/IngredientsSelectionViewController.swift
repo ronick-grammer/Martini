@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class IngredientsSelectionViewController: UIViewController {
     
@@ -19,7 +20,7 @@ class IngredientsSelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         ingredientsSelectionCollectionView.delegate = self
         ingredientsSelectionCollectionView.dataSource = self
         
@@ -36,6 +37,7 @@ class IngredientsSelectionViewController: UIViewController {
     
     @IBAction func btnPreView(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+        print(PreferenceDataStore.ingredients)
     }
     
     @IBAction func btnNextView(_ sender: UIButton) {
@@ -62,24 +64,29 @@ extension IngredientsSelectionViewController: UICollectionViewDelegateFlowLayout
         
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(#function)
+    }
 }
 
 
 extension IngredientsSelectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return Cocktail.Ingredients.allCases.count
+        return Cocktail.Ingredients.allCases.count - 1  // 마지막은 type은 없으므로 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = ingredientsSelectionCollectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! IngredientsSelectionCollectionViewCell
         
-        if let type = Cocktail.Ingredients.init(rawValue: indexPath.row)?.type {
-            let fileName = type.fileName
-            let title = type.title
+        // 각 재료의 이미지 이름과 타이틀 이름으로 셀 만들기
+        if let ingredient = Cocktail.Ingredients.init(rawValue: indexPath.row) {
+            let imageName = ingredient.type.imageName
+            let title = ingredient.type.title
             
-            cell.configure(fileName: fileName, title: title)
+            cell.configure(imageName: imageName, title: title, ingredient: ingredient)
         }
         
         return cell

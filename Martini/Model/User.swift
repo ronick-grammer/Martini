@@ -13,6 +13,7 @@ struct User {
     let phone: String
     let liked: [String]
     let joinDate: String
+    let preferenceBase: [Cocktail.Alcohol]
     let preferenceIngredients: [Cocktail.Ingredients]
-    let preferenceTaste: Cocktail.Taste
+    let preferenceTaste: [Cocktail.Taste]
 }
