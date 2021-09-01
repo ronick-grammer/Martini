@@ -50,6 +50,10 @@
 		9843D7E0ED5643AFDD216C5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A19C990C9A6454B2A716B7B5 /* GoogleService-Info.plist */; };
 		A007D1947A5C5A60BAEE59B0 /* TasteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AB9CFB8BE65D8C0468C8A9 /* TasteTableViewCell.xib */; };
 		AF89274C46BA641BDC8DFEE0 /* BasePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556BDBA0A9D9637F09C2B07 /* BasePreferenceViewController.swift */; };
+		B386A54226DB833700DDF0B2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386A54126DB833700DDF0B2 /* SearchViewController.swift */; };
+		B386A54426DB836800DDF0B2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B386A54326DB836800DDF0B2 /* Search.storyboard */; };
+		B386A54726DB8C3100DDF0B2 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386A54526DB8C3100DDF0B2 /* DetailTableViewCell.swift */; };
+		B386A54826DB8C3100DDF0B2 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B386A54626DB8C3100DDF0B2 /* DetailTableViewCell.xib */; };
 		B3E259EC2BF1D997139DDF8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B87846FB58C4B3EC6DC80 /* SceneDelegate.swift */; };
 		B71B21B07279EF58754D1417 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7307F2D289C3F9A98621B4B3 /* Search.storyboard */; };
 		C594BE4FE5E5F433D56A0F9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA7BC4E34C6D49E65C2466 /* ViewController.swift */; };
@@ -116,6 +120,10 @@
 		AA9DBD375043D94CF50000E0 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		ABE37727D8A28DBB6CA4E908 /* SliderStrenth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStrenth.swift; sourceTree = "<group>"; };
 		B04AE4A4305DCC993A91265F /* CockTailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CockTailTableViewCell.xib; sourceTree = "<group>"; };
+		B386A54126DB833700DDF0B2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B386A54326DB836800DDF0B2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		B386A54526DB8C3100DDF0B2 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		B386A54626DB8C3100DDF0B2 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		B46716349C79E3667FF6F009 /* MainAttributeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainAttributeTableViewCell.xib; sourceTree = "<group>"; };
 		BA2654CCCF055010D55CB3C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7F1FA084ED5A7728877D10F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -292,6 +300,8 @@
 				20F82644BB0409B75F1A7036 /* BasePreference */,
 				05FF8CDEE569FAF6031BF655 /* FlavorPreference */,
 				5493DC29D57C5DFFBDC610AD /* IngredientsSelection */,
+				B386A54526DB8C3100DDF0B2 /* DetailTableViewCell.swift */,
+				B386A54626DB8C3100DDF0B2 /* DetailTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -392,6 +402,7 @@
 				6731ACFDEFA353428D62C004 /* FindView.storyboard in Resources */,
 				CE2A4F9E1E2346362E5DFD02 /* FlavorPreferenceView.storyboard in Resources */,
 				9843D7E0ED5643AFDD216C5C /* GoogleService-Info.plist in Resources */,
+				B386A54826DB8C3100DDF0B2 /* DetailTableViewCell.xib in Resources */,
 				6B63EBB17099693835E46812 /* IngredientsSelectionView.storyboard in Resources */,
 				EF43201759E4890612F0B31B /* LaunchScreen.storyboard in Resources */,
 				65D397E93FBBB9D1809DD86A /* Login.storyboard in Resources */,
@@ -433,6 +444,7 @@
 				64EA3AFFCF2DCC3341D91306 /* IngredientsSelectionCollectionViewCell.swift in Sources */,
 				36CE21647AF0F81610DB6D45 /* IngredientsSelectionViewController.swift in Sources */,
 				5B28020B72F563620BD9CD64 /* LikeButton.swift in Sources */,
+				B386A54726DB8C3100DDF0B2 /* DetailTableViewCell.swift in Sources */,
 				0EE871EE56B1DA0466442837 /* LoginButton.swift in Sources */,
 				1ACBC60964FDE123598B5556 /* LoginViewController.swift in Sources */,
 				634ABD44CE20AA31254596DA /* MainAttributeTableViewCell.swift in Sources */,

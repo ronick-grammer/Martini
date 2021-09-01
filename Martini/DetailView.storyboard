@@ -9,16 +9,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailVC" id="Y6W-OH-hqX" customClass="DetailViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wwO-wl-nwT">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wwO-wl-nwT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="4Km-BM-Eja"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wwO-wl-nwT" secondAttribute="trailing" id="I5m-LN-Z0B"/>
+                            <constraint firstItem="wwO-wl-nwT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="riu-4v-DXD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wwO-wl-nwT" secondAttribute="bottom" id="uWT-Pi-fsa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="wwO-wl-nwT" id="zqR-h8-yXl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

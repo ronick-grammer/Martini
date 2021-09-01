@@ -6,8 +6,14 @@
 //
 import UIKit
 
-@IBDesignable
 
+// protocol
+protocol BannerButtonDelegate {
+    func didTouchBannerButton(didClicked: Bool)
+}
+
+
+@IBDesignable
 class BannerButton: UIView {
     
     @IBInspectable var customerImage:UIImage? = UIImage(named: "cocktail_icon")
@@ -16,6 +22,10 @@ class BannerButton: UIView {
     var bannerImageView = UIImageView()
     var bannerLabel = UILabel()
     var bannerButton = UIButton()
+    
+    var delegate: BannerButtonDelegate? // 델리게이트 변수
+    
+    
     
     func setupView(){
         self.addSubview(bannerImageView)
@@ -38,7 +48,7 @@ class BannerButton: UIView {
         bannerButton.addTarget(self, action: #selector(bannerSelected), for: .touchUpInside)
     }
 
-
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -104,9 +114,10 @@ class BannerButton: UIView {
     @objc
     func bannerSelected(_ sender : UIButton){
         isChecked.toggle()
-        
+        delegate?.didTouchBannerButton(didClicked: isChecked)
         if isChecked{
             self.backgroundColor = UIColor(red: (240/255.0), green: (158/255.0), blue: (158/255.0), alpha: 1.0)
+            
         }
         else{
             self.backgroundColor = UIColor.systemGray2
