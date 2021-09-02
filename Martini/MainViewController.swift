@@ -15,6 +15,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tableView: UITableView!
     @IBOutlet var segmetedContrl: UISegmentedControl!
     
+    var flag1 = true
+    var flag2 = true
+    var flag3 = true
+    
     
     let recipe = ["Add ice to the Mixer Glass",
                   "Pour Vodka, Olive Juice and Dry Vermouth into the mixer Glass",
@@ -102,11 +106,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             
 
-            cell.addLabel(name: "Orange")
-            cell.addLabel(name: "Orange Orange")
-            cell.addLabel(name: "Orange")
+            if flag1 == true {
+                flag1 = false
+                
+                cell.addLabel(name: "Orange")
+                cell.addLabel(name: "Orange Orange")
+                cell.addLabel(name: "Orange")
     
-            
+            }
             return cell
             
             
@@ -117,26 +124,33 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.tasteSV.translatesAutoresizingMaskIntoConstraints = false
             cell.tasteSV.heightAnchor.constraint(equalToConstant: 150).isActive = true
             
-            cell.addProgress(progressbar: TasteProgressView())
-            cell.addProgress(progressbar: TasteProgressView())
-            cell.addProgress(progressbar: TasteProgressView())
-        
+            
+            if flag2 == true {
+                
+                flag2 = false
+            
+                cell.addProgress(progressbar: TasteProgressView())
+                cell.addProgress(progressbar: TasteProgressView())
+                cell.addProgress(progressbar: TasteProgressView())
+            }
             
             return cell
             
             
         // 레시피 셀
-        // 대체 왜 두개씩 나오는지....?????
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as! RecipeTableViewCell
             
             
+            if flag3 == true {
+                
+                flag3 = false
             
-            for step in 0..<recipe.count{
-                print(step)
-                print(recipe[step])
-                cell.addreipe(step: step, recipe: recipe[step])
-            
+                for step in 0..<recipe.count{
+                    cell.addreipe(step: step, recipe: recipe[step])
+                
+                }
+                
             }
             return cell
             
