@@ -47,6 +47,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNR-Eo-Sje" customClass="LikeButton" customModule="Martini" customModuleProvider="target">
+                        <rect key="frame" x="295" y="80" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="nLN-Gr-BRq"/>
+                            <constraint firstAttribute="width" secondItem="qNR-Eo-Sje" secondAttribute="height" multiplier="1:1" id="s8D-Z1-H5k"/>
+                        </constraints>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="8hI-sw-JMw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="7vC-7F-nxE"/>
@@ -54,6 +61,8 @@
                     <constraint firstItem="qLZ-6p-vWw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="JFE-Kc-4yZ"/>
                     <constraint firstItem="JBN-y3-BLR" firstAttribute="top" secondItem="qLZ-6p-vWw" secondAttribute="bottom" constant="38.5" id="N96-9G-zHW"/>
                     <constraint firstItem="8hI-sw-JMw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="QTP-cx-VIt"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="qNR-Eo-Sje" secondAttribute="trailing" constant="37" id="Qlu-or-fwz"/>
+                    <constraint firstItem="qNR-Eo-Sje" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="80" id="WGg-FS-dfH"/>
                     <constraint firstItem="vUW-MH-Fmz" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="ZDs-H7-eWr"/>
                     <constraint firstItem="vUW-MH-Fmz" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cwa-PQ-1Qm"/>
                     <constraint firstItem="vUW-MH-Fmz" firstAttribute="top" secondItem="JBN-y3-BLR" secondAttribute="bottom" constant="15" id="hEc-mm-bXa"/>
