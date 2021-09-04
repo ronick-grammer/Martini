@@ -31,7 +31,7 @@ class BasePreferenceViewController: UIViewController {
     
 
     @IBAction func btnNextView(_ sender: UIButton) {
-        print(PreferenceDataStore.alcohols)
+        
         // 스토리 보드 객체 가져오기 (인자 : 이름, 읽어들일 위치)
         let storyboard: UIStoryboard? = UIStoryboard(name: "FlavorPreferenceView", bundle: Bundle.main)
         
@@ -81,12 +81,13 @@ extension BasePreferenceViewController: UICollectionViewDataSource {
         let cell = BasePreferenceCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BasePreferenceCollectionViewCell
         
         // 각 알콜 베이스의 이미지 이름과 타이틀 이름으로 셀 만들기
-        if let base = Cocktail.Alcohol.init(rawValue: indexPath.row) {
-            let imageName = base.type.imageName
-            let title = base.type.title
-            
-            cell.configure(imageName: imageName, title: title, base: base)
-        }
+        let base = Cocktail.Alcohol.allCases[indexPath.row]
+        
+        let imageName = base.type.imageName
+        let title = base.type.title
+        
+        cell.configure(imageName: imageName, title: title, index: base.index)
+        
 
         return cell
     }

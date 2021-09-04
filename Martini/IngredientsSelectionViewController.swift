@@ -17,7 +17,10 @@ class IngredientsSelectionViewController: UIViewController {
     let identifier = "ingredientsSelectionCollectionViewCell"
     let spacingRow = 7
     let spacingColumn = 7
-
+    
+    
+    let preferenceController =  PreferenceController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,11 +40,33 @@ class IngredientsSelectionViewController: UIViewController {
     
     @IBAction func btnPreView(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-        print(PreferenceDataStore.ingredients)
     }
     
+    
+    
     @IBAction func btnNextView(_ sender: UIButton) {
-        print("next")
+        
+        var bases = [String] ()
+        var tastes = [String:Int]()
+        var ingredients = [String] ()
+        
+        for index in 0 ..< PREFERENCE_DATASTORE.alcohols.count {
+            if PREFERENCE_DATASTORE.alcohols[index] {
+                bases.append(Cocktail.Alcohol.allCases[index].rawValue)
+            }
+        }
+        
+        for index in 0 ..< PREFERENCE_DATASTORE.ingredients.count {
+            if PREFERENCE_DATASTORE.ingredients[index] {
+                ingredients.append(Cocktail.Ingredients.allCases[index].rawValue)
+            }
+        }
+        
+        for index in 0 ..< PREFERENCE_DATASTORE.taste.count {
+            tastes.updateValue(Int(PREFERENCE_DATASTORE.taste[index]), forKey: Cocktail.Taste.allCases[index].rawValue)
+        }
+        
+        preferenceController.registerUserPreference(bases: bases, tastes: tastes, ingredients: ingredients)
     }
 }
 
@@ -66,6 +91,7 @@ extension IngredientsSelectionViewController: UICollectionViewDelegateFlowLayout
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         print(#function)
     }
 }
@@ -82,12 +108,12 @@ extension IngredientsSelectionViewController: UICollectionViewDataSource {
         let cell = ingredientsSelectionCollectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! IngredientsSelectionCollectionViewCell
         
         // 각 재료의 이미지 이름과 타이틀 이름으로 셀 만들기
-        if let ingredient = Cocktail.Ingredients.init(rawValue: indexPath.row) {
-            let imageName = ingredient.type.imageName
-            let title = ingredient.type.title
-            
-            cell.configure(imageName: imageName, title: title, ingredient: ingredient)
-        }
+        let ingredient = Cocktail.Ingredients.allCases[indexPath.row]
+        let imageName = ingredient.type.imageName
+        let title = ingredient.type.title
+        
+        cell.configure(imageName: imageName, title: title, index: ingredient.index)
+        
         
         return cell
     }

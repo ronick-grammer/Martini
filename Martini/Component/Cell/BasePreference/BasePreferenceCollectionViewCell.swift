@@ -10,7 +10,7 @@ import UIKit
 class BasePreferenceCollectionViewCell: UICollectionViewCell, BannerToggleButtonDelegate {
     
     let bannerToggleButton = BannerToggleButton()
-    var base =  Cocktail.Alcohol.none
+    var index = Int()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,12 +39,13 @@ class BasePreferenceCollectionViewCell: UICollectionViewCell, BannerToggleButton
     }
     
     // 버튼 상태 (유지)초기화
-    func configure(imageName: String, title: String, base: Cocktail.Alcohol) {
+    func configure(imageName: String, title: String, index: Int) {
         bannerToggleButton.bannerImage.image = UIImage(named: imageName)
         bannerToggleButton.buttonTitleLabel.text = title
-        self.base = base
         
-        if PreferenceDataStore.alcohols[base.rawValue] {
+        self.index = index
+        
+        if PREFERENCE_DATASTORE.alcohols[index] {
             bannerToggleButton.banner.backgroundColor = #colorLiteral(red: 0.9400233626, green: 0.6212706566, blue: 0.6243276, alpha: 1)
             bannerToggleButton.buttonTitleLabel.backgroundColor = #colorLiteral(red: 0.9400233626, green: 0.6212706566, blue: 0.6243276, alpha: 1)
         } else {
@@ -52,11 +53,11 @@ class BasePreferenceCollectionViewCell: UICollectionViewCell, BannerToggleButton
             bannerToggleButton.buttonTitleLabel.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
         }
         
-        bannerToggleButton.isClicked = PreferenceDataStore.alcohols[base.rawValue]
+        bannerToggleButton.isClicked = PREFERENCE_DATASTORE.alcohols[index]
     }
     
     // 버튼 누르면 그 상태를 저장
     func didTouchBannerToggleButton(didClicked: Bool) {
-        PreferenceDataStore.alcohols[base.rawValue] = didClicked
+        PREFERENCE_DATASTORE.alcohols[self.index] = didClicked
     }
 }

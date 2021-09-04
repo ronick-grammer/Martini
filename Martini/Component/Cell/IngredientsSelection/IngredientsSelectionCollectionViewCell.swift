@@ -9,7 +9,7 @@ import UIKit
 
 class IngredientsSelectionCollectionViewCell: UICollectionViewCell, BannerButtonDelegate {
     let bannerButton = BannerButton()
-    var ingredient = Cocktail.Ingredients.none
+    var index = Int()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,22 +34,22 @@ class IngredientsSelectionCollectionViewCell: UICollectionViewCell, BannerButton
     }
     
     // 버튼 상태 (유지)초기화
-    func configure(imageName: String, title: String, ingredient: Cocktail.Ingredients) {
+    func configure(imageName: String, title: String, index: Int) {
         bannerButton.bannerImageView.image = UIImage(named: imageName)
         bannerButton.bannerLabel.text = title
-        self.ingredient = ingredient
+        self.index = index
         
-        if PreferenceDataStore.ingredients[ingredient.rawValue] {
+        if PREFERENCE_DATASTORE.ingredients[index] {
             bannerButton.backgroundColor = UIColor(red: (240/255.0), green: (158/255.0), blue: (158/255.0), alpha: 1.0)
         } else{
             bannerButton.backgroundColor = UIColor.systemGray2
         }
         
-        bannerButton.isChecked = PreferenceDataStore.ingredients[ingredient.rawValue]
+        bannerButton.isChecked = PREFERENCE_DATASTORE.ingredients[index]
     }
     
     // 버튼 상태 저장
     func didTouchBannerButton(didClicked: Bool) {
-        PreferenceDataStore.ingredients[ingredient.rawValue] = didClicked
+        PREFERENCE_DATASTORE.ingredients[self.index] = didClicked
     }
 }

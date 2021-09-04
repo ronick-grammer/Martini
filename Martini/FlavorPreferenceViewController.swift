@@ -37,8 +37,6 @@ class FlavorPreferenceViewController: UIViewController {
     }
     
     @IBAction func btnNextView(_ sender: UIButton) {
-        print(PreferenceDataStore.ingredients)
-        
         let storyboard: UIStoryboard? = UIStoryboard(name: "IngredientsSelectionView", bundle: Bundle.main)
         
         guard let uvc = storyboard?.instantiateViewController(identifier: "ingredientsSelection") else { return }
@@ -68,18 +66,18 @@ extension FlavorPreferenceViewController: UICollectionViewDelegateFlowLayout {
 
 extension FlavorPreferenceViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Cocktail.Taste.TasteType.allCases.count
+        return Cocktail.Taste.allCases.count - 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = flavorPreferenceCollectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! FlavorPreferenceCollectionViewCell
         
         // 각 맛의 서브 타이틀로 셀 만들기
-        if let taste = Cocktail.Taste.TasteType.init(rawValue: indexPath.row) {
-            let subtitle = taste.type.subtitle
-            
-            cell.configure(subtitle: subtitle, taste: taste)
-        }
+        let taste = Cocktail.Taste.allCases[indexPath.row]
+        let subtitle = taste.type.subtitle
+        
+        cell.configure(subtitle: subtitle, index: taste.index)
+        
         
         return cell
     }

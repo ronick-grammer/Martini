@@ -10,7 +10,7 @@ import UIKit
 class FlavorPreferenceCollectionViewCell: UICollectionViewCell, SliderStrenthDelegate {
     
     var sliderStrenth = SliderStrenth()
-    var taste: Cocktail.Taste.TasteType?
+    var index = Int()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,17 +41,15 @@ class FlavorPreferenceCollectionViewCell: UICollectionViewCell, SliderStrenthDel
     }
     
     // 슬라이더 상태 (유지)초기화
-    func configure(subtitle: String, taste: Cocktail.Taste.TasteType) {
+    func configure(subtitle: String, index: Int) {
+        
         sliderStrenth.labelTitle.text = subtitle
-        sliderStrenth.labelPercentage.text = "\(Int(PreferenceDataStore.taste[taste.rawValue]))%"
-        sliderStrenth.slider.setValue(Float(PreferenceDataStore.taste[taste.rawValue] / 100), animated: false)
-        self.taste = taste
+        sliderStrenth.labelPercentage.text = "\(Int(PREFERENCE_DATASTORE.taste[index]))%"
+        sliderStrenth.slider.setValue(Float(PREFERENCE_DATASTORE.taste[index] / 100), animated: false)
+        self.index = index
     }
     
     func didChangeValue(value: Double) {
-        if let taste = self.taste {
-            PreferenceDataStore.taste[taste.rawValue] = value
-        }
-        
+            PREFERENCE_DATASTORE.taste[index] = value
     }
 }
