@@ -13,6 +13,10 @@
 		0F2A025825933866E2C3DA00 /* VStackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAB3A7BC6E83B21A5F35E3B /* VStackButton.swift */; };
 		15DE029318E22B7A916D764F /* PreferenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F23E7F997BA5AD52A8228CA /* PreferenceController.swift */; };
 		170B50B06E222FA43FCCC367 /* CustomInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AE88563DEA79ECEDB5577B /* CustomInputTextField.swift */; };
+		1884022126E47F68000C97D7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1884022026E47F68000C97D7 /* FirebaseAuth */; };
+		1884022326E47F6D000C97D7 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1884022226E47F6D000C97D7 /* FirebaseDatabase */; };
+		1884022526E47F76000C97D7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1884022426E47F76000C97D7 /* FirebaseFirestore */; };
+		1884022726E47F76000C97D7 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 1884022626E47F76000C97D7 /* FirebaseFirestoreSwift-Beta */; };
 		1AA1496CA1F1A6BA0AEDE785 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365ED54D441FD0CA404EBA89 /* MainTableViewCell.swift */; };
 		1ACBC60964FDE123598B5556 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E212C3BAB0E4E585A2CC1AFE /* LoginViewController.swift */; };
 		1DFC186D1E8D9DADB5CF05D9 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C27FE597D069B59B0BCD764 /* MainTableViewCell.xib */; };
@@ -83,7 +87,7 @@
 		19843DC052FB85E7F6038922 /* IngredientsSelectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IngredientsSelectionView.storyboard; sourceTree = "<group>"; };
 		1CEA7BC4E34C6D49E65C2466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F23E7F997BA5AD52A8228CA /* PreferenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceController.swift; sourceTree = "<group>"; };
-		2104996A69DA2210D9DE1A02 /* Martini.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Martini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+    2104996A69DA2210D9DE1A02 /* Martini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Martini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2565890830A74D20A098EBA0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		29732B947D1A0548EB887208 /* BannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerButton.swift; sourceTree = "<group>"; };
 		29CB1806FD428B3CD322563D /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
@@ -140,6 +144,20 @@
 		FDAB3A7BC6E83B21A5F35E3B /* VStackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		1884021E26E47F5A000C97D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1884022326E47F6D000C97D7 /* FirebaseDatabase in Frameworks */,
+				1884022726E47F76000C97D7 /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				1884022126E47F68000C97D7 /* FirebaseAuth in Frameworks */,
+				1884022526E47F76000C97D7 /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		05FF8CDEE569FAF6031BF655 /* FlavorPreference */ = {
 			isa = PBXGroup;
@@ -147,6 +165,13 @@
 				82B4EA07B5E079A1928430A0 /* FlavorPreferenceCollectionViewCell.swift */,
 			);
 			path = FlavorPreference;
+			sourceTree = "<group>";
+		};
+		1884021F26E47F68000C97D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		20F82644BB0409B75F1A7036 /* BasePreference */ = {
@@ -313,6 +338,7 @@
 			children = (
 				415D80635E569D398F3DC089 /* Martini */,
 				FB5B62E8F0F9A4B2C8429D55 /* Products */,
+        1884021F26E47F68000C97D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -333,12 +359,19 @@
 			buildPhases = (
 				DECAC993B0AFA8B4F6EB11A7 /* Sources */,
 				49D055530DC153F0F2158621 /* Resources */,
+        1884021E26E47F5A000C97D7 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Martini;
+      packageProductDependencies = (
+				1884022026E47F68000C97D7 /* FirebaseAuth */,
+				1884022226E47F6D000C97D7 /* FirebaseDatabase */,
+				1884022426E47F76000C97D7 /* FirebaseFirestore */,
+				1884022626E47F76000C97D7 /* FirebaseFirestoreSwift-Beta */,
+			);
 			productName = Martini;
 			productReference = 2104996A69DA2210D9DE1A02 /* Martini.app */;
 			productType = "com.apple.product-type.application";
@@ -658,6 +691,28 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-	};
+
+/* Begin XCSwiftPackageProductDependency section */
+		1884022026E47F68000C97D7 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33D7C13214D4273577EB4D1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		1884022226E47F6D000C97D7 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33D7C13214D4273577EB4D1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		1884022426E47F76000C97D7 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33D7C13214D4273577EB4D1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		1884022626E47F76000C97D7 /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33D7C13214D4273577EB4D1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */	};
 	rootObject = D71A8BD6EF4DF6257F5ABD89 /* Project object */;
 }
