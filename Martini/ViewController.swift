@@ -12,7 +12,9 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AuthController.shared.login(email: "glflakcm@hanmail.com", password: "123456") 
+        AuthController.shared.login(email: "glflakcm@hanmail.com", password: "123456")
+//        AuthController.shared.logout()
+        
         self.view.tintColor = .systemRed
         let viewControllers:[UIViewController] = [
             initTabViewController("MainView", identfire: "MainVC", title: "칵테일추천", icon: UIImage(systemName: "hand.thumbsup"), tag: 1),
@@ -47,6 +49,19 @@ extension UITabBarController {
         let vc = UIStoryboard(name: bundleName, bundle: nil).instantiateViewController(withIdentifier: identfire)
         vc.tabBarItem = UITabBarItem(title: title, image: icon, tag: tag)
         return vc
+    }
+    
+}
+
+extension UIViewController {
+    
+    func alert(_ message: String){
+        
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
