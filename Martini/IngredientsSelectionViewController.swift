@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class IngredientsSelectionViewController: UIViewController {
     
@@ -16,10 +17,13 @@ class IngredientsSelectionViewController: UIViewController {
     let identifier = "ingredientsSelectionCollectionViewCell"
     let spacingRow = 7
     let spacingColumn = 7
-
+    
+    
+    let preferenceController =  PreferenceController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         ingredientsSelectionCollectionView.delegate = self
         ingredientsSelectionCollectionView.dataSource = self
         
@@ -38,8 +42,31 @@ class IngredientsSelectionViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    
     @IBAction func btnNextView(_ sender: UIButton) {
-        print("next")
+        
+        var bases = [String] ()
+        var tastes = [String:Int]()
+        var ingredients = [String] ()
+        
+        for index in 0 ..< PREFERENCE_DATASTORE.alcohols.count {
+            if PREFERENCE_DATASTORE.alcohols[index] {
+                bases.append(Cocktail.Alcohol.allCases[index].rawValue)
+            }
+        }
+        
+        for index in 0 ..< PREFERENCE_DATASTORE.ingredients.count {
+            if PREFERENCE_DATASTORE.ingredients[index] {
+                ingredients.append(Cocktail.Ingredients.allCases[index].rawValue)
+            }
+        }
+        
+        for index in 0 ..< PREFERENCE_DATASTORE.taste.count {
+            tastes.updateValue(Int(PREFERENCE_DATASTORE.taste[index]), forKey: Cocktail.Taste.allCases[index].rawValue)
+        }
+        
+        preferenceController.registerUserPreference(bases: bases, tastes: tastes, ingredients: ingredients)
     }
 }
 
@@ -62,49 +89,32 @@ extension IngredientsSelectionViewController: UICollectionViewDelegateFlowLayout
         
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print(#function)
+    }
 }
 
 
 extension IngredientsSelectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return ingredients.count
+        return Cocktail.Ingredients.allCases.count - 1  // 마지막은 type은 없으므로 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = ingredientsSelectionCollectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! IngredientsSelectionCollectionViewCell
         
-        cell.configure(fileName: ingredients[indexPath.row].imageName, title: ingredients[indexPath.row].title)
+        // 각 재료의 이미지 이름과 타이틀 이름으로 셀 만들기
+        let ingredient = Cocktail.Ingredients.allCases[indexPath.row]
+        let imageName = ingredient.type.imageName
+        let title = ingredient.type.title
+        
+        cell.configure(imageName: imageName, title: title, index: ingredient.index)
+        
         
         return cell
     }
 }
-
-struct Ingredient {
-    let imageName: String
-    let title: String
-}
-
-let ingredients: [Ingredient] = [
-    Ingredient(imageName: "rum", title: "럼"),
-    Ingredient(imageName: "gin", title: "진"),
-    Ingredient(imageName: "whisky", title: "위스키"),
-    Ingredient(imageName: "tequila", title: "데킬라"),
-    Ingredient(imageName: "brandy", title: "브랜디"),
-    Ingredient(imageName: "vodka", title: "보드카"),
-    Ingredient(imageName: "beer", title: "맥주"),
-    Ingredient(imageName: "soju", title: "소주"),
-    Ingredient(imageName: "champagne", title: "샴페인"),
-    Ingredient(imageName: "wine", title: "와인"),
-    Ingredient(imageName: "tonic", title: "토닉 워터"),
-    Ingredient(imageName: "ginger ale", title: "진저 에일"),
-    Ingredient(imageName: "sugar-cube", title: "설탕"),
-    Ingredient(imageName: "lime-juice", title: "라임 쥬스"),
-    Ingredient(imageName: "soda", title: "클럽 소다"),
-    Ingredient(imageName: "mint", title: "민트"),
-    Ingredient(imageName: "olives", title: "올리브"),
-    Ingredient(imageName: "energy-drink", title: "에너지 드링크"),
-    Ingredient(imageName: "liqueur-coffee", title: "깔루아"),
-    Ingredient(imageName: "milk", title: "우유")
-]

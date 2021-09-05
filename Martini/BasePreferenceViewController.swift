@@ -39,7 +39,7 @@ class BasePreferenceViewController: UIViewController {
         guard let uvc = storyboard?.instantiateViewController(identifier: "flavorPreference") else {
             return
         }
-
+        
         self.navigationController?.pushViewController(uvc, animated: true)
         
     }
@@ -64,37 +64,31 @@ extension BasePreferenceViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(#function)
+    }
 }
 
 extension BasePreferenceViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return alcolBase.count
+        return Cocktail.Alcohol.allCases.count - 1 // 마지막은 type은 없으므로
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = BasePreferenceCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! BasePreferenceCollectionViewCell
+        
+        // 각 알콜 베이스의 이미지 이름과 타이틀 이름으로 셀 만들기
+        let base = Cocktail.Alcohol.allCases[indexPath.row]
+        
+        let imageName = base.type.imageName
+        let title = base.type.title
+        
+        cell.configure(imageName: imageName, title: title, index: base.index)
+        
 
-        cell.configure(fileName: alcolBase[indexPath.row].fileName, alcolName:  alcolBase[indexPath.row].alcolName)
         return cell
     }
 }
-
-struct AlcolBase {
-    let fileName: String
-    let alcolName: String
-}
-
-let alcolBase: [AlcolBase] = [
-    AlcolBase(fileName: "rum", alcolName: "럼"),
-    AlcolBase(fileName: "gin", alcolName: "진"),
-    AlcolBase(fileName: "whisky", alcolName: "위스키"),
-    AlcolBase(fileName: "tequila", alcolName: "데킬라"),
-    AlcolBase(fileName: "brandy", alcolName: "브랜디"),
-    AlcolBase(fileName: "vodka", alcolName: "보드카"),
-    AlcolBase(fileName: "beer", alcolName: "맥주"),
-    AlcolBase(fileName: "soju", alcolName: "소주"),
-    AlcolBase(fileName: "champagne", alcolName: "샴페일"),
-    AlcolBase(fileName: "wine", alcolName: "와인")
-]

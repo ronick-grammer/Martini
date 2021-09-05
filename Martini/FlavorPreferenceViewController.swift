@@ -37,7 +37,6 @@ class FlavorPreferenceViewController: UIViewController {
     }
     
     @IBAction func btnNextView(_ sender: UIButton) {
-        
         let storyboard: UIStoryboard? = UIStoryboard(name: "IngredientsSelectionView", bundle: Bundle.main)
         
         guard let uvc = storyboard?.instantiateViewController(identifier: "ingredientsSelection") else { return }
@@ -67,21 +66,19 @@ extension FlavorPreferenceViewController: UICollectionViewDelegateFlowLayout {
 
 extension FlavorPreferenceViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return flavorPreferenceTitleText.count
+        return Cocktail.Taste.allCases.count - 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = flavorPreferenceCollectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! FlavorPreferenceCollectionViewCell
         
-        cell.configure(title: flavorPreferenceTitleText[indexPath.row])
+        // 각 맛의 서브 타이틀로 셀 만들기
+        let taste = Cocktail.Taste.allCases[indexPath.row]
+        let subtitle = taste.type.subtitle
+        
+        cell.configure(subtitle: subtitle, index: taste.index)
+        
         
         return cell
     }
 }
-
-let flavorPreferenceTitleText: [String] = [
-    "단맛이 강한 음료가 좋습니다",
-    "부드러운 맛이 있었으면 좋겠어요",
-    "술맛이 강했으면 좋겠어요!",
-    "새로운 맛을 원해요"
-]

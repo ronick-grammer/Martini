@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol SliderStrenthDelegate {
+    func didChangeValue(value: Double)
+}
+
 class SliderStrenth: UIView {
     
     var slider = UISlider()
     var labelTitle = UILabel()
     var labelPercentage = UILabel()
     
+    var delegate: SliderStrenthDelegate?
 //    override func awakeFromNib() {
 //        super.awakeFromNib()
 //        print(#function)
@@ -62,6 +67,10 @@ class SliderStrenth: UIView {
     
     @objc func valueChange(_ sender: UISlider) {
         labelPercentage.text = "\(Int(slider.value * 100))%"
+        
+        if delegate != nil {
+            delegate?.didChangeValue(value: Double(slider.value * 100))
+        }
     }
     
     func configureLabelTitle() {
@@ -132,6 +141,10 @@ class SliderStrenth: UIView {
 
         slider.setValue(Float(newValue), animated: true)
         labelPercentage.text = "\(Int(slider.value * 100))%"
+        
+        if delegate != nil {
+            delegate?.didChangeValue(value: Double(slider.value * 100))
+        }
     }
 }
 
