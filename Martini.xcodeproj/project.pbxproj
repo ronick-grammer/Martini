@@ -191,6 +191,7 @@
 			children = (
 				8EFD1F6EC5098C5B6D01E9C1 /* Cocktail.swift */,
 				2565890830A74D20A098EBA0 /* User.swift */,
+				B35D7FB626E3DB70002A5AF6 /* CocktailCellData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
