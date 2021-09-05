@@ -12,8 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="7mq-tt-5U1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YbV-Vu-6SL" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="LogInVC" id="Svk-4H-VDU" customClass="LoginViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="Svk-4H-VDU" customClass="LoginViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uNl-FP-I4o">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,13 +100,13 @@
                         <segue destination="MWP-pV-ngO" kind="show" identifier="sgSignUp" id="dCZ-vk-4mj"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YbV-Vu-6SL" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5223.0769230769229" y="-28.436018957345969"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="zeA-Kc-bax">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Udi-Lp-pRP" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SignUpVC" id="MWP-pV-ngO" customClass="SignUpViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xhU-x4-on7">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
@@ -121,13 +120,13 @@
                         <segue destination="Ye6-3r-Zxa" kind="show" identifier="sgCertifyPhone" id="MWV-hQ-TQ7"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Udi-Lp-pRP" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4442" y="-28"/>
         </scene>
         <!--Certify Phone View Controller-->
         <scene sceneID="plu-85-RVj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gqm-Kl-a2F" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CertifyPhoneVC" id="Ye6-3r-Zxa" customClass="CertifyPhoneViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cfk-b6-CV9">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
@@ -198,6 +197,7 @@
                         <outlet property="securityCodeTextField" destination="5I6-DW-cXI" id="0x4-4m-TLe"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqm-Kl-a2F" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3671" y="-28"/>
         </scene>
