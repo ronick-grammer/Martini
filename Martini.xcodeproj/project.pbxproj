@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -87,7 +87,7 @@
 		19843DC052FB85E7F6038922 /* IngredientsSelectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IngredientsSelectionView.storyboard; sourceTree = "<group>"; };
 		1CEA7BC4E34C6D49E65C2466 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F23E7F997BA5AD52A8228CA /* PreferenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceController.swift; sourceTree = "<group>"; };
-    2104996A69DA2210D9DE1A02 /* Martini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Martini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2104996A69DA2210D9DE1A02 /* Martini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Martini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2565890830A74D20A098EBA0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		29732B947D1A0548EB887208 /* BannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerButton.swift; sourceTree = "<group>"; };
 		29CB1806FD428B3CD322563D /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 			children = (
 				415D80635E569D398F3DC089 /* Martini */,
 				FB5B62E8F0F9A4B2C8429D55 /* Products */,
-        1884021F26E47F68000C97D7 /* Frameworks */,
+				1884021F26E47F68000C97D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -359,14 +359,14 @@
 			buildPhases = (
 				DECAC993B0AFA8B4F6EB11A7 /* Sources */,
 				49D055530DC153F0F2158621 /* Resources */,
-        1884021E26E47F5A000C97D7 /* Frameworks */,
+				1884021E26E47F5A000C97D7 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Martini;
-      packageProductDependencies = (
+			packageProductDependencies = (
 				1884022026E47F68000C97D7 /* FirebaseAuth */,
 				1884022226E47F6D000C97D7 /* FirebaseDatabase */,
 				1884022426E47F76000C97D7 /* FirebaseFirestore */,
@@ -383,8 +383,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1200;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 29C05C3B9A369FD2E671A7D6 /* Build configuration list for PBXProject "Martini" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -637,6 +635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.martiniapp.Martini;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -653,6 +652,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.martiniapp.Martini;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -713,6 +713,7 @@
 			package = 33D7C13214D4273577EB4D1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreSwift-Beta";
 		};
-/* End XCSwiftPackageProductDependency section */	};
+/* End XCSwiftPackageProductDependency section */
+	};
 	rootObject = D71A8BD6EF4DF6257F5ABD89 /* Project object */;
 }
