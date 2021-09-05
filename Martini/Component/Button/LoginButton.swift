@@ -7,10 +7,28 @@
 
 import UIKit
 
+protocol LoginButtonDelegate {
+    func didTouchLoginButton(didClicked: Bool)
+    func signup()
+    func phone()
+}
 class LoginButton: UIButton {
-    
-    @objc func LoginButtonHandler(_ sender: UIButton) {
+    var delegate: LoginButtonDelegate?
+    var isClicked: Bool = false
 
+    @objc func LoginButtonHandler(_ sender: UIButton) {
+        isClicked.toggle()
+        delegate?.didTouchLoginButton(didClicked: isClicked)
+        
+
+    }
+    
+    @objc func signupButtonHandler(_ sender: UIButton) {
+        delegate?.signup()
+    }
+    
+    @objc func phoneButtonHandler(_ sender: UIButton) {
+        delegate?.phone()
     }
     
     override init(frame: CGRect) {
