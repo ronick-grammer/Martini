@@ -13,3 +13,5 @@ targets:
     platform: iOS
     deploymentTarget: 13.0
     sources: [Martini]
+    dependencies:
+      - package: Firebase
