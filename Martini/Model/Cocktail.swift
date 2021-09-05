@@ -5,19 +5,21 @@
 //  Created by Jingyu Lim on 2021/08/12.
 //
 
-import Foundation
+import FirebaseFirestoreSwift
 
-struct Cocktail {
-    enum color {
+struct Cocktail: Identifiable, Decodable{
+    
+    
+    enum color: String, Decodable {
         case red
         case blue
         case green
     }
     
-    enum Alcol{
+    enum Alcohol: String, CaseIterable, Decodable {
         case rum
         case gin
-        case whiskye
+        case whisky
         case tequila
         case brandy
         case vodka
@@ -25,13 +27,39 @@ struct Cocktail {
         case soju
         case champagne
         case wine
-        case none
+        case none // 비선택시
+        
+        // 각 case의 인덱스
+        var index: Self.AllCases.Index! {
+            return Self.allCases.firstIndex { $0 == self }
+        }
+        
+        struct AlcoholInfo {
+            let imageName: String
+            let title: String
+        }
+        // 타입에 따른 정보 반환
+        var type: AlcoholInfo {
+            switch self {
+            case .rum       : return AlcoholInfo(imageName: "rum", title: "럼")
+            case .gin       : return AlcoholInfo(imageName: "gin", title: "진")
+            case .whisky    : return AlcoholInfo(imageName: "whisky", title: "위스키")
+            case .tequila   : return AlcoholInfo(imageName: "tequila", title: "데킬라")
+            case .brandy    : return AlcoholInfo(imageName: "brandy", title: "브랜디")
+            case .vodka     : return AlcoholInfo(imageName: "vodka", title: "보드카")
+            case .beer      : return AlcoholInfo(imageName: "beer", title: "맥주")
+            case .soju      : return AlcoholInfo(imageName: "soju", title: "소주")
+            case .champagne : return AlcoholInfo(imageName: "champagne", title: "샴페인")
+            case .wine      : return AlcoholInfo(imageName: "wine", title: "와인")
+            default         : return AlcoholInfo(imageName: "", title: "")
+            }
+        }
     }
     
-    enum Ingredients {
+    enum Ingredients: String, CaseIterable, Decodable {
         case rum
         case gin
-        case whiskye
+        case whisky
         case tequila
         case brandy
         case vodka
@@ -43,30 +71,92 @@ struct Cocktail {
         case gingerAle
         case sugar
         case limeJuice
-        case clubSodal
+        case clubSoda
         case mint
         case olive
-        case hot6
+        case energyDrink
         case kahlua
         case milk
+        case none // 비선택시
+        
+        // 각 case의 인덱스
+        var index: Self.AllCases.Index! {
+            return Self.allCases.firstIndex { self == $0 }
+        }
+        
+        struct IngredientInfo {
+            let imageName: String
+            let title: String
+        }
+        // 타입에 따른 정보 반환
+        var type: IngredientInfo {
+            switch self {
+            case .rum        : return IngredientInfo(imageName: "rum", title: "럼")
+            case .gin        : return IngredientInfo(imageName: "gin", title: "진")
+            case .whisky     : return IngredientInfo(imageName: "whisky", title: "위스키")
+            case .tequila    : return IngredientInfo(imageName: "tequila", title: "데킬라")
+            case .brandy     : return IngredientInfo(imageName: "brandy", title: "브랜디")
+            case .vodka      : return IngredientInfo(imageName: "vodka", title: "보드카")
+            case .beer       : return IngredientInfo(imageName: "beer", title: "맥주")
+            case .soju       : return IngredientInfo(imageName: "soju", title: "소주")
+            case .champagne  : return IngredientInfo(imageName: "champagne", title: "샴페인")
+            case .wine       : return IngredientInfo(imageName: "wine", title: "와인")
+            case .tonicWater : return IngredientInfo(imageName: "tonic", title: "토닉 워터")
+            case .gingerAle  : return IngredientInfo(imageName: "ginger ale", title: "진저 에일")
+            case .sugar      : return IngredientInfo(imageName: "sugar-cube", title: "설탕")
+            case .limeJuice  : return IngredientInfo(imageName: "lime-juice", title: "라임 쥬스")
+            case .clubSoda   : return IngredientInfo(imageName: "soda", title: "클럽 소다")
+            case .mint       : return IngredientInfo(imageName: "mint", title: "민트")
+            case .olive      : return IngredientInfo(imageName: "olives", title: "올리브")
+            case .energyDrink: return IngredientInfo(imageName: "energy-drink", title: "에너지 드링크")
+            case .kahlua     : return IngredientInfo(imageName: "liqueur-coffee", title: "깔루아")
+            case .milk       : return IngredientInfo(imageName: "milk", title: "우유")
+            default          : return IngredientInfo(imageName: "", title: "")
+            }
+        }
     }
     
-    struct Taste {
-        let sweety: Double
-        let spicy: Double
-        let solty: Double
-        let creamy: Double
-        let bitter: Double
+    
+    enum Taste: String, CaseIterable, Decodable {
+        
+        case sweety
+        case spicy
+        case salty
+        case creamy
+        case bitter
+        case none // 비선택시
+        
+        // 각 case의 인덱스
+        var index: Self.AllCases.Index! {
+            return Self.allCases.firstIndex { $0 == self }
+        }
+        
+        struct TasteInfo {
+            let title: String
+            let subtitle: String
+        }
+        // 타입에 따른 정보 반환
+        var type: TasteInfo {
+            switch self {
+            case .sweety: return TasteInfo(title: "단맛", subtitle: "단맛이 강한 음료가 좋습니다")
+            case .spicy : return TasteInfo(title: "매운맛", subtitle: "매운 맛을 좋아해요")
+            case .salty : return TasteInfo(title: "짠맛", subtitle: "짭조름한 맛이 났으면 좋겠어요!")
+            case .creamy: return TasteInfo(title: "부드러운맛", subtitle: "부드러운 맛이 있었으면 좋겠어요!")
+            case .bitter: return TasteInfo(title: "술맛", subtitle: "술맛이 강했으면 좋겠어요")
+            default     : return TasteInfo(title: "", subtitle: "")
+            }
+        }
     }
     
-    let oid: String
+    
+    @DocumentID var id: String?
     let name: String
-    let base: Cocktail.Alcol
-    let color: Cocktail.color
-    let strength: Double
+    let base: Cocktail.Alcohol
+    let color: [Cocktail.color]
+    let alcoholByVolume: Double
     let ingredients: [Cocktail.Ingredients]
     let description: String
-    let taste: Taste
+    let taste: [Taste:Int]
     let recipe: [String]
     
 }
