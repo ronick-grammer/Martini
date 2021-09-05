@@ -19,7 +19,8 @@ class IngredientsSelectionViewController: UIViewController {
     let spacingColumn = 7
     
     
-    let preferenceController =  PreferenceController()
+    let preferenceController =  PreferenceManager()
+    let cocktailManager = CocktailManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,22 @@ class IngredientsSelectionViewController: UIViewController {
         }
         
         preferenceController.registerUserPreference(bases: bases, tastes: tastes, ingredients: ingredients)
+        
+//        let cocktailColor = [Cocktail.Color.blue, Cocktail.Color.red, Cocktail.Color.teal]
+//        let cocktailIngredient = [Cocktail.Ingredients.champagne, Cocktail.Ingredients.olive, Cocktail.Ingredients.tonicWater, Cocktail.Ingredients.mint, Cocktail.Ingredients.sugar]
+//
+//        var cocktailTaste =  [Cocktail.Taste:Int]()
+//        for index in 0 ..< Cocktail.Taste.allCases.count {
+//            cocktailTaste.updateValue(100 + (index * 6), forKey: Cocktail.Taste.allCases[index])
+//        }
+//
+//        let recipe = [
+//            "1. 깔루아를 잔에 깔아준다.",
+//            "2. 그후 베이스인 샴페인을 넣고 원하는 색상을 두방을 떨어뜨린다.",
+//            "3. 민트를 살포시 올려주면 완성!"
+//        ]
+//        
+//        cocktailManager.registerCocktail("Martini", Cocktail.Alcohol.champagne, cocktailColor, 18.4, cocktailIngredient, "맛없는 칵테일로 최악의 하루를 선물하세요", cocktailTaste, recipe)
     }
 }
 

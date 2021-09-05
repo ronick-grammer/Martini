@@ -14,8 +14,8 @@ struct User: Identifiable, Decodable {
     let nickName: String
     let email: String
     let phone: String
-    let liked: [String]
-    let joinDate: Timestamp
+    var liked: [String]?
+    var joinDate: Timestamp?
     
     
     var basePreference: [Cocktail.Alcohol]?
