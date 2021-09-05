@@ -85,6 +85,7 @@ class BannerToggleButton: UIView {
     
     func setupLayout() {
         self.addSubview(vstackView)
+        
         bannerButton.addTarget(self, action: #selector(BannerToggleButtonHandler(_:)), for: .touchUpInside)
         vstackView.addArrangedSubview(banner)
         vstackView.addArrangedSubview(buttonTitleLabel)
