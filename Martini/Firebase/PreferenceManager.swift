@@ -9,7 +9,7 @@
 import Firebase
 import FirebaseDatabase
 
-class PreferenceController {
+class PreferenceManager {
     
     // 유저 선호도 파이어베이스에 저장
     func registerUserPreference(bases: [String], tastes: [String:Int], ingredients: [String]) {
@@ -21,13 +21,13 @@ class PreferenceController {
     // 베이스 선호도 저장
     func setBasePreference(bases: [String]) {
         
-        guard let uid = AuthController.shared.userSession?.uid else { return }
+        guard let uid = AuthManager.shared.userSession?.uid else { return }
         COLLECTION_USERS.document(uid).updateData(["basePreference" : bases]) { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
             }
     
-            AuthController.shared.currentUser?.basePreference = bases.map({
+            AuthManager.shared.currentUser?.basePreference = bases.map({
                 Cocktail.Alcohol.init(rawValue: $0) ?? Cocktail.Alcohol.none
             })
         }
@@ -36,7 +36,7 @@ class PreferenceController {
     // 맛 선호도 저장
     func setTastePreference(tastes: [String:Int]) {
         
-        guard let uid = AuthController.shared.userSession?.uid else { return }
+        guard let uid = AuthManager.shared.userSession?.uid else { return }
         
         COLLECTION_USERS.document(uid).updateData(["tastePreference" : tastes]) { error in
             if let error = error {
@@ -44,7 +44,7 @@ class PreferenceController {
             }
             
             tastes.forEach { key, value in
-                AuthController.shared.currentUser?.tastePreference?.updateValue(value, forKey: Cocktail.Taste.init(rawValue: key) ?? Cocktail.Taste.none)
+                AuthManager.shared.currentUser?.tastePreference?.updateValue(value, forKey: Cocktail.Taste.init(rawValue: key) ?? Cocktail.Taste.none)
             }
         }
     }
@@ -52,14 +52,14 @@ class PreferenceController {
     // 재료 선호도 저장
     func setIngredientPreference(ingredients: [String]) {
         
-        guard let uid = AuthController.shared.userSession?.uid else { return }
+        guard let uid = AuthManager.shared.userSession?.uid else { return }
         
         COLLECTION_USERS.document(uid).updateData(["ingredientPreference" : ingredients]) { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
             }
             
-            AuthController.shared.currentUser?.ingredientPreference = ingredients.map({ Cocktail.Ingredients.init(rawValue: $0) ?? Cocktail.Ingredients.none
+            AuthManager.shared.currentUser?.ingredientPreference = ingredients.map({ Cocktail.Ingredients.init(rawValue: $0) ?? Cocktail.Ingredients.none
             })
         }
     }
@@ -77,14 +77,14 @@ class PreferenceController {
     
     func setBasePreference(bases: [Int], tastes: [Int]?, ingredients: [Int]?) {
         
-        guard let uid = AuthController.shared.userSession?.uid else { return }
+        guard let uid = AuthManager.shared.userSession?.uid else { return }
         
         COLLECTION_USERS.document(uid).updateData(["basePreference" : bases]) { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
             }
     
-            AuthController.shared.currentUser?.basePreference = bases.map({
+            AuthManager.shared.currentUser?.basePreference = bases.map({
                 Cocktail.Alcohol.init(rawValue: $0) ?? Cocktail.Alcohol.none
             })
             
@@ -96,14 +96,14 @@ class PreferenceController {
     
     func setTastePreference(tastes: [Int], ingredients: [Int]?) {
         
-        guard let uid = AuthController.shared.userSession?.uid else { return }
+        guard let uid = AuthManager.shared.userSession?.uid else { return }
         
         COLLECTION_USERS.document(uid).updateData(["tastePreference" : tastes]) { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
             }
             
-            AuthController.shared.currentUser?.tastePreference = tastes
+            AuthManager.shared.currentUser?.tastePreference = tastes
             
             if let ingredients_unwrapped = ingredients {
                 self.setIngredientPreference(ingredients: ingredients_unwrapped)
@@ -113,21 +113,21 @@ class PreferenceController {
     
     func setIngredientPreference(ingredients: [Int]) {
         
-        guard let uid = AuthController.shared.userSession?.uid else { return }
+        guard let uid = AuthManager.shared.userSession?.uid else { return }
         
         COLLECTION_USERS.document(uid).updateData(["ingredientPreference" : ingredients]) { error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
             }
             
-            AuthController.shared.currentUser?.ingredientPreference = ingredients.map({ Cocktail.Ingredients.init(rawValue: $0) ?? Cocktail.Ingredients.none })
+            AuthManager.shared.currentUser?.ingredientPreference = ingredients.map({ Cocktail.Ingredients.init(rawValue: $0) ?? Cocktail.Ingredients.none })
             
             self.fetchUserPreferences()
         }
     }
     
     func fetchUserPreferences() {
-        guard let uid = AuthController.shared.userSession?.uid else { return }
+        guard let uid = AuthManager.shared.userSession?.uid else { return }
         
         COLLECTION_USERS.document(uid).getDocument { snapshot, error in
             if let error = error {
@@ -138,7 +138,7 @@ class PreferenceController {
             guard let user = try? snapshot?.data(as: User.self) else { return }
         
             print("user: \(user)")
-            print("currentUser: \(AuthController.shared.currentUser!)")
+            print("currentUser: \(AuthManager.shared.currentUser!)")
             print("Successfully regsitered preferences!")
         }
     }

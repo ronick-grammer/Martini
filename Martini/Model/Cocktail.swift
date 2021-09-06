@@ -6,14 +6,45 @@
 //
 
 import FirebaseFirestoreSwift
+import UIKit
 
-struct Cocktail: Identifiable, Decodable{
+struct Cocktail: Identifiable, Decodable {
     
     
-    enum color: String, Decodable {
+    enum Color: String, CaseIterable, Decodable {
         case red
         case blue
         case green
+        case yellow
+        case teal
+        case pink
+        case orange
+        case none
+        
+        // 각 case의 인덱스
+        var index: Self.AllCases.Index! {
+            return Self.allCases.firstIndex { $0 == self }
+        }
+        
+        struct ColorInfo {
+            let title: String
+            let color: UIColor
+        }
+        
+        // 타입에 따른 정보 반환
+        var type: ColorInfo {
+            switch self {
+            case .red   : return ColorInfo(title: "빨간색", color: .systemRed)
+            case .blue  : return ColorInfo(title: "파란색", color: .systemBlue)
+            case .green : return ColorInfo(title: "녹색", color: .systemGreen)
+            case .yellow: return ColorInfo(title: "노란색", color: .systemYellow)
+            case .teal  : return ColorInfo(title: "청록색", color: .systemTeal)
+            case .pink  : return ColorInfo(title: "분홍색", color: .systemPink)
+            case .orange: return ColorInfo(title: "주황색", color: .systemOrange)
+            default     : return ColorInfo(title: "", color: UIColor())
+                
+            }
+        }
     }
     
     enum Alcohol: String, CaseIterable, Decodable {
@@ -152,7 +183,7 @@ struct Cocktail: Identifiable, Decodable{
     @DocumentID var id: String?
     let name: String
     let base: Cocktail.Alcohol
-    let color: [Cocktail.color]
+    let color: [Cocktail.Color]
     let alcoholByVolume: Double
     let ingredients: [Cocktail.Ingredients]
     let description: String
