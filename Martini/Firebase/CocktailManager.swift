@@ -6,37 +6,55 @@
 //
 
 import Firebase
+import FirebaseFirestoreSwift
 
 class CocktailManager {
-    var coktails =  [Cocktail] ()
+    var cocktails =  [Cocktail] ()
+    
+    init() {
+        fetchAllCocktail()
+    }
     
     // 칵테일 정보 등록
-    func registerCocktail(_ name: String, _ base: Cocktail.Alcohol, _ color: [Cocktail.Color], _ alcoholByVolume: Double, _ ingredients: [Cocktail.Ingredients], _ description: String, _ taste: [Cocktail.Taste:Int], _ recipe: [String]){
-        
-        let colorArrayData = color.map({ $0.rawValue })
-        let ingredientsArrayData = ingredients.map({ $0.rawValue })
-        
-        var tasteMapData = [String:Int]()
-        taste.forEach { key, value in
-            tasteMapData.updateValue(value, forKey: key.rawValue)
-        }
+    func registerCocktail(cocktail: Cocktail, _ completion: @escaping(_ success: Bool) -> Void) {
+        do{
+            guard let uid = cocktail.id else {
+                completion(false)
+                return
+            }
             
-        let data = [
-            "name": name,
-            "base": base.rawValue,
-            "color": colorArrayData,
-            "abv": alcoholByVolume,
-            "ingredient": ingredientsArrayData,
-            "description": description,
-            "taste": tasteMapData,
-            "recipe": recipe
-        ] as [String : Any]
-        
-        COLLECTION_COCKTAILS.addDocument(data: data) { error in
+            try COLLECTION_COCKTAILS.document(uid).setData(from: cocktail, encoder: Firestore.Encoder()) { error in
+           
+                if let error = error {
+                    print("DEBUG: \(error.localizedDescription)")
+                    completion(false)
+                    return
+                }
+                
+                print("successfully registered cocktail..!")
+                completion(true)
+            }
+        } catch {
+            print("DEBUG: \(error.localizedDescription)")
+            completion(false)
+            return
+        }
+    }
+    
+    // 모든 칵테일 가져오기
+    func fetchAllCocktail() {
+        COLLECTION_COCKTAILS.getDocuments { snapshot, error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
+                return
             }
+            
+            guard let documents = snapshot?.documents else { return }
+            self.cocktails = documents.compactMap({ try? $0.data(as: Cocktail.self) })
+            
+            print("successfully fetched cocktails!!: \(self.cocktails.count)")
         }
-        
     }
 }
+
+
