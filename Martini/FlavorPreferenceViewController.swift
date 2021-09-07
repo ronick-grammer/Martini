@@ -66,7 +66,7 @@ extension FlavorPreferenceViewController: UICollectionViewDelegateFlowLayout {
 
 extension FlavorPreferenceViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Cocktail.Taste.allCases.count - 1
+        return Cocktail.Taste.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,11 +74,27 @@ extension FlavorPreferenceViewController: UICollectionViewDataSource {
         
         // 각 맛의 서브 타이틀로 셀 만들기
         let taste = Cocktail.Taste.allCases[indexPath.row]
-        let subtitle = taste.type.subtitle
+        let tasteInfo = getTasteInfo(taste: taste)
+        let subtitle = tasteInfo.subtitle
         
         cell.configure(subtitle: subtitle, index: taste.index)
         
-        
         return cell
     }
+    
+    // 타입에 따른 정보 반환
+    func getTasteInfo(taste: Cocktail.Taste) -> TasteInfo {
+        switch taste {
+        case .sweety: return TasteInfo(title: "단맛", subtitle: "단맛이 강한 음료가 좋습니다")
+        case .spicy : return TasteInfo(title: "매운맛", subtitle: "매운 맛을 좋아해요")
+        case .salty : return TasteInfo(title: "짠맛", subtitle: "짭조름한 맛이 났으면 좋겠어요!")
+        case .creamy: return TasteInfo(title: "부드러운맛", subtitle: "부드러운 맛이 있었으면 좋겠어요!")
+        case .bitter: return TasteInfo(title: "술맛", subtitle: "술맛이 강했으면 좋겠어요")
+        }
+    }
+}
+
+struct TasteInfo {
+    let title: String
+    let subtitle: String
 }

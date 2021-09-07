@@ -20,6 +20,7 @@ class AuthManager {
     // 회원가입
     func registerUser(user: User, password: String, _ completion: @escaping((_ success:Bool) -> Void)) {
         
+        // 계정 생성(등록)
         Auth.auth().createUser(withEmail: user.email, password: password) { result, error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
@@ -34,37 +35,41 @@ class AuthManager {
             
             let uid = userSession.uid
             
-            let data = [
-                "email": user.email,
-                "nickName": user.nickName,
-                "phone": user.phone,
-                "joinDate": Timestamp.init(date: Date())
-            ] as [String : Any]
-            
-            COLLECTION_USERS.document(uid).setData(data) { error in
-                if let error = error {
-                    print("DEBUG: \(error.localizedDescription)")
-                    completion(false)
-                    return
-                }
-                
-                COLLECTION_USERS.document(uid).getDocument { snapshot, error in
-                    if let error = error {
+            do {
+                try COLLECTION_USERS.document(uid).setData(from: user, encoder: Firestore.Encoder()) { error in
+                    if let error = error { // 실패시 위에서 등록했던 유저 계정 삭제
                         print("DEBUG: \(error.localizedDescription)")
+                        userSession.delete { error in print("DEBUG: Deleted user..!") }
                         completion(false)
                         return
                     }
                     
-                    self.userSession = userSession
-                    
-                    guard let user = try? snapshot?.data(as: User.self) else {
-                        completion(false)
-                        return }
-                    self.currentUser = user
-                    
-                    completion(true)
-                    print("Successfully registered user..!")
+                    COLLECTION_USERS.document(uid).getDocument { snapshot, error in
+                        if let error = error { // 실패시 위에서 등록했던 유저 계정 삭제
+                            print("DEBUG: \(error.localizedDescription)")
+                            userSession.delete { error in print("DEBUG: Deleted user..!") }
+                            completion(false)
+                            return
+                        }
+                        
+                        guard let user = try? snapshot?.data(as: User.self) else {
+                            userSession.delete { error in print("DEBUG: Deleted user..!") }
+                            completion(false)
+                            return
+                        }
+                        
+                        self.userSession = userSession // 현재 유저 세션 등록
+                        self.currentUser = user
+                        
+                        completion(true)
+                        print("Successfully registered user..!")
+                        print("currentUser: \(self.currentUser!)")
+                    }
                 }
+            } catch {
+                print("DEBUG: \(error.localizedDescription)")
+                userSession.delete { error in print("DEBUG: Deleted user..!") }
+                completion(false)
             }
         }
     }
@@ -79,7 +84,10 @@ class AuthManager {
                 return
             }
             
-            guard let userSession = result?.user else { return }
+            guard let userSession = result?.user else {
+                completion(false)
+                return
+            }
             
             let uid = userSession.uid
             
@@ -90,9 +98,12 @@ class AuthManager {
                     return
                 }
                 
-                self.userSession = userSession
+                guard let user = try? snapshot?.data(as: User.self) else {
+                    completion(false)
+                    return
+                }
                 
-                guard let user = try? snapshot?.data(as: User.self) else { return }
+                self.userSession = userSession //현재 유저 세션 등록
                 self.currentUser = user
                 
                 completion(true)
@@ -106,6 +117,12 @@ class AuthManager {
     func logout() {
         self.userSession = nil
         self.currentUser = nil
-        try? Auth.auth().signOut()
+        
+        do{
+            try Auth.auth().signOut()
+        } catch {
+            print("DEBUG: \(error.localizedDescription)")
+        }
+        
     }
 }

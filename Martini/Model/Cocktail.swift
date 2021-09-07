@@ -5,13 +5,15 @@
 //  Created by Jingyu Lim on 2021/08/12.
 //
 
+import Firebase
 import FirebaseFirestoreSwift
 import UIKit
 
-struct Cocktail: Identifiable, Decodable {
+
+struct Cocktail: Identifiable, Codable {
     
     
-    enum Color: String, CaseIterable, Decodable {
+    enum Color: String, CaseIterable, Codable {
         case red
         case blue
         case green
@@ -19,35 +21,15 @@ struct Cocktail: Identifiable, Decodable {
         case teal
         case pink
         case orange
-        case none
+        case none // 무색
         
         // 각 case의 인덱스
         var index: Self.AllCases.Index! {
             return Self.allCases.firstIndex { $0 == self }
         }
-        
-        struct ColorInfo {
-            let title: String
-            let color: UIColor
-        }
-        
-        // 타입에 따른 정보 반환
-        var type: ColorInfo {
-            switch self {
-            case .red   : return ColorInfo(title: "빨간색", color: .systemRed)
-            case .blue  : return ColorInfo(title: "파란색", color: .systemBlue)
-            case .green : return ColorInfo(title: "녹색", color: .systemGreen)
-            case .yellow: return ColorInfo(title: "노란색", color: .systemYellow)
-            case .teal  : return ColorInfo(title: "청록색", color: .systemTeal)
-            case .pink  : return ColorInfo(title: "분홍색", color: .systemPink)
-            case .orange: return ColorInfo(title: "주황색", color: .systemOrange)
-            default     : return ColorInfo(title: "", color: UIColor())
-                
-            }
-        }
     }
     
-    enum Alcohol: String, CaseIterable, Decodable {
+    enum Alcohol: String, CaseIterable, Codable {
         case rum
         case gin
         case whisky
@@ -64,30 +46,9 @@ struct Cocktail: Identifiable, Decodable {
         var index: Self.AllCases.Index! {
             return Self.allCases.firstIndex { $0 == self }
         }
-        
-        struct AlcoholInfo {
-            let imageName: String
-            let title: String
-        }
-        // 타입에 따른 정보 반환
-        var type: AlcoholInfo {
-            switch self {
-            case .rum       : return AlcoholInfo(imageName: "rum", title: "럼")
-            case .gin       : return AlcoholInfo(imageName: "gin", title: "진")
-            case .whisky    : return AlcoholInfo(imageName: "whisky", title: "위스키")
-            case .tequila   : return AlcoholInfo(imageName: "tequila", title: "데킬라")
-            case .brandy    : return AlcoholInfo(imageName: "brandy", title: "브랜디")
-            case .vodka     : return AlcoholInfo(imageName: "vodka", title: "보드카")
-            case .beer      : return AlcoholInfo(imageName: "beer", title: "맥주")
-            case .soju      : return AlcoholInfo(imageName: "soju", title: "소주")
-            case .champagne : return AlcoholInfo(imageName: "champagne", title: "샴페인")
-            case .wine      : return AlcoholInfo(imageName: "wine", title: "와인")
-            default         : return AlcoholInfo(imageName: "", title: "")
-            }
-        }
     }
     
-    enum Ingredients: String, CaseIterable, Decodable {
+    enum Ingredients: String, CaseIterable, Codable {
         case rum
         case gin
         case whisky
@@ -114,80 +75,94 @@ struct Cocktail: Identifiable, Decodable {
         var index: Self.AllCases.Index! {
             return Self.allCases.firstIndex { self == $0 }
         }
-        
-        struct IngredientInfo {
-            let imageName: String
-            let title: String
-        }
-        // 타입에 따른 정보 반환
-        var type: IngredientInfo {
-            switch self {
-            case .rum        : return IngredientInfo(imageName: "rum", title: "럼")
-            case .gin        : return IngredientInfo(imageName: "gin", title: "진")
-            case .whisky     : return IngredientInfo(imageName: "whisky", title: "위스키")
-            case .tequila    : return IngredientInfo(imageName: "tequila", title: "데킬라")
-            case .brandy     : return IngredientInfo(imageName: "brandy", title: "브랜디")
-            case .vodka      : return IngredientInfo(imageName: "vodka", title: "보드카")
-            case .beer       : return IngredientInfo(imageName: "beer", title: "맥주")
-            case .soju       : return IngredientInfo(imageName: "soju", title: "소주")
-            case .champagne  : return IngredientInfo(imageName: "champagne", title: "샴페인")
-            case .wine       : return IngredientInfo(imageName: "wine", title: "와인")
-            case .tonicWater : return IngredientInfo(imageName: "tonic", title: "토닉 워터")
-            case .gingerAle  : return IngredientInfo(imageName: "ginger ale", title: "진저 에일")
-            case .sugar      : return IngredientInfo(imageName: "sugar-cube", title: "설탕")
-            case .limeJuice  : return IngredientInfo(imageName: "lime-juice", title: "라임 쥬스")
-            case .clubSoda   : return IngredientInfo(imageName: "soda", title: "클럽 소다")
-            case .mint       : return IngredientInfo(imageName: "mint", title: "민트")
-            case .olive      : return IngredientInfo(imageName: "olives", title: "올리브")
-            case .energyDrink: return IngredientInfo(imageName: "energy-drink", title: "에너지 드링크")
-            case .kahlua     : return IngredientInfo(imageName: "liqueur-coffee", title: "깔루아")
-            case .milk       : return IngredientInfo(imageName: "milk", title: "우유")
-            default          : return IngredientInfo(imageName: "", title: "")
-            }
-        }
     }
     
-    
-    enum Taste: String, CaseIterable, Decodable {
-        
+    enum Taste: String, CaseIterable, Codable, CodingKey {
+
         case sweety
         case spicy
         case salty
         case creamy
         case bitter
-        case none // 비선택시
-        
+
         // 각 case의 인덱스
         var index: Self.AllCases.Index! {
             return Self.allCases.firstIndex { $0 == self }
         }
-        
-        struct TasteInfo {
-            let title: String
-            let subtitle: String
-        }
-        // 타입에 따른 정보 반환
-        var type: TasteInfo {
-            switch self {
-            case .sweety: return TasteInfo(title: "단맛", subtitle: "단맛이 강한 음료가 좋습니다")
-            case .spicy : return TasteInfo(title: "매운맛", subtitle: "매운 맛을 좋아해요")
-            case .salty : return TasteInfo(title: "짠맛", subtitle: "짭조름한 맛이 났으면 좋겠어요!")
-            case .creamy: return TasteInfo(title: "부드러운맛", subtitle: "부드러운 맛이 있었으면 좋겠어요!")
-            case .bitter: return TasteInfo(title: "술맛", subtitle: "술맛이 강했으면 좋겠어요")
-            default     : return TasteInfo(title: "", subtitle: "")
-            }
-        }
     }
     
     
-    @DocumentID var id: String?
+    var id: String? = UUID().uuidString
+     
     let name: String
     let base: Cocktail.Alcohol
     let color: [Cocktail.Color]
-    let alcoholByVolume: Double
+    let abv: Double // AlcoholByVolume (도수)
     let ingredients: [Cocktail.Ingredients]
     let description: String
-    let taste: [Taste:Int]
+    var taste: [Taste:Int]
     let recipe: [String]
     
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case base
+        case color
+        case abv  // AlcoholByVolume (도수)
+        case ingredients
+        case description
+        case taste
+        case recipe
+    }
+}
+
+
+
+// 인코딩, 디코딩 구현
+extension Cocktail {
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        self.abv = try container.decode(Double.self, forKey: .abv)
+        self.base = try container.decode(Alcohol.self, forKey: .base)
+        self.color = try container.decode([Color].self, forKey: .color)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.ingredients = try container.decode([Ingredients].self, forKey: .ingredients)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.recipe = try container.decode([String].self, forKey: .recipe)
+
+        // enum을 키로 가지는 딕셔너리 타입으로 변환하기
+        let tasteContainer = try container.nestedContainer(keyedBy: Taste.self, forKey: .taste)
+
+        var taste = [Taste: Int]()
+        for key in tasteContainer.allKeys {
+            guard let tasteKey = Taste(rawValue: key.rawValue) else {
+                let context = DecodingError.Context(codingPath: [], debugDescription: "json 타입을 Taste 타입으로 변환 실패")
+                throw DecodingError.dataCorrupted(context)
+            }
+            let value = try tasteContainer.decode(Int.self, forKey: key)
+            taste.updateValue(value, forKey: tasteKey)
+        }
+        self.taste = taste
+    }
+
+    func encode(to encoder: Encoder) throws {
+
+//      enum 을 key 로 가지는 딕셔너리는 파이어베이스에서 자료형으로 지원하지 않으므로 변환을 시켜줘야함
+        let taste: [String: Int] = Dictionary(uniqueKeysWithValues: self.taste.map {
+            (key: $0.rawValue, value: $1)
+        })
+
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.abv, forKey: .abv)
+        try container.encode(self.description, forKey: .description)
+        try container.encode(self.name, forKey: .name)
+        try container.encode(self.base, forKey: .base)
+        try container.encode(self.color, forKey: .color)
+        try container.encode(self.ingredients, forKey: .ingredients)
+        try container.encode(self.recipe, forKey: .recipe)
+        try container.encode(taste, forKey: .taste)
+    }
 }

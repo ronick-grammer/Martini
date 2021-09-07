@@ -12,7 +12,7 @@ struct PreferenceDataStore {
     
     var ingredients: [Bool] = Array(repeating: false, count: Cocktail.Ingredients.allCases.count - 1)
     
-    var taste: [Double] = Array(repeating: 0, count: Cocktail.Taste.allCases.count - 1)
+    var taste: [Double] = Array(repeating: 0, count: Cocktail.Taste.allCases.count)
     
     // 현재 유저의 선호도 정보를 컬렉션 뷰 데이터로 나타내기 위해 각각 변환
     mutating func setPreferenceDataStore() {
@@ -30,6 +30,8 @@ struct PreferenceDataStore {
             user.tastePreference?.forEach({
                 taste[$0.key.index] = Double($0.value)
             })
+            
+            
         }
     }
     
