@@ -20,7 +20,7 @@ class IngredientsSelectionViewController: UIViewController {
     
     
     let preferenceController =  PreferenceManager()
-    let cocktailManager = CocktailManager()
+//    let cocktailManager = CocktailManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,10 +85,10 @@ class IngredientsSelectionViewController: UIViewController {
             "4. 올리브 혹은 라임을 올려서 장식해준다!"
         ]
         
-        cocktailManager.registerCocktail(cocktail: Cocktail(name: "Martini", base: Cocktail.Alcohol.gin, color: cocktailColor, abv: 14.9, ingredients: cocktailIngredient, description: "칵테일하면 마티니이다.", taste: cocktailTaste, recipe: recipe)) { success in
-
-            print("cocktil success!!!! \(success)")
-        }
+//        cocktailManager.registerCocktail(cocktail: Cocktail(name: "Martini", base: Cocktail.Alcohol.gin, color: cocktailColor, abv: 14.9, ingredients: cocktailIngredient, description: "칵테일하면 마티니이다.", taste: cocktailTaste, recipe: recipe)) { success in
+//
+//            print("cocktil success!!!! \(success)")
+//        }
     }
 }
 
