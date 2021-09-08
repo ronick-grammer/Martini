@@ -20,7 +20,17 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
+        self.navigationItem.title = "Find"
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func alcholFindHandler(){
+        let vc = initViewController("Search", identfire: "SearchView") as! SearchViewController
+        vc.searchBar = false
+        vc.navigationItem.title = "조건검색"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,6 +45,8 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
         flavors.forEach { flavor in
             cell.flavor.addButton(name: flavor)
         }
+        
+        cell.alcoholFind.addTarget(self, action: #selector(alcholFindHandler), for: .touchUpInside)
         
         colors.forEach { color in
             let view = ColorButton()
@@ -61,6 +73,8 @@ class FindViewCell: UITableViewCell {
     @IBOutlet weak var bases: VStackButton!
     @IBOutlet weak var flavor: VStackButton!
     @IBOutlet weak var alcoholFind: UIButton!
+    @IBOutlet weak var alcoholSlider: UISlider!
+    @IBOutlet weak var alcoholLabel: UILabel!
     @IBOutlet weak var colors: UIStackView!
     @IBOutlet weak var ingredient: UIStackView!
     
@@ -68,6 +82,11 @@ class FindViewCell: UITableViewCell {
         super.awakeFromNib()
         alcoholFind.layer.cornerRadius = 5
 //        colors.spacing = 1
+    }
+    
+    @IBAction func sliderValueChaged(_ sender: UISlider) {
+        let value = round(sender.value * 100)
+        alcoholLabel.text = "\(value)%"
     }
     
     
