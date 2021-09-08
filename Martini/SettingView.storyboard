@@ -12,17 +12,18 @@
         <!--Setting View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="SettingView" id="Y6W-OH-hqX" customClass="SettingViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="SettingViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k45-IE-qau">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="k45-IE-qau">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="defaultCell" textLabel="3Cs-fe-7q4" style="IBUITableViewCellStyleDefault" id="sCT-c8-fA9">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sCT-c8-fA9" id="VkP-WF-XL8">
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="43.5"/>
@@ -59,10 +60,189 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="75.669642857142847"/>
         </scene>
+        <!--App Setting View Controller-->
+        <scene sceneID="cUL-Tr-4Il">
+            <objects>
+                <viewController storyboardIdentifier="appSetting" id="1iI-Li-yBc" customClass="AppSettingViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X7V-9O-KOI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Yfw-hI-SW6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="defaultCell" textLabel="doq-Ih-bGI" style="IBUITableViewCellStyleDefault" id="rAx-X8-axN">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rAx-X8-axN" id="JmV-N8-ZEs">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="doq-Ih-bGI">
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lsc-5B-koN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yfw-hI-SW6" firstAttribute="leading" secondItem="Lsc-5B-koN" secondAttribute="leading" id="8ab-r9-gnp"/>
+                            <constraint firstItem="Yfw-hI-SW6" firstAttribute="trailing" secondItem="Lsc-5B-koN" secondAttribute="trailing" id="TJH-FV-M3z"/>
+                            <constraint firstAttribute="bottom" secondItem="Yfw-hI-SW6" secondAttribute="bottom" id="d2M-U9-iGC"/>
+                            <constraint firstItem="Yfw-hI-SW6" firstAttribute="top" secondItem="X7V-9O-KOI" secondAttribute="top" id="ou4-Ry-MZ2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Yfw-hI-SW6" id="qHF-o6-0wr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="es7-nJ-qoG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028.985507246377" y="452.67857142857139"/>
+        </scene>
+        <!--My Info View Controller-->
+        <scene sceneID="632-on-spV">
+            <objects>
+                <viewController storyboardIdentifier="myInfo" id="thU-UJ-Grp" customClass="MyInfoViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zNc-si-f6h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0DS-Me-Im4">
+                                <rect key="frame" x="10" y="64" width="394" height="67"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeW-bc-cf7">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0fJ-sR-trw" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="27" width="394" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="7Xu-Qj-jdb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2pq-JT-aBW">
+                                <rect key="frame" x="10" y="146" width="394" height="67"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6oQ-GE-7M4">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y1v-9r-S2a" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="27" width="394" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Wdi-w6-t68"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Za-k5-rvK">
+                                <rect key="frame" x="10" y="263" width="394" height="67"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fS-Hh-e7h">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KA8-g8-yWH" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="27" width="394" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Q5I-V7-Txa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m10-9X-PHp">
+                                <rect key="frame" x="10" y="345" width="394" height="67"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnY-GO-eOM">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="svs-Ha-Pmo" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="27" width="394" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Xij-y8-dFd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urc-Tx-04J">
+                                <rect key="frame" x="10" y="807" width="394" height="45"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Odv-Cx-05z"/>
+                                </constraints>
+                                <state key="normal" title="회원정보수정">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="submit:" destination="thU-UJ-Grp" eventType="touchUpInside" id="BTB-av-UdS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="d7j-Ev-aeC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Za-k5-rvK" firstAttribute="top" secondItem="2pq-JT-aBW" secondAttribute="bottom" constant="50" id="8eQ-pa-Fd1"/>
+                            <constraint firstItem="d7j-Ev-aeC" firstAttribute="trailing" secondItem="0DS-Me-Im4" secondAttribute="trailing" constant="10" id="Bme-VM-tJt"/>
+                            <constraint firstItem="urc-Tx-04J" firstAttribute="trailing" secondItem="m10-9X-PHp" secondAttribute="trailing" id="EpU-M6-FVL"/>
+                            <constraint firstItem="3Za-k5-rvK" firstAttribute="leading" secondItem="2pq-JT-aBW" secondAttribute="leading" id="FpZ-J1-MMv"/>
+                            <constraint firstItem="0DS-Me-Im4" firstAttribute="leading" secondItem="d7j-Ev-aeC" secondAttribute="leading" constant="10" id="PBR-k7-yT9"/>
+                            <constraint firstItem="m10-9X-PHp" firstAttribute="leading" secondItem="3Za-k5-rvK" secondAttribute="leading" id="Pi3-x7-boG"/>
+                            <constraint firstItem="urc-Tx-04J" firstAttribute="bottom" secondItem="d7j-Ev-aeC" secondAttribute="bottom" constant="-10" id="Q5c-PY-Izh"/>
+                            <constraint firstItem="2pq-JT-aBW" firstAttribute="trailing" secondItem="0DS-Me-Im4" secondAttribute="trailing" id="YIB-z1-tLb"/>
+                            <constraint firstItem="0DS-Me-Im4" firstAttribute="top" secondItem="d7j-Ev-aeC" secondAttribute="top" constant="20" id="dbd-Me-w2f"/>
+                            <constraint firstItem="2pq-JT-aBW" firstAttribute="top" secondItem="0DS-Me-Im4" secondAttribute="bottom" constant="15" id="iZM-RM-nWI"/>
+                            <constraint firstItem="2pq-JT-aBW" firstAttribute="leading" secondItem="0DS-Me-Im4" secondAttribute="leading" id="kuY-0m-ksY"/>
+                            <constraint firstItem="3Za-k5-rvK" firstAttribute="trailing" secondItem="2pq-JT-aBW" secondAttribute="trailing" id="kzJ-Vn-EBf"/>
+                            <constraint firstItem="m10-9X-PHp" firstAttribute="top" secondItem="3Za-k5-rvK" secondAttribute="bottom" constant="15" id="nmq-nL-q7v"/>
+                            <constraint firstItem="urc-Tx-04J" firstAttribute="leading" secondItem="m10-9X-PHp" secondAttribute="leading" id="qIs-aP-1fZ"/>
+                            <constraint firstItem="m10-9X-PHp" firstAttribute="trailing" secondItem="3Za-k5-rvK" secondAttribute="trailing" id="rIA-Zv-LBq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="confirmPasswordField" destination="svs-Ha-Pmo" id="VzK-N5-SQa"/>
+                        <outlet property="emailField" destination="y1v-9r-S2a" id="b4C-UM-2cU"/>
+                        <outlet property="nickNameField" destination="0fJ-sR-trw" id="AzQ-lE-4ng"/>
+                        <outlet property="passwordField" destination="KA8-g8-yWH" id="ciw-PY-k9R"/>
+                        <outlet property="submitButton" destination="urc-Tx-04J" id="f0L-3a-UQb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdy-kN-kri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2044.9275362318842" y="-221.65178571428569"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="OGS-uz-brF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tc8-QW-ccL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingView" automaticallyAdjustsScrollViewInsets="NO" id="tc8-QW-ccL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HRy-jn-vRU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -79,8 +259,14 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
