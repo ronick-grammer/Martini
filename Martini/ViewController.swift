@@ -11,8 +11,9 @@ class ViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        AuthController.shared.login(email: "glflakcm@hanmail.com", password: "123456")
+        AuthManager.shared.login(email: "glflakcm@hanmail.com", password: "123456") { isLogin in
+            print(isLogin)
+        }
 //        AuthController.shared.logout()
         
         self.view.tintColor = .systemRed
@@ -30,8 +31,7 @@ class ViewController: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if AuthController.shared.userSession == nil {
+        if AuthManager.shared.userSession == nil {
             let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
             
             vc.modalPresentationStyle = .fullScreen
