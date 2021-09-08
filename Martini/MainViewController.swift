@@ -19,6 +19,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var flag2 = true
     var flag3 = true
     
+    var data:Cocktail?
+    var randomData:Cocktail?
+    
     
     let recipe = ["Add ice to the Mixer Glass",
                   "Pour Vodka, Olive Juice and Dry Vermouth into the mixer Glass",
@@ -31,6 +34,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,8 +49,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.register(RecipeTableViewCell.nib, forCellReuseIdentifier: RecipeTableViewCell.identifier)
 
+        CocktailManager.shared.fetchAllCocktail {
+            print(CocktailManager.shared.cocktails)
+            print(CocktailManager.shared.fetchRandomCocktailInfo())
+            
+            
+        }
         
-
+        
     }
     
     
@@ -54,7 +64,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // 취향/재료 추천 전환
     @IBAction func switchView(_ sender: UISegmentedControl){
-        
         // 취향 추천 selected
         if sender.selectedSegmentIndex == 0 {
             
@@ -89,14 +98,22 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             cell.imgView.backgroundColor = UIColor(red: (232/255.0), green: (24/255.0), blue: (24/255.0), alpha: 0.5)
             cell.imgView.layer.cornerRadius = 90
+            
+            
                 
             return cell
             
             
+            
+            
         // 도수 cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: MainAttributeTableViewCell.identifier, for: indexPath)
-
+            let cell = tableView.dequeueReusableCell(withIdentifier: MainAttributeTableViewCell.identifier, for: indexPath) as! MainAttributeTableViewCell
+            
+//            print(cocktailManager.cocktails.count)
+//            let abv = cocktailManager.cocktails[0].abv
+            
+//            cell.strengthLabel.text = "\(abv)%"
             return cell
             
             

@@ -9,11 +9,11 @@ import Firebase
 import FirebaseFirestoreSwift
 
 class CocktailManager {
-    var cocktails =  [Cocktail] ()
     
-    init() {
-        fetchAllCocktail()
-    }
+    var cocktails:[Cocktail] = []
+    
+    static let shared = CocktailManager()
+    private init() {}
     
     // 칵테일 정보 등록
     func registerCocktail(cocktail: Cocktail, _ completion: @escaping(_ success: Bool) -> Void) {
@@ -42,7 +42,7 @@ class CocktailManager {
     }
     
     // 모든 칵테일 가져오기
-    func fetchAllCocktail() {
+    func fetchAllCocktail( complete: @escaping ()->()) {
         COLLECTION_COCKTAILS.getDocuments { snapshot, error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
@@ -52,9 +52,21 @@ class CocktailManager {
             guard let documents = snapshot?.documents else { return }
             self.cocktails = documents.compactMap({ try? $0.data(as: Cocktail.self) })
             
-            print("successfully fetched cocktails!!: \(self.cocktails.count)")
+            complete()
+            
         }
     }
+    
+    
+    //
+    func fetchRandomCocktailInfo() -> Cocktail {
+        
+        let random = Int.random(in: 0...cocktails.count-1)
+        
+        let target = cocktails[random]
+            
+        return target
+        
+    }
+
 }
-
-
