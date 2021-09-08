@@ -15,6 +15,17 @@ class RecipeTableViewCell: UITableViewCell {
     static let nib: UINib = UINib(nibName: "RecipeTableViewCell", bundle: nil)
     static let identifier = "RecipeTableViewCell"
     
+    var data:[String]? {
+        didSet {
+            if oldValue != data {
+                recipeSV.arrangedSubviews.forEach { $0.removeFromSuperview() }
+                data?.enumerated().forEach({ (key, value) in
+                    addreipe(step: key, recipe: value)
+                })
+            }
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -10,19 +10,13 @@ import UIKit
 class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate{
     
     var searchBar = true
+    var data:[Cocktail] = []
     
 //    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
-    
-    var listCocktail = [CocktailCellData]()
     var searching = false
-    var searchedCocktail = [CocktailCellData]()
-    
-    
-    let c1 = CocktailCellData(cName: "프렌치 마티니", cStrength: 20, cImage: " ", cIngredient: "Olive", cDescription: "Good....!")
-    let c2 = CocktailCellData(cName: "드라이 마티니", cStrength: 20, cImage: " ", cIngredient: "Olive", cDescription: "Good....!")
-    
+    var searched:[Cocktail] = []
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -34,18 +28,17 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        
         // 셀 등록
         tableView.register(CockTailTableViewCell.nib, forCellReuseIdentifier: CockTailTableViewCell.identifier)
         
-    
-        // 임시 데이터
-        listCocktail.append(c1)
-        listCocktail.append(c2)
         
         if searchBar {
             configureSearchController()
+        }
+        
+        CocktailManager.shared.fetchAllCocktail {
+            self.data = CocktailManager.shared.cocktails
+            self.tableView.reloadData()
         }
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -57,18 +50,17 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let target = searching ? searched[indexPath.row] : data[indexPath.row]
+    
         let cell = tableView.dequeueReusableCell(withIdentifier: CockTailTableViewCell.identifier, for: indexPath) as! CockTailTableViewCell
         
-       if searching
-       {
-        cell.nameLabel.text = searchedCocktail[indexPath.row].cocktailName
-       }
-        
-       else {
-        
-        cell.nameLabel.text = listCocktail[indexPath.row].cocktailName
-        
-       }
+        cell.nameLabel.text = target.name
+        cell.descriptionLabel.text = target.description
+        cell.alcoholLabel.text = "\(target.abv)%"
+        let ingredientText = target.ingredients.map { $0.rawValue }
+        cell.ingredientLabel.text = ingredientText.joined(separator: ", ")
+        cell.tasteLabel.text = target.description
         
         return cell
         
@@ -77,14 +69,10 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching
-        {
-            return searchedCocktail.count
-            
-        }
-        else {
-            
-            return listCocktail.count
+        if searching {
+            return searched.count
+        } else {
+            return data.count
         }
     }
     
@@ -109,7 +97,7 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
     // 취소버튼 눌렀을 때
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false
-        searchedCocktail.removeAll()
+        searched.removeAll()
         tableView.reloadData()
     }
     
@@ -118,27 +106,20 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text!
         
-        if !searchText.isEmpty
-        {
+        if !searchText.isEmpty {
             
             searching = true
-            searchedCocktail.removeAll()
-            for cocktail in listCocktail
-            {
-                if cocktail.cocktailName.contains(searchText)
-                {
-                    searchedCocktail.append(cocktail)
+            searched.removeAll()
+            for cocktail in data {
+                if cocktail.name.contains(searchText) {
+                    searched.append(cocktail)
                 }
             }
             
-        }
-        
-        else
-        {
-            
+        } else {
             searching = false
-            searchedCocktail.removeAll()
-            searchedCocktail=listCocktail
+            searched.removeAll()
+            searched = data
             
         }
         
@@ -146,6 +127,17 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         
     }
 
-   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let data = searching ? searched[indexPath.row] : self.data[indexPath.row]
+        
+        let vc = initViewController("DetailView", identfire: "detailVC") as! DetailViewController
+        
+        vc.data = data
+        vc.navigationItem.title = data.name
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
 
 }

@@ -28,16 +28,8 @@ class MainAttributeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
-        
-        
         strengthLabel.layer.cornerRadius = 10
         view.layer.cornerRadius = 10
-        
-       
-        
-        
-        
         
     }
     

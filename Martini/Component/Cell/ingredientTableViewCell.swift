@@ -17,6 +17,14 @@ class ingredientTableViewCell: UITableViewCell {
         
     static let identifier = "ingredientTableViewCell"
     
+    var data:[Cocktail.Ingredients]? {
+        didSet {
+            if oldValue != data {
+                ingredientSV.arrangedSubviews.forEach { $0.removeFromSuperview() }
+                data?.forEach({ addLabel(name: $0.rawValue) })
+            }
+        }
+    }
     
     
     override func awakeFromNib() {
