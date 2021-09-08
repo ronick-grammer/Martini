@@ -22,7 +22,7 @@ class ViewController: UITabBarController {
         let viewControllers:[UIViewController] = [
             initTabViewController("MainView", identfire: "MainVC", title: "칵테일추천", icon: UIImage(systemName: "hand.thumbsup"), tag: 1),
             initTabViewController("Search", identfire: "SearchVC", title: "칵테일찾기", icon: UIImage(systemName: "magnifyingglass"), tag: 2),
-            initTabViewController("FindView", identfire: "FindView", title: "조건검색", icon: UIImage(systemName: "plus.magnifyingglass"), tag: 3),
+            initTabViewController("FindView", identfire: "FindVC", title: "조건검색", icon: UIImage(systemName: "plus.magnifyingglass"), tag: 3),
             initTabViewController("SettingView", identfire: "SettingView", title: "설정", icon: UIImage(systemName: "person"), tag: 4)
         ]
         
