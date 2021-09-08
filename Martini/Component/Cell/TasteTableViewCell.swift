@@ -14,12 +14,27 @@ class TasteTableViewCell: UITableViewCell {
     static let nib: UINib = UINib(nibName: "TasteTableViewCell", bundle: nil)
     static let identifier = "TasteTableViewCell"
     
+    var data:[Cocktail.Taste : Int]? {
+        didSet {
+            if oldValue != data {
+                tasteSV.arrangedSubviews.forEach { $0.removeFromSuperview() }
+                data?.forEach({
+                    let progress = TasteProgressView()
+                    progress.tasteLabel.text = $0.rawValue
+                    progress.tasteProgress.progress = Float($1)
+                    addProgress(progressbar: progress)
+                })
+            }
+        }
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         tasteSV.layer.cornerRadius = 10
         tasteSV.isLayoutMarginsRelativeArrangement = true
         tasteSV.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 0, trailing: 5)
+        tasteSV.spacing = 5
         
         // Initialization code
     }
@@ -32,10 +47,7 @@ class TasteTableViewCell: UITableViewCell {
     
     //
     func addProgress(progressbar: TasteProgressView){
-        
         tasteSV.addArrangedSubview(progressbar)
-        
-        
     }
     
 }

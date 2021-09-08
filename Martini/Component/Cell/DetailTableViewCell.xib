@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDT-rY-0MX" customClass="LikeButton" customModule="Martini" customModuleProvider="target">
-                        <rect key="frame" x="325" y="33" width="40" height="40"/>
+                        <rect key="frame" x="351" y="20" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="bW2-hW-3qp"/>
                             <constraint firstAttribute="width" secondItem="iDT-rY-0MX" secondAttribute="height" multiplier="1:1" id="jWD-Yn-5qj"/>
@@ -46,10 +46,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="VMf-tC-19O" firstAttribute="centerX" secondItem="nWm-Qq-bQU" secondAttribute="centerX" id="3HH-nO-tUB"/>
-                    <constraint firstItem="iDT-rY-0MX" firstAttribute="top" secondItem="nWm-Qq-bQU" secondAttribute="top" constant="33" id="5bZ-Ig-zJs"/>
+                    <constraint firstItem="iDT-rY-0MX" firstAttribute="top" secondItem="nWm-Qq-bQU" secondAttribute="top" constant="20" id="5bZ-Ig-zJs"/>
                     <constraint firstItem="iiN-gR-YpL" firstAttribute="top" secondItem="K7g-85-5Z0" secondAttribute="bottom" constant="8.5" id="Pgm-97-aR0"/>
                     <constraint firstItem="VMf-tC-19O" firstAttribute="top" secondItem="nWm-Qq-bQU" secondAttribute="top" constant="80" id="YOw-Oz-SaI"/>
-                    <constraint firstAttribute="trailing" secondItem="iDT-rY-0MX" secondAttribute="trailing" constant="46" id="bFI-GB-jfI"/>
+                    <constraint firstAttribute="trailing" secondItem="iDT-rY-0MX" secondAttribute="trailing" constant="20" id="bFI-GB-jfI"/>
                     <constraint firstItem="K7g-85-5Z0" firstAttribute="centerX" secondItem="nWm-Qq-bQU" secondAttribute="centerX" id="dpO-bG-wdy"/>
                     <constraint firstItem="iiN-gR-YpL" firstAttribute="centerX" secondItem="nWm-Qq-bQU" secondAttribute="centerX" id="dqg-JH-9Yt"/>
                     <constraint firstItem="K7g-85-5Z0" firstAttribute="top" secondItem="VMf-tC-19O" secondAttribute="bottom" constant="18" id="efF-Mi-ZXt"/>
