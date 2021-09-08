@@ -18,7 +18,7 @@ class CocktailCellData{
     var description: String
     
     init(cName: String, cStrength: Double, cImage: String, cIngredient:String, cDescription: String) {
-        
+
         cocktailName = cName
         strength = cStrength
         cocktailImage = cImage

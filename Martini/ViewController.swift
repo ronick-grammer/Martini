@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AuthManager.shared.login(email: "glflakcm@hanmail.com", password: "123456") { isLogin in
-            print(isLogin)
-        }
+//        AuthManager.shared.login(email: "glflakcm@hanmail.com", password: "123456") { isLogin in
+//            print(isLogin)
+//        }
+        
 //        AuthController.shared.logout()
         
         self.view.tintColor = .systemRed
@@ -31,12 +33,12 @@ class ViewController: UITabBarController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if AuthManager.shared.userSession == nil {
-            let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
-            
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
-        }
+//        if AuthManager.shared.userSession == nil {
+//            let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
+//
+//            vc.modalPresentationStyle = .fullScreen
+//            self.present(vc, animated: true, completion: nil)
+//        }
         
         
     }
@@ -62,6 +64,11 @@ extension UIViewController {
         alert.addAction(okAction)
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func initViewController(_ bundleName: String, identfire: String) -> UIViewController{
+        let vc = UIStoryboard(name: bundleName, bundle: nil).instantiateViewController(identifier: identfire)
+        return vc
     }
     
 }

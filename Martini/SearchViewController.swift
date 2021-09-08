@@ -9,10 +9,8 @@ import UIKit
 
 class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate{
     
+    var searchBar = true
     
-
-    
-
 //    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var tableView: UITableView!
     
@@ -46,7 +44,13 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         listCocktail.append(c1)
         listCocktail.append(c2)
         
-        configureSearchController()
+        if searchBar {
+            configureSearchController()
+        }
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
+        
         
 
     }
