@@ -8,6 +8,8 @@
 import Firebase
 import FirebaseFirestoreSwift
 
+// 필더 기능 구현하기
+
 class CocktailManager {
     
     var cocktails:[Cocktail] = []
@@ -18,12 +20,8 @@ class CocktailManager {
     // 칵테일 정보 등록
     func registerCocktail(cocktail: Cocktail, _ completion: @escaping(_ success: Bool) -> Void) {
         do{
-            guard let uid = cocktail.id else {
-                completion(false)
-                return
-            }
             
-            try COLLECTION_COCKTAILS.document(uid).setData(from: cocktail, encoder: Firestore.Encoder()) { error in
+            try COLLECTION_COCKTAILS.document(cocktail.id).setData(from: cocktail, encoder: Firestore.Encoder()) { error in
            
                 if let error = error {
                     print("DEBUG: \(error.localizedDescription)")
@@ -57,8 +55,43 @@ class CocktailManager {
         }
     }
     
+    func updateCocktail(cocktail: Cocktail, _ completion: @escaping (_ success: Bool,_ error: Error?) -> Void){
+        
+        do {
+            try COLLECTION_COCKTAILS.document(cocktail.id).setData(from: cocktail, encoder: Firestore.Encoder()) { error in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    completion(false, error)
+                    return
+                }
+                
+                completion(true, nil)
+            }
+            
+        } catch {
+            print("Error: \(error.localizedDescription)")
+            completion(false, nil)
+        }
+    }
     
-    //
+    func deleteCocktail(cocktail: Cocktail, _ completion: @escaping (_ success: Bool,_ error: Error?) -> Void) {
+        COLLECTION_COCKTAILS.document(cocktail.id).delete { error in
+            if let error = error {
+                print("Error: Failed to delete a cocktail")
+                completion(false, error)
+                return
+            }
+            
+            completion(true, nil)
+            print("Successfully deleted a cocktail..!")
+        }
+    }
+    
+    func filteredCocktail() {
+//        COLLECTION_COCKTAILS.whereField(<#T##path: FieldPath##FieldPath#>, notIn: <#T##[Any]#>).whereField(<#T##field: String##String#>, notIn: <#T##[Any]#>).whereField(<#T##field: String##String#>, isGreaterThanOrEqualTo: <#T##Any#>).where
+    }
+    
+    // 랜덤 칵테일 하나 반환
     func fetchRandomCocktailInfo() -> Cocktail {
         
         let random = Int.random(in: 0...cocktails.count-1)

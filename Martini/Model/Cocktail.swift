@@ -92,7 +92,7 @@ struct Cocktail: Identifiable, Codable {
     }
     
     
-    var id: String? = UUID().uuidString
+    var id: String = UUID().uuidString
      
     let name: String
     let base: Cocktail.Alcohol
