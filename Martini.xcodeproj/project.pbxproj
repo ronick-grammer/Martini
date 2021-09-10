@@ -12,7 +12,7 @@
 		0839CAFFACB9D8870D37C03B /* CockTailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B04AE4A4305DCC993A91265F /* CockTailTableViewCell.xib */; };
 		0EE871EE56B1DA0466442837 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B02CA7D80864EE25C56696E /* LoginButton.swift */; };
 		0F2A025825933866E2C3DA00 /* VStackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAB3A7BC6E83B21A5F35E3B /* VStackButton.swift */; };
-		126B0D315A992E22D3CBC9E3 /* PreferenceDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5F6B0FE129130195C8C92 /* PreferenceDataStore.swift */; };
+		126B0D315A992E22D3CBC9E3 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5F6B0FE129130195C8C92 /* DataStore.swift */; };
 		1585C77B00BAF165ED906D13 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5568271C47B206C7FFD0FAFE /* AuthManager.swift */; };
 		170B50B06E222FA43FCCC367 /* CustomInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AE88563DEA79ECEDB5577B /* CustomInputTextField.swift */; };
 		18697BB226E871A300C937A0 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18697BB126E871A300C937A0 /* MyInfoViewController.swift */; };
@@ -97,7 +97,7 @@
 		2CE0783AE7A2CA2CE16B1E5A /* CertifyPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertifyPhoneViewController.swift; sourceTree = "<group>"; };
 		316C103E59CBD017CC23E666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		365ED54D441FD0CA404EBA89 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		36C5F6B0FE129130195C8C92 /* PreferenceDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceDataStore.swift; sourceTree = "<group>"; };
+		36C5F6B0FE129130195C8C92 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		370B87846FB58C4B3EC6DC80 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3C3D93E9D9B283465DAD1C6F /* BasePreferenceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePreferenceCollectionViewCell.swift; sourceTree = "<group>"; };
 		41139238BAD2634D1A0B2893 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
@@ -310,7 +310,7 @@
 		87D716EE4B4CACD17A0F4A13 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
-				36C5F6B0FE129130195C8C92 /* PreferenceDataStore.swift */,
+				36C5F6B0FE129130195C8C92 /* DataStore.swift */,
 			);
 			path = DataStore;
 			sourceTree = "<group>";
@@ -483,7 +483,7 @@
 				634ABD44CE20AA31254596DA /* MainAttributeTableViewCell.swift in Sources */,
 				1AA1496CA1F1A6BA0AEDE785 /* MainTableViewCell.swift in Sources */,
 				F40DA15C972295ED618A3DFC /* MainViewController.swift in Sources */,
-				126B0D315A992E22D3CBC9E3 /* PreferenceDataStore.swift in Sources */,
+				126B0D315A992E22D3CBC9E3 /* DataStore.swift in Sources */,
 				354ACB911CFAEA6C468801A7 /* PreferenceManager.swift in Sources */,
 				EC4F126CE08A41763CB3B0E3 /* RecipeTableViewCell.swift in Sources */,
 				B3E259EC2BF1D997139DDF8B /* SceneDelegate.swift in Sources */,

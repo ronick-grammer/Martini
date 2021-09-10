@@ -38,18 +38,28 @@ class IngredientsSelectionCollectionViewCell: UICollectionViewCell, BannerButton
         bannerButton.bannerImageView.image = UIImage(named: imageName)
         bannerButton.bannerLabel.text = title
         self.index = index
+
+        guard let clicked = DATASTORE.user?.ingredientPreference?.contains(Cocktail.Ingredients.allCases[index]) else {
+            return
+        }
         
-        if PREFERENCE_DATASTORE.ingredients[index] {
+        if clicked {
             bannerButton.backgroundColor = UIColor(red: (240/255.0), green: (158/255.0), blue: (158/255.0), alpha: 1.0)
-        } else{
+        } else {
             bannerButton.backgroundColor = UIColor.systemGray2
         }
         
-        bannerButton.isChecked = PREFERENCE_DATASTORE.ingredients[index]
+        bannerButton.isChecked = clicked
     }
     
     // 버튼 상태 저장
     func didTouchBannerButton(didClicked: Bool) {
-        PREFERENCE_DATASTORE.ingredients[self.index] = didClicked
+        
+        if didClicked {
+            DATASTORE.user?.ingredientPreference?.append(Cocktail.Ingredients.allCases[self.index])
+        } else {
+            guard let index = DATASTORE.user?.ingredientPreference?.firstIndex(of: Cocktail.Ingredients.allCases[self.index]) else { return }
+            DATASTORE.user?.ingredientPreference?.remove(at: index)
+        }
     }
 }

@@ -19,6 +19,7 @@ class AuthManager {
     
     // 회원가입 (Create)
     func registerUser(user: User, password: String, _ completion: @escaping((_ success:Bool, _ error: Error?) -> Void)) {
+        var setupUser = user
         
         // 계정 생성(등록)
         Auth.auth().createUser(withEmail: user.email, password: password) { result, error in
@@ -36,7 +37,9 @@ class AuthManager {
             let uid = userSession.uid
             
             do { // 유저 데이터 생성
-                try COLLECTION_USERS.document(uid).setData(from: user, encoder: Firestore.Encoder()) { error in
+                
+                setupUser.joinDate = Timestamp.init(date: Date())
+                try COLLECTION_USERS.document(uid).setData(from: setupUser, encoder: Firestore.Encoder()) { error in
                     if let error = error { // 실패시 위에서 등록했던 유저 계정 삭제
                         print("DEBUG: \(error.localizedDescription)")
                         userSession.delete { error in print("DEBUG: Deleted user..!") }
