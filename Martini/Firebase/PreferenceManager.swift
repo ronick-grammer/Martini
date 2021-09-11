@@ -44,7 +44,7 @@ class PreferenceManager {
             
             tastes.forEach { key, value in
                 guard let tasteType = Cocktail.Taste.init(rawValue: key) else { return }
-                AuthManager.shared.currentUser?.tastePreference?.updateValue(value, forKey: tasteType)
+                AuthManager.shared.currentUser?.tastePreference?.updateValue(value, forKey: tasteType.rawValue)
             }
         }
     }

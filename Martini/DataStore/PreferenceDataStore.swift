@@ -28,10 +28,9 @@ struct PreferenceDataStore {
             })
             
             user.tastePreference?.forEach({
-                taste[$0.key.index] = Double($0.value)
+                guard let index = Cocktail.Taste.init(rawValue: $0.key)?.index else { return }
+                taste[index] = Double($0.value)
             })
-            
-            
         }
     }
     

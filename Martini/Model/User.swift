@@ -19,7 +19,7 @@ struct User: Identifiable, Codable {
     
     var basePreference: [Cocktail.Alcohol]?
     var ingredientPreference: [Cocktail.Ingredients]?
-    var tastePreference: [Cocktail.Taste:Int]?
+    var tastePreference: [String:Int]?
     
     enum CodingKeys : String, CodingKey {
         case id
