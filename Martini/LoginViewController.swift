@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -54,7 +54,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // 로그인 버튼 액션
     @IBAction func loginButton(_ sender: LoginButton) {
         if flag == true {
-            print(emailTextField.text!, passwordTextField.text!)
+            AuthManager.shared.login(email: emailTextField.text!, password: passwordTextField.text!) { success, error in
+                if let error = error as NSError? {
+                    let authErrorCode = AuthErrorCode.init(rawValue: error.code)
+                    switch authErrorCode {
+                    case .wrongPassword:
+                        self.alert("비밀번호가 틀렸습니다.")
+                    case .userNotFound:
+                        self.alert("등록되지 않은 유저입니다.")
+                    case .invalidEmail:
+                        self.alert("이메일 형식이 잘못되었습니다.")
+                    default:
+                        self.alert("관리자에게 문의하세요.")
+                    }
+                }
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
