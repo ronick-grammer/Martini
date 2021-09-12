@@ -12,8 +12,8 @@ class ViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        AuthManager.shared.login(email: "glflakcm@hanmail.com", password: "123456") { isLogin in
-//            print(isLogin)
+        
+//        AuthManager.shared.login(email: "ronick@naver.com", password: "123456") { result, error in
 //        }
         
 //        AuthController.shared.logout()

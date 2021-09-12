@@ -170,26 +170,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Q5I-V7-Txa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m10-9X-PHp">
-                                <rect key="frame" x="10" y="345" width="394" height="67"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnY-GO-eOM">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" systemColor="secondaryLabelColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="svs-Ha-Pmo" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="27" width="394" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Xij-y8-dFd"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -212,23 +193,19 @@
                         <constraints>
                             <constraint firstItem="3Za-k5-rvK" firstAttribute="top" secondItem="2pq-JT-aBW" secondAttribute="bottom" constant="50" id="8eQ-pa-Fd1"/>
                             <constraint firstItem="d7j-Ev-aeC" firstAttribute="trailing" secondItem="0DS-Me-Im4" secondAttribute="trailing" constant="10" id="Bme-VM-tJt"/>
-                            <constraint firstItem="urc-Tx-04J" firstAttribute="trailing" secondItem="m10-9X-PHp" secondAttribute="trailing" id="EpU-M6-FVL"/>
                             <constraint firstItem="3Za-k5-rvK" firstAttribute="leading" secondItem="2pq-JT-aBW" secondAttribute="leading" id="FpZ-J1-MMv"/>
+                            <constraint firstItem="urc-Tx-04J" firstAttribute="leading" secondItem="KA8-g8-yWH" secondAttribute="leading" id="MET-Tu-r68"/>
                             <constraint firstItem="0DS-Me-Im4" firstAttribute="leading" secondItem="d7j-Ev-aeC" secondAttribute="leading" constant="10" id="PBR-k7-yT9"/>
-                            <constraint firstItem="m10-9X-PHp" firstAttribute="leading" secondItem="3Za-k5-rvK" secondAttribute="leading" id="Pi3-x7-boG"/>
                             <constraint firstItem="urc-Tx-04J" firstAttribute="bottom" secondItem="d7j-Ev-aeC" secondAttribute="bottom" constant="-10" id="Q5c-PY-Izh"/>
                             <constraint firstItem="2pq-JT-aBW" firstAttribute="trailing" secondItem="0DS-Me-Im4" secondAttribute="trailing" id="YIB-z1-tLb"/>
                             <constraint firstItem="0DS-Me-Im4" firstAttribute="top" secondItem="d7j-Ev-aeC" secondAttribute="top" constant="20" id="dbd-Me-w2f"/>
+                            <constraint firstItem="urc-Tx-04J" firstAttribute="trailing" secondItem="KA8-g8-yWH" secondAttribute="trailing" id="ess-tu-zcs"/>
                             <constraint firstItem="2pq-JT-aBW" firstAttribute="top" secondItem="0DS-Me-Im4" secondAttribute="bottom" constant="15" id="iZM-RM-nWI"/>
                             <constraint firstItem="2pq-JT-aBW" firstAttribute="leading" secondItem="0DS-Me-Im4" secondAttribute="leading" id="kuY-0m-ksY"/>
                             <constraint firstItem="3Za-k5-rvK" firstAttribute="trailing" secondItem="2pq-JT-aBW" secondAttribute="trailing" id="kzJ-Vn-EBf"/>
-                            <constraint firstItem="m10-9X-PHp" firstAttribute="top" secondItem="3Za-k5-rvK" secondAttribute="bottom" constant="15" id="nmq-nL-q7v"/>
-                            <constraint firstItem="urc-Tx-04J" firstAttribute="leading" secondItem="m10-9X-PHp" secondAttribute="leading" id="qIs-aP-1fZ"/>
-                            <constraint firstItem="m10-9X-PHp" firstAttribute="trailing" secondItem="3Za-k5-rvK" secondAttribute="trailing" id="rIA-Zv-LBq"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="confirmPasswordField" destination="svs-Ha-Pmo" id="VzK-N5-SQa"/>
                         <outlet property="emailField" destination="y1v-9r-S2a" id="b4C-UM-2cU"/>
                         <outlet property="nickNameField" destination="0fJ-sR-trw" id="AzQ-lE-4ng"/>
                         <outlet property="passwordField" destination="KA8-g8-yWH" id="ciw-PY-k9R"/>
