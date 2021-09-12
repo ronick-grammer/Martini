@@ -83,6 +83,8 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             
             cell.data = data?.taste
+
+            
             
             return cell
 
