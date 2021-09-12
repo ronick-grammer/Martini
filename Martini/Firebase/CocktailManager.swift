@@ -7,12 +7,12 @@
 
 import Firebase
 import FirebaseFirestoreSwift
-
-// 필더 기능 구현하기
+import UIKit
 
 class CocktailManager {
     
     var cocktails:[Cocktail] = []
+    var filteredCocktails =  [Cocktail] ()
     
     static let shared = CocktailManager()
     private init() {}
@@ -87,8 +87,28 @@ class CocktailManager {
         }
     }
     
-    func filteredCocktail() {
-//        COLLECTION_COCKTAILS.whereField(<#T##path: FieldPath##FieldPath#>, notIn: <#T##[Any]#>).whereField(<#T##field: String##String#>, notIn: <#T##[Any]#>).whereField(<#T##field: String##String#>, isGreaterThanOrEqualTo: <#T##Any#>).where
+    func filterAbv(abv: Double, _ completion: @escaping ((_ success: Bool, _ error: Error?) -> Void)) {
+ 
+        COLLECTION_COCKTAILS.whereField("abv", isLessThanOrEqualTo: abv).getDocuments { snapshot, error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                completion(false, error)
+                return
+            }
+            
+            do {
+                guard let documents = snapshot?.documents else { return }
+                self.filteredCocktails = try documents.compactMap({ snapshot in
+                    try snapshot.data(as: Cocktail.self)
+                })
+                
+                completion(true, nil)
+            } catch {
+                print("Error \(error.localizedDescription)")
+                completion(true, error)
+            }
+        }
+        
     }
     
     // 랜덤 칵테일 하나 반환
@@ -99,7 +119,6 @@ class CocktailManager {
         let target = cocktails[random]
             
         return target
-        
     }
 
 }

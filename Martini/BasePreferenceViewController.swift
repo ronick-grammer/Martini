@@ -19,6 +19,9 @@ class BasePreferenceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        guard let currentUser = AuthManager.shared.currentUser else { return }
+//        DATASTORE.initializeUserPreference(user: currentUser)
+        
         BasePreferenceCollectionView.delegate = self
         BasePreferenceCollectionView.dataSource = self
         BasePreferenceCollectionView.register(BasePreferenceCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -26,7 +29,6 @@ class BasePreferenceViewController: UIViewController {
         btnNext.layer.cornerRadius = 6
         btnNext.titleLabel?.text = "다음"
         btnNext.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        
     }
     
 
