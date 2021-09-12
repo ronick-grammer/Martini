@@ -19,10 +19,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var flag2 = true
     var flag3 = true
     
-    
-    var searching = false
-    var searched:[Cocktail] = []
-    
     var data:[Cocktail] = []
     var randomData:[Cocktail] = []
     
