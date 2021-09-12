@@ -22,7 +22,7 @@ class TasteTableViewCell: UITableViewCell {
                     let progress = TasteProgressView()
                     progress.tasteLabel.text = $0.rawValue
                     progress.tasteProgress.progress = Float($1)
-                    addProgress(progressbar: progress)
+                    addProgress(progressbar: progress, taste: $0.rawValue, value: Float($1)*0.01)
                 })
             }
         }
@@ -46,8 +46,12 @@ class TasteTableViewCell: UITableViewCell {
     }
     
     //
-    func addProgress(progressbar: TasteProgressView){
+    func addProgress(progressbar: TasteProgressView, taste: String, value: Float){
         tasteSV.addArrangedSubview(progressbar)
+        progressbar.setProgressValue(value)
+        progressbar.tasteLabel.text = taste
+        
+        
     }
     
 }

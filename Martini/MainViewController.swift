@@ -19,8 +19,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var flag2 = true
     var flag3 = true
     
-    var data:Cocktail?
-    var randomData:Cocktail?
+    
+    var searching = false
+    var searched:[Cocktail] = []
+    
+    var data:[Cocktail] = []
+    var randomData:[Cocktail] = []
+    
     
     
     let recipe = ["Add ice to the Mixer Glass",
@@ -30,32 +35,45 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                   "Garnish with Olives"]
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
         
-        tableView.delegate = self
-        tableView.dataSource = self
         
-        tableView.register(MainTableViewCell.nib, forCellReuseIdentifier: MainTableViewCell.identifier) // 셀 등록
         
-        tableView.register(MainAttributeTableViewCell.nib, forCellReuseIdentifier: MainAttributeTableViewCell.identifier)
-        
-        tableView.register(ingredientTableViewCell.nib, forCellReuseIdentifier: ingredientTableViewCell.identifier)
-        
-        tableView.register(TasteTableViewCell.nib, forCellReuseIdentifier: TasteTableViewCell.identifier)
-        
-        tableView.register(RecipeTableViewCell.nib, forCellReuseIdentifier: RecipeTableViewCell.identifier)
-
         CocktailManager.shared.fetchAllCocktail {
-            print(CocktailManager.shared.cocktails)
-            print(CocktailManager.shared.fetchRandomCocktailInfo())
             
+            
+            
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            
+           
+            
+            self.data = CocktailManager.shared.cocktails
+            
+            self.tableView.register(MainTableViewCell.nib, forCellReuseIdentifier: MainTableViewCell.identifier) // 셀 등록
+            
+            self.tableView.register(MainAttributeTableViewCell.nib, forCellReuseIdentifier: MainAttributeTableViewCell.identifier)
+            
+            self.tableView.register(ingredientTableViewCell.nib, forCellReuseIdentifier: ingredientTableViewCell.identifier)
+            
+            self.tableView.register(TasteTableViewCell.nib, forCellReuseIdentifier: TasteTableViewCell.identifier)
+            
+            self.tableView.register(RecipeTableViewCell.nib, forCellReuseIdentifier: RecipeTableViewCell.identifier)
+            
+
+            self.tableView.reloadData()
+            print("fetch data ==> \(self.data.count)")
             
         }
         
+        
+        
+           
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .always
         
     }
     
@@ -66,12 +84,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func switchView(_ sender: UISegmentedControl){
         // 취향 추천 selected
         if sender.selectedSegmentIndex == 0 {
+            self.tableView.reloadData()
+            
             
         }
         
         // 재료 추천 selected
         else {
-            
+            self.tableView.reloadData()
         }
     }
     
@@ -89,16 +109,25 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+//        self.tableView.reloadData()
+        
         switch indexPath.section {
         
         // 메인화면
         case 0:
+            
+            print("please..  ==> \(data.count)")
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
 
             
             cell.imgView.backgroundColor = UIColor(red: (232/255.0), green: (24/255.0), blue: (24/255.0), alpha: 0.5)
             cell.imgView.layer.cornerRadius = 90
             
+            cell.nameLabel.text = data[indexPath.row].name
+            cell.descriptionLabel.text = data[indexPath.row].description
+            // 이미지
             
                 
             return cell
@@ -110,10 +139,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: MainAttributeTableViewCell.identifier, for: indexPath) as! MainAttributeTableViewCell
             
-//            print(cocktailManager.cocktails.count)
-//            let abv = cocktailManager.cocktails[0].abv
-            
-//            cell.strengthLabel.text = "\(abv)%"
+            cell.strengthLabel.text = "\(data[indexPath.row].abv)%"
             return cell
             
             
@@ -126,9 +152,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if flag1 == true {
                 flag1 = false
                 
-                cell.addLabel(name: "Orange")
-                cell.addLabel(name: "Orange Orange")
-                cell.addLabel(name: "Orange")
+                for name in data[indexPath.row].ingredients{
+                    cell.addLabel(name: name.rawValue)
+                }
     
             }
             return cell
@@ -139,16 +165,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: TasteTableViewCell.identifier, for: indexPath) as! TasteTableViewCell
                 
             cell.tasteSV.translatesAutoresizingMaskIntoConstraints = false
-            cell.tasteSV.heightAnchor.constraint(equalToConstant: 150).isActive = true
+            cell.tasteSV.heightAnchor.constraint(equalToConstant: 250).isActive = true
             
             
             if flag2 == true {
                 
                 flag2 = false
             
-                cell.addProgress(progressbar: TasteProgressView())
-                cell.addProgress(progressbar: TasteProgressView())
-                cell.addProgress(progressbar: TasteProgressView())
+                for (taste,v) in data[indexPath.row].taste{
+    
+                    cell.addProgress(progressbar: TasteProgressView(), taste: taste.stringValue, value: (Float(v)*0.01))
+
+                }
             }
             
             return cell
@@ -162,10 +190,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             if flag3 == true {
                 
                 flag3 = false
-            
-                for step in 0..<recipe.count{
-                    cell.addreipe(step: step, recipe: recipe[step])
                 
+                for step in 0..<data[indexPath.row].recipe.count{
+                    cell.addreipe(step: step, recipe: data[indexPath.row].recipe[step])
                 }
                 
             }

@@ -59,18 +59,22 @@ class TasteProgressView: UIView {
         tasteLabel.translatesAutoresizingMaskIntoConstraints = false
         tasteLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         tasteLabel.centerYAnchor.constraint(equalTo: tasteProgress.centerYAnchor).isActive = true
+        tasteLabel.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        
         
         
         tasteProgress.translatesAutoresizingMaskIntoConstraints = false
         tasteProgress.leadingAnchor.constraint(equalTo: tasteLabel.trailingAnchor, constant: 15).isActive = true
         tasteProgress.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         tasteProgress.heightAnchor.constraint(equalToConstant: 30).isActive = true
-//        tasteProgress.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        
   
         
         // 코너 둥글게
         tasteProgress.clipsToBounds = true
         tasteProgress.layer.cornerRadius = 8
+        
+  
  
     }
     
