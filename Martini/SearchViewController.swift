@@ -41,6 +41,7 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
             self.tableView.reloadData()
         }
         
+        tableView.separatorStyle = .none
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
         

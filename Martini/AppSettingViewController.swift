@@ -47,8 +47,10 @@ extension AppSettingViewController: UITableViewDelegate {
             }
         case 2:
             if(AuthManager.shared.userSession == nil){
-                AuthManager.shared.logout()
-                self.navigationController?.popViewController(animated: true)
+                AuthManager.shared.logout { result, error in
+                    guard result else { return }
+                    self.navigationController?.popViewController(animated: true)
+                }
             } else {
                 self.navigationController?.popViewController(animated: true)
             }
