@@ -43,13 +43,19 @@ class FlavorPreferenceCollectionViewCell: UICollectionViewCell, SliderStrenthDel
     // 슬라이더 상태 (유지)초기화
     func configure(subtitle: String, index: Int) {
         
+        let tasteStrenth = DATASTORE.user?.tastePreference?[Cocktail.Taste.allCases[index].rawValue] ?? 0
+        
         sliderStrenth.labelTitle.text = subtitle
-        sliderStrenth.labelPercentage.text = "\(Int(PREFERENCE_DATASTORE.taste[index]))%"
-        sliderStrenth.slider.setValue(Float(PREFERENCE_DATASTORE.taste[index] / 100), animated: false)
+        sliderStrenth.labelPercentage.text = "\(tasteStrenth)%"
+        sliderStrenth.slider.setValue(Float(tasteStrenth) / 100, animated: false)
         self.index = index
+        
+        print("tasteStrenth: \(tasteStrenth)")
     }
     
     func didChangeValue(value: Double) {
-            PREFERENCE_DATASTORE.taste[index] = value
+        
+        let tasteType = Cocktail.Taste.allCases[self.index].rawValue
+        DATASTORE.user?.tastePreference?.updateValue(Int(value), forKey: tasteType)
     }
 }
