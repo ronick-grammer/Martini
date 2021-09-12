@@ -33,7 +33,7 @@ class TasteTableViewCell: UITableViewCell {
         super.awakeFromNib()
         tasteSV.layer.cornerRadius = 10
         tasteSV.isLayoutMarginsRelativeArrangement = true
-        tasteSV.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 0, trailing: 5)
+        tasteSV.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15)
         tasteSV.spacing = 5
         
         // Initialization code
