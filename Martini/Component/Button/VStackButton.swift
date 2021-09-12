@@ -37,6 +37,8 @@ class VStackButton: UIView {
         var inset = button.contentEdgeInsets
         inset.left = 10
         button.contentEdgeInsets = inset
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         self.stackView.addArrangedSubview(button)
     }
