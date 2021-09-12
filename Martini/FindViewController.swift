@@ -51,6 +51,8 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
         colors.forEach { color in
             let view = ColorButton()
             view.colorView.backgroundColor = color
+            view.clipsToBounds = true
+            view.layer.cornerRadius = 8
             cell.colors.addArrangedSubview(view)
         }
         
@@ -85,7 +87,7 @@ class FindViewCell: UITableViewCell {
     }
     
     @IBAction func sliderValueChaged(_ sender: UISlider) {
-        let value = round(sender.value * 100)
+        let value = round(sender.value * 50.0)
         alcoholLabel.text = "\(value)%"
     }
     
