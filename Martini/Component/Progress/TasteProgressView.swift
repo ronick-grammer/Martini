@@ -67,12 +67,13 @@ class TasteProgressView: UIView {
         tasteProgress.leadingAnchor.constraint(equalTo: tasteLabel.trailingAnchor, constant: 15).isActive = true
         tasteProgress.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         tasteProgress.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
+        tasteProgress.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
   
         
         // 코너 둥글게
+        
+        tasteProgress.layer.cornerRadius = 16
         tasteProgress.clipsToBounds = true
-        tasteProgress.layer.cornerRadius = 8
         
   
  
@@ -91,15 +92,13 @@ class TasteProgressView: UIView {
         if (value < 0.6) {
 
             tasteProgress.progressTintColor = UIColor(red: (12/255.0), green: (200/255.0), blue: (42/255.0), alpha: 0.5)
-            tasteProgress.trackTintColor = UIColor(red: (125/255.0), green: (232/255.0), blue: (142/255.0), alpha: 1.0)
-            tasteProgress.layer.cornerRadius = 30
+            tasteProgress.trackTintColor = UIColor(red: (125/255.0), green: (232/255.0), blue: (142/255.0), alpha: 0.5)
         }
         else {
             
             
             tasteProgress.progressTintColor = UIColor(red: (232/255.0), green: (24/255.0), blue: (24/255.0), alpha: 0.5)
-            tasteProgress.trackTintColor = UIColor(red: (222/255.0), green: (116/255.0), blue: (116/255.0), alpha: 1.0)
-            tasteProgress.layer.cornerRadius = 30
+            tasteProgress.trackTintColor = UIColor(red: (222/255.0), green: (116/255.0), blue: (116/255.0), alpha: 0.5)
             
         }
         
