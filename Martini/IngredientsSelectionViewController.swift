@@ -18,10 +18,6 @@ class IngredientsSelectionViewController: UIViewController {
     let spacingRow = 7
     let spacingColumn = 7
     
-    
-    let preferenceController =  PreferenceManager()
-//    let cocktailManager = CocktailManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,11 +46,13 @@ class IngredientsSelectionViewController: UIViewController {
         guard let updatedUser = DATASTORE.user else { return }
         AuthManager.shared.updateUserData(updatedUser: updatedUser) { success, error in
             if let error = error {
-                print("ERROR!!!! \(error.localizedDescription)")
+                print("ERROR: \(error.localizedDescription)")
                 return
             }
-            guard let successUser = AuthManager.shared.currentUser else { return }
-            print("SUCCESS: \(successUser)")
+            
+            let vc = UIStoryboard(name: "PreferenceComplete", bundle: Bundle.main).instantiateViewController(identifier: "preferenceComplete")
+            
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
 //        let cocktailColor = [Cocktail.Color.yellow, Cocktail.Color.orange]

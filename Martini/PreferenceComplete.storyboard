@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Preference Complete View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="preferenceComplete" id="Y6W-OH-hqX" customClass="PreferenceCompleteViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1yV-NV-Tc1">
+                                <rect key="frame" x="95" y="310" width="200" height="225"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="m8C-95-b9j">
+                                        <rect key="frame" x="50" y="1" width="100" height="98.666666666666671"/>
+                                        <color key="tintColor" systemColor="systemPinkColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="FmW-Px-Tof"/>
+                                            <constraint firstAttribute="width" constant="100" id="rLE-SZ-lmF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선호도 선택이 완료 돠었습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVk-BM-DBA">
+                                        <rect key="frame" x="25" y="100" width="150" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="kWr-XQ-ReE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="'완료'를 누르고 원하는 칵테일을 찾아보세요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecX-EO-Hnj">
+                                        <rect key="frame" x="0.0" y="155" width="200" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="8dk-Zx-xya"/>
+                                            <constraint firstAttribute="height" constant="70" id="gRh-3s-dDS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7o-DM-nyg">
+                                <rect key="frame" x="0.0" y="776" width="390" height="68"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <state key="normal" title="완료"/>
+                                <connections>
+                                    <action selector="btnComplete:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="eET-T4-Utu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1yV-NV-Tc1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="95" id="3jX-Xw-KCN"/>
+                            <constraint firstItem="X7o-DM-nyg" firstAttribute="top" secondItem="1yV-NV-Tc1" secondAttribute="bottom" constant="241" id="BtW-uc-beD"/>
+                            <constraint firstItem="X7o-DM-nyg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="K9L-If-bG7"/>
+                            <constraint firstItem="X7o-DM-nyg" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="cZz-GU-LGV"/>
+                            <constraint firstItem="1yV-NV-Tc1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="266" id="dUr-uk-1ld"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1yV-NV-Tc1" secondAttribute="trailing" constant="95" id="l84-HH-OD6"/>
+                            <constraint firstAttribute="bottom" secondItem="X7o-DM-nyg" secondAttribute="bottom" id="znG-o6-BLY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btn" destination="X7o-DM-nyg" id="xl1-lb-4Wo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.692307692307693" y="32.701421800947863"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

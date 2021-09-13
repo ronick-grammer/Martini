@@ -49,8 +49,6 @@ class FlavorPreferenceCollectionViewCell: UICollectionViewCell, SliderStrenthDel
         sliderStrenth.labelPercentage.text = "\(tasteStrenth)%"
         sliderStrenth.slider.setValue(Float(tasteStrenth) / 100, animated: false)
         self.index = index
-        
-        print("tasteStrenth: \(tasteStrenth)")
     }
     
     func didChangeValue(value: Double) {
