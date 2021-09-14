@@ -16,87 +16,11 @@
                     <view key="view" contentMode="scaleToFill" id="uNl-FP-I4o">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kce-tG-nhK" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
-                                <rect key="frame" x="20" y="314" width="350" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="gXm-17-ce5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextMarTiNi" translatesAutoresizingMaskIntoConstraints="NO" id="XJZ-Fh-UpY">
-                                <rect key="frame" x="20" y="84" width="198.33333333333334" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="pfE-MM-y6m"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="martini" translatesAutoresizingMaskIntoConstraints="NO" id="pQB-eQ-lMK">
-                                <rect key="frame" x="228.33333333333337" y="84" width="141.66666666666663" height="200"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gey-yA-uMe" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
-                                <rect key="frame" x="20" y="384" width="350" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="OSt-jY-XBq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hU-iH-tgx" customClass="LoginButton" customModule="Martini" customModuleProvider="target">
-                                <rect key="frame" x="20" y="534" width="350" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="KZG-cu-mf7"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="signupButton:" destination="Svk-4H-VDU" eventType="touchUpInside" id="a7M-dM-Qsi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhL-JG-yod" customClass="LoginButton" customModule="Martini" customModuleProvider="target">
-                                <rect key="frame" x="20" y="454" width="350" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="e0Q-OQ-vef"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="loginButton:" destination="Svk-4H-VDU" eventType="touchUpInside" id="e3b-NK-d67"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ape-Xe-eD3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="gey-yA-uMe" firstAttribute="trailing" secondItem="pQB-eQ-lMK" secondAttribute="trailing" id="0NH-JG-Bse"/>
-                            <constraint firstItem="XJZ-Fh-UpY" firstAttribute="width" secondItem="pQB-eQ-lMK" secondAttribute="width" multiplier="1.4" id="2Gd-Et-hL1"/>
-                            <constraint firstItem="XJZ-Fh-UpY" firstAttribute="leading" secondItem="ape-Xe-eD3" secondAttribute="leading" constant="20" id="2Vx-tW-Tzn"/>
-                            <constraint firstItem="ape-Xe-eD3" firstAttribute="trailing" secondItem="pQB-eQ-lMK" secondAttribute="trailing" constant="20" id="4YC-NK-yI5"/>
-                            <constraint firstItem="Kce-tG-nhK" firstAttribute="top" secondItem="pQB-eQ-lMK" secondAttribute="bottom" constant="30" id="5zB-iY-GxJ"/>
-                            <constraint firstItem="Kce-tG-nhK" firstAttribute="leading" secondItem="XJZ-Fh-UpY" secondAttribute="leading" id="8EA-mW-KOa"/>
-                            <constraint firstItem="4hU-iH-tgx" firstAttribute="trailing" secondItem="pQB-eQ-lMK" secondAttribute="trailing" id="CZo-9Q-7KS"/>
-                            <constraint firstItem="4hU-iH-tgx" firstAttribute="leading" secondItem="XJZ-Fh-UpY" secondAttribute="leading" id="FFu-RT-DGG"/>
-                            <constraint firstItem="Kce-tG-nhK" firstAttribute="top" secondItem="XJZ-Fh-UpY" secondAttribute="bottom" constant="30" id="GT8-ko-dAW"/>
-                            <constraint firstItem="gey-yA-uMe" firstAttribute="leading" secondItem="XJZ-Fh-UpY" secondAttribute="leading" id="H2M-qf-Rat"/>
-                            <constraint firstItem="XJZ-Fh-UpY" firstAttribute="top" secondItem="ape-Xe-eD3" secondAttribute="top" constant="40" id="IlN-du-MLu"/>
-                            <constraint firstItem="4hU-iH-tgx" firstAttribute="top" secondItem="rhL-JG-yod" secondAttribute="bottom" constant="30" id="SVa-pv-HUu"/>
-                            <constraint firstItem="rhL-JG-yod" firstAttribute="leading" secondItem="XJZ-Fh-UpY" secondAttribute="leading" id="egt-Pn-ouN"/>
-                            <constraint firstItem="Kce-tG-nhK" firstAttribute="trailing" secondItem="pQB-eQ-lMK" secondAttribute="trailing" id="f79-gk-3dh"/>
-                            <constraint firstItem="pQB-eQ-lMK" firstAttribute="top" secondItem="XJZ-Fh-UpY" secondAttribute="top" id="mua-cC-7ps"/>
-                            <constraint firstItem="pQB-eQ-lMK" firstAttribute="leading" secondItem="XJZ-Fh-UpY" secondAttribute="trailing" constant="10" id="pId-XI-OeQ"/>
-                            <constraint firstItem="gey-yA-uMe" firstAttribute="top" secondItem="rhL-JG-yod" secondAttribute="bottom" constant="60" id="pku-iN-Z0G"/>
-                            <constraint firstItem="rhL-JG-yod" firstAttribute="top" secondItem="gey-yA-uMe" secondAttribute="bottom" constant="30" id="rXR-Qf-m22"/>
-                            <constraint firstItem="gey-yA-uMe" firstAttribute="top" secondItem="Kce-tG-nhK" secondAttribute="bottom" constant="30" id="yQe-xG-Ey4"/>
-                            <constraint firstItem="rhL-JG-yod" firstAttribute="trailing" secondItem="pQB-eQ-lMK" secondAttribute="trailing" id="zYb-dL-aHM"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="pku-iN-Z0G"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="fYg-D9-0w4"/>
                     <connections>
-                        <outlet property="emailTextField" destination="Kce-tG-nhK" id="Nz3-M3-XwJ"/>
-                        <outlet property="loginButton" destination="rhL-JG-yod" id="8zB-Ci-kYr"/>
-                        <outlet property="passwordTextField" destination="gey-yA-uMe" id="huN-4J-jPn"/>
-                        <outlet property="signupButton" destination="4hU-iH-tgx" id="27H-oo-AdZ"/>
                         <segue destination="MWP-pV-ngO" kind="show" identifier="sgSignUp" id="dCZ-vk-4mj"/>
                     </connections>
                 </viewController>
@@ -116,95 +40,13 @@
                         <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" id="BSl-qK-YO6"/>
-                    <connections>
-                        <segue destination="Ye6-3r-Zxa" kind="show" identifier="sgCertifyPhone" id="MWV-hQ-TQ7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Udi-Lp-pRP" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4442" y="-28"/>
         </scene>
-        <!--Certify Phone View Controller-->
-        <scene sceneID="plu-85-RVj">
-            <objects>
-                <viewController storyboardIdentifier="CertifyPhoneVC" id="Ye6-3r-Zxa" customClass="CertifyPhoneViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Cfk-b6-CV9">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TextMarTiNi" translatesAutoresizingMaskIntoConstraints="NO" id="Eld-r5-6uF">
-                                <rect key="frame" x="20" y="40" width="198.33333333333334" height="226"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="martini" translatesAutoresizingMaskIntoConstraints="NO" id="t2i-6A-Zn0">
-                                <rect key="frame" x="228.33333333333337" y="40" width="141.66666666666663" height="226"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Fi-ay-73T" customClass="CustomInputTextField" customModule="Martini" customModuleProvider="target">
-                                <rect key="frame" x="20" y="306" width="350" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="JsH-q8-gqI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5I6-DW-cXI">
-                                <rect key="frame" x="20" y="396" width="350" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="y5J-Nl-4nw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATR-dJ-WGL">
-                                <rect key="frame" x="132.66666666666666" y="356" width="124.99999999999997" height="30"/>
-                                <state key="normal" title="인증번호 다시 보내기"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNo-BG-HUk" customClass="LoginButton" customModule="Martini" customModuleProvider="target">
-                                <rect key="frame" x="20" y="466" width="350" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="350" id="MzD-qf-7ZW"/>
-                                    <constraint firstAttribute="height" constant="50" id="hGH-3i-DaZ"/>
-                                </constraints>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="PFa-tO-U0p"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="t2i-6A-Zn0" firstAttribute="leading" secondItem="Eld-r5-6uF" secondAttribute="trailing" constant="10" id="3ef-CV-i1q"/>
-                            <constraint firstItem="5I6-DW-cXI" firstAttribute="leading" secondItem="Eld-r5-6uF" secondAttribute="leading" id="8tb-iu-Xgv"/>
-                            <constraint firstItem="t2i-6A-Zn0" firstAttribute="top" secondItem="Eld-r5-6uF" secondAttribute="top" id="IZd-bK-o2N"/>
-                            <constraint firstItem="iNo-BG-HUk" firstAttribute="leading" secondItem="Eld-r5-6uF" secondAttribute="leading" id="Kiz-MS-sNw"/>
-                            <constraint firstItem="ATR-dJ-WGL" firstAttribute="centerX" secondItem="9Fi-ay-73T" secondAttribute="centerX" id="My5-32-2vs"/>
-                            <constraint firstItem="5I6-DW-cXI" firstAttribute="trailing" secondItem="t2i-6A-Zn0" secondAttribute="trailing" id="Nx6-5H-cey"/>
-                            <constraint firstItem="ATR-dJ-WGL" firstAttribute="top" secondItem="9Fi-ay-73T" secondAttribute="bottom" constant="10" id="OOo-Bs-wXw"/>
-                            <constraint firstItem="PFa-tO-U0p" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iNo-BG-HUk" secondAttribute="bottom" constant="240" id="P3w-FE-ZWl"/>
-                            <constraint firstItem="PFa-tO-U0p" firstAttribute="trailing" secondItem="t2i-6A-Zn0" secondAttribute="trailing" constant="20" id="Xwh-ET-nth"/>
-                            <constraint firstItem="9Fi-ay-73T" firstAttribute="leading" secondItem="Eld-r5-6uF" secondAttribute="leading" id="bQ4-OW-qDZ"/>
-                            <constraint firstItem="Eld-r5-6uF" firstAttribute="leading" secondItem="PFa-tO-U0p" secondAttribute="leading" constant="20" id="cjl-Qq-fgt"/>
-                            <constraint firstItem="iNo-BG-HUk" firstAttribute="trailing" secondItem="t2i-6A-Zn0" secondAttribute="trailing" id="gV0-Jy-UMQ"/>
-                            <constraint firstItem="Eld-r5-6uF" firstAttribute="top" secondItem="PFa-tO-U0p" secondAttribute="top" constant="40" id="j2S-BX-I4d"/>
-                            <constraint firstItem="9Fi-ay-73T" firstAttribute="trailing" secondItem="t2i-6A-Zn0" secondAttribute="trailing" id="jgo-fk-egZ"/>
-                            <constraint firstItem="iNo-BG-HUk" firstAttribute="top" secondItem="5I6-DW-cXI" secondAttribute="bottom" constant="30" id="lsV-I4-vlT"/>
-                            <constraint firstItem="5I6-DW-cXI" firstAttribute="top" secondItem="ATR-dJ-WGL" secondAttribute="bottom" constant="10" id="x04-uF-lyl"/>
-                            <constraint firstItem="9Fi-ay-73T" firstAttribute="top" secondItem="t2i-6A-Zn0" secondAttribute="bottom" constant="40" id="xyQ-e2-uyL"/>
-                            <constraint firstItem="9Fi-ay-73T" firstAttribute="top" secondItem="Eld-r5-6uF" secondAttribute="bottom" constant="40" id="yME-6c-kbU"/>
-                            <constraint firstItem="Eld-r5-6uF" firstAttribute="width" secondItem="t2i-6A-Zn0" secondAttribute="width" multiplier="1.4" id="z05-JW-Zx3"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="fwm-64-duS"/>
-                    <connections>
-                        <outlet property="certification" destination="iNo-BG-HUk" id="AWj-Pt-qQv"/>
-                        <outlet property="inputPhoneNumber" destination="9Fi-ay-73T" id="UNx-FW-s7q"/>
-                        <outlet property="securityCodeTextField" destination="5I6-DW-cXI" id="0x4-4m-TLe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gqm-Kl-a2F" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3671" y="-28"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="TextMarTiNi" width="204" height="45"/>
-        <image name="martini" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
