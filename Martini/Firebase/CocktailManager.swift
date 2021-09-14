@@ -19,6 +19,7 @@ class CocktailManager {
     
     // 칵테일 정보 등록
     func registerCocktail(cocktail: Cocktail, _ completion: @escaping(_ success: Bool) -> Void) {
+        
         do{
             
             try COLLECTION_COCKTAILS.document(cocktail.id).setData(from: cocktail, encoder: Firestore.Encoder()) { error in
@@ -49,7 +50,7 @@ class CocktailManager {
             
             guard let documents = snapshot?.documents else { return }
             self.cocktails = documents.compactMap({ try? $0.data(as: Cocktail.self) })
-            
+            print("Successfully fetched all cocktails..!")
             complete()
             
         }
@@ -108,7 +109,53 @@ class CocktailManager {
                 completion(true, error)
             }
         }
+    }
+    
+    // 유저의 맛 선호도와 가장 가까운 칵테일 순으로 정렬
+    func orderByTastePreference() -> [Cocktail] {
         
+        guard let userTastePreference = AuthManager.shared.currentUser?.tastePreference else {
+            return [Cocktail]()
+        }
+        
+        return self.cocktails.sorted { cocktail_A, cocktail_B in
+            var sum_A = 0, sum_B = 0
+            
+            for taste in Cocktail.Taste.allCases {
+                guard let userTaste = userTastePreference[taste.rawValue] else { return false }
+                guard let cocktailTaste_A = cocktail_A.taste[taste] else { return false }
+                guard let cocktailTaste_B = cocktail_B.taste[taste] else { return false }
+                
+                sum_A += abs(userTaste - cocktailTaste_A)
+                sum_B += abs(userTaste - cocktailTaste_B)
+            }
+            
+            return sum_A < sum_B
+        }
+    }
+    
+    // 유저가 선호하는 재료를 가장 많이 포함하는 칵테일 순으로 정렬
+    func orderByIngredientPreference() -> [Cocktail] {
+        
+        guard let userIngredientPreference = AuthManager.shared.currentUser?.ingredientPreference else  {
+            return [Cocktail] ()
+        }
+        
+        return self.cocktails.sorted { cocktail_A, cocktail_B in
+            var count_A = 0, count_B = 0
+            
+            for ingredient in userIngredientPreference {
+                if cocktail_A.ingredients.contains(ingredient) {
+                    count_A += 1
+                }
+                
+                if cocktail_B.ingredients.contains(ingredient) {
+                    count_B += 1
+                }
+            }
+            
+            return count_A > count_B
+        }
     }
     
     // 랜덤 칵테일 하나 반환
