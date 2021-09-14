@@ -1,15 +1,14 @@
 //
-//  SignUpViewController.swift
-//  Martini
+// SignUpViewController.swift
+// Martini
 //
-//  Created by 이상현 on 2021/08/19.
+// Created by 이상현 on 2021/08/19.
 //
 
 import UIKit
 import Firebase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDelegate {
-
     var flag: Bool = false
     let imageStackView: UIStackView = {
         let view = UIStackView()
@@ -33,7 +32,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     
     let containerView: UIView = {
         let view = UIView()
-        //        view.backgroundColor = .red
+        //    view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -41,20 +40,25 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     let nickNameTextField: CustomInputTextField = {
         let textField = CustomInputTextField()
         textField.informTextInfo(placeholder: "닉네임", iconName: "person.fill")
+        textField.keyboardType = .namePhonePad
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-    let phoneCertifyButton: LoginButton = {
-        let button = LoginButton()
-        button.informTextInfo(text: "휴대폰 인증하기", fontSize: 30)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    let phoneNumberTextField: CustomInputTextField = {
+        let textField = CustomInputTextField()
+        textField.informTextInfo(placeholder: "휴대전화번호", iconName: "phone.fill")
+        textField.textContentType = .telephoneNumber
+        textField.keyboardType = .namePhonePad
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
     }()
     
     let emailTextField: CustomInputTextField = {
         let textField = CustomInputTextField()
         textField.informTextInfo(placeholder: "이메일", iconName: "envelope.fill")
+        textField.textContentType = .emailAddress
+        textField.keyboardType = .emailAddress
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -63,13 +67,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         let textField = CustomInputTextField()
         textField.informTextInfo(placeholder: "비밀번호", iconName: "lock.fill")
         textField.isSecureTextEntry = true // https://fastutlego.tistory.com/86
+        textField.textContentType = .oneTimeCode
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    
     let passwordCheckTextField: CustomInputTextField = {
         let textField = CustomInputTextField()
         textField.informTextInfo(placeholder: "비밀번호 확인", iconName: "lock")
         textField.isSecureTextEntry = true // https://fastutlego.tistory.com/86
+        textField.textContentType = .oneTimeCode
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -83,15 +90,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.addKeyboardNotifications()
-        self.containerView.transform = CGAffineTransform(translationX: 0, y: imageStackView.frame.minY)
-        print(type(of: self), #function)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.nickNameTextField.becomeFirstResponder()
     }
     
     override func viewDidLoad() {
@@ -99,7 +98,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         view.addSubview(containerView)
         containerView.addSubview(imageStackView)
         containerView.addSubview(nickNameTextField)
-        containerView.addSubview(phoneCertifyButton)
+        containerView.addSubview(phoneNumberTextField)
         containerView.addSubview(emailTextField)
         containerView.addSubview(passwordTextField)
         containerView.addSubview(passwordCheckTextField)
@@ -114,6 +113,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
             containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             
             imageStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 40),
+            containerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             imageStackView.widthAnchor.constraint(equalTo: containerView.widthAnchor),
             imageStackView.heightAnchor.constraint(equalToConstant: 80),
             
@@ -122,12 +122,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
             nickNameTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             nickNameTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            phoneCertifyButton.topAnchor.constraint(equalTo: nickNameTextField.bottomAnchor, constant: 40),
-            phoneCertifyButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            phoneCertifyButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            phoneCertifyButton.heightAnchor.constraint(equalToConstant: 50),
+            phoneNumberTextField.topAnchor.constraint(equalTo: nickNameTextField.bottomAnchor, constant: 40),
+            phoneNumberTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            phoneNumberTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            phoneNumberTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            emailTextField.topAnchor.constraint(equalTo: phoneCertifyButton.bottomAnchor, constant: 40),
+            emailTextField.topAnchor.constraint(equalTo: phoneNumberTextField.bottomAnchor, constant: 40),
             emailTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             emailTextField.heightAnchor.constraint(equalToConstant: 40),
@@ -143,7 +143,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
             passwordCheckTextField.heightAnchor.constraint(equalToConstant: 40),
             
             signupButton.topAnchor.constraint(equalTo: passwordCheckTextField.bottomAnchor, constant: 40),
-            signupButton.bottomAnchor.constraint(greaterThanOrEqualTo: containerView.bottomAnchor, constant: -200),
+            signupButton.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -100),
             signupButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             signupButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             signupButton.heightAnchor.constraint(equalToConstant: 50)
@@ -152,28 +152,33 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         // delegate
         nickNameTextField.delegate = self
         emailTextField.delegate = self
+        phoneNumberTextField.delegate = self
         passwordTextField.delegate = self
         passwordCheckTextField.delegate = self
         signupButton.delegate = self
-        phoneCertifyButton.delegate = self
         
         // Do any additional setup after loading the view.
         swipeRecognizer()
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
-        phoneCertifyButton.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside)
         signupButton.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside)
+        passwordTextField.isSecureTextEntry = false
+        passwordCheckTextField.isSecureTextEntry = false
     }
-
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.nickNameTextField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.removeKeyboardNotifications()
+    }
+    
     @objc func LoginButtonHandler(_ sender: UIButton) {
-        if sender == phoneCertifyButton {
-            print(2)
-            let certifyPhoneVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "CertifyPhoneVC")
-            present(certifyPhoneVC, animated: true)
-        }
-        else if sender == signupButton {
+        if sender == signupButton {
             print(1)
             if flag == true {
-                let user = User(nickName: nickNameTextField.text!, email: emailTextField.text!, phone: "111-1111-1111")
+                let user = User(nickName: nickNameTextField.text!, email: emailTextField.text!, phone: phoneNumberTextField.text!)
                 AuthManager.shared.registerUser(user: user, password: passwordTextField.text!) { success, error in
                     if let error = error as NSError? {
                         let authErrorCode = AuthErrorCode.init(rawValue: error.code)
@@ -184,28 +189,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
                             self.alert("관리자에게 문의하세요.")
                         }
                     }
-                let basepreferenceVC = UIStoryboard(name: "BasePreferenceView", bundle: nil).instantiateViewController(withIdentifier: "basePreference")
-                let navController = UINavigationController.init(rootViewController: basepreferenceVC)
-                navController.modalPresentationStyle = .fullScreen
-                navController.modalTransitionStyle = .crossDissolve
-                self.present(navController, animated: true, completion: nil)
-                    
+                    let basepreferenceVC = UIStoryboard(name: "BasePreferenceView", bundle: nil).instantiateViewController(withIdentifier: "basePreference")
+                    let navController = UINavigationController.init(rootViewController: basepreferenceVC)
+                    navController.modalPresentationStyle = .fullScreen
+                    navController.modalTransitionStyle = .crossDissolve
+                    self.present(navController, animated: true, completion: nil)
                 }
             }
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.removeKeyboardNotifications()
-        print(type(of: self), #function)
-    }
-    
-    // 터치가 발생할때 핸들러 캐치
-    @objc func handleTap(sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
-            view.endEditing(true) // todo...
-        }
-        sender.cancelsTouchesInView = false
     }
     
     // 스와이프 제스쳐
@@ -222,31 +213,36 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
             case UISwipeGestureRecognizer.Direction.right:
                 // 스와이프 시, 뒤로가기
                 self.dismiss(animated: true, completion: nil)
-            //                    self.navigationController?.popViewController(animated: true)
+            //          self.navigationController?.popViewController(animated: true)
             default: break
             }
         }
     }
     
     func CheckForSignup() {
-        if nickNameTextField.text?.count ?? 0 >= 1 && emailTextField.text?.contains("@") == true && passwordTextField.text?.count ?? 0 >= 6 && passwordCheckTextField.text?.count ?? 0 >= 6 && passwordTextField.text == passwordCheckTextField.text{
+        if nickNameTextField.text?.count ?? 0 >= 1 && emailTextField.text?.contains("@") == true && phoneNumberTextField.text?.count ?? 0 == 11 && passwordTextField.text?.count ?? 0 >= 6 && passwordCheckTextField.text?.count ?? 0 >= 6 && passwordTextField.text == passwordCheckTextField.text{
             signupButton.setColor(color: #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1))
             flag = true
         } else {
-            signupButton.setColor(color: #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1))
+            signupButton.setColor(color: #colorLiteral(red: 0.7194328904, green: 0.8873121142, blue: 0.5935972929, alpha: 1))
             flag = false
         }
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         CheckForSignup()
+        if textField == passwordTextField || textField == passwordCheckTextField {
+            textField.isSecureTextEntry = true
+        }
     }
     
     // 리턴을 눌렀을 때 작동하는 메서드
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //        emailTextField.resignFirstResponder()
+        //    emailTextField.resignFirstResponder()
         switch textField {
         case nickNameTextField:
+            phoneNumberTextField.becomeFirstResponder()
+        case phoneNumberTextField:
             emailTextField.becomeFirstResponder()
         case emailTextField:
             passwordTextField.becomeFirstResponder()
@@ -290,30 +286,30 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         // duration 애니메이션이 지속되는 초단위
         // userInfo가 있다면 keyboardAnimationDurationUserInfoKey를 이용해서 값을 가져온다. 0
         let curve = userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt
+        
         // Curvb
         // userInfo가 있다면 keyboardAnimationCurveUserInfoKey를 이용해서 값을 가져온다. 7
         let keyboardFrame = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
         // userInfo가 있다면 keyboardFrameEndUserInfoKey를 이용해서 값을 가져온다. {{0, 553}, {390, 291}}
         let keyboardHeight = keyboardFrame.size.height
-        
         // {{X, Y},{Width, Height}}
+        
         UIView.animate(withDuration: duration, delay: 0, options: [UIView.AnimationOptions(rawValue: curve)], animations: { [self] in
             // 키보드의 애니메이션의 값을 가져와서 화면이 움직이는 속도를 동기화해준다.
-            //            bottomConstraint.constant = keyboardHeight - self.view.safeAreaInsets.bottom
-            if nickNameTextField.isEditing == true {
-                
-                self.containerView.transform = CGAffineTransform(translationX: 0, y: +signupButton.bounds.height)
+            //      bottomConstraint.constant = keyboardHeight - self.view.safeAreaInsets.bottom
+            if nickNameTextField.isEditing == true || phoneNumberTextField.isEditing == true {
+                self.containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight + containerView.bounds.maxY - emailTextField.frame.maxY)
             } else if emailTextField.isEditing == true || passwordTextField.isEditing == true || passwordCheckTextField.isEditing == true {
-                self.containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight)
-                //                keyboardAnimate(keyboardRectangle: keyboardFrame, textField: nickNameTextField)
+                self.containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight + containerView.bounds.maxY - signupButton.frame.maxY)
+                //        keyboardAnimate(keyboardRectangle: keyboardFrame, textField: nickNameTextField)
             }
             
             // 오토레이아웃 맨 밑의 값을 변경해준다.
             // greater than으로 설정하는게 좋을 듯..?
         })
         self.view.layoutIfNeeded()
-        //         애니메이션이 필요하다면
-        //        self.view.setNeedsLayout()
+        //     애니메이션이 필요하다면
+        //    self.view.setNeedsLayout()
         // 성능이 중요하다면
     }
     
@@ -326,21 +322,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         let curve = userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber
         
         UIView.animate(withDuration: duration.doubleValue, delay: 0, options: [UIView.AnimationOptions(rawValue: UInt(curve.intValue))], animations: {
-            //            self.bottomConstraint.constant = self.view.safeAreaInsets.bottom
+            //      self.bottomConstraint.constant = self.view.safeAreaInsets.bottom
             self.containerView.transform = .identity
-            //            self.scrollView.frame.origin.y = self.view.bounds.origin.y
+            //      self.scrollView.frame.origin.y = self.view.bounds.origin.y
         })
         self.containerView.layoutIfNeeded()
-        //        self.view.setNeedsLayout()
+        //    self.view.setNeedsLayout()
     }
     
-    // 텍스트 필드가 가려졌을 때 키보드의 위치를 조정하는 메소드
-    func keyboardAnimate(keyboardRectangle: CGRect ,textField: UITextField){
-        if keyboardRectangle.height > (self.containerView.frame.height - textField.frame.maxY){
-            self.containerView.transform = CGAffineTransform(translationX: 0, y: (self.containerView.frame.height - keyboardRectangle.height - textField.frame.maxY))
-        }
-        //           view.frame.origin.y += keyboardRectangle.height - view.frame.height + signupButton.frame.maxY
-    }
     /*
      // MARK: - Navigation
      
