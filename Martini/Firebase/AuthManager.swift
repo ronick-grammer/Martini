@@ -13,8 +13,9 @@ class AuthManager {
     
     static var shared = AuthManager()
     
-    private init() {
+    private init() { // 앱을 껏다가 켰을 때도 세션은 유지되어야 함
         userSession = Auth.auth().currentUser
+        fetchUser()
     }
     
     // 회원가입 (Create)
@@ -271,6 +272,19 @@ class AuthManager {
             }
             completion(false, error)
             return
+        }
+    }
+    
+    func fetchUser() {
+        guard let uid = self.userSession?.uid else { return }
+        COLLECTION_USERS.document(uid).getDocument { snpashot, error in
+            
+            do {
+                self.currentUser = try snpashot?.data(as: User.self)
+                print("Sccuessfully fetched user data..!")
+            } catch {
+                print("failed to fetch user data..!")
+            }
         }
     }
 }

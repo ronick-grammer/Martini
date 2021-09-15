@@ -30,7 +30,6 @@
 		2C82F1C1A6AFEBDD9D81AD6A /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41139238BAD2634D1A0B2893 /* RecipeTableViewCell.xib */; };
 		324BDDB60A873174E1ACFABD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2565890830A74D20A098EBA0 /* User.swift */; };
 		32C26564CCBE2B70B1BC6CD4 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9DBD375043D94CF50000E0 /* WebImageView.swift */; };
-		354ACB911CFAEA6C468801A7 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E6A502D3B554819D15C74 /* PreferenceManager.swift */; };
 		36CE21647AF0F81610DB6D45 /* IngredientsSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568C1179AF32B8CDAD5A5203 /* IngredientsSelectionViewController.swift */; };
 		3B78796521D9230512ED6560 /* BasePreferenceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3D93E9D9B283465DAD1C6F /* BasePreferenceCollectionViewCell.swift */; };
 		42C0A22EC9A276DC7F6945A7 /* FlavorPreferenceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B4EA07B5E079A1928430A0 /* FlavorPreferenceCollectionViewCell.swift */; };
@@ -65,6 +64,8 @@
 		C594BE4FE5E5F433D56A0F9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEA7BC4E34C6D49E65C2466 /* ViewController.swift */; };
 		CE2A4F9E1E2346362E5DFD02 /* FlavorPreferenceView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFB436019D656B34ABBD88DC /* FlavorPreferenceView.storyboard */; };
 		D3DEC838D4676BFC62B8373B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00164AE37423C278E0AE50 /* SearchViewController.swift */; };
+		D404B47226EF45DC008D4ED1 /* PreferenceComplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D404B47126EF45DC008D4ED1 /* PreferenceComplete.storyboard */; };
+		D404B47426EF4620008D4ED1 /* PreferenceCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D404B47326EF4620008D4ED1 /* PreferenceCompleteViewController.swift */; };
 		D5FB36477A545BB828D89018 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD150034D49904B22FA83987 /* Constants.swift */; };
 		D836AE62B4DCC7119F399FA4 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106821DD1E67E84F88B1001 /* FindViewController.swift */; };
 		DCDD9E8C33EF570CACE863A4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9A86FC4C1261EF12208B0 /* DetailViewController.swift */; };
@@ -113,7 +114,6 @@
 		5EA92596517383727C55EC6F /* FindView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FindView.storyboard; sourceTree = "<group>"; };
 		61314A0618A923C2BBBEA9AC /* CocktailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailManager.swift; sourceTree = "<group>"; };
 		68570F614BF8A6B8EB8C0BC7 /* TasteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteTableViewCell.swift; sourceTree = "<group>"; };
-		693E6A502D3B554819D15C74 /* PreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		6C27FE597D069B59B0BCD764 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		6C34490EFB2DEDB6ED85817E /* BannerToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerToggleButton.swift; sourceTree = "<group>"; };
 		70FB4CB08900A7CDFEB36118 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +138,8 @@
 		C9AE88563DEA79ECEDB5577B /* CustomInputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputTextField.swift; sourceTree = "<group>"; };
 		D066F183AB32C871BCB54D4E /* CocktailCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailCellData.swift; sourceTree = "<group>"; };
 		D3223FA520AD1CB1FE53C0AD /* MainAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAttributeTableViewCell.swift; sourceTree = "<group>"; };
+		D404B47126EF45DC008D4ED1 /* PreferenceComplete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreferenceComplete.storyboard; sourceTree = "<group>"; };
+		D404B47326EF4620008D4ED1 /* PreferenceCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCompleteViewController.swift; sourceTree = "<group>"; };
 		D655D880DB23A78FB53C1DB4 /* CockTailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailTableViewCell.swift; sourceTree = "<group>"; };
 		DD150034D49904B22FA83987 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E212C3BAB0E4E585A2CC1AFE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,8 @@
 				18697BB326E8858500C937A0 /* AppSettingViewController.swift */,
 				29E16E2182F292EE58287DFF /* SignUpViewController.swift */,
 				1CEA7BC4E34C6D49E65C2466 /* ViewController.swift */,
+				D404B47126EF45DC008D4ED1 /* PreferenceComplete.storyboard */,
+				D404B47326EF4620008D4ED1 /* PreferenceCompleteViewController.swift */,
 				67DA382CE1B2B843CEE10A41 /* Component */,
 				87D716EE4B4CACD17A0F4A13 /* DataStore */,
 				755D9EB934D09D9F3DFEDCC7 /* Firebase */,
@@ -286,7 +290,6 @@
 				5568271C47B206C7FFD0FAFE /* AuthManager.swift */,
 				61314A0618A923C2BBBEA9AC /* CocktailManager.swift */,
 				DD150034D49904B22FA83987 /* Constants.swift */,
-				693E6A502D3B554819D15C74 /* PreferenceManager.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D404B47226EF45DC008D4ED1 /* PreferenceComplete.storyboard in Resources */,
 				2AC2CF5F6A568C7BF4673498 /* Assets.xcassets in Resources */,
 				4AF9B65FC34E4A11BAEB8F68 /* BasePreferenceView.storyboard in Resources */,
 				0839CAFFACB9D8870D37C03B /* CockTailTableViewCell.xib in Resources */,
@@ -482,9 +486,9 @@
 				1ACBC60964FDE123598B5556 /* LoginViewController.swift in Sources */,
 				634ABD44CE20AA31254596DA /* MainAttributeTableViewCell.swift in Sources */,
 				1AA1496CA1F1A6BA0AEDE785 /* MainTableViewCell.swift in Sources */,
+				D404B47426EF4620008D4ED1 /* PreferenceCompleteViewController.swift in Sources */,
 				F40DA15C972295ED618A3DFC /* MainViewController.swift in Sources */,
 				126B0D315A992E22D3CBC9E3 /* DataStore.swift in Sources */,
-				354ACB911CFAEA6C468801A7 /* PreferenceManager.swift in Sources */,
 				EC4F126CE08A41763CB3B0E3 /* RecipeTableViewCell.swift in Sources */,
 				B3E259EC2BF1D997139DDF8B /* SceneDelegate.swift in Sources */,
 				D3DEC838D4676BFC62B8373B /* SearchViewController.swift in Sources */,
