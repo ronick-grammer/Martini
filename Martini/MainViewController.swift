@@ -52,6 +52,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
         
+        
+        
     }
     
     

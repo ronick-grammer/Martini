@@ -36,9 +36,11 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
             configureSearchController()
         }
         
-        CocktailManager.shared.fetchAllCocktail {
-            self.data = CocktailManager.shared.cocktails
-            self.tableView.reloadData()
+        if !searching {
+            CocktailManager.shared.fetchAllCocktail {
+                self.data = CocktailManager.shared.cocktails
+                self.tableView.reloadData()
+            }
         }
         
         tableView.separatorStyle = .none
