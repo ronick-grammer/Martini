@@ -58,6 +58,8 @@
 		9843D7E0ED5643AFDD216C5C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A19C990C9A6454B2A716B7B5 /* GoogleService-Info.plist */; };
 		A007D1947A5C5A60BAEE59B0 /* TasteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18AB9CFB8BE65D8C0468C8A9 /* TasteTableViewCell.xib */; };
 		AF89274C46BA641BDC8DFEE0 /* BasePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0556BDBA0A9D9637F09C2B07 /* BasePreferenceViewController.swift */; };
+		B348C2A926F6C9F2005CEF80 /* CocktailMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B348C2A826F6C9F2005CEF80 /* CocktailMain.storyboard */; };
+		B348C2AB26F6CA13005CEF80 /* CocktailMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B348C2AA26F6CA13005CEF80 /* CocktailMainViewController.swift */; };
 		B3E259EC2BF1D997139DDF8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B87846FB58C4B3EC6DC80 /* SceneDelegate.swift */; };
 		B490A3BCAC6A37C086759083 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB61CAC4CCE183FE26A00E90 /* DetailTableViewCell.swift */; };
 		B71B21B07279EF58754D1417 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7307F2D289C3F9A98621B4B3 /* Search.storyboard */; };
@@ -132,6 +134,8 @@
 		AB61CAC4CCE183FE26A00E90 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		ABE37727D8A28DBB6CA4E908 /* SliderStrenth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStrenth.swift; sourceTree = "<group>"; };
 		B04AE4A4305DCC993A91265F /* CockTailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CockTailTableViewCell.xib; sourceTree = "<group>"; };
+		B348C2A826F6C9F2005CEF80 /* CocktailMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CocktailMain.storyboard; sourceTree = "<group>"; };
+		B348C2AA26F6CA13005CEF80 /* CocktailMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailMainViewController.swift; sourceTree = "<group>"; };
 		B46716349C79E3667FF6F009 /* MainAttributeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainAttributeTableViewCell.xib; sourceTree = "<group>"; };
 		BA2654CCCF055010D55CB3C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7F1FA084ED5A7728877D10F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				01204375BB997427F2846996 /* Main.storyboard */,
 				29CB1806FD428B3CD322563D /* MainView.storyboard */,
 				70FB4CB08900A7CDFEB36118 /* MainViewController.swift */,
+				B348C2A826F6C9F2005CEF80 /* CocktailMain.storyboard */,
+				B348C2AA26F6CA13005CEF80 /* CocktailMainViewController.swift */,
 				0E111B379234308CB47A2F37 /* README.md */,
 				370B87846FB58C4B3EC6DC80 /* SceneDelegate.swift */,
 				7307F2D289C3F9A98621B4B3 /* Search.storyboard */,
@@ -430,6 +436,7 @@
 				2AC2CF5F6A568C7BF4673498 /* Assets.xcassets in Resources */,
 				4AF9B65FC34E4A11BAEB8F68 /* BasePreferenceView.storyboard in Resources */,
 				0839CAFFACB9D8870D37C03B /* CockTailTableViewCell.xib in Resources */,
+				B348C2A926F6C9F2005CEF80 /* CocktailMain.storyboard in Resources */,
 				677CD0A0F8942FF758A4D69A /* DetailTableViewCell.xib in Resources */,
 				EE2BA480B0CC3FE840EFC329 /* DetailView.storyboard in Resources */,
 				6731ACFDEFA353428D62C004 /* FindView.storyboard in Resources */,
@@ -477,6 +484,7 @@
 				B490A3BCAC6A37C086759083 /* DetailTableViewCell.swift in Sources */,
 				DCDD9E8C33EF570CACE863A4 /* DetailViewController.swift in Sources */,
 				D836AE62B4DCC7119F399FA4 /* FindViewController.swift in Sources */,
+				B348C2AB26F6CA13005CEF80 /* CocktailMainViewController.swift in Sources */,
 				42C0A22EC9A276DC7F6945A7 /* FlavorPreferenceCollectionViewCell.swift in Sources */,
 				714FD543A70D7FDB3589562B /* FlavorPreferenceViewController.swift in Sources */,
 				64EA3AFFCF2DCC3341D91306 /* IngredientsSelectionCollectionViewCell.swift in Sources */,
