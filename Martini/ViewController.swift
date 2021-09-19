@@ -31,17 +31,7 @@ class ViewController: UITabBarController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        if AuthManager.shared.userSession == nil {
-//            let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
-//
-//            vc.modalPresentationStyle = .fullScreen
-//            self.present(vc, animated: true, completion: nil)
-//        }
-        
-        
-    }
+    
 
 }
 

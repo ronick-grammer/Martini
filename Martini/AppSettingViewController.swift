@@ -50,9 +50,11 @@ extension AppSettingViewController: UITableViewDelegate {
                 AuthManager.shared.logout { result, error in
                     guard result else { return }
                     self.navigationController?.popViewController(animated: true)
+                    self.tabBarController?.selectedIndex = 0
                 }
             } else {
                 self.navigationController?.popViewController(animated: true)
+                self.tabBarController?.selectedIndex = 0
             }
             
         default:

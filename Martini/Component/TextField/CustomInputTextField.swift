@@ -38,7 +38,7 @@ class CustomInputTextField: UITextField  {
         leftView = iconContainerView
         leftViewMode = .always
         self.placeholder = "default"
-        self.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.backgroundColor = .systemGray5
         self.layer.cornerRadius = 10
         self.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
         self.borderStyle = BorderStyle.none
