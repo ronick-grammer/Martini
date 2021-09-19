@@ -49,7 +49,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         let textField = CustomInputTextField()
         textField.informTextInfo(placeholder: "휴대전화번호", iconName: "phone.fill")
         textField.textContentType = .telephoneNumber
-        textField.keyboardType = .namePhonePad
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -178,22 +177,46 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         if sender == signupButton {
             print(1)
             if flag == true {
+                print(emailTextField)
+                print(passwordTextField)
                 let user = User(nickName: nickNameTextField.text!, email: emailTextField.text!, phone: phoneNumberTextField.text!)
                 AuthManager.shared.registerUser(user: user, password: passwordTextField.text!) { success, error in
                     if let error = error as NSError? {
                         let authErrorCode = AuthErrorCode.init(rawValue: error.code)
                         switch authErrorCode {
-                        case .invalidEmail:
-                            self.alert("이메일 형식이 잘못되었습니다.")
+                        case .emailAlreadyInUse:
+                            self.alert("이미 등록된 이메일 입니다.")
                         default:
                             self.alert("관리자에게 문의하세요.")
                         }
                     }
+                    guard let currentUser = AuthManager.shared.currentUser else { return }
+                    DATASTORE.initializeUserPreference(user: currentUser)
+                    
                     let basepreferenceVC = UIStoryboard(name: "BasePreferenceView", bundle: nil).instantiateViewController(withIdentifier: "basePreference")
                     let navController = UINavigationController.init(rootViewController: basepreferenceVC)
+                    navController.setNavigationBarHidden(true,
+                                       animated: true)
                     navController.modalPresentationStyle = .fullScreen
                     navController.modalTransitionStyle = .crossDissolve
                     self.present(navController, animated: true, completion: nil)
+                }
+            } else {
+                if nickNameTextField.text!.count == 0 {
+                    shakeTextField(textField: nickNameTextField)
+                    alert("닉네임을 한 글자이상 입력하세요.")
+                } else if phoneNumberTextField.text!.count != 11 {
+                    shakeTextField(textField: phoneNumberTextField)
+                    alert("전화번호를 - 를 제외한 11글자로 입력해주세요.")
+                } else if ((emailTextField.text?.validateEmail()) == false) {
+                    shakeTextField(textField: emailTextField)
+                    alert("올바른 이메일을 입력하세요.")
+                } else if passwordTextField.text?.validatePassword() == false {
+                    shakeTextField(textField: passwordTextField)
+                    alert("8글자 이상 입력하세요.(문자 2글자 포함)")
+                } else {
+                    shakeTextField(textField: passwordCheckTextField)
+                    alert("같은 비밀번호를 입력해주세요.")
                 }
             }
         }
@@ -218,9 +241,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
             }
         }
     }
+   
     
     func CheckForSignup() {
-        if nickNameTextField.text?.count ?? 0 >= 1 && emailTextField.text?.contains("@") == true && phoneNumberTextField.text?.count ?? 0 == 11 && passwordTextField.text?.count ?? 0 >= 6 && passwordCheckTextField.text?.count ?? 0 >= 6 && passwordTextField.text == passwordCheckTextField.text{
+        guard let emailTextFieldCheck = emailTextField.text?.validateEmail() else { return }
+        guard let passwordTextFieldCheck = passwordTextField.text?.validatePassword() else { return }
+        if emailTextFieldCheck && passwordTextFieldCheck && nickNameTextField.text?.count ?? 0 >= 1 && phoneNumberTextField.text?.count ?? 0 == 11 && passwordTextField.text == passwordCheckTextField.text {
             signupButton.setColor(color: #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1))
             flag = true
         } else {
@@ -231,6 +257,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         CheckForSignup()
+        
         if textField == passwordTextField || textField == passwordCheckTextField {
             textField.isSecureTextEntry = true
         }
@@ -330,6 +357,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         //    self.view.setNeedsLayout()
     }
     
+    func shakeTextField(textField: CustomInputTextField) -> Void{
+        UIView.animate(withDuration: 0.2, animations: {
+            textField.frame.origin.x -= 10
+            textField.backgroundColor = #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.2, animations: {
+                textField.frame.origin.x += 20
+             }, completion: { _ in
+                 UIView.animate(withDuration: 0.2, animations: {
+                    textField.frame.origin.x -= 10
+                    textField.backgroundColor = .systemGray5
+                })
+            })
+        })
+    }
     /*
      // MARK: - Navigation
      
