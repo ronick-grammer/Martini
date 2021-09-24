@@ -134,7 +134,7 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         let data = searching ? searched[indexPath.row] : self.data[indexPath.row]
         
         let vc = initViewController("DetailView", identfire: "detailVC") as! DetailViewController
-        
+
         vc.data = data
         vc.navigationItem.title = data.name
         self.navigationController?.pushViewController(vc, animated: true)

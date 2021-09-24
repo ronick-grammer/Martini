@@ -14,40 +14,31 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
     var flag2 = true
     var flag3 = true
     
-    var tableView = UITableView()
-    var prevTableView = UITableView()
-    var nextTableView = UITableView()
+//    var tableView = UITableView()
+//    var prevTableView = UITableView()
+//    var nextTableView = UITableView()
    
     var data:Cocktail?
     var dataCollection:[Cocktail]?
     
     var scrollDirection:String?
     
+    var selectedIndex = 1
+    
+//    [UICsutoView, UICsutoView, UICsutoView,]]
+
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print(scrollView.bounds.minX / self.view.frame.width)
+//        print(scrollView.bounds)
+        selectedIndex = Int(scrollView.bounds.minX / self.view.frame.width)
+//        scrollView.subviews
+    }
+    
     var tableCollection: [UITableView]?
         // 이전 테이블 뷰
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
-        self.tableView.register(MainTableViewCell.nib, forCellReuseIdentifier: MainTableViewCell.identifier) // 셀 등록
-        
-        self.tableView.register(MainAttributeTableViewCell.nib, forCellReuseIdentifier: MainAttributeTableViewCell.identifier)
-        
-        self.tableView.register(ingredientTableViewCell.nib, forCellReuseIdentifier: ingredientTableViewCell.identifier)
-        
-        self.tableView.register(TasteTableViewCell.nib, forCellReuseIdentifier: TasteTableViewCell.identifier)
-        
-        self.tableView.register(RecipeTableViewCell.nib, forCellReuseIdentifier: RecipeTableViewCell.identifier)
-        
-        CocktailManager.shared.fetchAllCocktail {
-            
-            self.dataCollection = CocktailManager.shared.cocktails
-            self.data = CocktailManager.shared.cocktails.first
-            self.tableView.reloadData()
-        }
         
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -56,26 +47,44 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
         mainScrollView.translatesAutoresizingMaskIntoConstraints = false
         mainScrollView.isPagingEnabled = true
         
+        mainScrollView.delegate = self
         
-        
-        
-        
-        for i in 0..<3{
-            let xPosition = self.view.frame.width * CGFloat(i)
-            let view = UIView()
-            view.frame = CGRect(x: xPosition, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-            if i == 0 {
-                view.backgroundColor = .systemRed
-            } else {
-                view.backgroundColor = .systemBlue
-            }
-            mainScrollView.contentSize.width =
-                   self.view.frame.width * CGFloat(i+1)
+        for key in 0...2{
+            let tableView = CustomTableView()
+            let xPosition = self.view.frame.width * CGFloat(key)
+            print("tableView \(key): ", tableView.frame)
 
-            mainScrollView.addSubview(view)
+            tableView.frame = CGRect(x: xPosition, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+            tableView.tableView.delegate = self
+            tableView.tableView.dataSource = self
+            
+            mainScrollView.contentSize.width =
+                   self.view.frame.width * CGFloat(key+1)
+
+            mainScrollView.addSubview(tableView)
         }
-        print("-->\(mainScrollView.subviews)")
         
+        
+        CocktailManager.shared.fetchAllCocktail {
+            
+            self.dataCollection = CocktailManager.shared.cocktails
+            self.data = CocktailManager.shared.cocktails.first
+            
+//            for (key, customTable) in self.tableViews.enumerated() {
+//                customTable.data = self.dataCollection?[key]
+//                customTable.tableView.reloadData()
+//            }
+        }
+        
+//        print("-->\(mainScrollView.subviews)")
+        
+        setScrollBounds()
+        
+    }
+    
+    func setScrollBounds(){
+        mainScrollView.bounds = CGRect(x: 375.0, y: 0.0, width: 375.0, height: 676.0)
     }
     
     
@@ -89,7 +98,11 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
 //
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    guard let target = data else {
+    guard let customView = tableView.superview as? CustomTableView else {
+        return UITableViewCell()
+    }
+    
+    guard let target = customView.data else {
         return UITableViewCell()
     }
     
@@ -130,7 +143,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
         
         if flag1 == true {
-            flag1 = false
+//            flag1 = false
             
             for name in target.ingredients{
                 cell.addLabel(name: name.rawValue)
@@ -150,7 +163,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
         if flag2 == true {
             
-            flag2 = false
+//            flag2 = false
         
             for (taste,v) in target.taste{
 
@@ -169,7 +182,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
         if flag3 == true {
             
-            flag3 = false
+//            flag3 = false
             
             for step in 0..<target.recipe.count{
                 cell.addreipe(step: step, recipe: target.recipe[step])
@@ -188,28 +201,63 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         }
     }
 
-
     // section 5개
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
     
+    // 무한스크롤은 메모리 관리하기 편하도록
+    // 항상 다음과 이전이 존재해야되고
+    // 내가 현재 몇번째 데이터를 보고있는지 정보가 있어야되고
+    // 현재 보고있는 데이터와 다음데이터 이전데이터가 미리 구현이 되어있어야 하고
+    // 스크롤이 이동할때마다 subView에 frame들을 재설정 해줘야되고(positionX)
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity:CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        let xPoint = scrollView.bounds.minX
+        let offsetX = targetContentOffset.pointee.x
+        
+        if (xPoint < offsetX) { //다음으로 간 경우
+            let currentView = scrollView.subviews[2]
+            currentView.frame = CGRect(x: self.view.frame.width * 1, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+            let newView = CustomTableView()
+            newView.frame = CGRect(x: self.view.frame.width * 2, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+            scrollView.addSubview(newView)
+            
+            for view in scrollView.subviews{
+                if view == scrollView.subviews[0]{
+                    view.removeFromSuperview()
+                }
+            }
+            
+            setScrollBounds()
+            
+        } else {  //이전으로 간 경우
+            
+            let currentView = scrollView.subviews[0]
+            currentView.frame = CGRect(x: self.view.frame.width * 1, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+            let newView = CustomTableView()
+            newView.frame = CGRect(x: self.view.frame.width * 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+            scrollView.insertSubview(newView, at: 0)
+            
+            for view in scrollView.subviews{
+                if view == scrollView.subviews[2]{
+                    view.removeFromSuperview()
+                }
+            }
+            
+            
+            setScrollBounds()
+        }
+        
+        
+        print(xPoint, offsetX)
            
-           switch targetContentOffset.pointee.x {
-           case 0:
-                //이전으로 갔을때
-                
-                break
-               
-           case self.view.frame.width * CGFloat(2):
-               // 다음으로 갔을 때
-                break
-               
-           default:
-               break
-           }
+//        if()
         
         
     }
