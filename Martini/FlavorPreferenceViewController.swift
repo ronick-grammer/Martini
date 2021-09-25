@@ -9,12 +9,16 @@ import UIKit
 
 class FlavorPreferenceViewController: UIViewController {
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var flavorPreferenceCollectionView: UICollectionView!
     @IBOutlet var btnNext: UIButton!
     @IBOutlet var btnPrev: UIButton!
+    @IBOutlet var btnComplete: UIButton!
     
     let identifier = "flavorPreferenceCollectionViewCell"
     let spacingRow = 15
+    
+    var registrationType: RegistrationType = .user
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +26,30 @@ class FlavorPreferenceViewController: UIViewController {
         flavorPreferenceCollectionView.dataSource = self
         flavorPreferenceCollectionView.delegate = self
         flavorPreferenceCollectionView.register(FlavorPreferenceCollectionViewCell.self, forCellWithReuseIdentifier: identifier)
+
         
-        btnPrev.layer.cornerRadius = 6
-        btnPrev.titleLabel?.text = "이전"
-        btnPrev.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        
-        btnNext.layer.cornerRadius = 6
-        btnNext.titleLabel?.text = "다음"
-        btnNext.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        if registrationType == .user {
+            btnNext.layer.cornerRadius = 6
+            btnNext.titleLabel?.text = "다음"
+            btnNext.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            
+            btnPrev.layer.cornerRadius = 6
+            btnPrev.titleLabel?.text = "이전"
+            btnPrev.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            
+            btnComplete.isHidden = true
+            
+            titleLabel.text = "어떤 맛을 선호하시나요?"
+        } else {
+            btnComplete.layer.cornerRadius = 6
+            btnComplete.titleLabel?.text = "완료"
+            btnComplete.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            
+            btnPrev.isHidden = true
+            btnNext.isHidden = true
+            
+            titleLabel.text = "칵테일의 맛의 정도를 설정해주세요!"
+        }
     }
     
     @IBAction func btnPrevView(_ sender: UIButton) {
@@ -43,6 +63,12 @@ class FlavorPreferenceViewController: UIViewController {
         
         self.navigationController?.pushViewController(uvc, animated: true)
     }
+    
+    @IBAction func btnDismiss(_ sender: UIButton) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension FlavorPreferenceViewController: UICollectionViewDelegateFlowLayout {
@@ -77,7 +103,7 @@ extension FlavorPreferenceViewController: UICollectionViewDataSource {
         let tasteInfo = getTasteInfo(taste: taste)
         let subtitle = tasteInfo.subtitle
         
-        cell.configure(subtitle: subtitle, index: taste.index)
+        cell.configure(subtitle: subtitle, index: taste.index, registrationType: self.registrationType)
         
         return cell
     }

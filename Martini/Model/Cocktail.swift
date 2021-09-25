@@ -5,8 +5,6 @@
 //  Created by Jingyu Lim on 2021/08/12.
 //
 
-import Firebase
-import FirebaseFirestoreSwift
 import UIKit
 
 
@@ -21,6 +19,7 @@ struct Cocktail: Identifiable, Codable {
         case teal
         case pink
         case orange
+        case purple
         case none // 무색
         
         // 각 case의 인덱스
@@ -91,21 +90,22 @@ struct Cocktail: Identifiable, Codable {
         }
     }
     
-    
     var id: String = UUID().uuidString
-     
+
     let name: String
-    let base: Cocktail.Alcohol
-    let color: [Cocktail.Color]
+    let imgUrl: String
     let abv: Double // AlcoholByVolume (도수)
-    let ingredients: [Cocktail.Ingredients]
     let description: String
-    var taste: [Taste:Int]
     let recipe: [String]
+    let ingredients: [Ingredients]
+    let base: Alcohol
+    let color: [Color]
+    let taste: [Taste:Int]
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case imgUrl
         case base
         case color
         case abv  // AlcoholByVolume (도수)
@@ -132,6 +132,7 @@ extension Cocktail {
         self.ingredients = try container.decode([Ingredients].self, forKey: .ingredients)
         self.name = try container.decode(String.self, forKey: .name)
         self.recipe = try container.decode([String].self, forKey: .recipe)
+        self.imgUrl = try container.decode(String.self, forKey: .imgUrl)
 
         // enum을 키로 가지는 딕셔너리 타입으로 변환하기
         let tasteContainer = try container.nestedContainer(keyedBy: Taste.self, forKey: .taste)
@@ -165,5 +166,6 @@ extension Cocktail {
         try container.encode(self.ingredients, forKey: .ingredients)
         try container.encode(self.recipe, forKey: .recipe)
         try container.encode(taste, forKey: .taste)
+        try container.encode(self.imgUrl, forKey: .imgUrl)
     }
 }

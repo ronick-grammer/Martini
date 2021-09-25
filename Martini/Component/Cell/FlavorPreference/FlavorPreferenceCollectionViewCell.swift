@@ -12,6 +12,8 @@ class FlavorPreferenceCollectionViewCell: UICollectionViewCell, SliderStrenthDel
     var sliderStrenth = SliderStrenth()
     var index = Int()
     
+    var registrationType: RegistrationType?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -41,19 +43,52 @@ class FlavorPreferenceCollectionViewCell: UICollectionViewCell, SliderStrenthDel
     }
     
     // 슬라이더 상태 (유지)초기화
-    func configure(subtitle: String, index: Int) {
+    func configure(subtitle: String, index: Int, registrationType: RegistrationType) {
         
-        let tasteStrenth = DATASTORE.user?.tastePreference?[Cocktail.Taste.allCases[index].rawValue] ?? 0
+        self.registrationType = registrationType
+        self.index = index
+        
+        let tasteStrenth = initState()
         
         sliderStrenth.labelTitle.text = subtitle
         sliderStrenth.labelPercentage.text = "\(tasteStrenth)%"
         sliderStrenth.slider.setValue(Float(tasteStrenth) / 100, animated: false)
-        self.index = index
+    }
+    
+    // 타입별로 슬라이더 상태 초기화
+    func initState() -> Int{
+        
+        switch self.registrationType {
+        case .user:
+            return DATASTORE.user?.tastePreference?[Cocktail.Taste.allCases[self.index].rawValue] ?? 0
+        case .cocktail:
+            return DATASTORE_COCKTAIL?.taste[Cocktail.Taste.allCases[self.index]] ?? 0
+        default:
+            return 0
+        }
     }
     
     func didChangeValue(value: Double) {
         
+        switch self.registrationType {
+        case .user:
+            storeUserData(value: value)
+        case .cocktail:
+            storeCocktailData(value: value)
+        case .none:
+            break
+        }
+    }
+    
+    // 유저 등록 데이터스토어
+    func storeUserData(value: Double) {
         let tasteType = Cocktail.Taste.allCases[self.index].rawValue
         DATASTORE.user?.tastePreference?.updateValue(Int(value), forKey: tasteType)
+    }
+    
+    // 칵테일 등록 데이터스토어
+    func storeCocktailData(value: Double) {
+        let tasteType = Cocktail.Taste.allCases[self.index]
+        DATASTORE_COCKTAIL?.taste.updateValue(Int(value), forKey: tasteType)
     }
 }

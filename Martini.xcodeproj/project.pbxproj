@@ -66,6 +66,19 @@
 		D3DEC838D4676BFC62B8373B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C00164AE37423C278E0AE50 /* SearchViewController.swift */; };
 		D404B47226EF45DC008D4ED1 /* PreferenceComplete.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D404B47126EF45DC008D4ED1 /* PreferenceComplete.storyboard */; };
 		D404B47426EF4620008D4ED1 /* PreferenceCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D404B47326EF4620008D4ED1 /* PreferenceCompleteViewController.swift */; };
+		D43EB3AE26F488B9002AC77F /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EB3AD26F488B9002AC77F /* ImagePickerViewController.swift */; };
+		D4C46DC826FF3A3900BF6AFE /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C46DC726FF3A3900BF6AFE /* ImageUploader.swift */; };
+		D4C46DCA26FF3C8700BF6AFE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D4C46DC926FF3C8700BF6AFE /* FirebaseStorage */; };
+		D4EC51F326F5CDEF00EBAFF8 /* ColorSelectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4EC51F226F5CDEF00EBAFF8 /* ColorSelectionView.storyboard */; };
+		D4EC51F526F5CEC300EBAFF8 /* ColorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC51F426F5CEC300EBAFF8 /* ColorSelectionViewController.swift */; };
+		D4EC51F826F5D0DB00EBAFF8 /* ColorSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC51F726F5D0DB00EBAFF8 /* ColorSelectionCollectionViewCell.swift */; };
+		D4EC520226F5FD4800EBAFF8 /* RecipeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC520126F5FD4800EBAFF8 /* RecipeTextView.swift */; };
+		D4F177F726FF9CF800DC95F5 /* UploadRecipeTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F177F626FF9CF800DC95F5 /* UploadRecipeTextDelegate.swift */; };
+		D4F177F926FF9E2C00DC95F5 /* UploadRecipeKeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F177F826FF9E2C00DC95F5 /* UploadRecipeKeyboardHandler.swift */; };
+		D4F177FB26FFA01200DC95F5 /* RecipeStepHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F177FA26FFA01200DC95F5 /* RecipeStepHandler.swift */; };
+		D4F177FD26FFA17B00DC95F5 /* CocktailRecipeShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F177FC26FFA17B00DC95F5 /* CocktailRecipeShare.swift */; };
+		D4FD179826F1E32E0012B3A1 /* UploadRecipe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4FD179726F1E32E0012B3A1 /* UploadRecipe.storyboard */; };
+		D4FD179A26F1E34A0012B3A1 /* UploadRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FD179926F1E34A0012B3A1 /* UploadRecipeViewController.swift */; };
 		D5FB36477A545BB828D89018 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD150034D49904B22FA83987 /* Constants.swift */; };
 		D836AE62B4DCC7119F399FA4 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0106821DD1E67E84F88B1001 /* FindViewController.swift */; };
 		DCDD9E8C33EF570CACE863A4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D9A86FC4C1261EF12208B0 /* DetailViewController.swift */; };
@@ -140,6 +153,18 @@
 		D3223FA520AD1CB1FE53C0AD /* MainAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAttributeTableViewCell.swift; sourceTree = "<group>"; };
 		D404B47126EF45DC008D4ED1 /* PreferenceComplete.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreferenceComplete.storyboard; sourceTree = "<group>"; };
 		D404B47326EF4620008D4ED1 /* PreferenceCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCompleteViewController.swift; sourceTree = "<group>"; };
+		D43EB3AD26F488B9002AC77F /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		D4C46DC726FF3A3900BF6AFE /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		D4EC51F226F5CDEF00EBAFF8 /* ColorSelectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorSelectionView.storyboard; sourceTree = "<group>"; };
+		D4EC51F426F5CEC300EBAFF8 /* ColorSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionViewController.swift; sourceTree = "<group>"; };
+		D4EC51F726F5D0DB00EBAFF8 /* ColorSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		D4EC520126F5FD4800EBAFF8 /* RecipeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTextView.swift; sourceTree = "<group>"; };
+		D4F177F626FF9CF800DC95F5 /* UploadRecipeTextDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRecipeTextDelegate.swift; sourceTree = "<group>"; };
+		D4F177F826FF9E2C00DC95F5 /* UploadRecipeKeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRecipeKeyboardHandler.swift; sourceTree = "<group>"; };
+		D4F177FA26FFA01200DC95F5 /* RecipeStepHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepHandler.swift; sourceTree = "<group>"; };
+		D4F177FC26FFA17B00DC95F5 /* CocktailRecipeShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailRecipeShare.swift; sourceTree = "<group>"; };
+		D4FD179726F1E32E0012B3A1 /* UploadRecipe.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UploadRecipe.storyboard; sourceTree = "<group>"; };
+		D4FD179926F1E34A0012B3A1 /* UploadRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRecipeViewController.swift; sourceTree = "<group>"; };
 		D655D880DB23A78FB53C1DB4 /* CockTailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CockTailTableViewCell.swift; sourceTree = "<group>"; };
 		DD150034D49904B22FA83987 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E212C3BAB0E4E585A2CC1AFE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +183,7 @@
 				18F8B8E126E8610D00D24B74 /* FirebaseDatabase in Frameworks */,
 				18F8B8E526E8610D00D24B74 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				18F8B8DF26E8610D00D24B74 /* FirebaseAuth in Frameworks */,
+				D4C46DCA26FF3C8700BF6AFE /* FirebaseStorage in Frameworks */,
 				18F8B8E326E8610D00D24B74 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,8 +281,13 @@
 				1CEA7BC4E34C6D49E65C2466 /* ViewController.swift */,
 				D404B47126EF45DC008D4ED1 /* PreferenceComplete.storyboard */,
 				D404B47326EF4620008D4ED1 /* PreferenceCompleteViewController.swift */,
+				D43EB3AD26F488B9002AC77F /* ImagePickerViewController.swift */,
+				D4EC51F226F5CDEF00EBAFF8 /* ColorSelectionView.storyboard */,
+				D4EC51F426F5CEC300EBAFF8 /* ColorSelectionViewController.swift */,
+				D4F177F426FF9B9B00DC95F5 /* UploadRecipeView */,
 				67DA382CE1B2B843CEE10A41 /* Component */,
 				87D716EE4B4CACD17A0F4A13 /* DataStore */,
+				D4C46DC626FF3A1800BF6AFE /* API */,
 				755D9EB934D09D9F3DFEDCC7 /* Firebase */,
 				343F1D461070E3A40B44C6CC /* Model */,
 			);
@@ -280,6 +311,7 @@
 				780114263629457E8B691D87 /* Progress */,
 				40CE15DFAAAE7220747D7DBB /* Slider */,
 				DB33E658E563FD7D00BD232E /* TextField */,
+				D4F177F526FF9C9500DC95F5 /* TextView */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -335,11 +367,49 @@
 				41139238BAD2634D1A0B2893 /* RecipeTableViewCell.xib */,
 				68570F614BF8A6B8EB8C0BC7 /* TasteTableViewCell.swift */,
 				18AB9CFB8BE65D8C0468C8A9 /* TasteTableViewCell.xib */,
+				D4EC51F626F5D0B700EBAFF8 /* ColorSelection */,
 				20F82644BB0409B75F1A7036 /* BasePreference */,
 				05FF8CDEE569FAF6031BF655 /* FlavorPreference */,
 				5493DC29D57C5DFFBDC610AD /* IngredientsSelection */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		D4C46DC626FF3A1800BF6AFE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D4C46DC726FF3A3900BF6AFE /* ImageUploader.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D4EC51F626F5D0B700EBAFF8 /* ColorSelection */ = {
+			isa = PBXGroup;
+			children = (
+				D4EC51F726F5D0DB00EBAFF8 /* ColorSelectionCollectionViewCell.swift */,
+			);
+			path = ColorSelection;
+			sourceTree = "<group>";
+		};
+		D4F177F426FF9B9B00DC95F5 /* UploadRecipeView */ = {
+			isa = PBXGroup;
+			children = (
+				D4FD179726F1E32E0012B3A1 /* UploadRecipe.storyboard */,
+				D4FD179926F1E34A0012B3A1 /* UploadRecipeViewController.swift */,
+				D4F177F626FF9CF800DC95F5 /* UploadRecipeTextDelegate.swift */,
+				D4F177F826FF9E2C00DC95F5 /* UploadRecipeKeyboardHandler.swift */,
+				D4F177FA26FFA01200DC95F5 /* RecipeStepHandler.swift */,
+				D4F177FC26FFA17B00DC95F5 /* CocktailRecipeShare.swift */,
+			);
+			path = UploadRecipeView;
+			sourceTree = "<group>";
+		};
+		D4F177F526FF9C9500DC95F5 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				D4EC520126F5FD4800EBAFF8 /* RecipeTextView.swift */,
+			);
+			path = TextView;
 			sourceTree = "<group>";
 		};
 		DB33E658E563FD7D00BD232E /* TextField */ = {
@@ -388,6 +458,7 @@
 				18F8B8E026E8610D00D24B74 /* FirebaseDatabase */,
 				18F8B8E226E8610D00D24B74 /* FirebaseFirestore */,
 				18F8B8E426E8610D00D24B74 /* FirebaseFirestoreSwift-Beta */,
+				D4C46DC926FF3C8700BF6AFE /* FirebaseStorage */,
 			);
 			productName = Martini;
 			productReference = 2104996A69DA2210D9DE1A02 /* Martini.app */;
@@ -428,7 +499,9 @@
 			files = (
 				D404B47226EF45DC008D4ED1 /* PreferenceComplete.storyboard in Resources */,
 				2AC2CF5F6A568C7BF4673498 /* Assets.xcassets in Resources */,
+				D4FD179826F1E32E0012B3A1 /* UploadRecipe.storyboard in Resources */,
 				4AF9B65FC34E4A11BAEB8F68 /* BasePreferenceView.storyboard in Resources */,
+				D4EC51F326F5CDEF00EBAFF8 /* ColorSelectionView.storyboard in Resources */,
 				0839CAFFACB9D8870D37C03B /* CockTailTableViewCell.xib in Resources */,
 				677CD0A0F8942FF758A4D69A /* DetailTableViewCell.xib in Resources */,
 				EE2BA480B0CC3FE840EFC329 /* DetailView.storyboard in Resources */,
@@ -462,14 +535,18 @@
 				1585C77B00BAF165ED906D13 /* AuthManager.swift in Sources */,
 				4BE49422E40DBFD68E4FF393 /* BannerButton.swift in Sources */,
 				18697BB426E8858500C937A0 /* AppSettingViewController.swift in Sources */,
+				D4F177FB26FFA01200DC95F5 /* RecipeStepHandler.swift in Sources */,
 				727E4EE981CEEF8ADAF0C93F /* BannerToggleButton.swift in Sources */,
 				3B78796521D9230512ED6560 /* BasePreferenceCollectionViewCell.swift in Sources */,
 				AF89274C46BA641BDC8DFEE0 /* BasePreferenceViewController.swift in Sources */,
 				7A423C080F6F1F512FB3B6FA /* CertifyPhoneViewController.swift in Sources */,
 				448BA288B5B846ECD3357444 /* CockTailTableViewCell.swift in Sources */,
 				E8D363DEA47886FC69114B0A /* Cocktail.swift in Sources */,
+				D43EB3AE26F488B9002AC77F /* ImagePickerViewController.swift in Sources */,
+				D4EC520226F5FD4800EBAFF8 /* RecipeTextView.swift in Sources */,
 				FBF2A94BA4542B4BBC5552C1 /* CocktailCellData.swift in Sources */,
 				18697BB226E871A300C937A0 /* MyInfoViewController.swift in Sources */,
+				D4EC51F826F5D0DB00EBAFF8 /* ColorSelectionCollectionViewCell.swift in Sources */,
 				06FB15D7F6707C9598A17916 /* CocktailManager.swift in Sources */,
 				6F722DB1B4FAF7127DF5BB4F /* ColorButton.swift in Sources */,
 				D5FB36477A545BB828D89018 /* Constants.swift in Sources */,
@@ -477,13 +554,17 @@
 				B490A3BCAC6A37C086759083 /* DetailTableViewCell.swift in Sources */,
 				DCDD9E8C33EF570CACE863A4 /* DetailViewController.swift in Sources */,
 				D836AE62B4DCC7119F399FA4 /* FindViewController.swift in Sources */,
+				D4F177FD26FFA17B00DC95F5 /* CocktailRecipeShare.swift in Sources */,
 				42C0A22EC9A276DC7F6945A7 /* FlavorPreferenceCollectionViewCell.swift in Sources */,
 				714FD543A70D7FDB3589562B /* FlavorPreferenceViewController.swift in Sources */,
 				64EA3AFFCF2DCC3341D91306 /* IngredientsSelectionCollectionViewCell.swift in Sources */,
 				36CE21647AF0F81610DB6D45 /* IngredientsSelectionViewController.swift in Sources */,
 				5B28020B72F563620BD9CD64 /* LikeButton.swift in Sources */,
+				D4C46DC826FF3A3900BF6AFE /* ImageUploader.swift in Sources */,
 				0EE871EE56B1DA0466442837 /* LoginButton.swift in Sources */,
+				D4F177F726FF9CF800DC95F5 /* UploadRecipeTextDelegate.swift in Sources */,
 				1ACBC60964FDE123598B5556 /* LoginViewController.swift in Sources */,
+				D4FD179A26F1E34A0012B3A1 /* UploadRecipeViewController.swift in Sources */,
 				634ABD44CE20AA31254596DA /* MainAttributeTableViewCell.swift in Sources */,
 				1AA1496CA1F1A6BA0AEDE785 /* MainTableViewCell.swift in Sources */,
 				D404B47426EF4620008D4ED1 /* PreferenceCompleteViewController.swift in Sources */,
@@ -492,6 +573,7 @@
 				EC4F126CE08A41763CB3B0E3 /* RecipeTableViewCell.swift in Sources */,
 				B3E259EC2BF1D997139DDF8B /* SceneDelegate.swift in Sources */,
 				D3DEC838D4676BFC62B8373B /* SearchViewController.swift in Sources */,
+				D4F177F926FF9E2C00DC95F5 /* UploadRecipeKeyboardHandler.swift in Sources */,
 				03100578C31462DD4B9D2344 /* SettingViewController.swift in Sources */,
 				5AC5CAAE217955D1A8D306EA /* SignUpViewController.swift in Sources */,
 				DD260A85266E35C14E9B1AD1 /* SliderStrenth.swift in Sources */,
@@ -501,6 +583,7 @@
 				0F2A025825933866E2C3DA00 /* VStackButton.swift in Sources */,
 				C594BE4FE5E5F433D56A0F9E /* ViewController.swift in Sources */,
 				32C26564CCBE2B70B1BC6CD4 /* WebImageView.swift in Sources */,
+				D4EC51F526F5CEC300EBAFF8 /* ColorSelectionViewController.swift in Sources */,
 				224BE0E7DE7CCB5D63FCDC41 /* ingredientTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -734,6 +817,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 33D7C13214D4273577EB4D1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		D4C46DC926FF3C8700BF6AFE /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33D7C13214D4273577EB4D1E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

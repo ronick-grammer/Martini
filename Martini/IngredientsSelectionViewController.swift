@@ -10,13 +10,17 @@ import Firebase
 
 class IngredientsSelectionViewController: UIViewController {
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var ingredientsSelectionCollectionView: UICollectionView!
     @IBOutlet var btnPrev: UIButton!
     @IBOutlet var btnNext: UIButton!
+    @IBOutlet var btnComplete: UIButton!
     
     let identifier = "ingredientsSelectionCollectionViewCell"
     let spacingRow = 7
     let spacingColumn = 7
+    
+    var registrationType: RegistrationType = .user
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +30,28 @@ class IngredientsSelectionViewController: UIViewController {
         
         ingredientsSelectionCollectionView.register(IngredientsSelectionCollectionViewCell.self, forCellWithReuseIdentifier: identifier)
         
-        btnPrev.layer.cornerRadius = 6
-        btnPrev.titleLabel?.text = "이전"
-        btnPrev.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        
-        btnNext.layer.cornerRadius = 6
-        btnNext.titleLabel?.text = "다음"
-        btnNext.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        if registrationType == .user {
+            btnNext.layer.cornerRadius = 6
+            btnNext.titleLabel?.text = "다음"
+            btnNext.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            
+            btnPrev.layer.cornerRadius = 6
+            btnPrev.titleLabel?.text = "이전"
+            btnPrev.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            
+            btnComplete.isHidden = true
+            
+            titleLabel.text = "선호하는 재료를 선택해 주세요!"
+        } else {
+            btnComplete.layer.cornerRadius = 6
+            btnComplete.titleLabel?.text = "완료"
+            btnComplete.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            
+            btnPrev.isHidden = true
+            btnNext.isHidden = true
+            
+            titleLabel.text = "칵테일의 재료를 선택해주세요"
+        }
     }
     
     @IBAction func btnPreView(_ sender: UIButton) {
@@ -76,6 +95,12 @@ class IngredientsSelectionViewController: UIViewController {
 //            print("cocktil success!!!! \(success)")
 //        }
     }
+    
+    @IBAction func btnDismiss(_ sender: UIButton) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -121,7 +146,7 @@ extension IngredientsSelectionViewController: UICollectionViewDataSource {
         let imageName = ingredientInfo.imageName
         let title = ingredientInfo.title
         
-        cell.configure(imageName: imageName, title: title, index: ingredient.index)
+        cell.configure(imageName: imageName, title: title, index: ingredient.index, registrationType: self.registrationType)
         
         return cell
     }
