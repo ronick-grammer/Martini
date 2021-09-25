@@ -1,8 +1,8 @@
 //
-//  Swift+Validation.swift
+//  String+Validation.swift
 //  Martini
 //
-//  Created by 이상현 on 2021/09/19.
+//  Created by 이상현 on 2021/09/22.
 //
 
 import Foundation

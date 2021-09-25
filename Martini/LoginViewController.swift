@@ -106,7 +106,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             loginButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
             signupButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 40),
-            signupButton.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -200),
             signupButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             signupButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             signupButton.heightAnchor.constraint(equalToConstant: 50)

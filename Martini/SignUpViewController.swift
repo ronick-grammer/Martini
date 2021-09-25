@@ -32,7 +32,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     
     let containerView: UIView = {
         let view = UIView()
-        //    view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -142,7 +141,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
             passwordCheckTextField.heightAnchor.constraint(equalToConstant: 40),
             
             signupButton.topAnchor.constraint(equalTo: passwordCheckTextField.bottomAnchor, constant: 40),
-            signupButton.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -100),
             signupButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             signupButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             signupButton.heightAnchor.constraint(equalToConstant: 50)
@@ -177,8 +175,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         if sender == signupButton {
             print(1)
             if flag == true {
-                print(emailTextField)
-                print(passwordTextField)
                 let user = User(nickName: nickNameTextField.text!, email: emailTextField.text!, phone: phoneNumberTextField.text!)
                 AuthManager.shared.registerUser(user: user, password: passwordTextField.text!) { success, error in
                     if let error = error as NSError? {
@@ -326,17 +322,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
             //      bottomConstraint.constant = keyboardHeight - self.view.safeAreaInsets.bottom
             if nickNameTextField.isEditing == true || phoneNumberTextField.isEditing == true {
                 self.containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight + containerView.bounds.maxY - emailTextField.frame.maxY)
+                print(keyboardHeight, containerView.bounds.maxY, emailTextField.frame.maxY)
             } else if emailTextField.isEditing == true || passwordTextField.isEditing == true || passwordCheckTextField.isEditing == true {
                 self.containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight + containerView.bounds.maxY - signupButton.frame.maxY)
-                //        keyboardAnimate(keyboardRectangle: keyboardFrame, textField: nickNameTextField)
+                print(keyboardHeight, containerView.bounds.maxY, emailTextField.frame.maxY)
+
             }
-            
-            // 오토레이아웃 맨 밑의 값을 변경해준다.
-            // greater than으로 설정하는게 좋을 듯..?
         })
         self.view.layoutIfNeeded()
         //     애니메이션이 필요하다면
-        //    self.view.setNeedsLayout()
+//            self.view.setNeedsLayout()
         // 성능이 중요하다면
     }
     
