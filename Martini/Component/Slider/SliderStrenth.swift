@@ -66,10 +66,10 @@ class SliderStrenth: UIView {
     }
     
     @objc func valueChange(_ sender: UISlider) {
-        labelPercentage.text = "\(Int(slider.value * 100))%"
+        labelPercentage.text = "\(round(slider.value * 50.0))%"
         
         if delegate != nil {
-            delegate?.didChangeValue(value: Double(slider.value * 100))
+            delegate?.didChangeValue(value: Double(slider.value * 50.0))
         }
     }
     
@@ -140,10 +140,10 @@ class SliderStrenth: UIView {
         let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat(slider.maximumValue) / widthOfSlider)
 
         slider.setValue(Float(newValue), animated: true)
-        labelPercentage.text = "\(Int(slider.value * 100))%"
+        labelPercentage.text = "\(round(slider.value * 50.0))%"
         
         if delegate != nil {
-            delegate?.didChangeValue(value: Double(slider.value * 100))
+            delegate?.didChangeValue(value: Double(slider.value * 50.0))
         }
     }
 }

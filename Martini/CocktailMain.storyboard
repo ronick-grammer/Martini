@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cocktail Main View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CocktailMain" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="CocktailMainViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYg-pH-Jz2">
+                                <rect key="frame" x="0.0" y="102" width="414" height="760"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="w4W-Cs-P1Z"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ik7-Im-teO"/>
+                            </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Rsu-WR-iYz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Aa3-AD-hLW"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Rsu-WR-iYz" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="1Gg-6k-Fsg"/>
+                            <constraint firstItem="jYg-pH-Jz2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ARu-rN-ovn"/>
+                            <constraint firstItem="jYg-pH-Jz2" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="MeF-BN-snr"/>
+                            <constraint firstItem="Rsu-WR-iYz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PN4-VU-ak9"/>
+                            <constraint firstItem="Rsu-WR-iYz" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="TE1-eh-NEY"/>
+                            <constraint firstItem="jYg-pH-Jz2" firstAttribute="top" secondItem="Rsu-WR-iYz" secondAttribute="bottom" constant="8" symbolic="YES" id="gYW-wu-s1V"/>
+                            <constraint firstItem="jYg-pH-Jz2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="sVM-5f-UV6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainScrollView" destination="jYg-pH-Jz2" id="U4s-7m-Vtd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100.00000000000001" y="51.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

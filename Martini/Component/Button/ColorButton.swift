@@ -45,7 +45,9 @@ class ColorButton: UIView {
             colorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             colorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             colorView.topAnchor.constraint(equalTo: self.topAnchor),
-            colorView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            colorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            self.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1)
         ])
     }
 
