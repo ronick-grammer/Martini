@@ -27,15 +27,10 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
     
 //    [UICsutoView, UICsutoView, UICsutoView,]]
 
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print(scrollView.bounds.minX / self.view.frame.width)
-//        print(scrollView.bounds)
-        selectedIndex = Int(scrollView.bounds.minX / self.view.frame.width)
-//        scrollView.subviews
-    }
-    
+
+
     var tableCollection: [UITableView]?
+    
         // 이전 테이블 뷰
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +44,15 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
         
         mainScrollView.delegate = self
         
+        
+//        for view in mainScrollView.subviews{
+//            view.removeFromSuperview()
+//        }
+
+        
+        print("==> \(mainScrollView.subviews.map { $0.frame.minX })")
+        print(mainScrollView.subviews)
+        
         for key in 0...2{
             let tableView = CustomTableView()
             let xPosition = self.view.frame.width * CGFloat(key)
@@ -61,6 +65,10 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
             
             mainScrollView.contentSize.width =
                    self.view.frame.width * CGFloat(key+1)
+            if key == 1{
+                tableView.tableView.backgroundColor = .red
+            }
+            
 
             mainScrollView.addSubview(tableView)
         }
@@ -79,12 +87,17 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
         
 //        print("-->\(mainScrollView.subviews)")
         
+        
+        print("==> \(mainScrollView.subviews.map { $0.frame.minX })")
+        
         setScrollBounds()
         
     }
     
+    // scrollbound 중앙으로 설정
     func setScrollBounds(){
-        mainScrollView.bounds = CGRect(x: 375.0, y: 0.0, width: 375.0, height: 676.0)
+        print("screen : \(UIScreen.main.bounds.width)")
+        mainScrollView.bounds = CGRect(x: UIScreen.main.bounds.width, y: 0.0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     }
     
     
@@ -212,54 +225,82 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     // 현재 보고있는 데이터와 다음데이터 이전데이터가 미리 구현이 되어있어야 하고
     // 스크롤이 이동할때마다 subView에 frame들을 재설정 해줘야되고(positionX)
     
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity:CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         let xPoint = scrollView.bounds.minX
         let offsetX = targetContentOffset.pointee.x
         
         if (xPoint < offsetX) { //다음으로 간 경우
+            print("go next")
+            
             let currentView = scrollView.subviews[2]
+            
+            // 다음 뷰를 현재로 놓음
             currentView.frame = CGRect(x: self.view.frame.width * 1, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             
+            
+            // 중간 뷰를 이전 으로 놓음
+            let prevView = scrollView.subviews[1]
+            prevView.frame = CGRect(x: self.view.frame.width * 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+
+            // 추가 뷰 생성
             let newView = CustomTableView()
+            
             newView.frame = CGRect(x: self.view.frame.width * 2, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             
             scrollView.addSubview(newView)
             
-            for view in scrollView.subviews{
-                if view == scrollView.subviews[0]{
-                    view.removeFromSuperview()
-                }
-            }
             
-            setScrollBounds()
+            
+            scrollView.subviews[0].removeFromSuperview()
+            
+            
+            print("==next> \(scrollView.subviews.map { $0.frame.minX })")
+            
+            
+           
             
         } else {  //이전으로 간 경우
             
+            print("go prev")
+            
+            
+            // 이전서브뷰를 현재 서브뷰로 설정
             let currentView = scrollView.subviews[0]
             currentView.frame = CGRect(x: self.view.frame.width * 1, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+            // 중간뷰를 다음 뷰로 설정
+            let nextView = scrollView.subviews[1]
+            nextView.frame = CGRect(x: self.view.frame.width * 2, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
             
             let newView = CustomTableView()
             newView.frame = CGRect(x: self.view.frame.width * 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             
+            
+            
             scrollView.insertSubview(newView, at: 0)
             
-            for view in scrollView.subviews{
-                if view == scrollView.subviews[2]{
-                    view.removeFromSuperview()
-                }
-            }
+            scrollView.subviews[2].removeFromSuperview()
             
             
-            setScrollBounds()
+            
+            
+            print("==prev> \(scrollView.subviews.map { $0.frame.minX })")
         }
         
         
-        print(xPoint, offsetX)
+        
+        
            
 //        if()
         
         
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        setScrollBounds()
     }
 
 }
