@@ -134,7 +134,6 @@ class CocktailManager {
     }
     
     func filterCocktail(abv: Double) -> [Cocktail]{
-        print(abv, cocktails.first!.abv)
         return cocktails.filter { abv - 2 < $0.abv && abv + 2 > $0.abv }
     }
     
