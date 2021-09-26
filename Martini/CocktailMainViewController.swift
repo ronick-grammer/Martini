@@ -24,10 +24,6 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
     var scrollDirection:String?
     
     var selectedIndex = 1
-    
-//    [UICsutoView, UICsutoView, UICsutoView,]]
-
-
 
     var tableCollection: [UITableView]?
     
@@ -70,7 +66,7 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
                     tableView.tableView.delegate = self
                     tableView.tableView.dataSource = self
                     tableView.data = CocktailManager.shared.cocktails[key]
-                    tableView.tableView.reloadData()
+//                    tableView.tableView.reloadData()
                     self.mainScrollView.contentSize.width = self.view.frame.width * CGFloat(key+1)
                     
                     self.mainScrollView.addSubview(tableView)
@@ -96,9 +92,7 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
         print(#function, mainScrollView.contentOffset, mainScrollView.contentSize)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.contentOffset.y = 0.0
-    }
+    
     
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
@@ -152,16 +146,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     case 2:
         let cell = tableView.dequeueReusableCell(withIdentifier: ingredientTableViewCell.identifier, for: indexPath) as! ingredientTableViewCell
         
+        cell.data = target.ingredients
         
-        
-        if flag1 == true {
-//            flag1 = false
-            
-            for name in target.ingredients{
-                cell.addLabel(name: name.rawValue)
-            }
-
-        }
         return cell
         
         
@@ -173,16 +159,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         cell.tasteSV.heightAnchor.constraint(equalToConstant: 250).isActive = true
         
         
-        if flag2 == true {
-            
-//            flag2 = false
-        
-            for (taste,v) in target.taste{
-
-                cell.addProgress(progressbar: TasteProgressView(), taste: taste.stringValue, value: (Float(v)*0.01))
-
-            }
-        }
+        cell.data = target.taste
         
         return cell
         
@@ -191,16 +168,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     case 4:
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as! RecipeTableViewCell
         
+        cell.data = target.recipe
         
-        if flag3 == true {
-            
-//            flag3 = false
-            
-            for step in 0..<target.recipe.count{
-                cell.addreipe(step: step, recipe: target.recipe[step])
-            }
-            
-        }
         return cell
         
     default:
@@ -239,13 +208,11 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         if (xPoint < offsetX) { //다음으로 간 경우
             print("go next")
             
-            var nextIndex = selectedIndex + 1
-            
-            if selectedIndex == data.count - 1{
-                nextIndex = 1
+            if selectedIndex == data.count - 1 {
                 selectedIndex = 0
+            } else {
+                selectedIndex += 1
             }
-            
             
             let currentView = scrollView.subviews[2]
 
@@ -264,8 +231,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             scrollView.addSubview(newView)
             newView.tableView.delegate = self
             newView.tableView.dataSource = self
-            newView.data = CocktailManager.shared.cocktails[nextIndex]
-            newView.tableView.reloadData()
+            newView.data = CocktailManager.shared.cocktails[selectedIndex]
 
             newView.frame = CGRect(x: self.view.frame.width * 2, y: 0, width: self.view.frame.width, height: self.view.frame.height)
 //            newView.tableView.backgroundColor = .systemBlue
@@ -297,7 +263,6 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             newView.tableView.delegate = self
             newView.tableView.dataSource = self
             newView.data = CocktailManager.shared.cocktails[selectedIndex]
-            newView.tableView.reloadData()
             newView.frame = CGRect(x: self.view.frame.width * 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             
             scrollView.insertSubview(newView, at: 0)
@@ -305,15 +270,48 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             
         }
         
-        print("seletedIndex: ", selectedIndex)
-
-
     }
     
 
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if(UIScreen.main.bounds.width < scrollView.contentOffset.x){
+            guard let customView = scrollView.subviews.last as? CustomTableView else {
+                return
+            }
+            
+            guard let currentView = scrollView.subviews[1] as? CustomTableView else {
+                return
+            }
+            
+            currentView.data = CocktailManager.shared.cocktails[selectedIndex]
+            
+            var newIndex = selectedIndex + 1
+            
+            if newIndex > CocktailManager.shared.cocktails.count - 1 {
+                newIndex = 0
+            }
+            
+            customView.data = CocktailManager.shared.cocktails[newIndex]
+        } else {
+            guard let customView = scrollView.subviews.first as? CustomTableView else {
+                return
+            }
+            
+            var newIndex = selectedIndex - 1
+            
+            if newIndex < 0 {
+                newIndex = CocktailManager.shared.cocktails.count - 1
+            }
+            
+            customView.data = CocktailManager.shared.cocktails[newIndex]
+        }
+//        for view in scrollView.subviews {
+//            let customView = view as! CustomTableView
+//            customView.tableView.reloadData()
+//        }
         scrollView.setContentOffset(CGPoint(x: UIScreen.main.bounds.width, y: 0), animated: false)
+       print("@@@@@@@@@@@@@@@@\(selectedIndex)")
     }
 
 }
