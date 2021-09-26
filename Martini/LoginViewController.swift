@@ -116,7 +116,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // button
         loginButton.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside)
         signupButton.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside)
-        passwordTextField.isSecureTextEntry = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
