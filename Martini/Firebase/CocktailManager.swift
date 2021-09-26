@@ -118,7 +118,7 @@ class CocktailManager {
     
     func filterCocktail(ingredients: Cocktail.Ingredients) -> [Cocktail] {
         return cocktails.filter {
-            $0.ingredients.firstIndex(of: ingredients) != -1
+            $0.ingredients.firstIndex(of: ingredients) != nil
         }
     }
     
@@ -130,7 +130,12 @@ class CocktailManager {
     }
     
     func filterCocktail(color: Cocktail.Color) -> [Cocktail]{
-        return cocktails.filter { $0.color.firstIndex(of: color) != -1 }
+        return cocktails.filter { $0.color.firstIndex(of: color) != nil }
+    }
+    
+    func filterCocktail(abv: Double) -> [Cocktail]{
+        print(abv, cocktails.first!.abv)
+        return cocktails.filter { abv - 2 < $0.abv && abv + 2 > $0.abv }
     }
     
     // 유저의 맛 선호도와 가장 가까운 칵테일 순으로 정렬

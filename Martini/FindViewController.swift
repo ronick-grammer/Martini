@@ -38,19 +38,30 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func alcholFindHandler(){
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FindViewCell
+        let value = cell.alcoholSlider.value
+
         let vc = initViewController("Search", identfire: "SearchView") as! SearchViewController
         vc.searchBar = false
+        vc.searching = true
+        
+        vc.searched = CocktailManager.shared.filterCocktail(abv: Double(value * 50))
+
         vc.navigationItem.title = "조건검색"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func colorButtonHandler(_ sender:ColorButton){
-        print(sender)
-//        guard let color = sender.cocktailColor else { return }
+        
+        guard let colorView = sender.superview as? ColorButton else {
+            return
+        }
+
         let vc = initViewController("Search", identfire: "SearchView") as! SearchViewController
         vc.searchBar = false
         vc.searching = true
-//        vc.searched = CocktailManager.shared.filterCocktail(color: color)
+        
+        vc.searched = CocktailManager.shared.filterCocktail(color: colorView.cocktailColor!)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -82,12 +93,12 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
             view.button.addTarget(self, action: #selector(colorButtonHandler(_:)), for: .touchUpInside)
             cell.colors.addArrangedSubview(view)
         }
-        
-        ingredients.forEach { ingredient in
-            let banner = BannerButton()
-            banner.bannerLabel.text = ingredient
-            cell.ingredient.addArrangedSubview(banner)
-        }
+
+//        ingredients.forEach { ingredient in
+//            let banner = BannerButton()
+//            banner.bannerLabel.text = ingredient
+//            cell.ingredient.addArrangedSubview(banner)
+//        }
         
         return cell
     }
@@ -105,7 +116,7 @@ class FindViewCell: UITableViewCell {
     @IBOutlet weak var alcoholSlider: UISlider!
     @IBOutlet weak var alcoholLabel: UILabel!
     @IBOutlet weak var colors: UIStackView!
-    @IBOutlet weak var ingredient: UIStackView!
+//    @IBOutlet weak var ingredient: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
