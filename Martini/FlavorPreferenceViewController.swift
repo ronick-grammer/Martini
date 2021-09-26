@@ -48,7 +48,7 @@ class FlavorPreferenceViewController: UIViewController {
             btnPrev.isHidden = true
             btnNext.isHidden = true
             
-            titleLabel.text = "칵테일의 맛의 정도를 설정해주세요!"
+            titleLabel.text = "칵테일의 맛을 설정해주세요!"
         }
     }
     
