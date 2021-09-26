@@ -18,7 +18,7 @@ class CocktailManager {
     private init() {}
     
     // 칵테일 정보 등록
-    func registerCocktail(cocktail: Cocktail, _ completion: @escaping(_ success: Bool) -> Void) {
+    func registerCocktail(cocktail: Cocktail, _ completion: @escaping(_ success: Bool, _ error: Error?) -> Void) {
         
         do{
             
@@ -26,16 +26,16 @@ class CocktailManager {
            
                 if let error = error {
                     print("DEBUG: \(error.localizedDescription)")
-                    completion(false)
+                    completion(false, error)
                     return
                 }
                 
                 print("successfully registered cocktail..!")
-                completion(true)
+                completion(true, nil)
             }
         } catch {
             print("DEBUG: \(error.localizedDescription)")
-            completion(false)
+            completion(false, error)
             return
         }
     }

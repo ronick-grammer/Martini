@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Color Selection View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="colorSelection" id="Y6W-OH-hqX" customClass="ColorSelectionViewController" customModule="Martini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d2o-S6-vrV">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="칵테일의 색을 선택해 주세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDq-WP-VfR">
+                                <rect key="frame" x="60" y="64" width="270" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="HqG-qo-vtj"/>
+                                    <constraint firstAttribute="height" constant="96" id="aky-eR-s4Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NMU-Oa-0Gp">
+                                <rect key="frame" x="16" y="247" width="358" height="563"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="u0N-vW-cQk">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nq-Qo-4gk" userLabel="Btn Prev">
+                                <rect key="frame" x="324" y="77" width="50" height="30"/>
+                                <color key="backgroundColor" red="0.71756780149999999" green="0.71769279239999995" blue="0.71755987409999999" alpha="0.65135026789999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="9kz-fE-fZE"/>
+                                </constraints>
+                                <state key="normal" title="완료">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnDismiss:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="630-8o-yXf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EgM-TK-XMT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Nq-Qo-4gk" firstAttribute="top" secondItem="EgM-TK-XMT" secondAttribute="top" constant="33" id="ZDW-PB-jDc"/>
+                            <constraint firstItem="EgM-TK-XMT" firstAttribute="trailing" secondItem="4Nq-Qo-4gk" secondAttribute="trailing" constant="16" id="Zno-5t-YYN"/>
+                            <constraint firstItem="bDq-WP-VfR" firstAttribute="leading" secondItem="EgM-TK-XMT" secondAttribute="leading" constant="60" id="aaC-2f-ECA"/>
+                            <constraint firstItem="EgM-TK-XMT" firstAttribute="trailing" secondItem="bDq-WP-VfR" secondAttribute="trailing" constant="60" id="g6r-JY-o6N"/>
+                            <constraint firstItem="NMU-Oa-0Gp" firstAttribute="leading" secondItem="EgM-TK-XMT" secondAttribute="leading" constant="16" id="h4t-TL-7rV"/>
+                            <constraint firstItem="bDq-WP-VfR" firstAttribute="top" secondItem="EgM-TK-XMT" secondAttribute="top" constant="20" id="lCw-30-NVS"/>
+                            <constraint firstItem="NMU-Oa-0Gp" firstAttribute="bottom" secondItem="EgM-TK-XMT" secondAttribute="bottom" id="ojl-cw-6JF"/>
+                            <constraint firstItem="NMU-Oa-0Gp" firstAttribute="top" secondItem="4Nq-Qo-4gk" secondAttribute="bottom" constant="140" id="pXL-AG-n5s"/>
+                            <constraint firstItem="EgM-TK-XMT" firstAttribute="trailing" secondItem="NMU-Oa-0Gp" secondAttribute="trailing" constant="16" id="yi4-Kx-1qu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ColorSelectionCollectionView" destination="NMU-Oa-0Gp" id="u9d-M0-Mly"/>
+                        <outlet property="btnComplete" destination="4Nq-Qo-4gk" id="nVg-V0-N7o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="48" y="40"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -9,12 +9,16 @@ import UIKit
 
 class BasePreferenceViewController: UIViewController {
 
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var BasePreferenceCollectionView: UICollectionView!
     @IBOutlet var btnNext: UIButton!
+    @IBOutlet var btnComplete: UIButton!
     
     let reuseIdentifier = "basePreferenceCollectionViewCell"
     let spacingRow = 10
     let spacingColumn = 20
+    
+    var registrationType: RegistrationType = .user
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +30,23 @@ class BasePreferenceViewController: UIViewController {
         BasePreferenceCollectionView.dataSource = self
         BasePreferenceCollectionView.register(BasePreferenceCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-        btnNext.layer.cornerRadius = 6
-        btnNext.titleLabel?.text = "다음"
-        btnNext.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        if registrationType == .user {
+            btnNext.layer.cornerRadius = 6
+            btnNext.titleLabel?.text = "다음"
+            btnNext.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            
+            btnComplete.isHidden = true
+            
+            titleLabel.text = "어떤 베이스를 선호하시나요?"
+        } else {
+            btnComplete.layer.cornerRadius = 6
+            btnComplete.titleLabel?.text = "완료"
+            btnComplete.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            
+            btnNext.isHidden = true
+            
+            titleLabel.text = "칵테일 베이스를 선택해 주세요"
+        }
     }
     
 
@@ -43,8 +61,12 @@ class BasePreferenceViewController: UIViewController {
         }
         
         self.navigationController?.pushViewController(uvc, animated: true)
-        
     }
+    
+    @IBAction func btnDismiss(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 
@@ -89,7 +111,7 @@ extension BasePreferenceViewController: UICollectionViewDataSource {
         let imageName = baseInfo.imageName
         let title = baseInfo.title
         
-        cell.configure(imageName: imageName, title: title, index: base.index)
+        cell.configure(imageName: imageName, title: title, index: base.index, registrationType: self.registrationType)
         
         return cell
     }

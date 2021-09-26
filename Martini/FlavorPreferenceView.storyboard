@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,17 +36,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="umw-of-Rca">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xke-JP-IKJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0H-9i-4Q4" userLabel="Btn Prev">
                                 <rect key="frame" x="16" y="167" width="50" height="30"/>
@@ -75,17 +64,35 @@
                                     <action selector="btnNextView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AX7-Fw-lJ0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSG-Io-3y2" userLabel="Btn Complete">
+                                <rect key="frame" x="324" y="77" width="50" height="30"/>
+                                <color key="backgroundColor" red="0.71756780149999999" green="0.71769279239999995" blue="0.71755987409999999" alpha="0.65135026789999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="3at-qH-gtJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="완료">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnDismiss:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="KTe-qd-wHO"/>
+                                    <action selector="btnNextView:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9Ir-Dl-hiP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yJx-eZ-6DR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="G0H-9i-4Q4" firstAttribute="leading" secondItem="yJx-eZ-6DR" secondAttribute="leading" constant="16" id="3p6-Ez-9e5"/>
                             <constraint firstItem="BmX-Zv-NUe" firstAttribute="top" secondItem="G0H-9i-4Q4" secondAttribute="bottom" constant="30" id="4u6-mX-FfC"/>
+                            <constraint firstItem="yJx-eZ-6DR" firstAttribute="trailing" secondItem="sSG-Io-3y2" secondAttribute="trailing" constant="16" id="DoQ-s5-e3G"/>
                             <constraint firstItem="BmX-Zv-NUe" firstAttribute="leading" secondItem="yJx-eZ-6DR" secondAttribute="leading" constant="16" id="H1y-xi-uYd"/>
                             <constraint firstItem="yJx-eZ-6DR" firstAttribute="trailing" secondItem="7HF-ea-Aq5" secondAttribute="trailing" constant="16" id="L6w-H8-FzM"/>
                             <constraint firstItem="ORw-RZ-FuY" firstAttribute="top" secondItem="yJx-eZ-6DR" secondAttribute="top" constant="20" id="M8e-m1-yhS"/>
+                            <constraint firstItem="BmX-Zv-NUe" firstAttribute="top" secondItem="sSG-Io-3y2" secondAttribute="bottom" constant="120" id="VZI-2K-m6C"/>
                             <constraint firstItem="yJx-eZ-6DR" firstAttribute="trailing" secondItem="BmX-Zv-NUe" secondAttribute="trailing" constant="16" id="ZQa-dC-aoI"/>
                             <constraint firstItem="yJx-eZ-6DR" firstAttribute="trailing" secondItem="ORw-RZ-FuY" secondAttribute="trailing" constant="60" id="bYU-du-6Lv"/>
+                            <constraint firstItem="sSG-Io-3y2" firstAttribute="top" secondItem="yJx-eZ-6DR" secondAttribute="top" constant="33" id="cNy-g8-ZUU"/>
                             <constraint firstItem="G0H-9i-4Q4" firstAttribute="top" secondItem="ORw-RZ-FuY" secondAttribute="bottom" constant="7" id="iIf-9t-M8M"/>
                             <constraint firstItem="BmX-Zv-NUe" firstAttribute="bottom" secondItem="yJx-eZ-6DR" secondAttribute="bottom" id="k9Z-Fo-KVc"/>
                             <constraint firstItem="BmX-Zv-NUe" firstAttribute="top" secondItem="7HF-ea-Aq5" secondAttribute="bottom" constant="30" id="kkf-p2-D4a"/>
@@ -95,9 +102,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnComplete" destination="sSG-Io-3y2" id="VwB-pV-N1F"/>
                         <outlet property="btnNext" destination="7HF-ea-Aq5" id="7cX-8r-1XQ"/>
                         <outlet property="btnPrev" destination="G0H-9i-4Q4" id="a1i-lu-Glw"/>
                         <outlet property="flavorPreferenceCollectionView" destination="BmX-Zv-NUe" id="Ljv-qO-zVE"/>
+                        <outlet property="titleLabel" destination="ORw-RZ-FuY" id="RgW-gV-rUU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
