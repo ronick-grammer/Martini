@@ -10,7 +10,11 @@ import UIKit
 class CustomTableView: UIView {
     
     let tableView = UITableView()
-    var data:Cocktail?
+    var data:Cocktail?{
+        didSet{
+            tableView.reloadData()
+        }
+    }
     
     func initView() {
         self.tableView.register(MainTableViewCell.nib, forCellReuseIdentifier: MainTableViewCell.identifier) // 셀 등록
@@ -39,6 +43,7 @@ class CustomTableView: UIView {
         super.init(coder: coder)
         initView()
     }
+    
     
     /*
     // Only override draw() if you perform custom drawing.
