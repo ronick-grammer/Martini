@@ -113,6 +113,7 @@
                 <outlet property="cocktailImage" destination="UjJ-gR-oaG" id="GDb-0F-FcK"/>
                 <outlet property="descriptionLabel" destination="YIs-5O-OwY" id="8Nh-hW-5f4"/>
                 <outlet property="ingredientLabel" destination="6Uh-2c-yq8" id="UN2-qM-o5g"/>
+                <outlet property="likeButton" destination="rEx-9m-mF7" id="DxL-TS-xbt"/>
                 <outlet property="nameLabel" destination="yZA-Ik-8qV" id="PoQ-5r-8gG"/>
                 <outlet property="tasteLabel" destination="GTl-lX-xan" id="ejC-D5-z1s"/>
             </connections>

@@ -7,15 +7,23 @@
 
 import UIKit
 
+protocol LikeButtonDelegate {
+    func didTouchLikeButton(isLiked: Bool)
+}
+
 class LikeButton: UIButton {
     
     var isLiked:Bool = false
     let buttonSize = 40
     
+    var delegate: LikeButtonDelegate?
+    
     @objc func likeButtonHandler(_ sender: UIButton) {
         isLiked.toggle()
         
         self.tintColor = isLiked ? UIColor.yellow : UIColor.white
+        
+        delegate?.didTouchLikeButton(isLiked: isLiked)
     }
     
     override func awakeFromNib() {
