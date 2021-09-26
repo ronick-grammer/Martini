@@ -10,11 +10,10 @@ import UIKit
 class FindViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    
-    let baseButtons = ["Rum", "Vodka", "Gin"]
-    let flavors = ["단맛이 강한", "부드러운 맛", "술맛이 강한", "새로운 맛"]
-    var baseButtons2:[String] = []
-    let colors:[UIColor] = [.systemRed, .systemGreen, .systemBlue, .systemTeal, .systemPink, .systemOrange, .systemTeal]
+
+    var flavors:[String: Cocktail.Taste] = [:]
+    var baseButtons:[String: Cocktail.Alcohol] = [:]
+    let colors:[Cocktail.Color:UIColor] = [.red:.systemRed, .green:.systemGreen, .blue:.systemBlue, .teal:.systemTeal, .pink:.systemPink, .orange:.systemOrange]
     let ingredients = ["Rum", "Vodka", "Gin", "Orange"]
     
 //    var data:Cocktail?
@@ -22,12 +21,16 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for type in Cocktail.Alcohol.allCases{
-            baseButtons2.append("\(type)")
+        Cocktail.Alcohol.allCases.forEach { base in
+            baseButtons[base.rawValue] = base
+        }
+        Cocktail.Taste.allCases.forEach { flavor in
+            flavors[flavor.rawValue] = flavor
         }
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationItem.title = "Find"
@@ -35,9 +38,30 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func alcholFindHandler(){
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FindViewCell
+        let value = cell.alcoholSlider.value
+
         let vc = initViewController("Search", identfire: "SearchView") as! SearchViewController
         vc.searchBar = false
+        vc.searching = true
+        
+        vc.searched = CocktailManager.shared.filterCocktail(abv: Double(value * 50))
+
         vc.navigationItem.title = "조건검색"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func colorButtonHandler(_ sender:ColorButton){
+        
+        guard let colorView = sender.superview as? ColorButton else {
+            return
+        }
+
+        let vc = initViewController("Search", identfire: "SearchView") as! SearchViewController
+        vc.searchBar = false
+        vc.searching = true
+        
+        vc.searched = CocktailManager.shared.filterCocktail(color: colorView.cocktailColor!)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -48,28 +72,33 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "findViewCell", for: indexPath) as! FindViewCell
         
-        baseButtons2.forEach { base in
-            cell.bases.addButton(name: base)
+        baseButtons.forEach { base in
+            cell.bases.addButton(name: base.key)
         }
+        cell.bases.delegate = self
+        
         flavors.forEach { flavor in
-            cell.flavor.addButton(name: flavor)
+            cell.flavor.addButton(name: flavor.key)
         }
+        cell.flavor.delegate = self
         
         cell.alcoholFind.addTarget(self, action: #selector(alcholFindHandler), for: .touchUpInside)
         
         colors.forEach { color in
             let view = ColorButton()
-            view.colorView.backgroundColor = color
+            view.colorView.backgroundColor = color.value
+            view.cocktailColor = color.key
             view.clipsToBounds = true
             view.layer.cornerRadius = 8
+            view.button.addTarget(self, action: #selector(colorButtonHandler(_:)), for: .touchUpInside)
             cell.colors.addArrangedSubview(view)
         }
-        
-        ingredients.forEach { ingredient in
-            let banner = BannerButton()
-            banner.bannerLabel.text = ingredient
-            cell.ingredient.addArrangedSubview(banner)
-        }
+
+//        ingredients.forEach { ingredient in
+//            let banner = BannerButton()
+//            banner.bannerLabel.text = ingredient
+//            cell.ingredient.addArrangedSubview(banner)
+//        }
         
         return cell
     }
@@ -87,7 +116,7 @@ class FindViewCell: UITableViewCell {
     @IBOutlet weak var alcoholSlider: UISlider!
     @IBOutlet weak var alcoholLabel: UILabel!
     @IBOutlet weak var colors: UIStackView!
-    @IBOutlet weak var ingredient: UIStackView!
+//    @IBOutlet weak var ingredient: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -109,4 +138,34 @@ class FindViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
+
+extension FindViewController: VStackButtonDelegate{
+    func stackButtonSelected(seletedButton: UIButton, vstackButton: VStackButton) {
+        guard let title = seletedButton.titleLabel?.text else {
+            return
+        }
+        
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! FindViewCell
+        
+        let vc = initViewController("Search", identfire: "SearchView") as! SearchViewController
+        vc.searchBar = false
+        vc.searching = true
+        
+        switch vstackButton {
+        case cell.bases:
+            vc.searched = CocktailManager.shared.filterCocktail(base: baseButtons[title]!)
+            vc.navigationItem.title = "조건검색"
+            self.navigationController?.pushViewController(vc, animated: true)
+        case cell.flavor:
+            vc.searched = CocktailManager.shared.filterCocktail(taste: flavors[title]!)
+            vc.navigationItem.title = "조건검색"
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
+        
+    }
+    
+    
 }

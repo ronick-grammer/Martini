@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol VStackButtonDelegate {
+    func stackButtonSelected (seletedButton: UIButton, vstackButton: VStackButton)
+}
+
 class VStackButton: UIView {
     
     let title = UILabel()
     let stackView = UIStackView()
+    
+    var delegate:VStackButtonDelegate?
 
     override func awakeFromNib() {
         title.text = "제목"
@@ -26,6 +32,10 @@ class VStackButton: UIView {
         
     }
     
+    @objc func buttonSeleted(_ sender: UIButton){
+        delegate?.stackButtonSelected(seletedButton: sender, vstackButton: self)
+    }
+    
     func addButton(name: String){
         let button = UIButton()
         button.setTitle(name, for: .normal)
@@ -39,6 +49,8 @@ class VStackButton: UIView {
         button.contentEdgeInsets = inset
         button.translatesAutoresizingMaskIntoConstraints = false
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        button.addTarget(self, action: #selector(buttonSeleted(_:)), for: .touchUpInside)
         
         self.stackView.addArrangedSubview(button)
     }
