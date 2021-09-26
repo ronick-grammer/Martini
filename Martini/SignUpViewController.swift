@@ -157,8 +157,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         // Do any additional setup after loading the view.
         swipeRecognizer()
         signupButton.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside)
-        passwordTextField.isSecureTextEntry = false
-        passwordCheckTextField.isSecureTextEntry = false
     }
     
     
@@ -254,9 +252,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     func textFieldDidChangeSelection(_ textField: UITextField) {
         CheckForSignup()
         
-        if textField == passwordTextField || textField == passwordCheckTextField {
-            textField.isSecureTextEntry = true
-        }
+//        if textField == passwordTextField || textField == passwordCheckTextField {
+//            textField.isSecureTextEntry = true
+//        }
     }
     
     // 리턴을 눌렀을 때 작동하는 메서드
