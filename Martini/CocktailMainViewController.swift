@@ -62,8 +62,6 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
             DispatchQueue.main.async {
                 for key in 0...2{
                     let tableView = CustomTableView()
-                    tableView.data = CocktailManager.shared.cocktails[key]
-                    
                     let xPosition = self.view.frame.width * CGFloat(key)
                     print("tableView \(key): ", tableView.frame)
 
@@ -71,9 +69,12 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
                     
                     tableView.tableView.delegate = self
                     tableView.tableView.dataSource = self
-                    
+                    tableView.data = CocktailManager.shared.cocktails[key]
+                    tableView.tableView.reloadData()
                     self.mainScrollView.contentSize.width = self.view.frame.width * CGFloat(key+1)
+                    
                     self.mainScrollView.addSubview(tableView)
+                    self.setScrollBounds()
                 }
             }
         }
@@ -83,8 +84,9 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
         
         print("==> \(mainScrollView.subviews.map { $0.frame.minX })")
         
-        setScrollBounds()
         
+//        self.mainScrollView.contentSize.height = mainScrollView.frame.height
+        mainScrollView.frameLayoutGuide.heightAnchor.constraint(equalTo: mainScrollView.heightAnchor).isActive = true
     }
     
     // scrollbound 중앙으로 설정
@@ -94,6 +96,9 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
         print(#function, mainScrollView.contentOffset, mainScrollView.contentSize)
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.y = 0.0
+    }
     
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
@@ -224,6 +229,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
         let xPoint = scrollView.bounds.minX
         let offsetX = targetContentOffset.pointee.x
+        let data = CocktailManager.shared.cocktails
         
         if offsetX == UIScreen.main.bounds.width{
             print("not Move")
@@ -232,56 +238,74 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
         if (xPoint < offsetX) { //다음으로 간 경우
             print("go next")
-
-            let currentView = scrollView.subviews[2] as! CustomTableView
+            
+            var nextIndex = selectedIndex + 1
+            
+            if selectedIndex == data.count - 1{
+                nextIndex = 1
+                selectedIndex = 0
+            }
+            
+            
+            let currentView = scrollView.subviews[2]
 
             // 다음 뷰를 현재로 놓음
             currentView.frame = CGRect(x: self.view.frame.width * 1, y: 0, width: self.view.frame.width, height: self.view.frame.height)
 //            currentView.tableView.backgroundColor = .systemRed
 
             // 중간 뷰를 이전 으로 놓음
-            let prevView = scrollView.subviews[1] as! CustomTableView
+            let prevView = scrollView.subviews[1]
             prevView.frame = CGRect(x: self.view.frame.width * 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             
 //            prevView.tableView.backgroundColor = .systemGreen
 
             // 추가 뷰 생성
             let newView = CustomTableView()
-            newView.data = CocktailManager.shared.cocktails.first
+            scrollView.addSubview(newView)
             newView.tableView.delegate = self
             newView.tableView.dataSource = self
+            newView.data = CocktailManager.shared.cocktails[nextIndex]
+            newView.tableView.reloadData()
 
             newView.frame = CGRect(x: self.view.frame.width * 2, y: 0, width: self.view.frame.width, height: self.view.frame.height)
 //            newView.tableView.backgroundColor = .systemBlue
-            scrollView.addSubview(newView)
+            
 
             scrollView.subviews[0].removeFromSuperview()
 //            setScrollBounds()
 
 
-        } else {  //이전으로 간 경우
+        } else if (xPoint > offsetX) {  //이전으로 간 경우
 
             print("go prev")
-
+            
+            if selectedIndex == 0 {
+                selectedIndex = data.count - 1
+            } else {
+                selectedIndex -= 1
+            }
 
             // 이전서브뷰를 현재 서브뷰로 설정
-            let currentView = scrollView.subviews[0] as! CustomTableView
+            let currentView = scrollView.subviews[0]
             currentView.frame = CGRect(x: self.view.frame.width * 1, y: 0, width: self.view.frame.width, height: self.view.frame.height)
 
             // 중간뷰를 다음 뷰로 설정
-            let nextView = scrollView.subviews[1] as! CustomTableView
+            let nextView = scrollView.subviews[1]
             nextView.frame = CGRect(x: self.view.frame.width * 2, y: 0, width: self.view.frame.width, height: self.view.frame.height)
 
             let newView = CustomTableView()
-            newView.data = CocktailManager.shared.cocktails.first
             newView.tableView.delegate = self
             newView.tableView.dataSource = self
+            newView.data = CocktailManager.shared.cocktails[selectedIndex]
+            newView.tableView.reloadData()
             newView.frame = CGRect(x: self.view.frame.width * 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             
             scrollView.insertSubview(newView, at: 0)
             scrollView.subviews[2].removeFromSuperview()
             
         }
+        
+        print("seletedIndex: ", selectedIndex)
 
 
     }

@@ -10,11 +10,7 @@ import UIKit
 class CustomTableView: UIView {
     
     let tableView = UITableView()
-    var data:Cocktail?{
-        didSet{
-            tableView.reloadData()
-        }
-    }
+    var data:Cocktail?
     
     func initView() {
         self.tableView.register(MainTableViewCell.nib, forCellReuseIdentifier: MainTableViewCell.identifier) // 셀 등록
