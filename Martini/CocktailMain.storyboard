@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYg-pH-Jz2">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYg-pH-Jz2">
                                 <rect key="frame" x="0.0" y="102" width="414" height="760"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="w4W-Cs-P1Z"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ik7-Im-teO"/>
