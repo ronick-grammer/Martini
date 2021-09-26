@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum RegistrationType {
+    case user
+    case cocktail
+}
+
 struct DataStore {
     
     var user: User?
@@ -35,4 +40,42 @@ struct DataStore {
     }
 }
 
+struct CocktailDataStore {
+    var name: String
+    var imgUrl: String
+    var abv: Double // AlcoholByVolume (도수)
+    var description: String
+    var recipe: [String]
+    var ingredients: [Cocktail.Ingredients]
+    var base: Cocktail.Alcohol
+    var color: [Cocktail.Color]
+    var taste: [Cocktail.Taste:Int]
+    
+    init() {
+        self.name = ""
+        self.imgUrl = ""
+        self.abv = 0
+        self.description = ""
+        self.recipe = [String]()
+        self.ingredients = [Cocktail.Ingredients]()
+        self.base =  Cocktail.Alcohol.none
+        self.color = [Cocktail.Color]()
+        self.taste = [Cocktail.Taste:Int]()
+    }
+    
+    init(name: String, imgUrl: String, abv: Double, description: String, recipe: [String], ingredients: [Cocktail.Ingredients], base: Cocktail.Alcohol, color: [Cocktail.Color], taste: [Cocktail.Taste : Int]) {
+        self.name = name
+        self.imgUrl = imgUrl
+        self.abv = abv
+        self.description = description
+        self.recipe = recipe
+        self.ingredients = ingredients
+        self.base = base
+        self.color = color
+        self.taste = taste
+    }
+}
+
 var DATASTORE = DataStore()
+
+var DATASTORE_COCKTAIL: CocktailDataStore?

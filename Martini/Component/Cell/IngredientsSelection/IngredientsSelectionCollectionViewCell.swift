@@ -11,6 +11,8 @@ class IngredientsSelectionCollectionViewCell: UICollectionViewCell, BannerButton
     let bannerButton = BannerButton()
     var index = Int()
     
+    var registrationType: RegistrationType?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -34,14 +36,15 @@ class IngredientsSelectionCollectionViewCell: UICollectionViewCell, BannerButton
     }
     
     // 버튼 상태 (유지)초기화
-    func configure(imageName: String, title: String, index: Int) {
+    func configure(imageName: String, title: String, index: Int, registrationType: RegistrationType) {
+        
         bannerButton.bannerImageView.image = UIImage(named: imageName)
         bannerButton.bannerLabel.text = title
+        
         self.index = index
+        self.registrationType = registrationType
 
-        guard let clicked = DATASTORE.user?.ingredientPreference?.contains(Cocktail.Ingredients.allCases[index]) else {
-            return
-        }
+        guard let clicked = initState() else { return }
         
         if clicked {
             bannerButton.backgroundColor = UIColor(red: (240/255.0), green: (158/255.0), blue: (158/255.0), alpha: 1.0)
@@ -52,14 +55,60 @@ class IngredientsSelectionCollectionViewCell: UICollectionViewCell, BannerButton
         bannerButton.isChecked = clicked
     }
     
+    func initState() -> Bool? {
+        
+        let clicked: Bool?
+        
+        switch self.registrationType {
+        case .user:
+            clicked = DATASTORE.user?.ingredientPreference?.contains(Cocktail.Ingredients.allCases[self.index])
+        case .cocktail:
+            clicked = DATASTORE_COCKTAIL?.ingredients.contains(Cocktail.Ingredients.allCases[self.index])
+        default:
+           clicked = nil
+        }
+        
+        return clicked
+    }
+    
     // 버튼 상태 저장
     func didTouchBannerButton(didClicked: Bool) {
+        
+        switch self.registrationType {
+        case .user:
+            storeUserData(didClicked: didClicked)
+        case .cocktail:
+            storeCocktailData(didClicked: didClicked)
+        default:
+            break
+        }
+    }
+    
+    // 유저 등록 데이터스토어
+    func storeUserData(didClicked: Bool) {
         
         if didClicked {
             DATASTORE.user?.ingredientPreference?.append(Cocktail.Ingredients.allCases[self.index])
         } else {
-            guard let index = DATASTORE.user?.ingredientPreference?.firstIndex(of: Cocktail.Ingredients.allCases[self.index]) else { return }
+            guard let index = DATASTORE.user?.ingredientPreference?
+                    .firstIndex(of: Cocktail.Ingredients.allCases[self.index])
+            else { return }
+            
             DATASTORE.user?.ingredientPreference?.remove(at: index)
+        }
+    }
+    
+    // 칵테일 등록 데이터 스토어
+    func storeCocktailData(didClicked: Bool) {
+        
+        if didClicked {
+            DATASTORE_COCKTAIL?.ingredients.append(Cocktail.Ingredients.allCases[self.index])
+        } else {
+            guard let index = DATASTORE_COCKTAIL?.ingredients
+                    .firstIndex(of: Cocktail.Ingredients.allCases[self.index])
+            else { return }
+            
+            DATASTORE_COCKTAIL?.ingredients.remove(at: index)
         }
     }
 }
