@@ -193,5 +193,36 @@ class CocktailManager {
             
         return target
     }
-
+    
+    func liked(cocktailId: String, _ completion: @escaping (_ completion: Bool, _ error: Error?) -> Void) {
+        guard let uid = AuthManager.shared.currentUser?.id else { return }
+        
+        COLLECTION_USERS.document(uid).collection("user-like-cocktail")
+            .document(cocktailId).setData([:]) { error in
+                
+                if let error = error {
+                    print("ERROR: \(error.localizedDescription)")
+                    completion(false, error)
+                    return
+                }
+                
+                completion(true, nil)
+        }
+    }
+    
+    func unliked(cocktailId: String, _ completion: @escaping (_ completion: Bool, _ error: Error?) -> Void) {
+        guard let uid = AuthManager.shared.currentUser?.id else { return }
+        
+        COLLECTION_USERS.document(uid).collection("user-like-cocktail")
+            .document(cocktailId).delete() { error in
+                
+                if let error = error {
+                    print("ERROR: \(error.localizedDescription)")
+                    completion(false, error)
+                    return
+                }
+                
+                completion(true, nil)
+        }
+    }
 }

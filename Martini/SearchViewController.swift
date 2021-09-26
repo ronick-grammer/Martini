@@ -65,6 +65,8 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         cell.ingredientLabel.text = ingredientText.joined(separator: ", ")
         cell.tasteLabel.text = target.description
         
+        cell.configure(cocktailId: target.id)
+        
         return cell
         
        
