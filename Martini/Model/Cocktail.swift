@@ -102,6 +102,8 @@ struct Cocktail: Identifiable, Codable {
     let color: [Color]
     let taste: [Taste:Int]
     
+    var isLiked: Bool?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name

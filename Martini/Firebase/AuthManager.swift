@@ -24,7 +24,7 @@ class AuthManager {
         // 계정 생성(등록)
         Auth.auth().createUser(withEmail: user.email, password: password) { result, error in
             
-            if error != nil{
+            if error != nil {
                 completion(false, error)
             }
             
@@ -46,7 +46,7 @@ class AuthManager {
         
         // 입력한 비밀번호가 맞는지 재인증하기
         self.userSession?.reauthenticate(with: credential) { result, error in
-            print("?????")
+            
             if let error = error {
                 print("Error: Failed to reauthenticate user.. \(error.localizedDescription)")
                 completion(false, error)

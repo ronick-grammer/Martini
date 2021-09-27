@@ -44,4 +44,8 @@ class LikeButton: UIButton {
         self.layer.backgroundColor = UIColor.lightGray.cgColor
 
     }
+    
+    func setColor(color: UIColor){
+        self.tintColor = color
+    }
 }

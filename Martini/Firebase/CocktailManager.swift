@@ -31,6 +31,9 @@ class CocktailManager {
                 }
                 
                 print("successfully registered cocktail..!")
+                
+                self.checkIfUserLiked()
+                
                 completion(true, nil)
             }
         } catch {
@@ -197,6 +200,27 @@ class CocktailManager {
                 }
                 
                 completion(true, nil)
+        }
+    }
+    
+    func checkIfUserLiked() {
+        
+        guard let uid = AuthManager.shared.userSession?.uid else { return }
+        
+        
+        for index in 0 ..< cocktails.count {
+            
+            let cocktailID = self.cocktails[index].id
+            
+            COLLECTION_USERS.document(uid).collection("user-like-cocktail").document(cocktailID).getDocument { snapshot, error in
+                
+                if let error = error {
+                    print("ERROR: \(error.localizedDescription)")
+                    return
+                }
+    
+                self.cocktails[index].isLiked = snapshot?.exists
+            }
         }
     }
 }
