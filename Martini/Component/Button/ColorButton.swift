@@ -15,6 +15,8 @@ class ColorButton: UIView {
         return view
     }()
     
+    var cocktailColor:Cocktail.Color?
+    
     let button: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false

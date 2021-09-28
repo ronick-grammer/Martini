@@ -36,9 +36,11 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
             configureSearchController()
         }
         
-        CocktailManager.shared.fetchAllCocktail {
-            self.data = CocktailManager.shared.cocktails
-            self.tableView.reloadData()
+        if !searching {
+            CocktailManager.shared.fetchAllCocktail {
+                self.data = CocktailManager.shared.cocktails
+                self.tableView.reloadData()
+            }
         }
         
         tableView.separatorStyle = .none
@@ -136,7 +138,7 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         let data = searching ? searched[indexPath.row] : self.data[indexPath.row]
         
         let vc = initViewController("DetailView", identfire: "detailVC") as! DetailViewController
-        
+
         vc.data = data
         vc.navigationItem.title = data.name
         self.navigationController?.pushViewController(vc, animated: true)

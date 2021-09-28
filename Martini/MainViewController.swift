@@ -52,12 +52,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
         
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if AuthManager.shared.userSession == nil {
-            let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
+//            let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
+            
+            let vc = UIStoryboard(name: "CocktailMain", bundle: nil).instantiateViewController(withIdentifier: "CocktailMain")
 
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
@@ -136,6 +140,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
             if flag1 == true {
                 flag1 = false
+                
+                
                 
                 for name in target.ingredients{
                     cell.addLabel(name: name.rawValue)

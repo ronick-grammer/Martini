@@ -21,6 +21,7 @@ class ingredientTableViewCell: UITableViewCell {
         didSet {
             if oldValue != data {
                 ingredientSV.arrangedSubviews.forEach { $0.removeFromSuperview() }
+                
                 data?.forEach({ addLabel(name: $0.rawValue) })
             }
         }
@@ -51,8 +52,6 @@ class ingredientTableViewCell: UITableViewCell {
     func addLabel(name: String){
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 150))
         label.adjustsFontSizeToFitWidth = true
-        
-        
         
         label.text = name
         label.backgroundColor = UIColor(red: (232/255.0), green: (24/255.0), blue: (24/255.0), alpha: 0.5)

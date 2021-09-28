@@ -112,6 +112,32 @@ class CocktailManager {
                 completion(true, error)
             }
         }
+        
+    }
+    
+    func filterCocktail(base: Cocktail.Alcohol) -> [Cocktail] {
+        return cocktails.filter { $0.base == base }
+    }
+    
+    func filterCocktail(ingredients: Cocktail.Ingredients) -> [Cocktail] {
+        return cocktails.filter {
+            $0.ingredients.firstIndex(of: ingredients) != nil
+        }
+    }
+    
+    func filterCocktail(taste: Cocktail.Taste) -> [Cocktail] {
+        return cocktails.filter {
+            let sortedValue = $0.taste.sorted { $0.value > $1.value }
+            return sortedValue.first?.key == taste
+        }
+    }
+    
+    func filterCocktail(color: Cocktail.Color) -> [Cocktail]{
+        return cocktails.filter { $0.color.firstIndex(of: color) != nil }
+    }
+    
+    func filterCocktail(abv: Double) -> [Cocktail]{
+        return cocktails.filter { abv - 2 < $0.abv && abv + 2 > $0.abv }
     }
     
     // 유저의 맛 선호도와 가장 가까운 칵테일 순으로 정렬
