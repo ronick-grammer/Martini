@@ -32,8 +32,6 @@ class CocktailManager {
                 
                 print("successfully registered cocktail..!")
                 
-                self.checkIfUserLiked()
-                
                 completion(true, nil)
             }
         } catch {
@@ -229,24 +227,22 @@ class CocktailManager {
         }
     }
     
-    func checkIfUserLiked() {
+    // 유저가 좋아요를 눌렀는지 체크
+    func checkIfUserLiked(cocktailID: String, _ completion: @escaping ((isLiked: Bool?, error: Error?)) -> Void)
+    {
         
         guard let uid = AuthManager.shared.userSession?.uid else { return }
-        
-        
-        for index in 0 ..< cocktails.count {
-            
-            let cocktailID = self.cocktails[index].id
-            
-            COLLECTION_USERS.document(uid).collection("user-like-cocktail").document(cocktailID).getDocument { snapshot, error in
-                
+
+        COLLECTION_USERS.document(uid).collection("user-like-cocktail")
+            .document(cocktailID).getDocument { snapshot, error in
                 if let error = error {
                     print("ERROR: \(error.localizedDescription)")
+                    completion((nil, error))
                     return
                 }
-    
-                self.cocktails[index].isLiked = snapshot?.exists
+                
+                let isLiked = snapshot?.exists
+                completion((isLiked, nil))
             }
-        }
     }
 }
