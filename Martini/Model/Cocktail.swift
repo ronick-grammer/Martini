@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseFirestoreSwift
 
 struct Cocktail: Identifiable, Codable {
     
@@ -90,7 +90,7 @@ struct Cocktail: Identifiable, Codable {
         }
     }
     
-    var id: String = UUID().uuidString
+    @DocumentID var id: String?
 
     let name: String
     let imgUrl: String
@@ -126,7 +126,7 @@ extension Cocktail {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.id = try container.decode(String.self, forKey: .id)
+        self._id = try container.decode(DocumentID<String>.self, forKey: .id)
         self.abv = try container.decode(Double.self, forKey: .abv)
         self.base = try container.decode(Alcohol.self, forKey: .base)
         self.color = try container.decode([Color].self, forKey: .color)
@@ -159,7 +159,6 @@ extension Cocktail {
         })
 
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.id, forKey: .id)
         try container.encode(self.abv, forKey: .abv)
         try container.encode(self.description, forKey: .description)
         try container.encode(self.name, forKey: .name)

@@ -22,7 +22,7 @@ class CocktailManager {
         
         do{
             
-            try COLLECTION_COCKTAILS.document(cocktail.id).setData(from: cocktail, encoder: Firestore.Encoder()) { error in
+            try COLLECTION_COCKTAILS.addDocument(from: cocktail, encoder: Firestore.Encoder()) { error in
            
                 if let error = error {
                     print("DEBUG: \(error.localizedDescription)")
@@ -53,14 +53,14 @@ class CocktailManager {
             self.cocktails = documents.compactMap({ try? $0.data(as: Cocktail.self) })
             print("Successfully fetched all cocktails..!")
             complete()
-            
+    
         }
     }
     
     func updateCocktail(cocktail: Cocktail, _ completion: @escaping (_ success: Bool,_ error: Error?) -> Void){
         
         do {
-            try COLLECTION_COCKTAILS.document(cocktail.id).setData(from: cocktail, encoder: Firestore.Encoder()) { error in
+            try COLLECTION_COCKTAILS.addDocument(from: cocktail, encoder: Firestore.Encoder()) { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                     completion(false, error)
@@ -77,7 +77,9 @@ class CocktailManager {
     }
     
     func deleteCocktail(cocktail: Cocktail, _ completion: @escaping (_ success: Bool,_ error: Error?) -> Void) {
-        COLLECTION_COCKTAILS.document(cocktail.id).delete { error in
+        guard let cocktailID = cocktail.id else { return }
+        
+        COLLECTION_COCKTAILS.document(cocktailID).delete { error in
             if let error = error {
                 print("Error: Failed to delete a cocktail")
                 completion(false, error)
