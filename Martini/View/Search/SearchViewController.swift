@@ -7,7 +7,7 @@
 
 import UIKit
 
-// SearchView와 SettingView에서 찜한 목록 볼때쓰이는지 구분해야함
+// SearchView와 SettingView에서 찜한 목록 볼 때 쓰이는지 구분해야함
 enum SearchViewType {
     case searchedList
     case likedList
@@ -45,12 +45,12 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
             configureSearchController()
         }
         
-        if !searching {
-            CocktailManager.shared.fetchAllCocktail {
-                self.data = CocktailManager.shared.cocktails
-                self.tableView.reloadData()
-            }
-        }
+//        if !searching {
+//            CocktailManager.shared.fetchAllCocktail {
+//                self.data = CocktailManager.shared.cocktails
+//                self.tableView.reloadData()
+//            }
+//        }
         
         tableView.separatorStyle = .none
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -61,7 +61,6 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         if !searching {
             switch self.searchViewType {
             case .searchedList : self.tableView.reloadData()
@@ -76,7 +75,6 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
                 }
             }
         }
-
     }
 
     
@@ -94,7 +92,10 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         cell.tasteLabel.text = target.description
         cell.cocktailImage.imageUrl = target.imgUrl
         
-        cell.delegate = self
+        if self.searchViewType == .likedList {
+            cell.delegate = self
+        }
+        
         cell.configure(cocktailID: target.id)
         
         return cell
@@ -102,11 +103,11 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     func deleteLikedCocktail(likeButton: UIButton) {
         
-        // 클릭한 좋아요 버튼의 위치를 기반으로 셀의 인덱스를 알아내기
+        // 클릭한 좋아요 버튼의 위치를 기반으로 삭제할 셀의 인덱스를 알아내기
         let point = likeButton.convert(CGPoint.zero, to: self.tableView)
         guard let indexPath = self.tableView.indexPathForRow(at: point) else { return }
         
-        // ** 반드시 데이터를 먼저 제거해주고 난 뒤에 테이블 행을 없애줘야함
+        // ** 반드시 데이터를 먼저 제거해주고 난 뒤에 셀의 테이블 행을 없애줘야함
         self.data.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
