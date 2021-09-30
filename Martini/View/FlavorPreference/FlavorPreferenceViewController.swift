@@ -101,7 +101,14 @@ extension FlavorPreferenceViewController: UICollectionViewDataSource {
         // 각 맛의 서브 타이틀로 셀 만들기
         let taste = Cocktail.Taste.allCases[indexPath.row]
         let tasteInfo = getTasteInfo(taste: taste)
-        let subtitle = tasteInfo.subtitle
+        var subtitle = ""
+        
+        switch self.registrationType {
+        case .user    :
+            subtitle = tasteInfo.subtitle
+        case .cocktail:
+            subtitle = tasteInfo.title
+        }
         
         cell.configure(subtitle: subtitle, index: taste.index, registrationType: self.registrationType)
         
