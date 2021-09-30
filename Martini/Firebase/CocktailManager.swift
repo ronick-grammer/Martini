@@ -13,6 +13,7 @@ class CocktailManager {
     
     var cocktails:[Cocktail] = []
     var filteredCocktails =  [Cocktail] ()
+    var likedCocktails = [Cocktail]()
     
     static let shared = CocktailManager()
     private init() {}
@@ -22,7 +23,7 @@ class CocktailManager {
         
         do{
             
-            try COLLECTION_COCKTAILS.document(cocktail.id).setData(from: cocktail, encoder: Firestore.Encoder()) { error in
+            try _ = COLLECTION_COCKTAILS.addDocument(from: cocktail, encoder: Firestore.Encoder()) { error in
            
                 if let error = error {
                     print("DEBUG: \(error.localizedDescription)")
@@ -31,6 +32,7 @@ class CocktailManager {
                 }
                 
                 print("successfully registered cocktail..!")
+                
                 completion(true, nil)
             }
         } catch {
@@ -51,15 +53,16 @@ class CocktailManager {
             guard let documents = snapshot?.documents else { return }
             self.cocktails = documents.compactMap({ try? $0.data(as: Cocktail.self) })
             print("Successfully fetched all cocktails..!")
-            complete()
             
+            complete()
+    
         }
     }
     
     func updateCocktail(cocktail: Cocktail, _ completion: @escaping (_ success: Bool,_ error: Error?) -> Void){
         
         do {
-            try COLLECTION_COCKTAILS.document(cocktail.id).setData(from: cocktail, encoder: Firestore.Encoder()) { error in
+            try _ = COLLECTION_COCKTAILS.addDocument(from: cocktail, encoder: Firestore.Encoder()) { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                     completion(false, error)
@@ -76,7 +79,9 @@ class CocktailManager {
     }
     
     func deleteCocktail(cocktail: Cocktail, _ completion: @escaping (_ success: Bool,_ error: Error?) -> Void) {
-        COLLECTION_COCKTAILS.document(cocktail.id).delete { error in
+        guard let cocktailID = cocktail.id else { return }
+        
+        COLLECTION_COCKTAILS.document(cocktailID).delete { error in
             if let error = error {
                 print("Error: Failed to delete a cocktail")
                 completion(false, error)
@@ -225,4 +230,72 @@ class CocktailManager {
                 completion(true, nil)
         }
     }
+    
+    // 유저가 좋아요를 눌렀는지 체크
+    func checkIfUserLiked(cocktailID: String, _ completion: @escaping ((isLiked: Bool?, error: Error?)) -> Void)
+    {
+        
+        guard let uid = AuthManager.shared.userSession?.uid else { return }
+
+        COLLECTION_USERS.document(uid).collection("user-like-cocktail")
+            .document(cocktailID).getDocument { snapshot, error in
+                if let error = error {
+                    print("ERROR: \(error.localizedDescription)")
+                    completion((nil, error))
+                    return
+                }
+                
+                let isLiked = snapshot?.exists
+                completion((isLiked, nil))
+            }
+    }
+    
+    func fetchLikedCocktails(_ completion: @escaping (_ error: Error?) -> Void) {
+        
+        guard let uid = AuthManager.shared.currentUser?.id else { return }
+        
+        COLLECTION_USERS.document(uid).collection("user-like-cocktail").getDocuments { snapshot, error in
+            if let error = error {
+                print("ERROR: \(error.localizedDescription)")
+                completion(error)
+                return
+            }
+            
+            let documents = snapshot?.documents
+            
+            var count = 0
+            self.likedCocktails.removeAll()
+            
+            documents?.forEach({ snapshot in
+                let oid = snapshot.documentID
+                
+                COLLECTION_COCKTAILS.document(oid).getDocument { snapshot, error in
+                    if let error = error {
+                        print("ERROR: \(error.localizedDescription)")
+                        completion(error)
+                        return
+                    }
+                    
+                    do {
+                        
+                        let cocktail = try snapshot?.data(as: Cocktail.self)
+                        
+                        self.likedCocktails.append(cocktail!)
+                        
+                        count += 1
+    
+                        if count == documents?.count { // 다 찾았으면 완료
+                            completion(nil)
+                        }
+                        
+                    } catch {
+                        print("ERROR: \(error)")
+                        completion(error)
+                    }
+                }
+            })
+            
+        }
+    }
+    
 }

@@ -83,7 +83,7 @@ extension UploadRecipeViewController {
             return false
         }
         
-        if Int(self.alcoholByVolume.text!) == nil {
+        if Double(self.alcoholByVolume.text!) == nil {
             alert("알콜 도수는 숫자만 입력해주세요.")
             return false
         }
