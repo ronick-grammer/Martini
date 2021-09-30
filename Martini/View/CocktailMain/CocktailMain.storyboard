@@ -28,9 +28,12 @@
                                     <constraint firstAttribute="height" constant="50" id="Aa3-AD-hLW"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="취향 추천"/>
+                                    <segment title="재료 추천"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeRecommend:" destination="Y6W-OH-hqX" eventType="valueChanged" id="Kie-Nk-abU"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
