@@ -40,7 +40,7 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
             
             
             DispatchQueue.main.async {
-                
+                self.configureInitTable()
             }
         }
         
