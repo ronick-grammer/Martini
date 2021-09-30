@@ -23,7 +23,7 @@ class ViewController: UITabBarController {
             initTabViewController("CocktailMain", identfire: "CocktailMain", title: "칵테일추천", icon: UIImage(systemName: "hand.thumbsup"), tag: 1),
             initTabViewController("Search", identfire: "SearchVC", title: "칵테일찾기", icon: UIImage(systemName: "magnifyingglass"), tag: 2),
             initTabViewController("FindView", identfire: "FindVC", title: "조건검색", icon: UIImage(systemName: "plus.magnifyingglass"), tag: 3),
-            initTabViewController("UploadRecipe", identfire: "UploadRecipeVC", title: "칵테일   등록", icon: UIImage(systemName: "plus.circle"), tag: 4),
+            initTabViewController("UploadRecipe", identfire: "UploadRecipeVC", title: "칵테일등록", icon: UIImage(systemName: "plus.circle"), tag: 4),
             initTabViewController("SettingView", identfire: "SettingView", title: "설정", icon: UIImage(systemName: "person"), tag: 5)
         ]
         
@@ -33,8 +33,18 @@ class ViewController: UITabBarController {
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if AuthManager.shared.userSession == nil {
+            let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
 
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
 }
+
+
 
 extension UITabBarController {
     
