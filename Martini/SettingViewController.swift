@@ -53,6 +53,7 @@ extension SettingViewController: UITableViewDelegate {
         case 2:
             let vc = initViewController("Search", identfire: "SearchView") as! SearchViewController
             vc.searchBar = false
+            vc.searchViewType = .likedList // 좋아요 목록
             vc.navigationItem.title = settingMenu[indexPath.row]
             self.navigationController?.pushViewController(vc, animated: true)
             

@@ -7,7 +7,14 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate{
+// SearchView와 SettingView에서 찜한 목록 볼때쓰이는지 구분해야함
+enum SearchViewType {
+    case searchedList
+    case likedList
+}
+
+class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate, CocktailTableViewCellDelegate {
+    
     
     var searchBar = true
     var data:[Cocktail] = []
@@ -19,6 +26,8 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
     var searched:[Cocktail] = []
     
     let searchController = UISearchController(searchResultsController: nil)
+    
+    var searchViewType: SearchViewType = .searchedList // 기본값으로 searchView에서 사용하는걸로 세팅
     
     override func viewDidLoad() {
         
@@ -47,7 +56,26 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
         
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        if !searching {
+            switch self.searchViewType {
+            case .searchedList : self.tableView.reloadData()
+                CocktailManager.shared.fetchAllCocktail {
+                    self.data = CocktailManager.shared.cocktails
+                    self.tableView.reloadData()
+                }
+            case .likedList    :
+                CocktailManager.shared.fetchLikedCocktails { _ in
+                    self.data = CocktailManager.shared.likedCocktails
+                    self.tableView.reloadData()
+                }
+            }
+        }
 
     }
 
@@ -64,15 +92,23 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         let ingredientText = target.ingredients.map { $0.rawValue }
         cell.ingredientLabel.text = ingredientText.joined(separator: ", ")
         cell.tasteLabel.text = target.description
+        cell.cocktailImage.imageUrl = target.imgUrl
         
-        if let cocktailID = target.id {
-            cell.configure(cocktailId: cocktailID)
-        }
+        cell.delegate = self
+        cell.configure(cocktailID: target.id)
         
         return cell
+    }
+    
+    func deleteLikedCocktail(likeButton: UIButton) {
         
-       
-       
+        // 클릭한 좋아요 버튼의 위치를 기반으로 셀의 인덱스를 알아내기
+        let point = likeButton.convert(CGPoint.zero, to: self.tableView)
+        guard let indexPath = self.tableView.indexPathForRow(at: point) else { return }
+        
+        // ** 반드시 데이터를 먼저 제거해주고 난 뒤에 테이블 행을 없애줘야함
+        self.data.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,6 +169,7 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         tableView.reloadData()
         
     }
+    
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

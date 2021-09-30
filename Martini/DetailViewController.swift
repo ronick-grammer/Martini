@@ -1,4 +1,4 @@
-//
+
 //  DetailViewController.swift
 //  Martini
 //
@@ -36,6 +36,12 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     
 
    // 셀 갯수
@@ -52,6 +58,9 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.imgView.layer.cornerRadius = 90
             cell.nameLabel.text = data?.name
             cell.descriptionLabel.text = data?.description
+            cell.imgView.imageUrl = data?.imgUrl
+            
+            cell.configure(cocktailID: data?.id)
         
             return cell
         } else if indexPath.row == 1 {    // 도수 cell

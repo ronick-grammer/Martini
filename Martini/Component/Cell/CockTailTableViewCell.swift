@@ -1,4 +1,4 @@
-//
+
 //  CockTailTableViewCell.swift
 //  Martini
 //
@@ -8,6 +8,10 @@
 import UIKit
 import Firebase
 
+protocol CocktailTableViewCellDelegate {
+    func deleteLikedCocktail(likeButton: UIButton)
+}
+
 class CockTailTableViewCell: UITableViewCell, LikeButtonDelegate {
     
     static let nib: UINib = UINib(nibName: "CockTailTableViewCell", bundle: nil)
@@ -15,7 +19,7 @@ class CockTailTableViewCell: UITableViewCell, LikeButtonDelegate {
     static let identifier = "CockTailTableViewCell"
     
     @IBOutlet weak var bgView: UIView!
-    @IBOutlet weak var cocktailImage: UIImageView!
+    @IBOutlet weak var cocktailImage: WebImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var alcoholLabel: UILabel!
     @IBOutlet weak var ingredientLabel: UILabel!
@@ -24,7 +28,7 @@ class CockTailTableViewCell: UITableViewCell, LikeButtonDelegate {
     @IBOutlet weak var likeButton: LikeButton!
     
     var cocktailId: String?
-    
+    var delegate: CocktailTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,8 +49,21 @@ class CockTailTableViewCell: UITableViewCell, LikeButtonDelegate {
 
     }
     
-    func configure(cocktailId: String) {
-        self.cocktailId = cocktailId
+    func configure(cocktailID: String?) {
+        guard let oid = cocktailID else { return }
+        self.cocktailId = oid
+        
+        CocktailManager.shared.checkIfUserLiked(cocktailID: oid) { isLiked, error in
+            if let error = error {
+                print("ERROR: \(error.localizedDescription)")
+                return
+            }
+            
+            if let isLiked = isLiked {
+                isLiked ? self.likeButton.setColor(color: .yellow) : self.likeButton.setColor(color: .white)
+                self.likeButton.isLiked = isLiked
+            }
+        }
     }
     
     func didTouchLikeButton(isLiked: Bool) {
@@ -66,9 +83,12 @@ class CockTailTableViewCell: UITableViewCell, LikeButtonDelegate {
                     print("ERROR: \(error.localizedDescription)")
                     return
                 }
+                
+                if self.delegate != nil {
+                    self.delegate?.deleteLikedCocktail(likeButton: self.likeButton)
+                }
             }
         }
     }
-    
     
 }

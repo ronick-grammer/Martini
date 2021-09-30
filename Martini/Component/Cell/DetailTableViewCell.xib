@@ -24,7 +24,7 @@
                             <constraint firstAttribute="width" secondItem="iDT-rY-0MX" secondAttribute="height" multiplier="1:1" id="jWD-Yn-5qj"/>
                         </constraints>
                     </button>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VMf-tC-19O" customClass="WebImageView" customModule="Martini" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VMf-tC-19O" customClass="WebImageView" customModule="Martini" customModuleProvider="target">
                         <rect key="frame" x="115.5" y="80" width="180" height="180"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="180" id="0lE-5V-hPt"/>
