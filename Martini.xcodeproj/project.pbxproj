@@ -302,7 +302,6 @@
 			children = (
 				5568271C47B206C7FFD0FAFE /* AuthManager.swift */,
 				61314A0618A923C2BBBEA9AC /* CocktailManager.swift */,
-				DD150034D49904B22FA83987 /* Constants.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -484,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				D43EB3AD26F488B9002AC77F /* ImagePickerViewController.swift */,
+				DD150034D49904B22FA83987 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
