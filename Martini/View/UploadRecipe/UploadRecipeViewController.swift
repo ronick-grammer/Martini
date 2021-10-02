@@ -7,19 +7,23 @@
 
 import UIKit
 
-class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegate {
-    
+protocol UploadRecipeViewSubmitDelegate {
+    func modalDismissed(vc: UIViewController)
+}
+
+class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegate, UploadRecipeViewSubmitDelegate  {
+
     let scrollView = UIScrollView()
     let contentView = UIView()
     
     let imageButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 150, weight: .bold)), for: .normal)
+        button.setImage(UIImage(named: "plus_photo")?.withRenderingMode(.alwaysTemplate), for: .normal)
         
-        button.tintColor = .black
+        button.tintColor = COLOR_MARTINI.button_clickable
         button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.clipsToBounds = true
-        button.imageView?.layer.cornerRadius = 75
+        button.imageView?.layer.cornerRadius = 90
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -40,7 +44,7 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
         textField.placeholder = "칵테일 이름을 입력하세요."
         textField.keyboardType = .namePhonePad
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        textField.backgroundColor = COLOR_MARTINI.textBox
         textField.layer.cornerRadius = 10
         textField.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 5, height: 0))
         textField.leftViewMode = .always
@@ -60,7 +64,7 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
     let cocktailDescription: UITextView = {
         let textView = UITextView()
         textView.keyboardType = .namePhonePad
-        textView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        textView.backgroundColor = COLOR_MARTINI.textBox
         textView.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         textView.layer.cornerRadius = 10
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -76,13 +80,14 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
         return stackView
     }()
     
+    
     let baseButton: UIButton = {
         let button = UIButton()
         button.setTitle("베이스", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.layer.cornerRadius = 10
-        button.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
+        button.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -94,7 +99,7 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.layer.cornerRadius = 10
-        button.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
+        button.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -106,7 +111,7 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
         button.setTitleColor(.white, for: .normal)
         button.setTitleColor(.black, for: .highlighted)
         button.layer.cornerRadius = 10
-        button.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
+        button.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -115,7 +120,7 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
     let colorButton: UIButton = {
         let button = UIButton()
         button.setTitle("색 선택", for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
+        button.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -135,7 +140,7 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
         let textField = UITextField()
         textField.placeholder = "알콜 도수를 입력해주세요"
         textField.keyboardType = .numbersAndPunctuation
-        textField.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
+        textField.backgroundColor = COLOR_MARTINI.textBox
         textField.layer.cornerRadius = 6
         textField.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 5, height: 0))
         textField.leftViewMode = .always
@@ -177,7 +182,7 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
         hstack.axis = .horizontal
         hstack.distribution = .fill
         hstack.alignment = .center
-        hstack.spacing = 5
+        hstack.spacing = 10
         hstack.translatesAutoresizingMaskIntoConstraints = false
         
         return hstack
@@ -187,7 +192,7 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
     let stepPlusButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30)), for: .normal)
-        button.tintColor = .black
+        button.tintColor = COLOR_MARTINI.button_clickable
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -196,7 +201,7 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
     let stepRemoveButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "minus", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30)), for: .normal)
-        button.tintColor = .black
+        button.tintColor = COLOR_MARTINI.button_clickable
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -211,7 +216,7 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
         label.text = "칵테일에 대한 간단한 소개를 해주세요."
         label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.sizeToFit()
-        label.textColor = .lightGray
+        label.textColor = UIColor.systemGray3
         
         return label
     }()
@@ -265,7 +270,13 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
         self.cocktailName.text = nil
         self.cocktailDescription.text = nil
         self.alcoholByVolume.text = nil
-        self.imageButton.setImage(UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 150, weight: .bold)), for: .normal)
+        self.imageButton.setImage(UIImage(named: "plus_photo")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        
+        self.baseButton.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
+        self.tasteButton.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
+        self.ingredientButton.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
+        self.colorButton.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
+        
         self.cocktailImage = nil
         
         textViewPlaceHolder.isHidden = false
@@ -295,28 +306,71 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
         present(imagePicker, animated: true, completion: nil)
     }
     
+    // 선택한 버튼에 따라 특정 뷰 띄우기
     @objc func btnSelection(_ sender: UIButton) {
         var vc: UIViewController?
         
         switch sender {
+        
         case baseButton:
             vc =  UIStoryboard(name: "BasePreferenceView", bundle: Bundle.main).instantiateViewController(identifier: "basePreference")
             (vc as! BasePreferenceViewController).registrationType = .cocktail
+            (vc as! BasePreferenceViewController).uploadRecipeViewSubmitDelegate = self
+            
         case tasteButton:
             vc = UIStoryboard(name: "FlavorPreferenceView", bundle: Bundle.main).instantiateViewController(identifier: "flavorPreference")
             (vc as! FlavorPreferenceViewController).registrationType = .cocktail
+            (vc as! FlavorPreferenceViewController).uploadRecipeViewSubmitDelegate = self
+            
         case ingredientButton:
             vc = UIStoryboard(name: "IngredientsSelectionView", bundle: Bundle.main).instantiateViewController(identifier: "ingredientsSelection")
             (vc as! IngredientsSelectionViewController).registrationType = .cocktail
+            (vc as! IngredientsSelectionViewController).uploadRecipeViewSubmitDelegate = self
+            
         case colorButton:
             vc = UIStoryboard(name: "ColorSelectionView", bundle: Bundle.main).instantiateViewController(identifier: "colorSelection")
-
+            (vc as! ColorSelectionViewController).uploadRecipeViewSubmitDelegate = self
+            
         default:
             vc = nil
         }
 
         if let vc = vc {
             self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    // 각 모달 뷰가 dismiss 될 때 요소를 선택했는지 확인해서 버튼 색 설정
+    func modalDismissed(vc: UIViewController) {
+        guard let dataStore_cocktail = DATASTORE_COCKTAIL else { return }
+        switch vc {
+        case is BasePreferenceViewController :
+            if dataStore_cocktail.selectedBase {
+                baseButton.backgroundColor = COLOR_MARTINI.button_clickable
+            } else {
+                baseButton.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
+            }
+        case is FlavorPreferenceViewController :
+            if dataStore_cocktail.selectedTaste {
+                tasteButton.backgroundColor = COLOR_MARTINI.button_clickable
+            } else {
+                tasteButton.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
+            }
+        case is IngredientsSelectionViewController :
+            if dataStore_cocktail.selectedIngredient {
+                ingredientButton.backgroundColor = COLOR_MARTINI.button_clickable
+            } else {
+                ingredientButton.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
+            }
+        case is ColorSelectionViewController :
+            if dataStore_cocktail.selectedColor {
+                colorButton.backgroundColor = COLOR_MARTINI.button_clickable
+            } else {
+                colorButton.backgroundColor = COLOR_MARTINI.button_clickable.withAlphaComponent(0.5)
+            }
+            
+        default:
+            break
         }
     }
     
@@ -369,8 +423,8 @@ class UploadRecipeViewController: UIViewController, CustomImagePickerViewDelegat
         NSLayoutConstraint.activate([
             imageButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageButton.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 20),
-            imageButton.widthAnchor.constraint(equalToConstant: 150),
-            imageButton.heightAnchor.constraint(equalToConstant: 150),
+            imageButton.widthAnchor.constraint(equalToConstant: 180),
+            imageButton.heightAnchor.constraint(equalToConstant: 180),
             
             cocktailNameLabel.topAnchor.constraint(equalTo: imageButton.bottomAnchor, constant: 20),
             cocktailNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),

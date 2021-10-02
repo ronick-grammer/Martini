@@ -122,7 +122,7 @@ class BasePreferenceCollectionViewCell: UICollectionViewCell, BannerToggleButton
             DATASTORE_COCKTAIL?.base = Cocktail.Alcohol.allCases[self.index]
         } else {
             BasePreferenceCollectionViewCell.lastButton = nil
-            DATASTORE_COCKTAIL?.base = Cocktail.Alcohol.none
+            DATASTORE_COCKTAIL?.base = nil
         }
     }
 }

@@ -104,9 +104,9 @@ class SliderStrenth: UIView {
     
     // 슬라이더 가장 자리 둥글게 만들기
     func setMinMaxTrackImage(size: CGSize) {
-        slider.setMinimumTrackImage(getImageWithColor(color:  UIColor(red: (240/255.0), green: (158/255.0), blue: (158/255.0), alpha: 1.0), size: size).resizableImage(withCapInsets: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3), resizingMode: .stretch), for: .normal)
+        slider.setMinimumTrackImage(getImageWithColor(color: COLOR_MARTINI.slider_filled, size: size).resizableImage(withCapInsets: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3), resizingMode: .stretch), for: .normal)
         
-        slider.setMaximumTrackImage(getImageWithColor(color: UIColor(cgColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), size: size).resizableImage(withCapInsets: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3), resizingMode: .stretch), for: .normal)
+        slider.setMaximumTrackImage(getImageWithColor(color: COLOR_MARTINI.slider_unfilled, size: size).resizableImage(withCapInsets: UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3), resizingMode: .stretch), for: .normal)
     }
     
     // minimum Track 이미지, maximum Track 이미지 cornerRadius 적용

@@ -19,12 +19,10 @@ class BasePreferenceViewController: UIViewController {
     let spacingColumn = 20
     
     var registrationType: RegistrationType = .user
+    var uploadRecipeViewSubmitDelegate: UploadRecipeViewSubmitDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        guard let currentUser = AuthManager.shared.currentUser else { return }
-//        DATASTORE.initializeUserPreference(user: currentUser)
         
         BasePreferenceCollectionView.delegate = self
         BasePreferenceCollectionView.dataSource = self
@@ -64,6 +62,11 @@ class BasePreferenceViewController: UIViewController {
     }
     
     @IBAction func btnDismiss(_ sender: UIButton) {
+        
+        if uploadRecipeViewSubmitDelegate != nil {
+            uploadRecipeViewSubmitDelegate?.modalDismissed(vc: self)
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -139,5 +142,3 @@ struct AlcoholInfo {
     let imageName: String
     let title: String
 }
-
-
