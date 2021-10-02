@@ -17,6 +17,8 @@ class ColorSelectionViewController: UIViewController {
     let spacingRow = 5
     let spacingColumn = 5
     
+    var uploadRecipeViewSubmitDelegate: UploadRecipeViewSubmitDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +33,11 @@ class ColorSelectionViewController: UIViewController {
     }
     
     @IBAction func btnDismiss(_ sender: UIButton) {
+        
+        if uploadRecipeViewSubmitDelegate != nil {
+            uploadRecipeViewSubmitDelegate?.modalDismissed(vc: self)
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     

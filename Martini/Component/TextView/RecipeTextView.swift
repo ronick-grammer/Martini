@@ -25,7 +25,7 @@ class RecipeTextView: UIView {
         label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.textColor = .black
         label.textAlignment = .center
-        label.backgroundColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+        label.backgroundColor = COLOR_MARTINI.textBox
         label.layer.cornerRadius = 10
         label.layer.masksToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +36,7 @@ class RecipeTextView: UIView {
     var recipeTextView: UITextView = {
         let textView = UITextView()
         textView.keyboardType = .namePhonePad
-        textView.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
+        textView.backgroundColor = COLOR_MARTINI.textBox
         textView.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         textView.layer.cornerRadius = 10
         

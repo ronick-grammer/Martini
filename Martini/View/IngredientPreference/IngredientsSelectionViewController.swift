@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class IngredientsSelectionViewController: UIViewController {
-    
+
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var ingredientsSelectionCollectionView: UICollectionView!
     @IBOutlet var btnPrev: UIButton!
@@ -21,6 +21,7 @@ class IngredientsSelectionViewController: UIViewController {
     let spacingColumn = 7
     
     var registrationType: RegistrationType = .user
+    var uploadRecipeViewSubmitDelegate: UploadRecipeViewSubmitDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,30 +74,13 @@ class IngredientsSelectionViewController: UIViewController {
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
-//        let cocktailColor = [Cocktail.Color.yellow, Cocktail.Color.orange]
-//        let cocktailIngredient = [Cocktail.Ingredients.gin, Cocktail.Ingredients.mint, Cocktail.Ingredients.mint, Cocktail.Ingredients.olive]
-//
-//        var cocktailTaste =  [Cocktail.Taste:Int]()
-//
-//        for index in 0 ..< Cocktail.Taste.allCases.count {
-//            cocktailTaste.updateValue(100 - (index * 13), forKey: Cocktail.Taste.allCases[index])
-//        }
-//
-//        let recipe = [
-//            "1. 믹싱 글라스에 얼음을 가득 채우고 진을 부어준다.",
-//            "2. 30초 정도 잘 저어준다.",
-//            "3. 얼음이 걸러지게 스트레이너를 사용하여 준비된 마티니 잔에 부어준다",
-//            "4. 올리브 혹은 라임을 올려서 장식해준다!"
-//        ]
-//
-//        CocktailManager.shared.registerCocktail(cocktail: Cocktail(name: "Martini", base: Cocktail.Alcohol.gin, color: cocktailColor, abv: 14.9, ingredients: cocktailIngredient, description: "칵테일하면 마티니이다.", taste: cocktailTaste, recipe: recipe)) { success in
-//
-//            print("cocktil success!!!! \(success)")
-//        }
     }
     
     @IBAction func btnDismiss(_ sender: UIButton) {
+        
+        if uploadRecipeViewSubmitDelegate != nil{
+            uploadRecipeViewSubmitDelegate?.modalDismissed(vc: self)
+        }
         
         self.dismiss(animated: true, completion: nil)
     }

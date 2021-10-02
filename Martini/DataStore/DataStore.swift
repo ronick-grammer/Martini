@@ -47,9 +47,40 @@ struct CocktailDataStore {
     var description: String
     var recipe: [String]
     var ingredients: [Cocktail.Ingredients]
-    var base: Cocktail.Alcohol
+    var base: Cocktail.Alcohol?
     var color: [Cocktail.Color]
     var taste: [Cocktail.Taste:Int]
+    
+    var selectedBase: Bool {
+        get {
+            return base != nil
+        }
+    }
+    
+    var selectedIngredient: Bool {
+        get {
+            return !ingredients.isEmpty
+        }
+    }
+    
+    var selectedColor: Bool {
+        get {
+            return !color.isEmpty
+        }
+    }
+    
+    var selectedTaste: Bool {
+        get {
+            var selected = false
+            for tasteType in Cocktail.Taste.allCases {
+                if taste[tasteType] != 0 {
+                    selected = true
+                    break
+                }
+            }
+            return selected
+        }
+    }
     
     init() {
         self.name = ""
@@ -58,9 +89,13 @@ struct CocktailDataStore {
         self.description = ""
         self.recipe = [String]()
         self.ingredients = [Cocktail.Ingredients]()
-        self.base =  Cocktail.Alcohol.none
+        self.base =  nil
         self.color = [Cocktail.Color]()
+        
         self.taste = [Cocktail.Taste:Int]()
+        for tasteType in Cocktail.Taste.allCases {
+            self.taste.updateValue(0, forKey: tasteType)
+        }
     }
     
     init(name: String, imgUrl: String, abv: Double, description: String, recipe: [String], ingredients: [Cocktail.Ingredients], base: Cocktail.Alcohol, color: [Cocktail.Color], taste: [Cocktail.Taste : Int]) {

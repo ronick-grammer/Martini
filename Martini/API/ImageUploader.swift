@@ -15,7 +15,7 @@ enum UploadType {
     
     var filePath: StorageReference {
         
-        let fileName = NSUUID().uuidString
+        let fileName = UUID().uuidString
         
         switch self {
         case .cocktail:

@@ -19,6 +19,7 @@ class FlavorPreferenceViewController: UIViewController {
     let spacingRow = 15
     
     var registrationType: RegistrationType = .user
+    var uploadRecipeViewSubmitDelegate: UploadRecipeViewSubmitDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,10 @@ class FlavorPreferenceViewController: UIViewController {
     }
     
     @IBAction func btnDismiss(_ sender: UIButton) {
+        
+        if uploadRecipeViewSubmitDelegate != nil {
+            uploadRecipeViewSubmitDelegate?.modalDismissed(vc: self)
+        }
         
         self.dismiss(animated: true, completion: nil)
     }
