@@ -241,10 +241,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         guard let emailTextFieldCheck = emailTextField.text?.validateEmail() else { return }
         guard let passwordTextFieldCheck = passwordTextField.text?.validatePassword() else { return }
         if emailTextFieldCheck && passwordTextFieldCheck && nickNameTextField.text?.count ?? 0 >= 1 && phoneNumberTextField.text?.count ?? 0 == 11 && passwordTextField.text == passwordCheckTextField.text {
-            signupButton.setColor(color: #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1))
+            signupButton.setColor(color: COLOR_MARTINI.button_clickable)
             flag = true
         } else {
-            signupButton.setColor(color: #colorLiteral(red: 0.7194328904, green: 0.8873121142, blue: 0.5935972929, alpha: 1))
+            signupButton.setColor(color: COLOR_MARTINI.button_normal)
             flag = false
         }
     }
@@ -353,14 +353,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     func shakeTextField(textField: CustomInputTextField) -> Void{
         UIView.animate(withDuration: 0.2, animations: {
             textField.frame.origin.x -= 10
-            textField.backgroundColor = #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1)
+            textField.backgroundColor = COLOR_MARTINI.pink
         }, completion: { _ in
             UIView.animate(withDuration: 0.2, animations: {
                 textField.frame.origin.x += 20
              }, completion: { _ in
                  UIView.animate(withDuration: 0.2, animations: {
                     textField.frame.origin.x -= 10
-                    textField.backgroundColor = .systemGray5
+                    textField.backgroundColor = COLOR_MARTINI.textBox
                 })
             })
         })

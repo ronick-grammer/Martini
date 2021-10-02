@@ -16,7 +16,7 @@ class LoginButton: UIButton {
     override var isHighlighted: Bool {
         didSet {
             if isHighlighted == true {
-                self.layer.opacity = 0.7
+                self.layer.opacity = 0.5
             } else {
                 self.layer.opacity = 1
             }
@@ -41,7 +41,7 @@ class LoginButton: UIButton {
         self.addTarget(self, action: #selector(LoginButtonHandler(_:)), for: .touchUpInside) // self로
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
-        self.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        self.backgroundColor = COLOR_MARTINI.button_normal
         informTextInfo(text: "default", fontSize: 30)
     }
 

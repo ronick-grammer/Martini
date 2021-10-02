@@ -165,10 +165,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let emailTextFieldCheck = emailTextField.text?.validateEmail() else { return }
         guard let passwordTextFieldCheck = passwordTextField.text?.validatePassword() else { return }
         if emailTextFieldCheck && passwordTextFieldCheck {
-            loginButton.setColor(color: #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1))
+            loginButton.setColor(color: COLOR_MARTINI.button_clickable)
             flag = true
         } else {
-            loginButton.setColor(color: #colorLiteral(red: 0.7194328904, green: 0.8873121142, blue: 0.5935972929, alpha: 1))
+            loginButton.setColor(color: COLOR_MARTINI.button_normal)
             flag = false
         }
     }
@@ -262,14 +262,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func shakeTextField(textField: CustomInputTextField) -> Void{
         UIView.animate(withDuration: 0.2, animations: {
             textField.frame.origin.x -= 10
-            textField.backgroundColor = #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1)
+            textField.backgroundColor = COLOR_MARTINI.button_clickable
         }, completion: { _ in
             UIView.animate(withDuration: 0.2, animations: {
                 textField.frame.origin.x += 20
              }, completion: { _ in
                  UIView.animate(withDuration: 0.2, animations: {
                     textField.frame.origin.x -= 10
-                    textField.backgroundColor = .systemGray5
+                    textField.backgroundColor = COLOR_MARTINI.textBox
                 })
             })
         })

@@ -38,7 +38,7 @@ class CustomInputTextField: UITextField  {
         leftView = iconContainerView
         leftViewMode = .always
         self.placeholder = "default"
-        self.backgroundColor = .systemGray5
+        self.backgroundColor = COLOR_MARTINI.textBox
         self.layer.cornerRadius = 10
         self.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
         self.borderStyle = BorderStyle.none
