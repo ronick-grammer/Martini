@@ -9,7 +9,7 @@ import UIKit
 
 protocol BannerToggleButtonDelegate {
     func didTouchBannerToggleButton(didClicked: Bool)
-
+    
 }
 
 class BannerToggleButton: UIView {
@@ -57,7 +57,7 @@ class BannerToggleButton: UIView {
     
     var isClicked: Bool = false
     var delegate: BannerToggleButtonDelegate?
-
+    
     @objc func BannerToggleButtonHandler(_ sender: UIButton) {
         isClicked.toggle()
         delegate?.didTouchBannerToggleButton(didClicked: isClicked)
@@ -65,7 +65,7 @@ class BannerToggleButton: UIView {
             // 붉은색
             banner.backgroundColor = COLOR_MARTINI.button_clickable
             buttonTitleLabel.backgroundColor = COLOR_MARTINI.button_clickable
-
+            
         } else {
             // 회색(기본)
             banner.backgroundColor = COLOR_MARTINI.button_normal
