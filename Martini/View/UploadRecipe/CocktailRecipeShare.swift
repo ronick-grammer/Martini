@@ -80,11 +80,6 @@ extension UploadRecipeViewController {
             return false
         }
         
-        if !self.alcoholByVolume.hasText {
-            alert("알콜 도수를 입력하세요.")
-            return false
-        }
-        
         if DATASTORE_COCKTAIL?.selectedBase == false {
             alert("베이스를 선택해주세요.")
             return false
@@ -97,6 +92,11 @@ extension UploadRecipeViewController {
         
         if DATASTORE_COCKTAIL?.selectedIngredient == false {
             alert("재료를 선택해주세요.")
+            return false
+        }
+        
+        if !self.alcoholByVolume.hasText {
+            alert("알콜 도수를 입력하세요.")
             return false
         }
         
