@@ -19,6 +19,7 @@ class FlavorPreferenceViewController: UIViewController {
     let spacingRow = 15
     
     var registrationType: RegistrationType = .user
+    var uploadRecipeViewSubmitDelegate: UploadRecipeViewSubmitDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +67,10 @@ class FlavorPreferenceViewController: UIViewController {
     
     @IBAction func btnDismiss(_ sender: UIButton) {
         
+        if uploadRecipeViewSubmitDelegate != nil {
+            uploadRecipeViewSubmitDelegate?.modalDismissed(vc: self)
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -101,7 +106,14 @@ extension FlavorPreferenceViewController: UICollectionViewDataSource {
         // 각 맛의 서브 타이틀로 셀 만들기
         let taste = Cocktail.Taste.allCases[indexPath.row]
         let tasteInfo = getTasteInfo(taste: taste)
-        let subtitle = tasteInfo.subtitle
+        var subtitle = ""
+        
+        switch self.registrationType {
+        case .user    :
+            subtitle = tasteInfo.subtitle
+        case .cocktail:
+            subtitle = tasteInfo.title
+        }
         
         cell.configure(subtitle: subtitle, index: taste.index, registrationType: self.registrationType)
         

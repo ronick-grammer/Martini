@@ -43,12 +43,8 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
                 self.configureInitTable()
             }
         }
+    
         
-        print("==> \(mainScrollView.subviews.map { $0.frame.minX })")
-        
-        
-//        self.mainScrollView.contentSize.height = mainScrollView.frame.height
-        mainScrollView.frameLayoutGuide.heightAnchor.constraint(equalTo: mainScrollView.heightAnchor).isActive = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +59,7 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
     @IBAction func changeRecommend(_ sender: UISegmentedControl) {
         //취향선택을 선택했을 때
         if sender.selectedSegmentIndex == 0{
-            print("취향 선택")
+            
             
             self.dataCollection = CocktailManager.shared.orderByTastePreference()
         
@@ -80,11 +76,9 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
         
         // 재료선택을 선택했을 때
         else{
-            print("재료 선택")
+            
             self.dataCollection = CocktailManager.shared.orderByIngredientPreference()
-            self.dataCollection?.forEach {
-                print("name: ", $0.name)
-            }
+           
           
             DispatchQueue.main.async {
                 for view in self.mainScrollView.subviews {
@@ -101,7 +95,7 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
     func setScrollBounds(){
 //        mainScrollView.contentSize.width = self.view.frame.width * CGFloat(375*4)
         mainScrollView.setContentOffset(CGPoint(x: 375, y: 0), animated: false)
-        print(#function, mainScrollView.contentOffset, mainScrollView.contentSize)
+
     }
     
     
@@ -139,6 +133,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         cell.imgView.imageUrl = target.imgUrl
         
         cell.configure(cocktailID: target.id)
+        cell.selectionStyle = .none
         
         
         return cell
@@ -150,6 +145,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         let cell = tableView.dequeueReusableCell(withIdentifier: MainAttributeTableViewCell.identifier, for: indexPath) as! MainAttributeTableViewCell
         
         cell.strengthLabel.text = "\(target.abv)%"
+        cell.selectionStyle = .none
         return cell
         
         
@@ -158,6 +154,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         let cell = tableView.dequeueReusableCell(withIdentifier: ingredientTableViewCell.identifier, for: indexPath) as! ingredientTableViewCell
         
         cell.data = target.ingredients
+        cell.selectionStyle = .none
         
         return cell
         
@@ -171,6 +168,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         
         
         cell.data = target.taste
+        cell.selectionStyle = .none
         
         return cell
         
@@ -180,6 +178,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as! RecipeTableViewCell
         
         cell.data = target.recipe
+        cell.selectionStyle = .none
         
         return cell
         
@@ -213,12 +212,12 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         let data = dataCollection
         
         if offsetX == UIScreen.main.bounds.width{
-            print("not Move")
+            
            return
         }
         
         if (xPoint < offsetX) { //다음으로 간 경우
-            print("go next")
+            
             
             if selectedIndex == data!.count - 1 {
                 selectedIndex = 0
@@ -229,12 +228,12 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             let currentView = scrollView.subviews[2]
 
             // 다음 뷰를 현재로 놓음
-            currentView.frame = CGRect(x: self.view.frame.width * 1, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            currentView.frame = CGRect(x: self.view.frame.width * 1, y: 0, width: self.view.frame.width, height: self.mainScrollView.frame.height)
 
 
             // 중간 뷰를 이전 으로 놓음
             let prevView = scrollView.subviews[1]
-            prevView.frame = CGRect(x: self.view.frame.width * 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            prevView.frame = CGRect(x: self.view.frame.width * 0, y: 0, width: self.view.frame.width, height: self.mainScrollView.frame.height)
             
 
 
@@ -243,16 +242,16 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             scrollView.addSubview(newView)
             newView.tableView.delegate = self
             newView.tableView.dataSource = self
+            newView.tableView.separatorStyle = .none
 
             newView.data = self.dataCollection![selectedIndex]
-            newView.frame = CGRect(x: self.view.frame.width * 2, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            newView.frame = CGRect(x: self.view.frame.width * 2, y: 0, width: self.view.frame.width, height: self.mainScrollView.frame.height)
 
             scrollView.subviews[0].removeFromSuperview()
 
 
         } else if (xPoint > offsetX) {  //이전으로 간 경우
 
-            print("go prev")
             
             if selectedIndex == 0 {
                 selectedIndex = data!.count - 1
@@ -262,17 +261,18 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
             // 이전서브뷰를 현재 서브뷰로 설정
             let currentView = scrollView.subviews[0]
-            currentView.frame = CGRect(x: self.view.frame.width * 1, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            currentView.frame = CGRect(x: self.view.frame.width * 1, y: 0, width: self.view.frame.width, height: self.mainScrollView.frame.height)
 
             // 중간뷰를 다음 뷰로 설정
             let nextView = scrollView.subviews[1]
-            nextView.frame = CGRect(x: self.view.frame.width * 2, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            nextView.frame = CGRect(x: self.view.frame.width * 2, y: 0, width: self.view.frame.width, height: self.mainScrollView.frame.height)
 
             let newView = CustomTableView()
             newView.tableView.delegate = self
             newView.tableView.dataSource = self
+            newView.tableView.separatorStyle = .none
             newView.data = self.dataCollection![selectedIndex]
-            newView.frame = CGRect(x: self.view.frame.width * 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            newView.frame = CGRect(x: self.view.frame.width * 0, y: 0, width: self.view.frame.width, height: self.mainScrollView.frame.height)
             
             scrollView.insertSubview(newView, at: 0)
             scrollView.subviews[2].removeFromSuperview()
@@ -324,19 +324,24 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         for key in 0...2{
             let tableView = CustomTableView()
             let xPosition = self.view.frame.width * CGFloat(key)
-            print("tableView \(key): ", tableView.frame)
 
-            tableView.frame = CGRect(x: xPosition, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            tableView.frame = CGRect(x: xPosition, y: 0, width: self.view.frame.width, height: self.mainScrollView.frame.height)
+            
             
             tableView.tableView.delegate = self
             tableView.tableView.dataSource = self
+            
+            tableView.tableView.separatorStyle = .none
 
             tableView.data = self.dataCollection?[key]
 
             self.mainScrollView.contentSize.width = self.view.frame.width * CGFloat(key+1)
             
             self.mainScrollView.addSubview(tableView)
+            
             self.setScrollBounds()
+            
+            
             
         }
     }

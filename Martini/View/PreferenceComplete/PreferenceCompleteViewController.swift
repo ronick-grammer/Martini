@@ -10,10 +10,15 @@ import UIKit
 class PreferenceCompleteViewController: UIViewController {
 
     @IBOutlet var btn: UIButton!
+    @IBOutlet var imgComplete: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        btn.backgroundColor = COLOR_MARTINI.button_clickable
+        
+        imgComplete.tintColor = COLOR_MARTINI.button_clickable
     }
     
     @IBAction func btnComplete(_ sender: UIButton) {

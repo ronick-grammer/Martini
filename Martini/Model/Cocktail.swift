@@ -126,15 +126,15 @@ extension Cocktail {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self._id = try container.decode(DocumentID<String>.self, forKey: .id)
-        self.abv = try container.decode(Double.self, forKey: .abv)
-        self.base = try container.decode(Alcohol.self, forKey: .base)
-        self.color = try container.decode([Color].self, forKey: .color)
+        self._id         = try container.decode(DocumentID<String>.self, forKey: .id)
+        self.abv         = try container.decode(Double.self, forKey: .abv)
+        self.base        = try container.decode(Alcohol.self, forKey: .base)
+        self.color       = try container.decode([Color].self, forKey: .color)
         self.description = try container.decode(String.self, forKey: .description)
         self.ingredients = try container.decode([Ingredients].self, forKey: .ingredients)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.recipe = try container.decode([String].self, forKey: .recipe)
-        self.imgUrl = try container.decode(String.self, forKey: .imgUrl)
+        self.name        = try container.decode(String.self, forKey: .name)
+        self.recipe      = try container.decode([String].self, forKey: .recipe)
+        self.imgUrl      = try container.decode(String.self, forKey: .imgUrl)
 
         // enum을 키로 가지는 딕셔너리 타입으로 변환하기
         let tasteContainer = try container.nestedContainer(keyedBy: Taste.self, forKey: .taste)

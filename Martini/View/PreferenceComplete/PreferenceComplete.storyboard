@@ -52,7 +52,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7o-DM-nyg">
                                 <rect key="frame" x="0.0" y="776" width="390" height="68"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <state key="normal" title="완료"/>
                                 <connections>
@@ -74,6 +74,7 @@
                     </view>
                     <connections>
                         <outlet property="btn" destination="X7o-DM-nyg" id="xl1-lb-4Wo"/>
+                        <outlet property="imgComplete" destination="m8C-95-b9j" id="kjO-lT-ter"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

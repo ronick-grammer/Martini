@@ -61,8 +61,10 @@ class CocktailManager {
     
     func updateCocktail(cocktail: Cocktail, _ completion: @escaping (_ success: Bool,_ error: Error?) -> Void){
         
+        guard let oid = cocktail.id else { return }
+        
         do {
-            try _ = COLLECTION_COCKTAILS.addDocument(from: cocktail, encoder: Firestore.Encoder()) { error in
+            try COLLECTION_COCKTAILS.document(oid).setData(from: cocktail, encoder: Firestore.Encoder()) { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
                     completion(false, error)

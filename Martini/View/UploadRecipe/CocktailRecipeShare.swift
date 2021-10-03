@@ -41,6 +41,8 @@ extension UploadRecipeViewController {
             guard let url = imageUrl else { return }
             guard let dataStore_cocktail = DATASTORE_COCKTAIL else { return }
             
+            
+            guard let base = dataStore_cocktail.base else { return }
             let newCocktail = Cocktail(
                 name: name,
                 imgUrl: url,
@@ -48,8 +50,8 @@ extension UploadRecipeViewController {
                 description: description,
                 recipe: recipeData,
                 ingredients: dataStore_cocktail.ingredients,
-                base: dataStore_cocktail.base,
-                color: dataStore_cocktail.color,
+                base: base,
+                color: dataStore_cocktail.color.isEmpty ? [Cocktail.Color.none] : dataStore_cocktail.color,
                 taste: dataStore_cocktail.taste
             )
             
@@ -75,6 +77,21 @@ extension UploadRecipeViewController {
         
         if !self.cocktailDescription.hasText {
             alert("칵테일 소개를 입력하세요.")
+            return false
+        }
+        
+        if DATASTORE_COCKTAIL?.selectedBase == false {
+            alert("베이스를 선택해주세요.")
+            return false
+        }
+        
+        if DATASTORE_COCKTAIL?.selectedTaste == false {
+            alert("맛을 선택해주세요.")
+            return false
+        }
+        
+        if DATASTORE_COCKTAIL?.selectedIngredient == false {
+            alert("재료를 선택해주세요.")
             return false
         }
         
