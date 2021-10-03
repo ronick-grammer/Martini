@@ -71,7 +71,7 @@ class WebImageView: UIImageView {
         URLSession.shared.dataTask(with: url) { data, response, error in
             
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "")
                 completeHandler(nil)
             }
             
@@ -87,7 +87,7 @@ class WebImageView: UIImageView {
                 return
             }
             
-            self.imageCache.setObject(image, forKey: url.lastPathComponent as! NSString)
+            self.imageCache.setObject(image, forKey: url.lastPathComponent as NSString)
             
             if !self.fileManager.fileExists(atPath: filePath.path){
                 self.fileManager.createFile(atPath: filePath.path, contents: image.jpegData(compressionQuality: 0.4), attributes: nil)
