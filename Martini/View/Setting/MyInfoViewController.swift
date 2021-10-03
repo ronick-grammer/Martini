@@ -43,7 +43,7 @@ class MyInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func submit(_ sender: Any) {
+    @IBAction func submit(_ sender: UIButton) {
         guard let nickname = nickNameField.text else {
             alert("닉네임을 입력해 주세요.")
             return
@@ -68,7 +68,7 @@ class MyInfoViewController: UIViewController {
         
         AuthManager.shared.updateUser(updatedUser: newUser, password: password) { result, error in
             if error != nil {
-                if let error = error as? NSError {
+                if let error = error as NSError? {
                     
                     switch AuthErrorCode.init(rawValue: error.code) {
                     
