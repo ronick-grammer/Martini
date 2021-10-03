@@ -11,9 +11,13 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
 
-    var flavors:[String: Cocktail.Taste] = [:]
-    var baseButtons:[String: Cocktail.Alcohol] = [:]
-    let colors:[Cocktail.Color:UIColor] = [.red:.systemRed, .green:.systemGreen, .blue:.systemBlue, .teal:.systemTeal, .pink:.systemPink, .orange:.systemOrange]
+    var flavors:[String: Cocktail.Taste] = [
+        "달달한": .sweety, "부드러운":.creamy, "향이 강한":.spicy, "술맛이 진한":.bitter, "짭짤한":.salty
+    ]
+    var baseButtons:[String: Cocktail.Alcohol] = [
+        "럼":.rum, "진":.gin, "브랜디":.brandy, "샴페인":.champagne, "데낄라":.tequila, "보드카":.vodka, "위스키":.whisky, "와인":.wine, "맥주":.beer, "소주":.soju
+    ]
+    let colors:[Cocktail.Color:UIColor] = [.red:.systemRed, .green:.systemGreen, .blue:.systemBlue, .teal:.systemTeal, .pink:.systemPink, .orange:.systemOrange, .yellow:.systemYellow, .purple: .systemPurple]
     let ingredients = ["Rum", "Vodka", "Gin", "Orange"]
     
 //    var data:Cocktail?
@@ -71,15 +75,31 @@ class FindViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "findViewCell", for: indexPath) as! FindViewCell
+//
+//        baseButtons.forEach { (name, value) in
+//            cell.bases.addButton(name: name)
+//        }
         
-        baseButtons.forEach { base in
-            cell.bases.addButton(name: base.key)
+        for (name, value) in baseButtons {
+            if(name != value.rawValue){
+                cell.bases.addButton(name: name)
+            }
+            
         }
+        
         cell.bases.delegate = self
         
-        flavors.forEach { flavor in
-            cell.flavor.addButton(name: flavor.key)
+        for (name, value) in flavors {
+            if(name != value.rawValue){
+                cell.flavor.addButton(name: name)
+            }
+            
         }
+        
+        
+//        flavors.forEach { (name, value) in
+//            cell.flavor.addButton(name: name)
+//        }
         cell.flavor.delegate = self
         
         cell.alcoholFind.addTarget(self, action: #selector(alcholFindHandler), for: .touchUpInside)
