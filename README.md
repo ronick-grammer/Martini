@@ -2,7 +2,8 @@
 
 ## 기술 스택
 
-![iOS](https://img.shields.io/badge/-000000?style=flat&logo=ios)  ![UIkit](https://img.shields.io/badge/UIkit-000000?style=flat&logo=UIkit) ![Swift](https://img.shields.io/badge/Swift-000000?style=flat&logo=Swift)   ![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
+![iOS](https://img.shields.io/badge/-000000?style=flat&logo=ios)  ![UIkit](https://img.shields.io/badge/UIkit-000000?style=flat&logo=UIkit) ![Swift]
+(https://img.shields.io/badge/Swift-000000?style=flat&logo=Swift)   ![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
 
 ---
 
