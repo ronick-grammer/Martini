@@ -59,7 +59,7 @@ class ColorSelectionCollectionViewCell: UICollectionViewCell {
     @objc func didClick(){
         
         self.clicked = !self.clicked
-        print(self.clicked)
+        
         if self.clicked {
             colorButton.button.setImage(UIImage(systemName: "checkmark", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .bold)), for: .normal)
             
