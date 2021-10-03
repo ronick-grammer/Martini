@@ -61,6 +61,9 @@ extension UploadRecipeViewController {
                     return
                 }
                 
+                // 칵테일 등록 후 칵테일 패치
+                CocktailManager.shared.fetchAllCocktail { }
+                
                 // 메인화면으로 전환
                 self.tabBarController?.selectedIndex = 0
             }
