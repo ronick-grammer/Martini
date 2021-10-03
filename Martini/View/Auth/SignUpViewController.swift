@@ -171,7 +171,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     
     @objc func LoginButtonHandler(_ sender: UIButton) {
         if sender == signupButton {
-            print(1)
             if flag == true {
                 let user = User(nickName: nickNameTextField.text!, email: emailTextField.text!, phone: phoneNumberTextField.text!)
                 AuthManager.shared.registerUser(user: user, password: passwordTextField.text!) { success, error in
@@ -190,7 +189,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
                     let basepreferenceVC = UIStoryboard(name: "BasePreferenceView", bundle: nil).instantiateViewController(withIdentifier: "basePreference")
                     let navController = UINavigationController.init(rootViewController: basepreferenceVC)
                     navController.setNavigationBarHidden(true,
-                                       animated: true)
+                                                         animated: true)
                     navController.modalPresentationStyle = .fullScreen
                     navController.modalTransitionStyle = .crossDissolve
                     self.present(navController, animated: true, completion: nil)
@@ -235,16 +234,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
             }
         }
     }
-   
+    
     
     func CheckForSignup() {
         guard let emailTextFieldCheck = emailTextField.text?.validateEmail() else { return }
         guard let passwordTextFieldCheck = passwordTextField.text?.validatePassword() else { return }
         if emailTextFieldCheck && passwordTextFieldCheck && nickNameTextField.text?.count ?? 0 >= 1 && phoneNumberTextField.text?.count ?? 0 == 11 && passwordTextField.text == passwordCheckTextField.text {
-            signupButton.setColor(color: #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1))
+            signupButton.setColor(color: COLOR_MARTINI.button_clickable)
             flag = true
         } else {
-            signupButton.setColor(color: #colorLiteral(red: 0.7194328904, green: 0.8873121142, blue: 0.5935972929, alpha: 1))
+            signupButton.setColor(color: COLOR_MARTINI.button_normal)
             flag = false
         }
     }
@@ -252,14 +251,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     func textFieldDidChangeSelection(_ textField: UITextField) {
         CheckForSignup()
         
-//        if textField == passwordTextField || textField == passwordCheckTextField {
-//            textField.isSecureTextEntry = true
-//        }
+        //        if textField == passwordTextField || textField == passwordCheckTextField {
+        //            textField.isSecureTextEntry = true
+        //        }
     }
     
     // 리턴을 눌렀을 때 작동하는 메서드
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //    emailTextField.resignFirstResponder()
         switch textField {
         case nickNameTextField:
             phoneNumberTextField.becomeFirstResponder()
@@ -301,8 +299,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     // NS_을 사용할 때는 objc
     @objc func keyboardWillShow(_ notification: NSNotification) {
         let userInfo = notification.userInfo
-        // 형태가 궁금하다면... 주석 해제
-        // print(userInfo)
         let duration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
         // duration 애니메이션이 지속되는 초단위
         // userInfo가 있다면 keyboardAnimationDurationUserInfoKey를 이용해서 값을 가져온다. 0
@@ -317,20 +313,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         
         UIView.animate(withDuration: duration, delay: 0, options: [UIView.AnimationOptions(rawValue: curve)], animations: { [self] in
             // 키보드의 애니메이션의 값을 가져와서 화면이 움직이는 속도를 동기화해준다.
-            //      bottomConstraint.constant = keyboardHeight - self.view.safeAreaInsets.bottom
             if nickNameTextField.isEditing == true || phoneNumberTextField.isEditing == true {
                 self.containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight + containerView.bounds.maxY - emailTextField.frame.maxY)
-                print(keyboardHeight, containerView.bounds.maxY, emailTextField.frame.maxY)
             } else if emailTextField.isEditing == true || passwordTextField.isEditing == true || passwordCheckTextField.isEditing == true {
                 self.containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight + containerView.bounds.maxY - signupButton.frame.maxY)
-                print(keyboardHeight, containerView.bounds.maxY, emailTextField.frame.maxY)
-
             }
         })
         self.view.layoutIfNeeded()
-        //     애니메이션이 필요하다면
-//            self.view.setNeedsLayout()
-        // 성능이 중요하다면
     }
     
     // 키보드가 사라졌다는 알림을 받으면 실행할 메서드
@@ -342,37 +331,24 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         let curve = userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber
         
         UIView.animate(withDuration: duration.doubleValue, delay: 0, options: [UIView.AnimationOptions(rawValue: UInt(curve.intValue))], animations: {
-            //      self.bottomConstraint.constant = self.view.safeAreaInsets.bottom
             self.containerView.transform = .identity
-            //      self.scrollView.frame.origin.y = self.view.bounds.origin.y
         })
         self.containerView.layoutIfNeeded()
-        //    self.view.setNeedsLayout()
     }
     
     func shakeTextField(textField: CustomInputTextField) -> Void{
         UIView.animate(withDuration: 0.2, animations: {
             textField.frame.origin.x -= 10
-            textField.backgroundColor = #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1)
+            textField.backgroundColor = COLOR_MARTINI.pink
         }, completion: { _ in
             UIView.animate(withDuration: 0.2, animations: {
                 textField.frame.origin.x += 20
-             }, completion: { _ in
-                 UIView.animate(withDuration: 0.2, animations: {
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.2, animations: {
                     textField.frame.origin.x -= 10
-                    textField.backgroundColor = .systemGray5
+                    textField.backgroundColor = COLOR_MARTINI.textBox
                 })
             })
         })
-    }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    }    
 }

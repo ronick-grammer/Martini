@@ -165,10 +165,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         guard let emailTextFieldCheck = emailTextField.text?.validateEmail() else { return }
         guard let passwordTextFieldCheck = passwordTextField.text?.validatePassword() else { return }
         if emailTextFieldCheck && passwordTextFieldCheck {
-            loginButton.setColor(color: #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1))
+            loginButton.setColor(color: COLOR_MARTINI.button_clickable)
             flag = true
         } else {
-            loginButton.setColor(color: #colorLiteral(red: 0.7194328904, green: 0.8873121142, blue: 0.5935972929, alpha: 1))
+            loginButton.setColor(color: COLOR_MARTINI.button_normal)
             flag = false
         }
     }
@@ -222,7 +222,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @objc func keyboardWillShow(_ notification: NSNotification) {
         let userInfo = notification.userInfo
         // 형태가 궁금하다면... 주석 해제
-        // print(userInfo)
         let duration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! Double
         // duration 애니메이션이 지속되는 초단위
         // userInfo가 있다면 keyboardAnimationDurationUserInfoKey를 이용해서 값을 가져온다. 0
@@ -233,14 +232,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let keyboardHeight = keyboardFrame.size.height
         UIView.animate(withDuration: duration, delay: 0, options: [UIView.AnimationOptions(rawValue: curve)], animations: { [self] in
             // 키보드의 애니메이션의 값을 가져와서 화면이 움직이는 속도를 동기화해준다.
-            //      bottomConstraint.constant = keyboardHeight - self.view.safeAreaInsets.bottom
             self.containerView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight + containerView.bounds.maxY - signupButton.frame.maxY)
         }
         )
         self.view.layoutIfNeeded()
-        //     애니메이션이 필요하다면
-        //    self.view.setNeedsLayout()
-        // 성능이 중요하다면
     }
     
     // 키보드가 사라졌다는 알림을 받으면 실행할 메서드
@@ -251,9 +246,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let duration = userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as! NSNumber
         let curve = userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber
         UIView.animate(withDuration: duration.doubleValue, delay: 0, options: [UIView.AnimationOptions(rawValue: UInt(curve.intValue))], animations: {
-            //      self.bottomConstraint.constant = self.view.safeAreaInsets.bottom
             self.containerView.transform = .identity
-            //      self.scrollView.frame.origin.y = self.view.bounds.origin.y
         })
         self.containerView.layoutIfNeeded()
         //    self.view.setNeedsLayout()
@@ -262,24 +255,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func shakeTextField(textField: CustomInputTextField) -> Void{
         UIView.animate(withDuration: 0.2, animations: {
             textField.frame.origin.x -= 10
-            textField.backgroundColor = #colorLiteral(red: 0.9405087233, green: 0.6196145415, blue: 0.6243818998, alpha: 1)
+            textField.backgroundColor = COLOR_MARTINI.button_clickable
         }, completion: { _ in
             UIView.animate(withDuration: 0.2, animations: {
                 textField.frame.origin.x += 20
-             }, completion: { _ in
-                 UIView.animate(withDuration: 0.2, animations: {
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.2, animations: {
                     textField.frame.origin.x -= 10
-                    textField.backgroundColor = .systemGray5
+                    textField.backgroundColor = COLOR_MARTINI.textBox
                 })
             })
         })
     }
-    /*
-     // MARK: - Navigation
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
 }

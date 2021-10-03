@@ -263,12 +263,17 @@ class CocktailManager {
                 return
             }
             
-            let documents = snapshot?.documents
+            guard let documents = snapshot?.documents else { return }
             
             var count = 0
             self.likedCocktails.removeAll()
             
-            documents?.forEach({ snapshot in
+            if documents.isEmpty { // 좋아요한 칵테일이 하나도 없으면 바로 completion 
+                completion(nil)
+                return
+            }
+            
+            documents.forEach({ snapshot in
                 let oid = snapshot.documentID
                 
                 COLLECTION_COCKTAILS.document(oid).getDocument { snapshot, error in
@@ -286,7 +291,7 @@ class CocktailManager {
                         
                         count += 1
     
-                        if count == documents?.count { // 다 찾았으면 완료
+                        if count == documents.count { // 다 찾았으면 완료
                             completion(nil)
                         }
                         

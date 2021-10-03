@@ -51,10 +51,18 @@ extension AppSettingViewController: UITableViewDelegate {
                     guard result else { return }
                     self.navigationController?.popViewController(animated: true)
                     self.tabBarController?.selectedIndex = 0
+                    
+                    let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
+                    vc.modalPresentationStyle = .fullScreen
+                    self.tabBarController?.present(vc, animated: true, completion: nil)
                 }
             } else {
                 self.navigationController?.popViewController(animated: true)
                 self.tabBarController?.selectedIndex = 0
+                
+                let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
+                vc.modalPresentationStyle = .fullScreen
+                self.tabBarController?.present(vc, animated: true, completion: nil)
             }
             
         default:

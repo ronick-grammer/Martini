@@ -12,6 +12,7 @@ class ViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
 //        AuthManager.shared.login(email: "ronick@naver.com", password: "123456") { result, error in
 //        }
@@ -42,6 +43,8 @@ class ViewController: UITabBarController {
             self.present(vc, animated: true, completion: nil)
         }
     }
+    
+    
 }
 
 
