@@ -44,3 +44,8 @@ gif 시뮬레이션
 - 최예주
 - 이상현
 
+## If you want more information about us
+[트렐로 링크]: https://trello.com/b/qcapcQKI
+[피그마 링크]: https://www.figma.com/file/Re7BHjB9KWIdsmY3EFdwzt/Project-Martini?node-id=0%3A1
+
+
