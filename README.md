@@ -47,6 +47,6 @@ gif 시뮬레이션
 ## If you want more information about us
 
 [트렐로 링크](https://trello.com/b/qcapcQKI "트렐로")
-[피그마 링크]https://www.figma.com/file/Re7BHjB9KWIdsmY3EFdwzt/Project-Martini?node-id=0%3A1
+[피그마 링크](https://www.figma.com/file/Re7BHjB9KWIdsmY3EFdwzt/Project-Martini?node-id=0%3A1)
 
 
