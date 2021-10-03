@@ -37,6 +37,10 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
             
             self.dataCollection = CocktailManager.shared.orderByTastePreference()
             
+            // 가져온 데이터가 0개일때 칵테일 리스트 전체를 넣어줌
+            if self.dataCollection?.count == 0{
+                self.dataCollection = CocktailManager.shared.cocktails
+            }
             
             
             DispatchQueue.main.async {
@@ -49,7 +53,7 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         // 다른 뷰에서 좋아요 버튼 눌러졌을때 상태 동기화를 위해
         mainScrollView.subviews.forEach { tableView in
             (tableView as! CustomTableView).tableView.reloadData()
@@ -125,7 +129,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
 
-        cell.imgView.backgroundColor = UIColor(red: (232/255.0), green: (24/255.0), blue: (24/255.0), alpha: 0.5)
+        cell.imgView.backgroundColor = .clear
         cell.imgView.layer.cornerRadius = 90
         
         cell.nameLabel.text = target.name
