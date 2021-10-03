@@ -17,7 +17,7 @@ class ViewController: UITabBarController {
 //        AuthManager.shared.login(email: "ronick@naver.com", password: "123456") { result, error in
 //        }
         
-//        AuthController.shared.logout()
+        
         
         self.view.tintColor = .systemRed
         let viewControllers:[UIViewController] = [
