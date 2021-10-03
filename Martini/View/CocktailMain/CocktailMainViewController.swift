@@ -94,8 +94,7 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
     // scrollbound 중앙으로 설정
     func setScrollBounds(){
 //        mainScrollView.contentSize.width = self.view.frame.width * CGFloat(375*4)
-        mainScrollView.setContentOffset(CGPoint(x: 375, y: 0), animated: false)
-
+        mainScrollView.setContentOffset(CGPoint(x: view.frame.maxX, y: 0), animated: false)
     }
     
     
