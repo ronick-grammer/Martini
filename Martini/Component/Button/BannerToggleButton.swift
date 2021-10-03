@@ -9,7 +9,7 @@ import UIKit
 
 protocol BannerToggleButtonDelegate {
     func didTouchBannerToggleButton(didClicked: Bool)
-
+    
 }
 
 class BannerToggleButton: UIView {
@@ -28,13 +28,13 @@ class BannerToggleButton: UIView {
         label.textAlignment = .center
         label.clipsToBounds = true
         label.layer.cornerRadius = 10
-        label.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
+        label.backgroundColor = COLOR_MARTINI.button_normal
         return label
     }()
     
     let banner: UIView = {
         let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.7641277313, green: 0.7674344182, blue: 0.7642211318, alpha: 1)
+        view.backgroundColor = COLOR_MARTINI.button_normal
         view.layer.cornerRadius = 10
         return view
     }()
@@ -57,19 +57,19 @@ class BannerToggleButton: UIView {
     
     var isClicked: Bool = false
     var delegate: BannerToggleButtonDelegate?
-
+    
     @objc func BannerToggleButtonHandler(_ sender: UIButton) {
         isClicked.toggle()
         delegate?.didTouchBannerToggleButton(didClicked: isClicked)
         if isClicked {
             // 붉은색
-            banner.backgroundColor = #colorLiteral(red: 0.9400233626, green: 0.6212706566, blue: 0.6243276, alpha: 1)
-            buttonTitleLabel.backgroundColor = #colorLiteral(red: 0.9400233626, green: 0.6212706566, blue: 0.6243276, alpha: 1)
-
+            banner.backgroundColor = COLOR_MARTINI.button_clickable
+            buttonTitleLabel.backgroundColor = COLOR_MARTINI.button_clickable
+            
         } else {
             // 회색(기본)
-            banner.backgroundColor = #colorLiteral(red: 0.8110396266, green: 0.8110588193, blue: 0.8110484481, alpha: 1)
-            buttonTitleLabel.backgroundColor = #colorLiteral(red: 0.7637431026, green: 0.7688452601, blue: 0.7643030286, alpha: 1)
+            banner.backgroundColor = COLOR_MARTINI.button_normal
+            buttonTitleLabel.backgroundColor = COLOR_MARTINI.button_normal
         }
     }
     
