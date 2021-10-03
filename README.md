@@ -30,8 +30,7 @@ gif 시뮬레이션
 - 이상현
 
 ---
-![단체사진](https://user-images.githubusercontent.com/80687913/135737067-38d682c7-4454-42f9-b703-14337cbdd313.jpeg){: width="50%" height="50%"}
-
+<img src="https://user-images.githubusercontent.com/80687913/135737067-38d682c7-4454-42f9-b703-14337cbdd313.jpeg" alt="단체사진" style="zoom:50%;" />
 ## 회고
 
 - 김영현
