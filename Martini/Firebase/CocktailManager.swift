@@ -148,7 +148,7 @@ class CocktailManager {
     func orderByTastePreference() -> [Cocktail] {
         
         guard let userTastePreference = AuthManager.shared.currentUser?.tastePreference else {
-            return [Cocktail]()
+            return self.cocktails // 로그아웃 상태면 칵테일 전부를 반환
         }
         
         return self.cocktails.sorted { cocktail_A, cocktail_B in
@@ -171,7 +171,7 @@ class CocktailManager {
     func orderByIngredientPreference() -> [Cocktail] {
         
         guard let userIngredientPreference = AuthManager.shared.currentUser?.ingredientPreference else  {
-            return [Cocktail] ()
+            return self.cocktails // 로그아웃 상태면 칵테일 전부를 반환
         }
         
         return self.cocktails.sorted { cocktail_A, cocktail_B in
