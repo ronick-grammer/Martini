@@ -37,12 +37,6 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
             
             self.dataCollection = CocktailManager.shared.orderByTastePreference()
             
-            // 가져온 데이터가 0개일때 칵테일 리스트 전체를 넣어줌
-            if self.dataCollection?.count == 0{
-                self.dataCollection = CocktailManager.shared.cocktails
-            }
-            
-            
             DispatchQueue.main.async {
                 self.configureInitTable()
             }
