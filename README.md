@@ -1,8 +1,7 @@
 # Project Martini
 
-## 기술 스택
+![iOS](https://img.shields.io/badge/-000000?style=flat&logo=ios)  ![UIkit](https://img.shields.io/badge/UIkit-000000?style=flat&logo=UIkit) ![Swift](https://img.shields.io/badge/Swift-000000?style=flat&logo=Swift)   ![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)    ![Xcode](https://img.shields.io/badge/-Xcode-000000?style=flat-square&logo=Xcode) ![Trello](https://img.shields.io/badge/-Trello-000000?style=flat&logo=Trello) ![Figma](https://img.shields.io/badge/-Figma-000000?style=flat&logo=Figma)
 
-![iOS](https://img.shields.io/badge/-000000?style=flat&logo=ios)  ![UIkit](https://img.shields.io/badge/UIkit-000000?style=flat&logo=UIkit) ![Swift](https://img.shields.io/badge/Swift-000000?style=flat&logo=Swift)   ![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)    ![Xcode](https://img.shields.io/badge/-Xcode-000000?style=flat-square&logo=Xcode)
 
 ---
 
