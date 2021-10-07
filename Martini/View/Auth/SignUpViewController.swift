@@ -10,23 +10,11 @@ import Firebase
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDelegate {
     var flag: Bool = false
-    let imageStackView: UIStackView = {
-        let view = UIStackView()
-        view.axis = .horizontal
-        view.spacing = 30
-        view.alignment = .center
-        view.distribution = .equalCentering
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    let textMartiniImageView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "TextMarTiNi"))
-        return view
-    }()
     
     let martiniImageView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "martini"))
+        let view = UIImageView(image: UIImage(named: "titleLogo_Martini"))
+        view.contentMode = .scaleAspectFit
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -94,15 +82,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(containerView)
-        containerView.addSubview(imageStackView)
+        containerView.addSubview(martiniImageView)
         containerView.addSubview(nickNameTextField)
         containerView.addSubview(phoneNumberTextField)
         containerView.addSubview(emailTextField)
         containerView.addSubview(passwordTextField)
         containerView.addSubview(passwordCheckTextField)
         containerView.addSubview(signupButton)
-        imageStackView.addArrangedSubview(textMartiniImageView)
-        imageStackView.addArrangedSubview(martiniImageView)
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -110,12 +96,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
             containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             
-            imageStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 40),
-            containerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            imageStackView.widthAnchor.constraint(equalTo: containerView.widthAnchor),
-            imageStackView.heightAnchor.constraint(equalToConstant: 80),
+            martiniImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 40),
+            martiniImageView.widthAnchor.constraint(equalTo: containerView.widthAnchor),
+            martiniImageView.heightAnchor.constraint(equalToConstant: 80),
             
-            nickNameTextField.topAnchor.constraint(equalTo: imageStackView.bottomAnchor, constant: 40),
+            nickNameTextField.topAnchor.constraint(equalTo: martiniImageView.bottomAnchor, constant: 40),
             nickNameTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             nickNameTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             nickNameTextField.heightAnchor.constraint(equalToConstant: 40),
