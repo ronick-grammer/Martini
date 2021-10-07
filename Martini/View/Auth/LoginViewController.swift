@@ -10,23 +10,11 @@ import Firebase
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     var flag: Bool = false
-    let imageStackView: UIStackView = {
-        let view = UIStackView()
-        view.axis = .horizontal
-        view.spacing = 30
-        view.alignment = .center
-        view.distribution = .equalCentering
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    let textMartiniImageView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "TextMarTiNi"))
-        return view
-    }()
     
     let martiniImageView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "martini"))
+        let view = UIImageView(image: UIImage(named: "titleLogo_Martini"))
+        view.contentMode = .scaleAspectFit
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -65,6 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let signupButton: LoginButton = {
         let button = LoginButton()
         button.informTextInfo(text: "회원가입", fontSize: 30)
+        button.setColor(color: COLOR_MARTINI.button_clickable)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -77,23 +66,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(containerView)
-        containerView.addSubview(imageStackView)
+        containerView.addSubview(martiniImageView)
         containerView.addSubview(emailTextField)
         containerView.addSubview(passwordTextField)
         containerView.addSubview(loginButton)
         containerView.addSubview(signupButton)
-        imageStackView.addArrangedSubview(textMartiniImageView)
-        imageStackView.addArrangedSubview(martiniImageView)
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             containerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             containerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            imageStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 40),
-            imageStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            imageStackView.widthAnchor.constraint(equalTo: containerView.widthAnchor),
-            imageStackView.heightAnchor.constraint(equalToConstant: 80),
-            emailTextField.topAnchor.constraint(equalTo: imageStackView.bottomAnchor, constant: 40),
+            
+            martiniImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 40),
+            martiniImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            martiniImageView.widthAnchor.constraint(equalTo: containerView.widthAnchor),
+            martiniImageView.heightAnchor.constraint(equalToConstant: 80),
+
+            emailTextField.topAnchor.constraint(equalTo: martiniImageView.bottomAnchor, constant: 40),
             emailTextField.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             emailTextField.heightAnchor.constraint(equalToConstant: 40),
