@@ -167,7 +167,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
                         default:
                             self.alert("관리자에게 문의하세요.")
                         }
+                        
+                        return
                     }
+                    
+                    AuthManager.shared.triggerlogIn = true
+                    
                     guard let currentUser = AuthManager.shared.currentUser else { return }
                     DATASTORE.initializeUserPreference(user: currentUser)
                     

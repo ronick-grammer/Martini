@@ -130,7 +130,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         default:
                             self.alert("관리자에게 문의하세요.")
                         }
+                        
+                        return
                     }
+                    
+                    AuthManager.shared.triggerlogIn = true
                     self.dismiss(animated: true, completion: nil)
                 }
             } else {

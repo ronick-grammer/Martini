@@ -50,6 +50,7 @@
                     </view>
                     <connections>
                         <outlet property="mainScrollView" destination="jYg-pH-Jz2" id="U4s-7m-Vtd"/>
+                        <outlet property="segControll" destination="Rsu-WR-iYz" id="Y5p-QV-6Yq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -11,7 +11,8 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
     
     @IBOutlet var mainScrollView: UIScrollView!
 
-   
+    @IBOutlet var segControll: UISegmentedControl!
+    
     var data:Cocktail?
     var dataCollection:[Cocktail]?
     
@@ -32,7 +33,6 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
         
         mainScrollView.delegate = self
         
-        
         CocktailManager.shared.fetchAllCocktail {
             
             self.dataCollection = CocktailManager.shared.orderByTastePreference()
@@ -41,14 +41,29 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
                 self.configureInitTable()
             }
         }
-    
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        // 최초 로그인시 맛 선호 기준으로 칵테일 정렬해서 가져오기
+        if AuthManager.shared.triggerlogIn {
+            self.dataCollection = CocktailManager.shared.orderByTastePreference()
+            self.segControll.selectedSegmentIndex = 0
+            
+            DispatchQueue.main.async {
+                for view in self.mainScrollView.subviews {
+
+                    view.removeFromSuperview()
+
+                }
+                self.configureInitTable()
+            }
+            
+            AuthManager.shared.triggerlogIn = false
+        }
         
-        // 다른 뷰에서 좋아요 버튼 눌러졌을때 상태 동기화를 위해
+        // 다른 뷰에서 좋아요 버튼 눌러졌을때 등 상태 동기화를 위해
         mainScrollView.subviews.forEach { tableView in
             (tableView as! CustomTableView).tableView.reloadData()
         }
@@ -60,8 +75,8 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
             
             
             self.dataCollection = CocktailManager.shared.orderByTastePreference()
-        
-           
+            
+            selectedIndex = 1 // 다시 처음부터
             DispatchQueue.main.async {
                 for view in self.mainScrollView.subviews {
                     
@@ -76,8 +91,8 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
         else{
             
             self.dataCollection = CocktailManager.shared.orderByIngredientPreference()
-           
-          
+            
+            selectedIndex = 1 // 다시 처음부터
             DispatchQueue.main.async {
                 for view in self.mainScrollView.subviews {
                     
@@ -275,7 +290,6 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             scrollView.subviews[2].removeFromSuperview()
             
         }
-        
     }
     
 
