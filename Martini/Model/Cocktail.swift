@@ -5,7 +5,7 @@
 //  Created by Jingyu Lim on 2021/08/12.
 //
 
-import UIKit
+import Foundation
 import FirebaseFirestoreSwift
 
 struct Cocktail: Identifiable, Codable {
