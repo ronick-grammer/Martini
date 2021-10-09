@@ -10,6 +10,7 @@ import Firebase
 class AuthManager {
     var userSession: FirebaseAuth.User?
     var currentUser: User?
+    var triggerlogIn = false
     
     static var shared = AuthManager()
     
