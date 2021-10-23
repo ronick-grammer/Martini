@@ -47,14 +47,14 @@ extension AppSettingViewController: UITableViewDelegate {
             }
         case 2:
             if(AuthManager.shared.userSession != nil){
-                AuthManager.shared.logout { result, error in
+                AuthManager.shared.logout { [weak self] result, error in
                     guard result else { return }
-                    self.navigationController?.popViewController(animated: true)
-                    self.tabBarController?.selectedIndex = 0
+                    self?.navigationController?.popViewController(animated: true)
+                    self?.tabBarController?.selectedIndex = 0
                     
                     let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginVC")
                     vc.modalPresentationStyle = .fullScreen
-                    self.tabBarController?.present(vc, animated: true, completion: nil)
+                    self?.tabBarController?.present(vc, animated: true, completion: nil)
                 }
             } else {
                 self.navigationController?.popViewController(animated: true)

@@ -23,7 +23,7 @@ class AuthManager {
     func registerUser(user: User, password: String, _ completion: @escaping((_ success:Bool, _ error: Error?) -> Void)) {
         
         // 계정 생성(등록)
-        Auth.auth().createUser(withEmail: user.email, password: password) { result, error in
+        Auth.auth().createUser(withEmail: user.email, password: password) { [weak self] result, error in
             
             if error != nil {
                 completion(false, error)
@@ -34,7 +34,7 @@ class AuthManager {
                 return
             }
             
-            self.registerUserData(user: user, userSession: userSession, completion)
+            self?.registerUserData(user: user, userSession: userSession, completion)
         }
     }
     
@@ -46,7 +46,7 @@ class AuthManager {
         let credential = EmailAuthProvider.credential(withEmail: currentEmail, password: password ?? "")
         
         // 입력한 비밀번호가 맞는지 재인증하기
-        self.userSession?.reauthenticate(with: credential) { result, error in
+        self.userSession?.reauthenticate(with: credential) { [weak self] result, error in
             
             if let error = error {
                 print("Error: Failed to reauthenticate user.. \(error.localizedDescription)")
@@ -56,17 +56,17 @@ class AuthManager {
         
             if updatedUser.email != currentEmail {
                 // 이메일 변경
-                self.userSession?.updateEmail(to: updatedUser.email) { error in
+                self?.userSession?.updateEmail(to: updatedUser.email) { error in
                     if let error = error {
                         print("Error: failed to update Email.. \(error.localizedDescription)")
                         completion(false, error)
                         return
                     }
                     
-                    self.updateUserData(updatedUser: updatedUser, completion)
+                    self?.updateUserData(updatedUser: updatedUser, completion)
                 }
             } else {
-                self.updateUserData(updatedUser: updatedUser, completion)
+                self?.updateUserData(updatedUser: updatedUser, completion)
             }
             
         }
@@ -78,7 +78,7 @@ class AuthManager {
         guard let uid = userSession?.uid else { return }
 
         // 유저 데이터 삭제
-        COLLECTION_USERS.document(uid).delete { error in
+        COLLECTION_USERS.document(uid).delete { [weak self] error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 completion(false, error)
@@ -86,10 +86,10 @@ class AuthManager {
             }
 
             // 유저 계정 삭제
-            self.userSession?.delete { error in
+            self?.userSession?.delete { error in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
-                    guard let currentUser = self.currentUser else { return }
+                    guard let currentUser = self?.currentUser else { return }
 
                     do { // 계정 삭제 실패하면 데이터도 다시 복구하기
                         try COLLECTION_USERS.document(uid)
@@ -111,8 +111,8 @@ class AuthManager {
 
                 print("Successfully deleted user..!")
 
-                self.currentUser = nil
-                self.userSession = nil
+                self?.currentUser = nil
+                self?.userSession = nil
                 completion(true, nil)
             }
         }
@@ -122,7 +122,7 @@ class AuthManager {
     func login(email: String, password: String, _ completion: @escaping((_ success:Bool, _ error: Error?) -> Void)) {
         
         // 로그인 하기
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
                 completion(false, error)
@@ -134,7 +134,7 @@ class AuthManager {
                 return
             }
             
-            self.fetchLoginUserData(userSession: userSession, completion)
+            self?.fetchLoginUserData(userSession: userSession, completion)
         }
     }
     
@@ -167,7 +167,7 @@ class AuthManager {
         
         do { // 유저 데이터 생성
             setupUser.joinDate = Timestamp.init(date: Date())
-            try COLLECTION_USERS.document(uid).setData(from: setupUser, encoder: Firestore.Encoder()) { error in
+            try COLLECTION_USERS.document(uid).setData(from: setupUser, encoder: Firestore.Encoder()) { [weak self] error in
                 if let error = error{ // 실패시 위에서 등록했던 유저 계정 삭제
                     print("DEBUG: \(error.localizedDescription)")
                     
@@ -191,12 +191,12 @@ class AuthManager {
                         return
                     }
                     
-                    self.userSession = userSession // 현재 유저 세션 등록
-                    self.currentUser = user
+                    self?.userSession = userSession // 현재 유저 세션 등록
+                    self?.currentUser = user
                     
                     completion(true, nil)
                     print("Successfully registered user..!")
-                    print("currentUser: \(self.currentUser!)")
+                    print("currentUser: \(self?.currentUser!)")
                 }
             }
         } catch {
@@ -212,7 +212,7 @@ class AuthManager {
         let uid = userSession.uid
         
         // 로그인 유저 데이터 가져오기
-        COLLECTION_USERS.document(uid).getDocument { snapshot, error in
+        COLLECTION_USERS.document(uid).getDocument { [weak self] snapshot, error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
                 completion(false, error)
@@ -222,8 +222,8 @@ class AuthManager {
             do {
                 guard let user = try snapshot?.data(as: User.self) else { return}
                 
-                self.userSession = userSession //현재 유저 세션 등록
-                self.currentUser = user
+                self?.userSession = userSession //현재 유저 세션 등록
+                self?.currentUser = user
                 
                 completion(true, nil)
                 print("Successfully signed in")
@@ -244,13 +244,13 @@ class AuthManager {
         guard let user = self.currentUser else { return }
         
         do { // 유저 데이터 갱신
-            try COLLECTION_USERS.document(uid).setData(from: updatedUser, encoder: Firestore.Encoder()) { error in
+            try COLLECTION_USERS.document(uid).setData(from: updatedUser, encoder: Firestore.Encoder()) { [weak self] error in
                 if let error = error {
                     print("Error: failed to set user data.. \(error.localizedDescription)")
                 
                     if updatedUser.email != user.email {
                         // 데이터를 업데이트하는데 실패하면 앞서 변경했던 이메일 계정도 다시 되돌림
-                        self.userSession?.updateEmail(to: user.email){ error in
+                        self?.userSession?.updateEmail(to: user.email){ error in
                             completion(false, error)
                             return
                         }
@@ -260,7 +260,7 @@ class AuthManager {
                     return
                 }
                 
-                self.currentUser = updatedUser
+                self?.currentUser = updatedUser
                 completion(true, nil)
             }
         } catch { // 데이터를 업데이트하는데 실패하면 앞서 변경했던 이메일 계정도 다시 되돌림
@@ -278,10 +278,10 @@ class AuthManager {
     
     func fetchUser() {
         guard let uid = self.userSession?.uid else { return }
-        COLLECTION_USERS.document(uid).getDocument { snpashot, error in
+        COLLECTION_USERS.document(uid).getDocument { [weak self] snpashot, error in
             
             do {
-                self.currentUser = try snpashot?.data(as: User.self)
+                self?.currentUser = try snpashot?.data(as: User.self)
                 print("Sccuessfully fetched user data..!")
             } catch {
                 print("failed to fetch user data..!")

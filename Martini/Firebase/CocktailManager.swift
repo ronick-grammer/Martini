@@ -44,14 +44,14 @@ class CocktailManager {
     
     // 모든 칵테일 가져오기
     func fetchAllCocktail( complete: @escaping ()->()) {
-        COLLECTION_COCKTAILS.getDocuments { snapshot, error in
+        COLLECTION_COCKTAILS.getDocuments { [weak self] snapshot, error in
             if let error = error {
                 print("DEBUG: \(error.localizedDescription)")
                 return
             }
             
             guard let documents = snapshot?.documents else { return }
-            self.cocktails = documents.compactMap({ try? $0.data(as: Cocktail.self) })
+            self?.cocktails = documents.compactMap({ try? $0.data(as: Cocktail.self) })
             print("Successfully fetched all cocktails..!")
             
             complete()
@@ -97,7 +97,7 @@ class CocktailManager {
     
     func filterAbv(abv: Double, _ completion: @escaping ((_ success: Bool, _ error: Error?) -> Void)) {
  
-        COLLECTION_COCKTAILS.whereField("abv", isLessThanOrEqualTo: abv).getDocuments { snapshot, error in
+        COLLECTION_COCKTAILS.whereField("abv", isLessThanOrEqualTo: abv).getDocuments { [weak self] snapshot, error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 completion(false, error)
@@ -106,7 +106,7 @@ class CocktailManager {
             
             do {
                 guard let documents = snapshot?.documents else { return }
-                self.filteredCocktails = try documents.compactMap({ snapshot in
+                self?.filteredCocktails = try documents.compactMap({ snapshot in
                     try snapshot.data(as: Cocktail.self)
                 })
                 
@@ -256,7 +256,7 @@ class CocktailManager {
         
         guard let uid = AuthManager.shared.currentUser?.id else { return }
         
-        COLLECTION_USERS.document(uid).collection("user-like-cocktail").getDocuments { snapshot, error in
+        COLLECTION_USERS.document(uid).collection("user-like-cocktail").getDocuments { [weak self] snapshot, error in
             if let error = error {
                 print("ERROR: \(error.localizedDescription)")
                 completion(error)
@@ -266,7 +266,7 @@ class CocktailManager {
             guard let documents = snapshot?.documents else { return }
             
             var count = 0
-            self.likedCocktails.removeAll()
+            self?.likedCocktails.removeAll()
             
             if documents.isEmpty { // 좋아요한 칵테일이 하나도 없으면 바로 completion 
                 completion(nil)
@@ -287,7 +287,7 @@ class CocktailManager {
                         
                         let cocktail = try snapshot?.data(as: Cocktail.self)
                         
-                        self.likedCocktails.append(cocktail!)
+                        self?.likedCocktails.append(cocktail!)
                         
                         count += 1
     

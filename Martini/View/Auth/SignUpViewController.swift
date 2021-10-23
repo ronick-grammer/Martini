@@ -158,14 +158,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
         if sender == signupButton {
             if flag == true {
                 let user = User(nickName: nickNameTextField.text!, email: emailTextField.text!, phone: phoneNumberTextField.text!)
-                AuthManager.shared.registerUser(user: user, password: passwordTextField.text!) { success, error in
+                AuthManager.shared.registerUser(user: user, password: passwordTextField.text!) { [weak self] success, error in
                     if let error = error as NSError? {
                         let authErrorCode = AuthErrorCode.init(rawValue: error.code)
                         switch authErrorCode {
                         case .emailAlreadyInUse:
-                            self.alert("이미 등록된 이메일 입니다.")
+                            self?.alert("이미 등록된 이메일 입니다.")
                         default:
-                            self.alert("관리자에게 문의하세요.")
+                            self?.alert("관리자에게 문의하세요.")
                         }
                         
                         return
@@ -182,7 +182,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, LoginButtonDe
                                                          animated: true)
                     navController.modalPresentationStyle = .fullScreen
                     navController.modalTransitionStyle = .crossDissolve
-                    self.present(navController, animated: true, completion: nil)
+                    self?.present(navController, animated: true, completion: nil)
                 }
             } else {
                 if nickNameTextField.text!.count == 0 {

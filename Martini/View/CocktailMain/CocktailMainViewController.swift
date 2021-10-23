@@ -33,12 +33,12 @@ class CocktailMainViewController: UIViewController, UIScrollViewDelegate, UITabl
         
         mainScrollView.delegate = self
         
-        CocktailManager.shared.fetchAllCocktail {
+        CocktailManager.shared.fetchAllCocktail { [weak self] in
             
-            self.dataCollection = CocktailManager.shared.orderByTastePreference()
+            self?.dataCollection = CocktailManager.shared.orderByTastePreference()
             
             DispatchQueue.main.async {
-                self.configureInitTable()
+                self?.configureInitTable()
             }
         }
     }

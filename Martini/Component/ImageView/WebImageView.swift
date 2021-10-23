@@ -29,10 +29,10 @@ class WebImageView: UIImageView {
                 return
             }
             
-            getImage(urlString: imageUrl) { image in
+            getImage(urlString: imageUrl) { [weak self] image in
                 DispatchQueue.main.async {
-                    self.image = image
-                    self.indicator.stopAnimating()
+                    self?.image = image
+                    self?.indicator.stopAnimating()
                 }
             }
         }
@@ -68,7 +68,7 @@ class WebImageView: UIImageView {
         
         indicator.startAnimating()
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             
             if error != nil {
                 print(error?.localizedDescription ?? "")
@@ -87,10 +87,10 @@ class WebImageView: UIImageView {
                 return
             }
             
-            self.imageCache.setObject(image, forKey: url.lastPathComponent as NSString)
+            self?.imageCache.setObject(image, forKey: url.lastPathComponent as NSString)
             
-            if !self.fileManager.fileExists(atPath: filePath.path){
-                self.fileManager.createFile(atPath: filePath.path, contents: image.jpegData(compressionQuality: 0.4), attributes: nil)
+            if !(self?.fileManager.fileExists(atPath: filePath.path) ?? false){
+                self?.fileManager.createFile(atPath: filePath.path, contents: image.jpegData(compressionQuality: 0.4), attributes: nil)
             }
             
             completeHandler(image)

@@ -66,14 +66,14 @@ class MyInfoViewController: UIViewController {
         
         let newUser = User(id: user.id, nickName: nickname, email: email, phone: user.phone, liked: user.liked, joinDate: user.joinDate, basePreference: user.basePreference, ingredientPreference: user.ingredientPreference, tastePreference: user.tastePreference)
         
-        AuthManager.shared.updateUser(updatedUser: newUser, password: password) { result, error in
+        AuthManager.shared.updateUser(updatedUser: newUser, password: password) { [weak self] result, error in
             if error != nil {
                 if let error = error as NSError? {
                     
                     switch AuthErrorCode.init(rawValue: error.code) {
                     
                     case .wrongPassword:
-                        self.alert("비밀번호가 잘못되었습니다.")
+                        self?.alert("비밀번호가 잘못되었습니다.")
                     default: break
                         
                     }
@@ -82,7 +82,7 @@ class MyInfoViewController: UIViewController {
             }
                     
             if result {
-                self.navigationController?.popViewController(animated: true)
+                self?.navigationController?.popViewController(animated: true)
             }
             
         }

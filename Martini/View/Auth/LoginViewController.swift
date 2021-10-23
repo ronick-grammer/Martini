@@ -119,23 +119,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @objc func LoginButtonHandler(_ sender: UIButton) {
         if sender == loginButton {
             if flag == true {
-                AuthManager.shared.login(email: emailTextField.text!, password: passwordTextField.text!) { success, error in
+                AuthManager.shared.login(email: emailTextField.text!, password: passwordTextField.text!) { [weak self] success, error in
                     if let error = error as NSError? {
                         let authErrorCode = AuthErrorCode.init(rawValue: error.code)
                         switch authErrorCode {
                         case .wrongPassword:
-                            self.alert("비밀번호가 틀렸습니다.")
+                            self?.alert("비밀번호가 틀렸습니다.")
                         case .userNotFound:
-                            self.alert("등록되지 않은 유저입니다.")
+                            self?.alert("등록되지 않은 유저입니다.")
                         default:
-                            self.alert("관리자에게 문의하세요.")
+                            self?.alert("관리자에게 문의하세요.")
                         }
                         
                         return
                     }
                     
                     AuthManager.shared.triggerlogIn = true
-                    self.dismiss(animated: true, completion: nil)
+                    self?.dismiss(animated: true, completion: nil)
                 }
             } else {
                 if ((emailTextField.text?.validateEmail()) == false) {
