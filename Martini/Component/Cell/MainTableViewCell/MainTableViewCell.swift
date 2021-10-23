@@ -42,15 +42,15 @@ class MainTableViewCell: UITableViewCell, LikeButtonDelegate {
         guard let oid = cocktailID else { return }
         self.cocktailID = oid
         
-        CocktailManager.shared.checkIfUserLiked(cocktailID: oid) { isLiked, error in
+        CocktailManager.shared.checkIfUserLiked(cocktailID: oid) { [weak self] isLiked, error in
             if let error = error {
                 print("ERROR: \(error.localizedDescription)")
                 return
             }
             
             if let isLiked = isLiked {
-                isLiked ? self.likeButton.setColor(color: .yellow) : self.likeButton.setColor(color: .white)
-                self.likeButton.isLiked = isLiked
+                isLiked ? self?.likeButton.setColor(color: .yellow) : self?.likeButton.setColor(color: .white)
+                self?.likeButton.isLiked = isLiked
             }
         }
     }

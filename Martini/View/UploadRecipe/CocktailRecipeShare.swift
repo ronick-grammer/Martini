@@ -27,14 +27,14 @@ extension UploadRecipeViewController {
             (subView as! RecipeTextView).recipeTextView.text
         }
         
-        ImageUploader.uploadImage(image: cocktailImage, type: .cocktail) { imageUrl, error in
+        ImageUploader.uploadImage(image: cocktailImage, type: .cocktail) { [weak self] imageUrl, error in
             
             if let error = error as NSError? {
                 let storageErrorCode = StorageErrorCode.init(rawValue: error.code)
                 switch storageErrorCode {
-                case .downloadSizeExceeded: self.alert("사진의 크기가 너무 큽니다.")
-                case .invalidArgument: self.alert("잘못된 파일 형식입니다.")
-                default: self.alert("관리자에게 문의하세요.")
+                case .downloadSizeExceeded: self?.alert("사진의 크기가 너무 큽니다.")
+                case .invalidArgument: self?.alert("잘못된 파일 형식입니다.")
+                default: self?.alert("관리자에게 문의하세요.")
                 }
             }
             
@@ -65,7 +65,7 @@ extension UploadRecipeViewController {
                 CocktailManager.shared.fetchAllCocktail { }
                 
                 // 메인화면으로 전환
-                self.tabBarController?.selectedIndex = 0
+                self?.tabBarController?.selectedIndex = 0
             }
         }
         

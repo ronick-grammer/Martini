@@ -64,14 +64,18 @@ class SearchViewController: UIViewController, UITableViewDelegate,UITableViewDat
         if !searching {
             switch self.searchViewType {
             case .searchedList : self.tableView.reloadData()
-                CocktailManager.shared.fetchAllCocktail {
-                    self.data = CocktailManager.shared.cocktails
-                    self.tableView.reloadData()
+                CocktailManager.shared.fetchAllCocktail { [weak self] in
+                    DispatchQueue.main.async {
+                        self?.data = CocktailManager.shared.cocktails
+                        self?.tableView.reloadData()
+                    }
                 }
             case .likedList    :
-                CocktailManager.shared.fetchLikedCocktails { _ in
-                    self.data = CocktailManager.shared.likedCocktails
-                    self.tableView.reloadData()
+                CocktailManager.shared.fetchLikedCocktails { [weak self] _ in
+                    DispatchQueue.main.async {
+                        self?.data = CocktailManager.shared.likedCocktails
+                        self?.tableView.reloadData()
+                    }
                 }
             }
         }

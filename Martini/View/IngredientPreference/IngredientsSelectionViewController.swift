@@ -64,7 +64,7 @@ class IngredientsSelectionViewController: UIViewController {
     @IBAction func btnNextView(_ sender: UIButton) {
         
         guard let updatedUser = DATASTORE.user else { return }
-        AuthManager.shared.updateUserData(updatedUser: updatedUser) { success, error in
+        AuthManager.shared.updateUserData(updatedUser: updatedUser) { [weak self] success, error in
             if let error = error {
                 print("ERROR: \(error.localizedDescription)")
                 return
@@ -72,7 +72,7 @@ class IngredientsSelectionViewController: UIViewController {
             
             let vc = UIStoryboard(name: "PreferenceComplete", bundle: Bundle.main).instantiateViewController(identifier: "preferenceComplete")
             
-            self.navigationController?.pushViewController(vc, animated: true)
+            self?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

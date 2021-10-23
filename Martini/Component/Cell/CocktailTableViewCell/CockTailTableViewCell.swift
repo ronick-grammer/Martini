@@ -53,15 +53,15 @@ class CockTailTableViewCell: UITableViewCell, LikeButtonDelegate {
         guard let oid = cocktailID else { return }
         self.cocktailId = oid
         
-        CocktailManager.shared.checkIfUserLiked(cocktailID: oid) { isLiked, error in
+        CocktailManager.shared.checkIfUserLiked(cocktailID: oid) { [weak self] isLiked, error in
             if let error = error {
                 print("ERROR: \(error.localizedDescription)")
                 return
             }
             
             if let isLiked = isLiked {
-                isLiked ? self.likeButton.setColor(color: .yellow) : self.likeButton.setColor(color: .white)
-                self.likeButton.isLiked = isLiked
+                isLiked ? self?.likeButton.setColor(color: .yellow) : self?.likeButton.setColor(color: .white)
+                self?.likeButton.isLiked = isLiked
             }
         }
     }
@@ -78,14 +78,14 @@ class CockTailTableViewCell: UITableViewCell, LikeButtonDelegate {
                 }
             }
         } else {
-            CocktailManager.shared.unliked(cocktailId: cocktailId) { success, error in
+            CocktailManager.shared.unliked(cocktailId: cocktailId) { [weak self] success, error in
                 if let error = error {
                     print("ERROR: \(error.localizedDescription)")
                     return
                 }
                 
-                if self.delegate != nil {
-                    self.delegate?.deleteLikedCocktail(likeButton: self.likeButton)
+                if let delegate = self?.delegate, let likeButton = self?.likeButton {
+                    delegate.deleteLikedCocktail(likeButton: likeButton)
                 }
             }
         }
